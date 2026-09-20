@@ -54,4 +54,9 @@ jobs:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
         run: uv run python -m congress_collector.ingest.senate
 
-      # Placeholder: Senate PTR HTML parsing lands in T10.
+      - name: Parse Senate PTRs
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+        run: uv run python -m congress_collector.ingest.senate_ptrs

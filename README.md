@@ -266,6 +266,27 @@ report UUID in that path becomes the filing_id (`senate:<uuid>`).
 
 Run it directly with `uv run python -m congress_collector.ingest.senate`.
 
+## Senate PTR parser (T10)
+
+`congress_collector.ingest.senate_ptrs.parse_pending_senate_ptrs()` fetches
+each electronic Senate PTR still `parse_status = 'pending'`, archives the
+raw HTML to `congress-raw` (`senate/{report_uuid}.html`, with a hash --
+Senate doesn't have a separate archive task in the plan the way House's
+T7 does, so this folds it into the same fetch since the content is
+already in hand), and parses it into `transactions` rows.
+
+The page is a plain, well-formed HTML `<table>` (confirmed live from a
+GitHub Actions runner) -- much simpler than House's PDFs, no positional
+reconstruction needed. Option transactions embed their details in the
+Asset Name cell ("Option Type: Call Strike price:$75.00
+Expires:2026-08-21"); `congress_collector.parsers.senate_ptr` pulls that
+out into `option_type`/`strike`/`expiry` rather than leaving it
+duplicated in the free-text description. Known gap: the site exposes no
+per-transaction notification date (only the filing-level submitted date,
+already on `filings`), so `notification_date` is always `NULL` here.
+
+Run it directly with `uv run python -m congress_collector.ingest.senate_ptrs`.
+
 ## Data quality
 
 Every run checks for: duplicate transactions, amendments correctly linked to
@@ -315,7 +336,7 @@ repo):
 - [x] T7 — House: PDF download + archival with hash.
 - [x] T8 — House: electronic PTR parser + paper/scanned classification.
 - [x] T9 — Senate: agreement acceptance, search, pagination.
-- [ ] T10 — Senate: electronic PTR parser.
+- [x] T10 — Senate: electronic PTR parser.
 - [ ] T11 — Collector deployed and running continuously (priority
       milestone — first-seen timestamps start accumulating here).
 - [ ] T12 — Telegram notifications for new filings and errors.
