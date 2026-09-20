@@ -268,6 +268,41 @@ rather than guessed at.
 
 Run it directly with `uv run python -m congress_collector.ingest.house_ptrs`.
 
+## House options parser (T15)
+
+The House form itself never gives option_type/strike/expiry as columns --
+that detail only shows up in a free-text "Description:" annotation, one of
+the labels `house_ptr.py` otherwise treats as noise and discards (see T8
+above). For a row whose ticker/type annotation says `[OP]`, that one label
+is captured and parsed instead. Confirmed live against real filings that
+filers write it in at least two styles:
+
+- Structured: `"Call options; Strike price $320; Expires 06/18/2026"` --
+  yields `option_type`, `strike`, and `expiry` all at once.
+- Informal: `"10 puts at $11.80"` -- the dollar figure is the premium
+  paid per contract, not a strike price, so only `option_type` is
+  extracted from this style; guessing a strike from the premium would be
+  wrong, so `strike`/`expiry` stay `NULL` rather than a fabricated value.
+
+Both chambers already record the underlying stock's ticker in the same
+`ticker` column used for plain stock rows (House's `(TICKER) [OP]`
+annotation and Senate's dedicated Ticker column both refer to the
+underlying, not a separate option symbol -- neither chamber uses OCC-style
+option symbols), so there's no separate `underlying_ticker` to populate;
+`transactions.underlying_ticker` stays unused, matching Senate's T10
+behavior.
+
+Because a filing only ever gets parsed once (`parse_pending_house_ptrs`
+only looks at `format = 'unknown'`), this improvement doesn't reach
+filings parsed before it shipped. `congress_collector.ingest.
+backfill_house_options` re-parses just the PDFs behind existing
+`asset_type = 'OP'` transactions and fills in the newly-derived fields in
+place -- a maintenance operation, not part of `collect.yml`'s regular
+cadence, run manually via the `backfill-house-options` workflow
+(`workflow_dispatch` only) or `uv run python -m
+congress_collector.ingest.backfill_house_options`. Safe to re-run: it only
+touches rows where `option_type IS NULL`.
+
 ## Senate eFD index sync (T9)
 
 `congress_collector.ingest.senate.sync_senate_ptr_index()` accepts
@@ -455,7 +490,7 @@ repo):
 - [ ] T12 — Telegram notifications for new filings and errors.
 - [x] T13 — Politician linking (congress-legislators, fuzzy match, overrides).
 - [x] T14 — Ticker linking (SEC file, point-in-time changes, overrides).
-- [ ] T15 — Options parser (call/put, strike, expiry, underlying).
+- [x] T15 — Options parser (call/put, strike, expiry, underlying).
 - [ ] T16 — Amendment linking and `is_current`.
 - [ ] T17 — Golden test set (50 filings) + CI regression gate.
 - [ ] T18 — Daily data-quality report via Telegram.

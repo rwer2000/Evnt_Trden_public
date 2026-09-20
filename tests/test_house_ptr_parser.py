@@ -218,6 +218,147 @@ def test_multi_page_filing_resets_header_state() -> None:
     assert results[0].asset_description_raw == "Netflix, Inc."
 
 
+def test_structured_option_description_real_coordinates() -> None:
+    # Real DocID 20034305, row 7: "D...: Call options; Strike price $320;
+    # Expires 06/18/2026" -- confirmed live via a GitHub Actions runner
+    # (T15 diagnostic) against a real House PTR PDF.
+    line = [
+        Word("JT", 65.7, 326.0),
+        Word("Microsoft", 104.7, 326.0),
+        Word("Corporation", 160.0, 326.0),
+        Word("-", 220.0, 326.0),
+        Word("Common", 225.0, 326.0),
+        Word("P", 262.2, 326.0),
+        Word("03/25/2026", 326.7, 326.0),
+        Word("04/07/2026", 381.4, 326.0),
+        Word("$500,001", 445.9, 326.0),
+        Word("-", 479.6, 326.0),
+    ]
+    asset_continuation = [
+        Word("Stock", 104.7, 336.5),
+        Word("(MSFT)", 140.0, 336.5),
+        Word("[OP]", 175.0, 336.5),
+        Word("$1,000,000", 445.9, 336.5),
+    ]
+    filing_status = [
+        Word("F\x00\x00\x00\x00\x00", 104.7, 347.0),
+        Word("S\x00\x00\x00\x00\x00:", 130.0, 347.0),
+        Word("New", 150.0, 347.0),
+    ]
+    sub_holding = [
+        Word("S\x00\x00\x00\x00\x00\x00\x00\x00\x00", 104.7, 357.5),
+        Word("O\x00:", 130.0, 357.5),
+        Word("Morgan", 140.0, 357.5),
+        Word("Stanley", 170.0, 357.5),
+    ]
+    description = [
+        Word("D\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00:", 104.7, 368.0),
+        Word("Call", 130.0, 368.0),
+        Word("options;", 155.0, 368.0),
+        Word("Strike", 190.0, 368.0),
+        Word("price", 215.0, 368.0),
+        Word("$320;", 240.0, 368.0),
+        Word("Expires", 265.0, 368.0),
+        Word("06/18/2026", 295.0, 368.0),
+    ]
+
+    pages = [
+        [
+            *_HEADER,
+            *line,
+            *asset_continuation,
+            *filing_status,
+            *sub_holding,
+            *description,
+            *_FOOTER,
+        ]
+    ]
+    results = parse_ptr_transactions(pages)
+
+    assert len(results) == 1
+    tx = results[0]
+    assert tx.asset_type == "OP"
+    assert tx.option_type == "call"
+    assert tx.strike == 320.0
+    assert tx.expiry == "2026-06-18"
+    assert "Strike" not in tx.asset_description_raw
+
+
+def test_informal_option_description_has_no_strike_or_expiry() -> None:
+    # Real DocID 20035024, row 5: "D...: 10 puts at $11.80" -- the price
+    # is the premium paid per contract, not a strike, so only option_type
+    # should come out of this style.
+    line = [
+        Word("Meta", 104.7, 326.0),
+        Word("Platforms,", 140.0, 326.0),
+        Word("Inc.", 200.0, 326.0),
+        Word("P", 262.2, 326.0),
+        Word("04/28/2026", 326.7, 326.0),
+        Word("04/28/2026", 381.4, 326.0),
+        Word("$1,001", 445.9, 326.0),
+        Word("-", 474.8, 326.0),
+        Word("$15,000", 480.4, 326.0),
+    ]
+    asset_continuation = [
+        Word("Common", 104.7, 336.5),
+        Word("Stock", 140.0, 336.5),
+        Word("(META)", 170.0, 336.5),
+        Word("[OP]", 205.0, 336.5),
+    ]
+    description = [
+        Word("D\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00:", 104.7, 347.0),
+        Word("10", 130.0, 347.0),
+        Word("puts", 145.0, 347.0),
+        Word("at", 170.0, 347.0),
+        Word("$11.80", 185.0, 347.0),
+    ]
+
+    pages = [[*_HEADER, *line, *asset_continuation, *description, *_FOOTER]]
+    results = parse_ptr_transactions(pages)
+
+    assert len(results) == 1
+    tx = results[0]
+    assert tx.asset_type == "OP"
+    assert tx.option_type == "put"
+    assert tx.strike is None
+    assert tx.expiry is None
+
+
+def test_non_option_description_is_not_parsed_for_option_details() -> None:
+    # A stray "D..." annotation on a non-option row (e.g. a free-text
+    # comment) should never populate option_type/strike/expiry.
+    line = [
+        Word("Invesco", 104.7, 326.0),
+        Word("QQQ", 140.0, 326.0),
+        Word("Trust", 165.0, 326.0),
+        Word("(QQQ)", 190.0, 326.0),
+        Word("[OT]", 225.0, 326.0),
+        Word("S", 262.2, 326.0),
+        Word("06/01/2026", 326.7, 326.0),
+        Word("06/01/2026", 381.4, 326.0),
+        Word("$1,001", 445.9, 326.0),
+        Word("-", 474.8, 326.0),
+        Word("$15,000", 480.4, 326.0),
+    ]
+    description = [
+        Word("D\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00:", 104.7, 336.5),
+        Word("FAS", 130.0, 336.5),
+        Word("is", 155.0, 336.5),
+        Word("an", 170.0, 336.5),
+        Word("ETF", 185.0, 336.5),
+    ]
+
+    pages = [[*_HEADER, *line, *description, *_FOOTER]]
+    results = parse_ptr_transactions(pages)
+
+    assert len(results) == 1
+    tx = results[0]
+    assert tx.asset_type == "OT"
+    assert tx.option_type is None
+    assert tx.strike is None
+    assert tx.expiry is None
+
+
 def test_line_without_a_tx_type_code_never_starts_a_transaction() -> None:
     # A lone letter in the tx_type zone that isn't P/S/E (e.g. a stray
     # word) must not be mistaken for a new row.
