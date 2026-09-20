@@ -5,14 +5,31 @@ re-insert): the YAML files are the single source of truth for term history
 and nothing else writes to this table, so there's no reconciliation to do.
 `politicians` is upserted by bioguide_id instead, since `filings.bioguide_id`
 and `politician_overrides.bioguide_id` reference it by FK.
+
+Writes use Core bulk `insert()`/`on_conflict_do_update()` in small chunks,
+each committed immediately, rather than one ORM `session.add()` per row in
+a single multi-thousand-row transaction: a first live run of the
+naive per-row/single-transaction version was still running after 11+
+minutes against Supabase's pooler (cancelled -- see the PR that added this
+version for the writeup) even though local fetch+parse alone takes well
+under a minute. Keeping each transaction short and each statement a plain
+multi-row INSERT (no per-row RETURNING needed, since nothing here uses the
+generated term_id afterwards) sidesteps that regardless of which side of
+the pooler the slowdown actually came from.
 """
 
-from sqlalchemy import delete, select
+from collections.abc import Iterator, Sequence
+from typing import Any
+
+from sqlalchemy import delete, insert
+from sqlalchemy.dialects.postgresql import insert as pg_insert
 from sqlalchemy.orm import Session
 
 from congress_collector.db.models import Politician, PoliticianTerm
 from congress_collector.db.session import session_scope
 from congress_collector.sources.legislators import LegislatorRecord, fetch_all_legislators
+
+CHUNK_SIZE = 500
 
 
 def sync_legislators() -> tuple[int, int]:
@@ -26,41 +43,60 @@ def sync_legislators() -> tuple[int, int]:
 
 
 def _upsert_politicians(session: Session, records: list[LegislatorRecord]) -> int:
-    existing = {p.bioguide_id: p for p in session.scalars(select(Politician))}
-    count = 0
-    for record in records:
-        latest_term = record.terms[-1]
-        politician = existing.get(record.bioguide_id)
-        if politician is None:
-            politician = Politician(bioguide_id=record.bioguide_id, full_name=record.full_name)
-            session.add(politician)
-        politician.full_name = record.full_name
-        politician.chamber = latest_term.chamber
-        politician.party = latest_term.party
-        politician.state = latest_term.state
-        politician.district = latest_term.district
-        count += 1
-    return count
+    rows = [
+        {
+            "bioguide_id": r.bioguide_id,
+            "full_name": r.full_name,
+            "chamber": r.terms[-1].chamber,
+            "party": r.terms[-1].party,
+            "state": r.terms[-1].state,
+            "district": r.terms[-1].district,
+        }
+        for r in records
+    ]
+    for chunk in _chunked(rows, CHUNK_SIZE):
+        stmt = pg_insert(Politician).values(chunk)
+        stmt = stmt.on_conflict_do_update(
+            index_elements=[Politician.bioguide_id],
+            set_={
+                "full_name": stmt.excluded.full_name,
+                "chamber": stmt.excluded.chamber,
+                "party": stmt.excluded.party,
+                "state": stmt.excluded.state,
+                "district": stmt.excluded.district,
+            },
+        )
+        session.execute(stmt)
+        session.commit()
+    return len(rows)
 
 
 def _replace_terms(session: Session, records: list[LegislatorRecord]) -> int:
     session.execute(delete(PoliticianTerm))
-    count = 0
-    for record in records:
-        for term in record.terms:
-            session.add(
-                PoliticianTerm(
-                    bioguide_id=record.bioguide_id,
-                    chamber=term.chamber,
-                    state=term.state,
-                    district=term.district,
-                    party=term.party,
-                    start_date=term.start,
-                    end_date=term.end,
-                )
-            )
-            count += 1
-    return count
+    session.commit()
+
+    rows = [
+        {
+            "bioguide_id": r.bioguide_id,
+            "chamber": t.chamber,
+            "state": t.state,
+            "district": t.district,
+            "party": t.party,
+            "start_date": t.start,
+            "end_date": t.end,
+        }
+        for r in records
+        for t in r.terms
+    ]
+    for chunk in _chunked(rows, CHUNK_SIZE):
+        session.execute(insert(PoliticianTerm), chunk)
+        session.commit()
+    return len(rows)
+
+
+def _chunked(rows: Sequence[dict[str, Any]], size: int) -> Iterator[Sequence[dict[str, Any]]]:
+    for i in range(0, len(rows), size):
+        yield rows[i : i + size]
 
 
 def main() -> None:
