@@ -1,0 +1,70 @@
+name: _diag_amendments
+
+on:
+  workflow_dispatch:
+
+jobs:
+  diag:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v3
+
+      - name: Set up Python
+        run: uv python install 3.12
+
+      - name: Install dependencies
+        run: uv sync --all-extras --dev
+
+      - name: Search archived House PTRs for amendment signals
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+        run: |
+          uv run python - <<'EOF'
+          import io
+          import re
+          import pdfplumber
+          from congress_collector.storage.supabase_storage import download
+
+          keys = [
+              "house/2026/20034963.pdf", "house/2026/20035203.pdf", "house/2026/20033889.pdf",
+              "house/2026/20033754.pdf", "house/2026/9116328.pdf", "house/2026/20035400.pdf",
+              "house/2026/20033916.pdf", "house/2026/20034496.pdf", "house/2026/20034416.pdf",
+              "house/2026/20035273.pdf", "house/2026/20034897.pdf", "house/2026/20034384.pdf",
+              "house/2026/20035143.pdf", "house/2026/20035350.pdf", "house/2026/20034346.pdf",
+              "house/2026/20034892.pdf", "house/2026/20035410.pdf", "house/2026/20034920.pdf",
+              "house/2026/20034129.pdf", "house/2026/20034851.pdf", "house/2026/20035035.pdf",
+              "house/2026/20034502.pdf", "house/2026/9116212.pdf", "house/2026/20034747.pdf",
+              "house/2026/20034898.pdf", "house/2026/20033845.pdf", "house/2026/9116206.pdf",
+              "house/2026/20034942.pdf", "house/2026/9115711.pdf", "house/2026/20034977.pdf",
+              "house/2026/20034016.pdf", "house/2026/20033928.pdf", "house/2026/20034938.pdf",
+              "house/2026/9116249.pdf", "house/2026/20034159.pdf", "house/2026/20033734.pdf",
+              "house/2026/20034762.pdf", "house/2026/20033991.pdf", "house/2026/20034891.pdf",
+              "house/2026/20034911.pdf",
+          ]
+
+          amend_re = re.compile(r"amend", re.IGNORECASE)
+          status_re = re.compile(r"Status:\s*(\S+)")
+
+          for key in keys:
+              try:
+                  content = download(key)
+              except Exception as e:
+                  print(key, "DOWNLOAD FAILED", e)
+                  continue
+              with pdfplumber.open(io.BytesIO(content)) as pdf:
+                  full_text = "\n".join(p.extract_text() or "" for p in pdf.pages)
+              amend_hits = amend_re.findall(full_text)
+              statuses = set(status_re.findall(full_text))
+              if amend_hits or statuses - {"New"}:
+                  print("=" * 10, key, "amend_hits=", len(amend_hits), "statuses=", statuses)
+                  # print a window around each "amend" occurrence
+                  for m in amend_re.finditer(full_text):
+                      start = max(0, m.start() - 150)
+                      end = min(len(full_text), m.end() + 150)
+                      print("  ...", full_text[start:end].replace("\n", " | "), "...")
+          print("done scanning", len(keys), "filings")
+          EOF
