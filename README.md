@@ -151,6 +151,16 @@ repo actually depends on, which fails at connection time. No secret needs
 to change for this -- it's handled in code, both here and in
 `alembic/env.py`.
 
+`DATABASE_URL` must point at Supabase's connection pooler
+(`aws-0-<region>.pooler.supabase.com`), not the direct `db.<ref>.supabase.co`
+host: the direct host resolves IPv6-only, which GitHub-hosted runners can't
+reach. The pooler username is `postgres.<project-ref>` (not just `postgres`).
+Because the pooler's transaction mode can hand a pooled connection to a
+different session between statements, `get_engine()` and `alembic/env.py`
+both pass `connect_args={"prepare_threshold": None}` to disable psycopg's
+server-side prepared-statement cache -- otherwise repeated inserts raise
+`DuplicatePreparedStatement`.
+
 Postgres and Storage live in a shared Supabase project (`Sportlogging`,
 `eu-central-1`) rather than a dedicated one — the account's free tier
 allows only 2 active free projects, both already in use. Isolation from
