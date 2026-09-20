@@ -246,6 +246,26 @@ rather than guessed at.
 
 Run it directly with `uv run python -m congress_collector.ingest.house_ptrs`.
 
+## Senate eFD index sync (T9)
+
+`congress_collector.ingest.senate.sync_senate_ptr_index()` accepts
+efdsearch.senate.gov's search-prohibition agreement (confirmed live from
+a GitHub Actions runner: `GET /search/home/` for a CSRF cookie, `POST`
+the same URL with `prohibition_agreement=1`, which sets a `sessionid`
+cookie), then pages through `POST /search/report/data/` (a DataTables
+server-side endpoint) for report type `11` -- confirmed to mean Periodic
+Transaction Report by searching for it and getting back only PTR
+results -- over the last 14 days (per the plan; backfill uses a
+per-month window instead, added with T20).
+
+Unlike House, the search result's link path already says whether a
+filing is electronic (`/search/view/ptr/<uuid>/`, an HTML page) or paper
+(`/search/view/paper/<uuid>/`), so `format`/`parse_status` are set
+immediately here rather than needing a separate classification pass. The
+report UUID in that path becomes the filing_id (`senate:<uuid>`).
+
+Run it directly with `uv run python -m congress_collector.ingest.senate`.
+
 ## Data quality
 
 Every run checks for: duplicate transactions, amendments correctly linked to
@@ -294,7 +314,7 @@ repo):
 - [x] T6 — House: yearly index parsing, new-filing detection, `first_seen_at`.
 - [x] T7 — House: PDF download + archival with hash.
 - [x] T8 — House: electronic PTR parser + paper/scanned classification.
-- [ ] T9 — Senate: agreement acceptance, search, pagination.
+- [x] T9 — Senate: agreement acceptance, search, pagination.
 - [ ] T10 — Senate: electronic PTR parser.
 - [ ] T11 — Collector deployed and running continuously (priority
       milestone — first-seen timestamps start accumulating here).
