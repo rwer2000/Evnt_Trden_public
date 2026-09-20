@@ -23,7 +23,16 @@ def psycopg_url(database_url: str) -> str:
 
 @lru_cache(maxsize=1)
 def get_engine() -> Engine:
-    engine = create_engine(psycopg_url(os.environ["DATABASE_URL"]), pool_pre_ping=True)
+    # We connect through Supabase's Supavisor pooler in transaction mode, where a
+    # pooled connection can be handed to a different logical session between
+    # statements. psycopg's default server-side prepared-statement cache assumes a
+    # stable session and raises DuplicatePreparedStatement under that churn, so it
+    # must be disabled here.
+    engine = create_engine(
+        psycopg_url(os.environ["DATABASE_URL"]),
+        pool_pre_ping=True,
+        connect_args={"prepare_threshold": None},
+    )
 
     @event.listens_for(engine, "connect")
     def _set_search_path(dbapi_connection: Any, connection_record: Any) -> None:
