@@ -118,6 +118,7 @@ def _save_transactions(filing_id: str, transactions: list[ParsedTransaction]) ->
                     notification_date=_parse_iso_date(t.notification_date),
                     amount_min=t.amount_min,
                     amount_max=t.amount_max,
+                    source_transaction_id=t.source_transaction_id,
                 )
             )
 
