@@ -21,6 +21,13 @@ import httpx
 
 HOUSE_INDEX_URL = "https://disclosures-clerk.house.gov/public_disc/financial-pdfs/{year}FD.zip"
 
+# Periodic transaction reports (FilingType "P") live under a different path
+# than every other filing type -- confirmed live via a GitHub Actions
+# runner (this sandbox's egress proxy blocks the domain): financial-pdfs
+# 404s for a PTR's DocID, ptr-pdfs 404s for every other filing type's.
+PTR_PDF_URL = "https://disclosures-clerk.house.gov/public_disc/ptr-pdfs/{year}/{doc_id}.pdf"
+OTHER_PDF_URL = "https://disclosures-clerk.house.gov/public_disc/financial-pdfs/{year}/{doc_id}.pdf"
+
 USER_AGENT = "congress-collector (personal research use; github.com/rwer2000/Evnt_Trden_public)"
 
 
@@ -92,3 +99,8 @@ def filing_id_for(doc_id: str) -> str:
 def filer_name_for(entry: HouseIndexEntry) -> str:
     parts = [entry.prefix, entry.first, entry.last, entry.suffix]
     return " ".join(p for p in parts if p)
+
+
+def pdf_url_for(doc_id: str, filing_type: str, year: int) -> str:
+    template = PTR_PDF_URL if filing_type == "P" else OTHER_PDF_URL
+    return template.format(year=year, doc_id=doc_id)

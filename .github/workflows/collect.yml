@@ -35,6 +35,13 @@ jobs:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
         run: uv run python -m congress_collector.ingest.house
 
+      - name: Archive House Clerk PDFs
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+        run: uv run python -m congress_collector.ingest.house_pdfs
+
       # Placeholder: Senate scraping lands in T9-T11.
       - name: Sync Senate eFD index (placeholder)
         run: echo "Senate eFD scraping lands in T9-T11"
