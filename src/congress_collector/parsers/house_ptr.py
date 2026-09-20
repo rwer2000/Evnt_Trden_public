@@ -16,10 +16,19 @@ The form's annotation labels ("Filing Status:", "Subholding Of:",
 real text and the rest as NUL bytes -- a font/encoding quirk of the form
 itself. A visual line whose first word contains a NUL byte starts an
 annotation block (which can itself span several more lines, e.g. a long
-"Description:" of the underlying trades in a bundled sale); it and every
-line after it are skipped until a blank line or the start of the next
+annotation of the underlying trades in a bundled sale); it and every line
+after it are skipped until a blank line or the start of the next
 transaction, since none of these values map to a column in the
-`transactions` table.
+`transactions` table -- with one exception, added for T15: a
+"Description:" block ("D" + NUL run) on an option row (asset_type "OP")
+is the only place the form records the option's call/put side, strike
+and expiry, so that one label's text is captured and parsed instead of
+discarded. Confirmed live (GitHub Actions runner) that filers write this
+in at least two styles: a structured one ("Call options; Strike price
+$320; Expires 06/18/2026") and an informal one ("10 puts at $11.80",
+premium paid per contract, no strike or expiry) -- the informal style is
+parsed for option_type only, since guessing a strike from the premium
+would be wrong.
 
 The "Cap. Gains > $200?" column is a checkbox rendered as vector
 graphics, not text -- extract_words() never sees its value, so it isn't
@@ -55,6 +64,14 @@ _DATE_RE = re.compile(r"^\d{2}/\d{2}/\d{4}$")
 _TX_TYPE_RE = re.compile(r"^(P|S|E)$")
 _TICKER_TYPE_RE = re.compile(r"\(([A-Za-z0-9.\-/]{1,15})\)\s*\[([A-Za-z]{1,4})\]\s*$")
 
+_STRUCTURED_OPTION_RE = re.compile(
+    r"(?P<type>call|put)s?\s+options?.*?"
+    r"strike\s+price\s*\$(?P<strike>[\d,]+(?:\.\d+)?).*?"
+    r"expires?\s*(?P<expiry>\d{2}/\d{2}/\d{4})",
+    re.IGNORECASE | re.DOTALL,
+)
+_INFORMAL_OPTION_RE = re.compile(r"\b(?P<type>calls?|puts?)\b", re.IGNORECASE)
+
 
 @dataclass(frozen=True)
 class Word:
@@ -70,6 +87,9 @@ class ParsedTransaction:
     asset_description_raw: str
     ticker: str | None
     asset_type: str | None
+    option_type: str | None
+    strike: float | None
+    expiry: str | None  # ISO yyyy-mm-dd
     tx_type: str | None
     tx_date: str | None  # ISO yyyy-mm-dd
     notification_date: str | None
@@ -96,6 +116,7 @@ def parse_ptr_transactions(pages_words: list[list[Word]]) -> list[ParsedTransact
     results: list[ParsedTransaction] = []
     current: _OpenRecord | None = None
     in_annotation_block = False
+    describing = False
     row_index = 0
 
     for words in pages_words:
@@ -103,6 +124,7 @@ def parse_ptr_transactions(pages_words: list[list[Word]]) -> list[ParsedTransact
         for line in _group_lines(words):
             if not line:
                 in_annotation_block = False
+                describing = False
                 continue
 
             line_text = " ".join(w.text for w in line)
@@ -122,10 +144,18 @@ def parse_ptr_transactions(pages_words: list[list[Word]]) -> list[ParsedTransact
                     row_index += 1
                 current = _OpenRecord.from_line(line)
                 in_annotation_block = False
+                describing = False
                 continue
 
             if "\x00" in line[0].text:
                 in_annotation_block = True
+                describing = line[0].text.startswith("D")
+                if describing and current is not None:
+                    current.add_description_words(line)
+                continue
+
+            if describing and current is not None:
+                current.add_description_words(line)
                 continue
 
             if in_annotation_block:
@@ -172,6 +202,7 @@ class _OpenRecord:
     tx_date: str
     notif_date: str
     amount_parts: list[str]
+    description_parts: list[str]
 
     @classmethod
     def from_line(cls, line: list[Word]) -> "_OpenRecord":
@@ -211,6 +242,7 @@ class _OpenRecord:
             tx_date=tx_date,
             notif_date=notif_date,
             amount_parts=amount_parts,
+            description_parts=[],
         )
 
     def extend(self, line: list[Word]) -> None:
@@ -219,6 +251,12 @@ class _OpenRecord:
                 self.asset_parts.append(w.text)
             elif NOTIF_DATE_MAX_X <= w.x0 < AMOUNT_MAX_X:
                 self.amount_parts.append(w.text)
+
+    def add_description_words(self, line: list[Word]) -> None:
+        for w in line:
+            if "\x00" in w.text:
+                continue  # the "D...:" label word itself, not content
+            self.description_parts.append(w.text)
 
     def finalize(self, row_index: int) -> ParsedTransaction:
         owner = _OWNER_CODES[self.owner_word] if self.owner_word else "self"
@@ -233,6 +271,10 @@ class _OpenRecord:
         if match:
             ticker, asset_type = match.group(1), match.group(2)
 
+        option_type = strike = expiry = None
+        if asset_type == "OP":
+            option_type, strike, expiry = _parse_option_details(" ".join(self.description_parts))
+
         amount_min, amount_max = parse_amount_range(" ".join(self.amount_parts))
 
         return ParsedTransaction(
@@ -241,12 +283,31 @@ class _OpenRecord:
             asset_description_raw=asset_description,
             ticker=ticker,
             asset_type=asset_type,
+            option_type=option_type,
+            strike=strike,
+            expiry=expiry,
             tx_type=tx_type,
             tx_date=_to_iso_date(self.tx_date) if self.tx_date else None,
             notification_date=_to_iso_date(self.notif_date) if self.notif_date else None,
             amount_min=amount_min,
             amount_max=amount_max,
         )
+
+
+def _parse_option_details(description: str) -> tuple[str | None, float | None, str | None]:
+    match = _STRUCTURED_OPTION_RE.search(description)
+    if match:
+        strike = float(match.group("strike").replace(",", ""))
+        expiry = _to_iso_date(match.group("expiry"))
+        return match.group("type").lower(), strike, expiry
+
+    match = _INFORMAL_OPTION_RE.search(description)
+    if match:
+        # Premium paid per contract, not a strike price -- only the
+        # call/put side is reliably extractable from this style.
+        return match.group("type").lower().rstrip("s"), None, None
+
+    return None, None, None
 
 
 def _to_iso_date(raw: str) -> str:
