@@ -143,6 +143,14 @@ Reference projects consulted during design:
 
 ## Database & storage
 
+`congress_collector.db.session.psycopg_url()` rewrites a bare
+`postgresql://` `DATABASE_URL` to `postgresql+psycopg://` before handing
+it to SQLAlchemy: without the explicit driver, SQLAlchemy defaults to the
+(uninstalled) `psycopg2` package instead of the `psycopg` (3.x) one this
+repo actually depends on, which fails at connection time. No secret needs
+to change for this -- it's handled in code, both here and in
+`alembic/env.py`.
+
 Postgres and Storage live in a shared Supabase project (`Sportlogging`,
 `eu-central-1`) rather than a dedicated one — the account's free tier
 allows only 2 active free projects, both already in use. Isolation from

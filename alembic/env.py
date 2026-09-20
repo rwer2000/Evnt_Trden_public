@@ -6,6 +6,7 @@ from sqlalchemy import engine_from_config, pool, text
 
 from congress_collector.db import models  # noqa: F401  (registers tables on Base.metadata)
 from congress_collector.db.base import SCHEMA, Base
+from congress_collector.db.session import psycopg_url
 
 config = context.config
 
@@ -14,7 +15,7 @@ if config.config_file_name is not None:
 
 database_url = os.environ.get("DATABASE_URL")
 if database_url:
-    config.set_main_option("sqlalchemy.url", database_url)
+    config.set_main_option("sqlalchemy.url", psycopg_url(database_url))
 
 target_metadata = Base.metadata
 
