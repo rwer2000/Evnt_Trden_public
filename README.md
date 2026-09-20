@@ -200,6 +200,28 @@ without filtering — `format` is inserted as `'unknown'` since classifying
 electronic vs. paper needs the PDF itself (T7/T8). Run it directly with
 `uv run python -m congress_collector.ingest.house`.
 
+## House PDF archive (T7)
+
+`congress_collector.ingest.house_pdfs.archive_pending_house_pdfs()` picks
+up to 50 House filings per run with `raw_object_key IS NULL`, downloads
+the PDF, and uploads it to the `congress-raw` bucket at
+`house/{year}/{doc_id}.pdf` via the official `supabase` client (used
+instead of hand-rolling the Storage REST API, since its upsert/auth
+semantics are easy to get subtly wrong). `raw_object_key` and
+`raw_sha256` are then recorded on the `filings` row; `format` stays
+`'unknown'` (classification needs T8).
+
+Periodic transaction reports (`FilingType = 'P'`) are served from a
+different path than every other filing type -- also confirmed live via a
+GitHub Actions runner:
+
+- PTRs: `public_disc/ptr-pdfs/{year}/{doc_id}.pdf`
+- everything else: `public_disc/financial-pdfs/{year}/{doc_id}.pdf`
+
+A filing whose PDF fetch fails (404, timeout, ...) is simply left pending
+and retried on the next `collect` run. Run it directly with
+`uv run python -m congress_collector.ingest.house_pdfs`.
+
 ## Data quality
 
 Every run checks for: duplicate transactions, amendments correctly linked to
@@ -246,7 +268,7 @@ repo):
       cron account/token is a manual step, see above.)
 - [x] T5 — Heartbeat commit + silence alert.
 - [x] T6 — House: yearly index parsing, new-filing detection, `first_seen_at`.
-- [ ] T7 — House: PDF download + archival with hash.
+- [x] T7 — House: PDF download + archival with hash.
 - [ ] T8 — House: electronic PTR parser + paper/scanned classification.
 - [ ] T9 — Senate: agreement acceptance, search, pagination.
 - [ ] T10 — Senate: electronic PTR parser.
