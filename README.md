@@ -113,6 +113,40 @@ Reference projects consulted during design:
 - https://github.com/StrokeOfLuck/senate-ptr-scraper
 - https://github.com/KasperSK-DK/senate-ptr-data
 
+## Database & storage
+
+Postgres and Storage live in a shared Supabase project (`Sportlogging`,
+`eu-central-1`) rather than a dedicated one — the account's free tier
+allows only 2 active free projects, both already in use. Isolation from
+the unrelated Sportlogging app is done at the schema/bucket level, not the
+project level:
+
+- All tables from this repo live in the `congress` Postgres schema, never
+  `public`.
+- A dedicated `congress_app` Postgres role can only read/write the
+  `congress` schema; it has no grants on `public` (Sportlogging's tables).
+- Raw filings are archived in a private Storage bucket, `congress-raw`,
+  separate from any Sportlogging bucket.
+
+Migrating to a dedicated project later (a different Supabase account, or
+once an existing free project's slot frees up) is a schema dump/restore
+(`pg_dump --schema=congress` / restore) plus copying the Storage bucket's
+objects — no application code changes needed beyond the connection string,
+since nothing here references `public` or Sportlogging's tables.
+
+Migrations are managed with Alembic (`alembic/`), targeting the tables
+this repo owns (see the data model above). Because the schema is shared
+with `congress-strategy`, each repo keeps its own Alembic version table
+(`congress.alembic_version_collector` here) so the two migration
+histories can't collide. The very first revision
+(`202609190001_core_schema`) was applied directly via the Supabase
+management API before this repo's CI had `DATABASE_URL` available; run
+`alembic stamp head` once against the real database to sync Alembic's
+bookkeeping, then use `alembic upgrade head` normally for everything
+after.
+
+Required environment variables are documented in `.env.example`.
+
 ## Data quality
 
 Every run checks for: duplicate transactions, amendments correctly linked to
@@ -152,7 +186,7 @@ full plan, including analysis and trading, lives in the private strategy
 repo):
 
 - [x] T1 — Project foundation: repo, Python project, ruff/mypy/pytest, CI.
-- [ ] T2 — Supabase project (Postgres + Storage), Alembic migrations.
+- [x] T2 — Supabase (Postgres + Storage), Alembic migrations.
 - [ ] T3 — Telegram bot + channels, basic message from CI.
 - [ ] T4 — External cron wired to `workflow_dispatch`, fallback schedule,
       concurrency guard.
