@@ -65,3 +65,8 @@ jobs:
         env:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
         run: uv run python -m congress_collector.ingest.politician_links
+
+      - name: Link transactions to tickers
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+        run: uv run python -m congress_collector.ingest.tickers
