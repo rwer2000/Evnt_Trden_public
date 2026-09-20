@@ -70,3 +70,8 @@ jobs:
         env:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
         run: uv run python -m congress_collector.ingest.tickers
+
+      - name: Link House PTR amendments
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+        run: uv run python -m congress_collector.ingest.amendments

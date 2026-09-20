@@ -173,6 +173,7 @@ class Transaction(Base):
     amount_max: Mapped[float | None] = mapped_column(Numeric)
     filing_delay_days: Mapped[int | None] = mapped_column(Integer)
     is_current: Mapped[bool] = mapped_column(Boolean, nullable=False, server_default="true")
+    source_transaction_id: Mapped[str | None] = mapped_column(Text)
     created_at: Mapped[datetime] = mapped_column(
         DateTime(timezone=True), nullable=False, server_default=text("now()")
     )

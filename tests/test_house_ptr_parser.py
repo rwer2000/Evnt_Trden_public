@@ -359,6 +359,58 @@ def test_non_option_description_is_not_parsed_for_option_details() -> None:
     assert tx.expiry is None
 
 
+def test_source_transaction_id_captured_real_coordinates() -> None:
+    # Real DocID 20035035: an amended row, "ID" column value 2000135564 at
+    # x0=25.2 -- confirmed live via a GitHub Actions runner (T16
+    # diagnostic) against a real House PTR PDF. This is the persistent
+    # per-transaction identifier T16's amendment linking keys off.
+    line = [
+        Word("2000135564", 25.2, 326.0),
+        Word("JT", 81.4, 326.0),
+        Word("3M", 120.4, 326.0),
+        Word("Company", 135.9, 326.0),
+        Word("Common", 176.1, 326.0),
+        Word("Stock", 214.9, 326.0),
+        Word("P", 267.4, 326.0),
+        Word("03/15/2025", 331.9, 326.0),
+        Word("04/03/2025", 388.2, 326.0),
+        Word("$1,001", 452.7, 326.0),
+        Word("-", 481.6, 326.0),
+        Word("$15,000", 487.1, 326.0),
+    ]
+    continuation = [Word("(MMM)", 120.4, 336.5), Word("[ST]", 154.4, 336.5)]
+
+    pages = [[*_HEADER, *line, *continuation, *_FOOTER]]
+    results = parse_ptr_transactions(pages)
+
+    assert len(results) == 1
+    tx = results[0]
+    assert tx.source_transaction_id == "2000135564"
+    assert tx.owner == "joint"
+    assert tx.ticker == "MMM"
+
+
+def test_no_id_word_leaves_source_transaction_id_none() -> None:
+    # Older captured fixtures (no leading ID column in the test data)
+    # shouldn't crash or fabricate a value.
+    line = [
+        Word("SP", 65.7, 326.0),
+        Word("Netflix,", 104.7, 326.0),
+        Word("Inc.", 130.0, 326.0),
+        Word("S", 262.2, 326.0),
+        Word("12/12/2025", 326.7, 326.0),
+        Word("01/06/2026", 381.4, 326.0),
+        Word("$1,001", 445.9, 326.0),
+        Word("-", 474.8, 326.0),
+        Word("$15,000", 480.4, 326.0),
+    ]
+    pages = [[*_HEADER, *line, *_FOOTER]]
+    results = parse_ptr_transactions(pages)
+
+    assert len(results) == 1
+    assert results[0].source_transaction_id is None
+
+
 def test_line_without_a_tx_type_code_never_starts_a_transaction() -> None:
     # A lone letter in the tx_type zone that isn't P/S/E (e.g. a stray
     # word) must not be mistaken for a new row.

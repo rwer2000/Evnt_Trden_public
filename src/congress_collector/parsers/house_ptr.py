@@ -30,6 +30,13 @@ premium paid per contract, no strike or expiry) -- the informal style is
 parsed for option_type only, since guessing a strike from the premium
 would be wrong.
 
+The leftmost "ID" column (a 10-digit number, e.g. "2000135564") is a
+persistent per-transaction identifier -- T16 confirmed live that it stays
+the same across an original filing and a later "Filing Status: Amended"
+row correcting that transaction, which is what makes cross-filing
+amendment linking possible at all (`ingest.amendments`). It sits left of
+the Owner code, in its own x0 zone.
+
 The "Cap. Gains > $200?" column is a checkbox rendered as vector
 graphics, not text -- extract_words() never sees its value, so it isn't
 captured here, and `transactions` has no column for it either.
@@ -48,6 +55,7 @@ FOOTER_MARKER = "For the complete list of asset type abbreviations"
 # Column x0 boundaries in points, derived from the header row's real word
 # positions (stable across filings -- same form template). A word's zone
 # is [previous boundary, this boundary).
+ID_MAX_X = 55.0
 OWNER_MAX_X = 100.0
 ASSET_MAX_X = 260.0
 TX_TYPE_MAX_X = 325.0
@@ -95,6 +103,7 @@ class ParsedTransaction:
     notification_date: str | None
     amount_min: float | None
     amount_max: float | None
+    source_transaction_id: str | None
 
 
 def extract_pages_words(pdf_bytes: bytes) -> list[list[Word]]:
@@ -195,6 +204,7 @@ def _line_starts_transaction(line: list[Word]) -> bool:
 
 @dataclass
 class _OpenRecord:
+    id_word: str | None
     owner_word: str | None
     asset_parts: list[str]
     tx_type_raw: str
@@ -206,6 +216,7 @@ class _OpenRecord:
 
     @classmethod
     def from_line(cls, line: list[Word]) -> "_OpenRecord":
+        id_word: str | None = None
         owner_word: str | None = None
         asset_parts: list[str] = []
         tx_type_raw = ""
@@ -215,7 +226,9 @@ class _OpenRecord:
         amount_parts: list[str] = []
 
         for w in line:
-            if w.x0 < OWNER_MAX_X:
+            if w.x0 < ID_MAX_X:
+                id_word = w.text
+            elif w.x0 < OWNER_MAX_X:
                 if w.text in _OWNER_CODES:
                     owner_word = w.text
             elif w.x0 < ASSET_MAX_X:
@@ -235,6 +248,7 @@ class _OpenRecord:
                 amount_parts.append(w.text)
 
         return cls(
+            id_word=id_word,
             owner_word=owner_word,
             asset_parts=asset_parts,
             tx_type_raw=tx_type_raw,
@@ -291,6 +305,7 @@ class _OpenRecord:
             notification_date=_to_iso_date(self.notif_date) if self.notif_date else None,
             amount_min=amount_min,
             amount_max=amount_max,
+            source_transaction_id=self.id_word,
         )
 
 
