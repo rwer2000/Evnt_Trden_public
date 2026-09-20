@@ -37,6 +37,14 @@ USER_AGENT = "congress-collector (personal research use; github.com/rwer2000/Evn
 
 _CHAMBER_BY_TERM_TYPE = {"rep": "house", "sen": "senate"}
 
+# legislators-historical.yaml goes back to 1789 -- tens of thousands of terms
+# we'll never need to match against, since the plan's furthest-back backfill
+# period (T20/T21) starts in 2012. Dropping anything that ended before this
+# cutoff keeps the synced dataset (and every sync afterwards) to a size that
+# doesn't turn a weekly cron step into a multi-minute, tens-of-thousands-of-row
+# transaction.
+MIN_TERM_END = date(2011, 1, 1)
+
 
 @dataclass(frozen=True)
 class TermRecord:
@@ -73,8 +81,15 @@ def fetch_all_legislators(*, client: httpx.Client | None = None) -> list[Legisla
             active_client.close()
 
 
+_YAML_LOADER: type[yaml.Loader] | type[yaml.CSafeLoader] | type[yaml.SafeLoader]
+try:
+    _YAML_LOADER = yaml.CSafeLoader
+except AttributeError:  # pragma: no cover - depends on libyaml being available
+    _YAML_LOADER = yaml.SafeLoader
+
+
 def parse_legislators_yaml(text: str) -> list[LegislatorRecord]:
-    raw_entries = yaml.safe_load(text) or []
+    raw_entries = yaml.load(text, Loader=_YAML_LOADER) or []
     records = []
     for entry in raw_entries:
         record = _parse_entry(entry)
@@ -94,7 +109,11 @@ def _parse_entry(entry: dict[str, Any]) -> LegislatorRecord | None:
     )
 
     terms = sorted(
-        (t for t in (_parse_term(raw) for raw in entry.get("terms", [])) if t is not None),
+        (
+            t
+            for t in (_parse_term(raw) for raw in entry.get("terms", []))
+            if t is not None and (t.end is None or t.end >= MIN_TERM_END)
+        ),
         key=lambda t: t.start,
     )
     if not terms:

@@ -9,14 +9,14 @@ SAMPLE_YAML = """
     official_full: Maria Cantwell
   terms:
     - type: rep
-      start: '1993-01-05'
-      end: '1995-01-03'
+      start: '2009-01-03'
+      end: '2011-01-03'
       state: WA
       district: 1
       party: Democrat
     - type: sen
-      start: '2001-01-03'
-      end: '2007-01-03'
+      start: '2013-01-03'
+      end: '2019-01-03'
       state: WA
       party: Democrat
     - type: sen
@@ -36,6 +36,35 @@ SAMPLE_YAML = """
       state: AK
       district: 0
       party: Republican
+
+- id:
+    bioguide: Y000001
+  name:
+    first: Old
+    last: AndNew
+  terms:
+    - type: sen
+      start: '1999-01-03'
+      end: '2005-01-03'
+      state: TX
+      party: Republican
+    - type: sen
+      start: '2015-01-03'
+      state: TX
+      party: Republican
+
+- id:
+    bioguide: W000001
+  name:
+    first: Long
+    last: Retired
+  terms:
+    - type: rep
+      start: '1990-01-03'
+      end: '1992-01-03'
+      state: NY
+      district: 5
+      party: Democrat
 
 - id: {}
   name:
@@ -112,6 +141,23 @@ def test_entry_without_terms_is_skipped() -> None:
     records = parse_legislators_yaml(SAMPLE_YAML)
 
     assert not any(r.bioguide_id == "Z000001" for r in records)
+
+
+def test_terms_ending_before_the_cutoff_are_dropped() -> None:
+    records = parse_legislators_yaml(SAMPLE_YAML)
+    old_and_new = next(r for r in records if r.bioguide_id == "Y000001")
+
+    # Only the 2015-onward term survives; the 1999-2005 one predates the
+    # 2011 cutoff (legislators-historical.yaml goes back to 1789 and this
+    # collector has no use for terms that old).
+    assert len(old_and_new.terms) == 1
+    assert old_and_new.terms[0].start.isoformat() == "2015-01-03"
+
+
+def test_legislator_with_only_pre_cutoff_terms_is_dropped_entirely() -> None:
+    records = parse_legislators_yaml(SAMPLE_YAML)
+
+    assert not any(r.bioguide_id == "W000001" for r in records)
 
 
 def test_empty_document_returns_no_records() -> None:
