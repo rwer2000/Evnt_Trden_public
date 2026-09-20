@@ -15,21 +15,20 @@ jobs:
       - name: Set up Python
         run: uv python install 3.12
 
-      - name: Probe a few real PTR PDFs with pdfplumber
+      - name: Download a handful of real PTR PDFs
         run: |
+          mkdir -p ptr_samples
           cat > diag.py << 'PYEOF'
           import io
           import zipfile
           from xml.etree import ElementTree
 
           import httpx
-          import pdfplumber
 
           client = httpx.Client(follow_redirects=True, timeout=30.0, headers={
               "User-Agent": "congress-collector-diag (research use, contact via github.com/rwer2000)"
           })
 
-          # Pull real PTR DocIDs straight from the index instead of guessing.
           year = 2026
           r = client.get(f"https://disclosures-clerk.house.gov/public_disc/financial-pdfs/{year}FD.zip")
           zf = zipfile.ZipFile(io.BytesIO(r.content))
@@ -41,28 +40,21 @@ jobs:
               for m in root.findall("Member")
               if (m.findtext("FilingType") or "") == "P"
           ]
-          print(f"Found {len(ptr_doc_ids)} PTR filings in {year} index; sampling 5.")
+          print(f"Found {len(ptr_doc_ids)} PTR filings in {year} index; downloading 8 samples.")
 
-          for doc_id in ptr_doc_ids[:5]:
+          for doc_id in ptr_doc_ids[:8]:
               url = f"https://disclosures-clerk.house.gov/public_disc/ptr-pdfs/{year}/{doc_id}.pdf"
-              r = client.get(url)
-              print(f"=== DocID {doc_id} ({year}) -> {r.status_code} len={len(r.content)} ===")
-              if r.status_code != 200:
-                  continue
-              try:
-                  with pdfplumber.open(io.BytesIO(r.content)) as pdf:
-                      print(f"  pages: {len(pdf.pages)}")
-                      for i, page in enumerate(pdf.pages[:3]):
-                          text = page.extract_text() or ""
-                          print(f"  --- page {i} text ({len(text)} chars) ---")
-                          print(text[:2500])
-                          tables = page.extract_tables()
-                          print(f"  --- page {i} tables: {len(tables)} ---")
-                          for t in tables[:2]:
-                              for row in t[:8]:
-                                  print("   row:", row)
-              except Exception as e:
-                  print(f"  pdfplumber ERROR: {e!r}")
-              print()
+              resp = client.get(url)
+              print(doc_id, resp.status_code, len(resp.content))
+              if resp.status_code == 200:
+                  with open(f"ptr_samples/{doc_id}.pdf", "wb") as f:
+                      f.write(resp.content)
           PYEOF
-          uv run --with httpx --with pdfplumber python diag.py
+          uv run --with httpx python diag.py
+
+      - name: Upload samples as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ptr-samples
+          path: ptr_samples/
+          retention-days: 1
