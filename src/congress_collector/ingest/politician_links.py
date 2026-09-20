@@ -5,7 +5,12 @@ chamber + normalized filer_name); everything else goes through fuzzy name
 matching against politicians whose term for the filing's chamber was active
 on its filed date. Filings that can't be resolved either way get a
 `dq_issues` row instead of a silent skip, so they surface for review or a
-new override.
+new override -- but only once: a filing stays `bioguide_id IS NULL`
+(re-entering `pending` on every future run) until someone adds an override
+or the source data catches up, so without this check the same handful of
+permanently-unmatchable filings (e.g. House "candidate" filings, who were
+never members and never will be) would get a fresh dq_issues row every run
+forever.
 """
 
 from datetime import date
@@ -23,7 +28,10 @@ from congress_collector.db.models import (
 from congress_collector.db.session import session_scope
 from congress_collector.parsers.politician_match import Candidate, best_match, normalize_name
 
-BATCH_SIZE = 200
+# Generous relative to the current backlog (~1,700 filings): this step is
+# pure DB work (no external HTTP calls), so clearing the backlog in one or
+# two runs instead of ~9 is cheap.
+BATCH_SIZE = 1000
 
 
 def link_pending_filings(*, batch_size: int = BATCH_SIZE) -> int:
@@ -32,6 +40,7 @@ def link_pending_filings(*, batch_size: int = BATCH_SIZE) -> int:
     linked = 0
     with session_scope() as session:
         overrides = _load_overrides(session)
+        already_flagged = _already_flagged_filing_ids(session)
         pending = session.scalars(
             select(Filing).where(Filing.bioguide_id.is_(None)).limit(batch_size)
         ).all()
@@ -52,7 +61,7 @@ def link_pending_filings(*, batch_size: int = BATCH_SIZE) -> int:
             if result.bioguide_id is not None:
                 filing.bioguide_id = result.bioguide_id
                 linked += 1
-            else:
+            elif filing.filing_id not in already_flagged:
                 session.add(
                     DqIssue(
                         filing_id=filing.filing_id,
@@ -63,7 +72,18 @@ def link_pending_filings(*, batch_size: int = BATCH_SIZE) -> int:
                         ),
                     )
                 )
+                already_flagged.add(filing.filing_id)
     return linked
+
+
+def _already_flagged_filing_ids(session: Session) -> set[str]:
+    filing_ids = session.scalars(
+        select(DqIssue.filing_id).where(
+            DqIssue.issue_type.startswith("politician_match_"),
+            DqIssue.resolved_at.is_(None),
+        )
+    )
+    return {f for f in filing_ids if f is not None}
 
 
 def _load_overrides(session: Session) -> dict[tuple[str, str], str]:
