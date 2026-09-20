@@ -36,24 +36,50 @@ jobs:
               print("body:", e.read()[:2000])
           EOF
 
-      - name: Also fetch company_tickers_exchange.json for comparison
+      - name: Try data.sec.gov (different subdomain/infra) for comparison
         if: always()
         run: |
           python3 - <<'EOF'
-          import json
           import urllib.request
+          import urllib.error
 
           req = urllib.request.Request(
-              "https://www.sec.gov/files/company_tickers_exchange.json",
+              "https://data.sec.gov/submissions/CIK0000320193.json",
               headers={
                   "User-Agent": "congress-collector rwer2000-github@users.noreply.github.com"
               },
           )
-          with urllib.request.urlopen(req, timeout=30) as resp:
-              print("status:", resp.status)
-              body = resp.read()
-              data = json.loads(body)
-              print("fields:", data.get("fields"))
-              print("sample rows:", data.get("data", [])[:5])
-              print("total rows:", len(data.get("data", [])))
+          try:
+              with urllib.request.urlopen(req, timeout=30) as resp:
+                  print("status:", resp.status)
+                  body = resp.read()
+                  print("bytes:", len(body))
+                  print("first 200 bytes:", body[:200])
+          except urllib.error.HTTPError as e:
+              print("HTTPError", e.code)
+              print("body:", e.read()[:500])
+          EOF
+
+      - name: Retry www.sec.gov after a delay
+        if: always()
+        run: |
+          sleep 20
+          python3 - <<'EOF'
+          import urllib.request
+          import urllib.error
+
+          req = urllib.request.Request(
+              "https://www.sec.gov/files/company_tickers.json",
+              headers={
+                  "User-Agent": "congress-collector rwer2000-github@users.noreply.github.com"
+              },
+          )
+          try:
+              with urllib.request.urlopen(req, timeout=30) as resp:
+                  print("status:", resp.status)
+                  body = resp.read()
+                  print("bytes:", len(body))
+          except urllib.error.HTTPError as e:
+              print("HTTPError", e.code)
+              print("body:", e.read()[:500])
           EOF
