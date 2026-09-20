@@ -147,6 +147,16 @@ after.
 
 Required environment variables are documented in `.env.example`.
 
+## Notifications
+
+`congress_collector.notify.telegram.send_message()` posts to a single
+Telegram group chat over the Bot API directly (no bot framework — this
+repo only ever sends, never receives). Messages are prefixed by category
+(`filing`, `system`) rather than split across separate Telegram chats, to
+keep the setup to one bot/one chat; that can be split later if it gets
+noisy. Trigger the `Telegram smoke test` workflow (`workflow_dispatch`) to
+confirm `TELEGRAM_BOT_TOKEN`/`TELEGRAM_CHAT_ID` are wired up correctly.
+
 ## Data quality
 
 Every run checks for: duplicate transactions, amendments correctly linked to
@@ -187,7 +197,7 @@ repo):
 
 - [x] T1 — Project foundation: repo, Python project, ruff/mypy/pytest, CI.
 - [x] T2 — Supabase (Postgres + Storage), Alembic migrations.
-- [ ] T3 — Telegram bot + channels, basic message from CI.
+- [x] T3 — Telegram bot + channels, basic message from CI.
 - [ ] T4 — External cron wired to `workflow_dispatch`, fallback schedule,
       concurrency guard.
 - [ ] T5 — Heartbeat commit + silence alert.
