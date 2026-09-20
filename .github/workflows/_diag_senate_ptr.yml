@@ -1,0 +1,90 @@
+name: _diag_senate_ptr
+
+on:
+  workflow_dispatch:
+
+jobs:
+  diag:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install uv
+        uses: astral-sh/setup-uv@v3
+
+      - name: Set up Python
+        run: uv python install 3.12
+
+      - name: Probe a real electronic Senate PTR page
+        run: |
+          cat > diag.py << 'PYEOF'
+          import httpx
+          from selectolax.parser import HTMLParser
+
+          client = httpx.Client(
+              follow_redirects=True,
+              timeout=30.0,
+              headers={"User-Agent": "congress-collector-diag (research use, contact via github.com/rwer2000)"},
+          )
+
+          r = client.get("https://efdsearch.senate.gov/search/home/")
+          csrf = client.cookies.get("csrftoken")
+          client.post(
+              "https://efdsearch.senate.gov/search/home/",
+              data={"csrfmiddlewaretoken": csrf, "prohibition_agreement": "1"},
+              headers={"Referer": "https://efdsearch.senate.gov/search/home/"},
+          )
+
+          # Fresh search to get current, valid report UUIDs (the ones from
+          # the earlier diagnostic may be stale by now).
+          csrf2 = client.cookies.get("csrftoken")
+          resp = client.post(
+              "https://efdsearch.senate.gov/search/report/data/",
+              data={
+                  "csrfmiddlewaretoken": csrf2,
+                  "report_types": "[11]",
+                  "filer_types": "[]",
+                  "submitted_start_date": "01/01/2026 00:00:00",
+                  "submitted_end_date": "",
+                  "candidate_state": "",
+                  "senator_state": "",
+                  "office_id": "",
+                  "first_name": "",
+                  "last_name": "",
+                  "start": "0",
+                  "length": "20",
+              },
+              headers={
+                  "Referer": "https://efdsearch.senate.gov/search/",
+                  "X-Requested-With": "XMLHttpRequest",
+              },
+          )
+          rows = resp.json()["data"]
+
+          import re
+          uuids = []
+          for row in rows:
+              m = re.search(r'/search/view/(ptr|paper)/([0-9a-f-]{36})/', row[3])
+              if m and m.group(1) == "ptr":
+                  uuids.append(m.group(2))
+          print("electronic UUIDs found:", uuids[:5])
+
+          for uuid in uuids[:2]:
+              url = f"https://efdsearch.senate.gov/search/view/ptr/{uuid}/"
+              print(f"=== {url} ===")
+              page = client.get(url)
+              print(page.status_code, len(page.text))
+              html = HTMLParser(page.text)
+              table = html.css_first("table")
+              print("table found:", table is not None)
+              if table:
+                  rows_el = table.css("tr")
+                  print(f"rows: {len(rows_el)}")
+                  for tr in rows_el[:6]:
+                      cells = [c.text(strip=True) for c in tr.css("th, td")]
+                      print("  ", cells)
+              # also dump raw html around the table for structure
+              print("--- raw snippet ---")
+              idx = page.text.find("<table")
+              print(page.text[max(0,idx-200):idx+3000] if idx != -1 else "NO TABLE TAG FOUND")
+              print()
+          PYEOF
+          uv run --with httpx --with selectolax python diag.py
