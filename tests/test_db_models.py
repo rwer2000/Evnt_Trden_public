@@ -4,6 +4,7 @@ from congress_collector.db.base import SCHEMA, Base
 EXPECTED_TABLES = {
     "politicians",
     "politician_terms",
+    "politician_overrides",
     "instruments",
     "ticker_map",
     "filings",

@@ -60,3 +60,8 @@ jobs:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
         run: uv run python -m congress_collector.ingest.senate_ptrs
+
+      - name: Link filings to politicians
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+        run: uv run python -m congress_collector.ingest.politician_links

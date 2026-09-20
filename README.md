@@ -111,7 +111,11 @@ Scheduling notes:
 
 ## Data model (core tables)
 
-- `politicians` — bioguide_id, name, chamber, party, state, district, terms.
+- `politicians` — bioguide_id, name, chamber, party, state, district.
+- `politician_terms` — one row per term (chamber, state, district, party,
+  start/end date), synced from congress-legislators.
+- `politician_overrides` — manual (chamber, filer_name) → bioguide_id
+  overrides for filer names the fuzzy matcher can't resolve.
 - `filings` — filing_id, chamber, filer_name, bioguide_id, filing_type,
   filed_date, `first_seen_at`, `first_seen_precision_s`, format,
   parse_status, source, raw_object_key, raw_sha256, supersedes_filing_id.
@@ -305,6 +309,42 @@ already on `filings`), so `notification_date` is always `NULL` here.
 
 Run it directly with `uv run python -m congress_collector.ingest.senate_ptrs`.
 
+## Politician linking (T13)
+
+`congress_collector.ingest.legislators.sync_legislators()` fetches the
+current + historical member lists from
+[unitedstates/congress-legislators](https://github.com/unitedstates/congress-legislators)
+and upserts `politicians` (one row per bioguide ID) and `politician_terms`
+(one row per term; fully replaced on each sync, since the YAML files are
+the sole source of truth for term history). Runs weekly via
+`.github/workflows/legislators.yml`, separate from `collect.yml`'s 5-minute
+cadence since congress membership barely changes and the historical file
+alone is ~9MB.
+
+`congress_collector.ingest.politician_links.link_pending_filings()` then
+fills in `filings.bioguide_id` for filings that don't have one yet, as the
+last step of every `collect.yml` run:
+
+1. Check `politician_overrides` for an exact (chamber, normalized
+   filer_name) match first.
+2. Otherwise, fuzzy-match (`rapidfuzz`, `parsers/politician_match.py`)
+   against politicians whose term for the filing's chamber was active on
+   its filed date -- narrowing by chamber + term period first means the
+   name match alone usually only has to disambiguate a handful of
+   candidates, not the full ~13k-row history.
+3. A clear top match (score ≥ 92, or ≥ 80 with no close runner-up) sets
+   `bioguide_id`; anything else -- no match, or two similarly-scoring
+   candidates -- gets a `dq_issues` row (`politician_match_unmatched` /
+   `politician_match_ambiguous`) instead of a guess, for manual review or a
+   new `politician_overrides` entry.
+
+State/district aren't used as a matching signal: `filings` doesn't carry
+them (House's index XML has `StateDst`, but it's discarded before
+persistence today), so chamber + term-period overlap is the only
+narrowing besides the name itself. In practice this is enough --
+same-chamber, same-era name collisions are rare, and the override table
+exists for exactly that residual case.
+
 ## Data quality
 
 Every run checks for: duplicate transactions, amendments correctly linked to
@@ -355,10 +395,10 @@ repo):
 - [x] T8 — House: electronic PTR parser + paper/scanned classification.
 - [x] T9 — Senate: agreement acceptance, search, pagination.
 - [x] T10 — Senate: electronic PTR parser.
-- [ ] T11 — Collector deployed and running continuously (priority
+- [x] T11 — Collector deployed and running continuously (priority
       milestone — first-seen timestamps start accumulating here).
 - [ ] T12 — Telegram notifications for new filings and errors.
-- [ ] T13 — Politician linking (congress-legislators, fuzzy match, overrides).
+- [x] T13 — Politician linking (congress-legislators, fuzzy match, overrides).
 - [ ] T14 — Ticker linking (SEC file, point-in-time changes, overrides).
 - [ ] T15 — Options parser (call/put, strike, expiry, underlying).
 - [ ] T16 — Amendment linking and `is_current`.
