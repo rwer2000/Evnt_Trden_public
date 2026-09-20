@@ -64,6 +64,24 @@ class PoliticianTerm(Base):
     )
 
 
+class PoliticianOverride(Base):
+    __tablename__ = "politician_overrides"
+    __table_args__ = (UniqueConstraint("chamber", "filer_name"),)
+
+    override_id: Mapped[uuid.UUID] = mapped_column(
+        UUID(as_uuid=True), primary_key=True, server_default=_GEN_UUID
+    )
+    chamber: Mapped[str] = mapped_column(Text, nullable=False)
+    filer_name: Mapped[str] = mapped_column(Text, nullable=False)
+    bioguide_id: Mapped[str] = mapped_column(
+        Text, ForeignKey("congress.politicians.bioguide_id"), nullable=False
+    )
+    reason: Mapped[str | None] = mapped_column(Text)
+    created_at: Mapped[datetime] = mapped_column(
+        DateTime(timezone=True), nullable=False, server_default=text("now()")
+    )
+
+
 class Instrument(Base):
     __tablename__ = "instruments"
 
