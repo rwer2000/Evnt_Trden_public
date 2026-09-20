@@ -1,0 +1,96 @@
+name: _diag_senate
+
+on:
+  workflow_dispatch:
+
+jobs:
+  diag:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install uv
+        uses: astral-sh/setup-uv@v3
+
+      - name: Set up Python
+        run: uv python install 3.12
+
+      - name: Probe efdsearch.senate.gov agreement + search flow
+        run: |
+          cat > diag.py << 'PYEOF'
+          import httpx
+          from selectolax.parser import HTMLParser
+
+          client = httpx.Client(
+              follow_redirects=True,
+              timeout=30.0,
+              headers={"User-Agent": "congress-collector-diag (research use, contact via github.com/rwer2000)"},
+          )
+
+          print("=== GET /search/home/ ===")
+          r = client.get("https://efdsearch.senate.gov/search/home/")
+          print(r.status_code, len(r.text))
+          print("cookies:", dict(client.cookies))
+          html = HTMLParser(r.text)
+          form = html.css_first("form")
+          print("form action:", form.attributes.get("action") if form else None)
+          for inp in html.css("input"):
+              print("  input:", inp.attributes.get("name"), "=", inp.attributes.get("value"))
+          # look for any csrf token in cookies too
+          print()
+
+          csrf_cookie = client.cookies.get("csrftoken")
+          print("csrftoken cookie:", csrf_cookie)
+
+          print()
+          print("=== POST /search/home/ (accept agreement) ===")
+          r2 = client.post(
+              "https://efdsearch.senate.gov/search/home/",
+              data={
+                  "csrfmiddlewaretoken": csrf_cookie,
+                  "prohibition_agreement": "1",
+              },
+              headers={"Referer": "https://efdsearch.senate.gov/search/home/"},
+          )
+          print(r2.status_code, len(r2.text), r2.url)
+          print("cookies after:", dict(client.cookies))
+          print()
+
+          print("=== GET /search/ (should now be allowed) ===")
+          r3 = client.get("https://efdsearch.senate.gov/search/")
+          print(r3.status_code, len(r3.text))
+          html3 = HTMLParser(r3.text)
+          for inp in html3.css("input")[:20]:
+              print("  input:", inp.attributes.get("name"), "=", inp.attributes.get("value"))
+          for sel in html3.css("select"):
+              print("  select:", sel.attributes.get("name"))
+              for opt in sel.css("option")[:15]:
+                  print("    option:", opt.attributes.get("value"), "->", opt.text())
+          print()
+
+          print("=== POST /search/report/data/ (search) ===")
+          csrf2 = client.cookies.get("csrftoken")
+          payload = {
+              "csrfmiddlewaretoken": csrf2,
+              "report_types": "[11]",
+              "filer_types": "[]",
+              "submitted_start_date": "01/01/2026 00:00:00",
+              "submitted_end_date": "",
+              "candidate_state": "",
+              "senator_state": "",
+              "office_id": "",
+              "first_name": "",
+              "last_name": "",
+              "start": "0",
+              "length": "10",
+          }
+          r4 = client.post(
+              "https://efdsearch.senate.gov/search/report/data/",
+              data=payload,
+              headers={
+                  "Referer": "https://efdsearch.senate.gov/search/",
+                  "X-Requested-With": "XMLHttpRequest",
+              },
+          )
+          print(r4.status_code, r4.headers.get("content-type"))
+          print(r4.text[:3000])
+          PYEOF
+          uv run --with httpx --with selectolax python diag.py
