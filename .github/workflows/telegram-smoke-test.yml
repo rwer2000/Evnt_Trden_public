@@ -1,0 +1,29 @@
+name: Telegram smoke test
+
+on:
+  workflow_dispatch:
+
+jobs:
+  send-test-message:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v3
+
+      - name: Set up Python
+        run: uv python install 3.12
+
+      - name: Install dependencies
+        run: uv sync --all-extras --dev
+
+      - name: Send test message
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          uv run python -c "
+          from congress_collector.notify.telegram import send_message
+          send_message('congress-collector CI is wired up correctly.', category='system')
+          "
