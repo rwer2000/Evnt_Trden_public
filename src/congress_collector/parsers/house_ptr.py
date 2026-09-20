@@ -32,6 +32,8 @@ from dataclasses import dataclass
 
 import pdfplumber
 
+from congress_collector.parsers.amounts import parse_amount_range
+
 FOOTER_MARKER = "For the complete list of asset type abbreviations"
 
 # Column x0 boundaries in points, derived from the header row's real word
@@ -231,7 +233,7 @@ class _OpenRecord:
         if match:
             ticker, asset_type = match.group(1), match.group(2)
 
-        amount_min, amount_max = _parse_amount(" ".join(self.amount_parts))
+        amount_min, amount_max = parse_amount_range(" ".join(self.amount_parts))
 
         return ParsedTransaction(
             row_index=row_index,
@@ -245,29 +247,6 @@ class _OpenRecord:
             amount_min=amount_min,
             amount_max=amount_max,
         )
-
-
-def _parse_amount(raw: str) -> tuple[float | None, float | None]:
-    raw = raw.strip()
-    if not raw:
-        return None, None
-    if raw.lower().startswith("over"):
-        parts = raw.split("$", 1)
-        return (_to_number(parts[1]), None) if len(parts) == 2 else (None, None)
-    if "-" not in raw:
-        return None, None
-    low, high = raw.split("-", 1)
-    return _to_number(low), _to_number(high)
-
-
-def _to_number(raw: str) -> float | None:
-    cleaned = raw.replace("$", "").replace(",", "").strip()
-    if not cleaned:
-        return None
-    try:
-        return float(cleaned)
-    except ValueError:
-        return None
 
 
 def _to_iso_date(raw: str) -> str:
