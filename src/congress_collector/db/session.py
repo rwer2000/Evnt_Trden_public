@@ -13,9 +13,17 @@ from sqlalchemy.orm import Session, sessionmaker
 from congress_collector.db.base import SCHEMA
 
 
+def psycopg_url(database_url: str) -> str:
+    """A bare `postgresql://` URL makes SQLAlchemy default to the
+    (uninstalled) psycopg2 driver; we depend on psycopg 3 instead."""
+    if database_url.startswith("postgresql://"):
+        return database_url.replace("postgresql://", "postgresql+psycopg://", 1)
+    return database_url
+
+
 @lru_cache(maxsize=1)
 def get_engine() -> Engine:
-    engine = create_engine(os.environ["DATABASE_URL"], pool_pre_ping=True)
+    engine = create_engine(psycopg_url(os.environ["DATABASE_URL"]), pool_pre_ping=True)
 
     @event.listens_for(engine, "connect")
     def _set_search_path(dbapi_connection: Any, connection_record: Any) -> None:
