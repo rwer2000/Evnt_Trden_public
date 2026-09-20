@@ -1,0 +1,56 @@
+name: _diag_house_pdf
+
+on:
+  workflow_dispatch:
+
+jobs:
+  diag:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install uv
+        uses: astral-sh/setup-uv@v3
+
+      - name: Set up Python
+        run: uv python install 3.12
+
+      - name: Probe House Clerk PDF URL patterns
+        run: |
+          cat > diag.py << 'PYEOF'
+          import httpx
+
+          client = httpx.Client(follow_redirects=True, timeout=20.0, headers={
+              "User-Agent": "congress-collector-diag (research use, contact via github.com/rwer2000)"
+          })
+
+          # doc_id, year -- one from each observed DocID length/prefix bucket
+          cases = [
+              ("20034201", 2026),  # FilingType P (PTR), 8-digit starting "2"
+              ("10078673", 2026),  # FilingType C, 8-digit starting "1"
+              ("30028196", 2026),  # FilingType X, 8-digit starting "3"
+              ("40003749", 2025),  # FilingType D, 8-digit starting "4"
+              ("8068", 2026),      # FilingType W, short numeric DocID
+          ]
+
+          patterns = [
+              "https://disclosures-clerk.house.gov/public_disc/financial-pdfs/{year}/{doc_id}.pdf",
+              "https://disclosures-clerk.house.gov/public_disc/ptr-pdfs/{year}/{doc_id}.pdf",
+              "https://disclosures-clerk.house.gov/public_disc/financial-pdfs/{doc_id}.pdf",
+              "https://disclosures-clerk.house.gov/public_disc/{year}/{doc_id}.pdf",
+          ]
+
+          for doc_id, year in cases:
+              print(f"=== DocID {doc_id} ({year}) ===")
+              for pattern in patterns:
+                  url = pattern.format(year=year, doc_id=doc_id)
+                  try:
+                      r = client.head(url)
+                      if r.status_code >= 400:
+                          # some servers reject HEAD; retry with a ranged GET
+                          r = client.get(url, headers={"Range": "bytes=0-64"})
+                      ct = r.headers.get("content-type")
+                      cl = r.headers.get("content-length")
+                      print(f"  {url} -> {r.status_code} {ct} len={cl}")
+                  except Exception as e:
+                      print(f"  {url} -> ERROR {e!r}")
+          PYEOF
+          uv run --with httpx python diag.py
