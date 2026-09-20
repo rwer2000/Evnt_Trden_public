@@ -30,9 +30,11 @@ jobs:
       - name: Install dependencies
         run: uv sync --all-extras --dev
 
-      # Placeholder: House/Senate scraping lands in T6-T11. This step
-      # exists so the scheduling mechanics (external cron, fallback
-      # schedule, concurrency, silence check) can be wired up and tested
-      # before the scrapers themselves exist.
-      - name: Run collector (placeholder)
-        run: echo "collect workflow wired up; House/Senate scraping lands in T6-T11"
+      - name: Sync House Clerk index
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+        run: uv run python -m congress_collector.ingest.house
+
+      # Placeholder: Senate scraping lands in T9-T11.
+      - name: Sync Senate eFD index (placeholder)
+        run: echo "Senate eFD scraping lands in T9-T11"
