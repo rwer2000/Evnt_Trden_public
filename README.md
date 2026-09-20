@@ -185,6 +185,21 @@ keep the setup to one bot/one chat; that can be split later if it gets
 noisy. Trigger the `Telegram smoke test` workflow (`workflow_dispatch`) to
 confirm `TELEGRAM_BOT_TOKEN`/`TELEGRAM_CHAT_ID` are wired up correctly.
 
+## House Clerk index sync (T6)
+
+`congress_collector.ingest.house.sync_house_index()` fetches the yearly
+index ZIP (`https://disclosures-clerk.house.gov/public_disc/financial-pdfs/
+{year}FD.zip` — confirmed live from a GitHub Actions runner, since this
+sandbox's own egress proxy blocks the domain), parses the `<Member>`
+records in its XML, and inserts any `DocID` not already in `filings` with
+`first_seen_at` set to the moment it was observed. Every run also records
+a `scrape_runs` row, success or failure, which `silence-check.yml` reads.
+
+Filing-type codes (`P`, `C`, `O`, `W`, `X`, `D`, ...) are stored as-is
+without filtering — `format` is inserted as `'unknown'` since classifying
+electronic vs. paper needs the PDF itself (T7/T8). Run it directly with
+`uv run python -m congress_collector.ingest.house`.
+
 ## Data quality
 
 Every run checks for: duplicate transactions, amendments correctly linked to
@@ -230,7 +245,7 @@ repo):
       concurrency guard. (`collect.yml` is ready; setting up the external
       cron account/token is a manual step, see above.)
 - [x] T5 — Heartbeat commit + silence alert.
-- [ ] T6 — House: yearly index parsing, new-filing detection, `first_seen_at`.
+- [x] T6 — House: yearly index parsing, new-filing detection, `first_seen_at`.
 - [ ] T7 — House: PDF download + archival with hash.
 - [ ] T8 — House: electronic PTR parser + paper/scanned classification.
 - [ ] T9 — Senate: agreement acceptance, search, pagination.
