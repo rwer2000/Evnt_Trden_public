@@ -1,0 +1,35 @@
+name: heartbeat
+
+on:
+  schedule:
+    - cron: "0 6 * * 1" # every Monday 06:00 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  heartbeat:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Update heartbeat timestamp
+        run: |
+          {
+            echo "# Heartbeat"
+            echo ""
+            echo "Updated weekly by \`.github/workflows/heartbeat.yml\` to keep this public"
+            echo "repo active, since GitHub disables scheduled workflows after 60 days"
+            echo "without repository activity."
+            echo ""
+            echo "Last heartbeat: $(date -u +"%Y-%m-%dT%H:%M:%SZ")"
+          } > HEARTBEAT.md
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add HEARTBEAT.md
+          git diff --cached --quiet || git commit -m "chore: weekly heartbeat"
+          git push

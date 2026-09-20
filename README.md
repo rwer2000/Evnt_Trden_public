@@ -70,16 +70,44 @@ Scheduling notes:
 
 - GitHub's built-in `schedule` trigger is best-effort and can be delayed by
   tens of minutes to over an hour. An external free cron service calling
-  the GitHub REST API `workflow_dispatch` endpoint is the primary trigger;
-  GitHub `schedule` is a fallback only.
+  the GitHub REST API `workflow_dispatch` endpoint on `collect.yml` is the
+  primary trigger (every 5 min on weekday market hours, every 30 min
+  otherwise); the `schedule` trigger in `collect.yml` (hourly, on an odd
+  minute) is a fallback only, in case the external cron goes down.
 - `concurrency: { group: collector, cancel-in-progress: false }` prevents
-  overlapping runs.
+  overlapping runs — a trigger that arrives mid-run is queued, not dropped.
 - Scheduled workflows on public repos are disabled after 60 days without
-  repository activity. A weekly heartbeat commit prevents this, with a
-  Telegram alert if the heartbeat itself goes silent.
+  repository activity. `.github/workflows/heartbeat.yml` commits an
+  updated `HEARTBEAT.md` weekly to prevent this.
+- `.github/workflows/silence-check.yml` runs daily and sends a Telegram
+  alert if `collect.yml` hasn't completed successfully in the last 24h
+  (checked via the GitHub Actions API, so it works even before T6-T11 give
+  the collector anything real to do).
 - Runners must be GitHub-hosted (not self-hosted): the Senate site is
   reported to block connections from outside the US, and GitHub-hosted
   runners run in the US.
+
+### Setting up the external cron
+
+1. Create a **fine-grained personal access token**
+   (https://github.com/settings/personal-access-tokens/new): resource
+   owner yourself, repository access limited to this repo only,
+   permissions → Actions → **Read and write**. This token is a secret —
+   handle it like the others (never paste it into chat); it's used only by
+   the external cron service below, not as a GitHub secret in this repo.
+2. Sign up for a free HTTP cron service (e.g. cron-job.org, or any
+   equivalent) and create a job that sends:
+   - `POST https://api.github.com/repos/rwer2000/Evnt_Trden_public/actions/workflows/collect.yml/dispatches`
+   - Headers: `Authorization: Bearer <token>`,
+     `Accept: application/vnd.github+json`,
+     `Content-Type: application/json`
+   - Body: `{"ref":"main"}`
+   - Schedule: every 5 minutes, Mon-Fri 07:00-21:00 America/New_York; every
+     30 minutes the rest of the time. Most cron services need two separate
+     job entries to express that split (one narrow, always-on job would
+     also work, just noisier outside market hours).
+3. Trigger it once manually (or wait for the first fallback `schedule`
+   run) and confirm a run shows up under this repo's **Actions** tab.
 
 ## Data model (core tables)
 
@@ -198,9 +226,10 @@ repo):
 - [x] T1 — Project foundation: repo, Python project, ruff/mypy/pytest, CI.
 - [x] T2 — Supabase (Postgres + Storage), Alembic migrations.
 - [x] T3 — Telegram bot + channels, basic message from CI.
-- [ ] T4 — External cron wired to `workflow_dispatch`, fallback schedule,
-      concurrency guard.
-- [ ] T5 — Heartbeat commit + silence alert.
+- [x] T4 — External cron wired to `workflow_dispatch`, fallback schedule,
+      concurrency guard. (`collect.yml` is ready; setting up the external
+      cron account/token is a manual step, see above.)
+- [x] T5 — Heartbeat commit + silence alert.
 - [ ] T6 — House: yearly index parsing, new-filing detection, `first_seen_at`.
 - [ ] T7 — House: PDF download + archival with hash.
 - [ ] T8 — House: electronic PTR parser + paper/scanned classification.
