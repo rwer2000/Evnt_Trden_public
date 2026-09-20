@@ -1,0 +1,65 @@
+name: _diag_amendments2
+
+on:
+  workflow_dispatch:
+
+jobs:
+  diag:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v3
+
+      - name: Set up Python
+        run: uv python install 3.12
+
+      - name: Install dependencies
+        run: uv sync --all-extras --dev
+
+      - name: Trace the amended MMM transaction's ID across filings
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+        run: |
+          uv run python - <<'EOF'
+          import io
+          import re
+          import pdfplumber
+          from congress_collector.storage.supabase_storage import download
+
+          target_id = "2000135564"
+
+          print("### word-level layout around the amended row in 20035035.pdf ###")
+          content = download("house/2026/20035035.pdf")
+          with pdfplumber.open(io.BytesIO(content)) as pdf:
+              for page_num, page in enumerate(pdf.pages):
+                  words = page.extract_words()
+                  for w in words:
+                      if target_id in w["text"] or "MMM" in w["text"] or "3M" in w["text"]:
+                          # print this word and its neighbors on the same visual row
+                          top = w["top"]
+                          row = [x for x in words if abs(x["top"] - top) <= 3]
+                          row_sorted = sorted(row, key=lambda x: x["x0"])
+                          print(f"page {page_num} top={top:.1f}:")
+                          for rw in row_sorted:
+                              print(f"    x0={rw['x0']:.1f} text={rw['text']!r}")
+
+          print()
+          print("### searching candidate 'original' filings for the same ID ###")
+          for key in ["house/2026/20033789.pdf", "house/2026/20034706.pdf"]:
+              print("---", key)
+              content = download(key)
+              with pdfplumber.open(io.BytesIO(content)) as pdf:
+                  full_text = "\n".join(p.extract_text() or "" for p in pdf.pages)
+              if target_id in full_text:
+                  idx = full_text.find(target_id)
+                  print("FOUND ID at char", idx)
+                  print(full_text[max(0, idx - 100):idx + 300].replace("\n", " | "))
+              else:
+                  print("id not found in this filing")
+              if "3M" in full_text or "MMM" in full_text:
+                  for m in re.finditer(r"3M|MMM", full_text):
+                      print("  3M/MMM context:", full_text[max(0, m.start()-80):m.start()+150].replace("\n", " | "))
+          EOF
