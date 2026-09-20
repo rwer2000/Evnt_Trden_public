@@ -19,16 +19,21 @@ jobs:
                   "User-Agent": "congress-collector rwer2000-github@users.noreply.github.com"
               },
           )
-          with urllib.request.urlopen(req, timeout=30) as resp:
-              print("status:", resp.status)
-              print("content-type:", resp.headers.get("Content-Type"))
-              body = resp.read()
-              print("bytes:", len(body))
-              data = json.loads(body)
-              print("entries:", len(data))
-              items = list(data.items())[:5]
-              for k, v in items:
-                  print(k, v)
+          try:
+              with urllib.request.urlopen(req, timeout=30) as resp:
+                  print("status:", resp.status)
+                  print("content-type:", resp.headers.get("Content-Type"))
+                  body = resp.read()
+                  print("bytes:", len(body))
+                  data = json.loads(body)
+                  print("entries:", len(data))
+                  items = list(data.items())[:5]
+                  for k, v in items:
+                      print(k, v)
+          except urllib.error.HTTPError as e:
+              print("HTTPError", e.code)
+              print("headers:", dict(e.headers))
+              print("body:", e.read()[:2000])
           EOF
 
       - name: Also fetch company_tickers_exchange.json for comparison
