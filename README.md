@@ -222,6 +222,30 @@ A filing whose PDF fetch fails (404, timeout, ...) is simply left pending
 and retried on the next `collect` run. Run it directly with
 `uv run python -m congress_collector.ingest.house_pdfs`.
 
+## House PTR parser (T8)
+
+`congress_collector.ingest.house_ptrs.parse_pending_house_ptrs()` reads
+each archived-but-unclassified House PTR back from `congress-raw` (T7's
+copy, not a re-fetch), and either marks it `format = 'scanned'` /
+`parse_status = 'paper_deferred'` (no extractable text -- a paper filing)
+or parses it into `transactions` rows and marks it `format = 'electronic'`
+/ `parse_status = 'parsed'`.
+
+The parser (`congress_collector.parsers.house_ptr`) works from
+`extract_words()` positions rather than pdfplumber's `extract_tables()`,
+which turned out to merge the form's garbled annotation lines
+("Filing Status:", "Subholding Of:", "Description:", ...) into the
+transaction cells -- confirmed against several real PTR PDFs fetched from
+a GitHub Actions runner. The form uses a fixed column template (verified
+stable across filings), which is what makes reconstructing wrapped rows
+by x-position reliable. Known gap: the "Cap. Gains > $200?" column is a
+checkbox rendered as vector graphics, not text, so it isn't captured
+(`transactions` has no column for it either). A transaction row whose
+type code isn't recognized is skipped and logged as a `dq_issues` row
+rather than guessed at.
+
+Run it directly with `uv run python -m congress_collector.ingest.house_ptrs`.
+
 ## Data quality
 
 Every run checks for: duplicate transactions, amendments correctly linked to
@@ -269,7 +293,7 @@ repo):
 - [x] T5 — Heartbeat commit + silence alert.
 - [x] T6 — House: yearly index parsing, new-filing detection, `first_seen_at`.
 - [x] T7 — House: PDF download + archival with hash.
-- [ ] T8 — House: electronic PTR parser + paper/scanned classification.
+- [x] T8 — House: electronic PTR parser + paper/scanned classification.
 - [ ] T9 — Senate: agreement acceptance, search, pagination.
 - [ ] T10 — Senate: electronic PTR parser.
 - [ ] T11 — Collector deployed and running continuously (priority

@@ -31,5 +31,12 @@ def upload(path: str, content: bytes, content_type: str, *, client: Any | None =
     )
 
 
+def download(path: str, *, client: Any | None = None) -> bytes:
+    """Download `congress-raw/{path}`."""
+    active_client = client if client is not None else get_client()
+    result = active_client.storage.from_(BUCKET).download(path)
+    return bytes(result)
+
+
 def sha256_hex(content: bytes) -> str:
     return hashlib.sha256(content).hexdigest()
