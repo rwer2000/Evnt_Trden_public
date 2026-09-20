@@ -28,10 +28,14 @@ def get_engine() -> Engine:
     # statements. psycopg's default server-side prepared-statement cache assumes a
     # stable session and raises DuplicatePreparedStatement under that churn, so it
     # must be disabled here.
+    # A statement_timeout turns a stuck/runaway query (e.g. a pooler silently
+    # dropping a long-running statement's connection, as observed once with
+    # a large bulk insert) into a clear, fast Postgres error instead of a
+    # hang with no diagnosable cause.
     engine = create_engine(
         psycopg_url(os.environ["DATABASE_URL"]),
         pool_pre_ping=True,
-        connect_args={"prepare_threshold": None},
+        connect_args={"prepare_threshold": None, "options": "-c statement_timeout=60000"},
     )
 
     @event.listens_for(engine, "connect")
