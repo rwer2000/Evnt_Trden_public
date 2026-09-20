@@ -345,6 +345,61 @@ narrowing besides the name itself. In practice this is enough --
 same-chamber, same-era name collisions are rare, and the override table
 exists for exactly that residual case.
 
+## Ticker linking (T14)
+
+`congress_collector.ingest.tickers.link_pending_transactions()` fills in
+`transactions.instrument_id` (and, when the parser didn't extract one,
+`transactions.ticker`) as the last step of every `collect.yml` run:
+
+1. Check `data/ticker_overrides.csv` (columns: `match_type` — `ticker` or
+   `description` —, `match_value`, `ticker`, `cik`, `reason`) for an exact
+   match first.
+2. Otherwise, look up the parser-extracted `ticker` directly against SEC's
+   ticker/CIK/company-name reference data.
+3. Otherwise, fuzzy-match `asset_description_raw` against SEC company
+   names (`parsers/ticker_match.py`, `rapidfuzz`) for transactions the
+   parser couldn't extract a clean ticker from at all.
+
+`instruments`/`ticker_map` rows are created on demand, one per distinct
+CIK actually seen in a transaction — this isn't meant to mirror SEC's
+full ~10k-company universe. Unmatched transactions get a `dq_issues` row
+(`ticker_match_unmatched`), deduped the same way T13's `politician_links`
+is, so a transaction that structurally can't match (a municipal bond, a
+Treasury note, a private placement) doesn't get re-flagged every 5-minute
+run forever.
+
+**The SEC reference data is vendored, not fetched live.** SEC blocks
+automated fetches of `company_tickers.json` from cloud/CI IP ranges
+outright — confirmed via a throwaway diagnostic workflow on GitHub
+Actions: five attempts (a plain fetch, a SEC-compliant "Name email"
+User-Agent, a different SEC subdomain, a fetch after a 20s delay) all got
+a 403, either "Request Rate Threshold Exceeded" or "Your Request
+Originates from an Undeclared Automated Tool". This collector's own dev
+sandbox gets the same block. So `data/sec_company_tickers.json` is a
+snapshot, downloaded manually from
+[www.sec.gov/files/company_tickers.json](https://www.sec.gov/files/company_tickers.json)
+in a regular browser and committed to the repo, refreshed every few
+months — tickers and CIKs change slowly enough that this is a reasonable
+trade-off given the alternative is no automated access at all.
+
+The fuzzy company-name fallback is deliberately conservative (high
+threshold, `token_sort_ratio` rather than `token_set_ratio`) after an
+earlier version confidently mismatched real filings against the vendored
+data — e.g. "Invesco QQQ" scored a perfect 100 against "Invesco Ltd.", an
+unrelated company that merely shares one word, because token_set_ratio
+scores a subset match at 100 regardless of what else is in either string.
+A transaction sitting in the review queue is a far better failure mode
+than a silently wrong instrument link, so unresolved fuzzy matches stay
+unresolved rather than taking the best available guess.
+
+Point-in-time ticker changes aren't tracked: `company_tickers.json` is a
+current-day snapshot with no history, so every `ticker_map` row this step
+creates gets the same fixed `valid_from` (the plan's furthest-back
+backfill period) and an open `valid_to`. A transaction whose ticker has
+since changed (a rename, not merely a new listing) fails to match today's
+snapshot and lands in the review queue rather than being mislinked to
+whatever now holds that ticker.
+
 ## Data quality
 
 Every run checks for: duplicate transactions, amendments correctly linked to
@@ -399,7 +454,7 @@ repo):
       milestone — first-seen timestamps start accumulating here).
 - [ ] T12 — Telegram notifications for new filings and errors.
 - [x] T13 — Politician linking (congress-legislators, fuzzy match, overrides).
-- [ ] T14 — Ticker linking (SEC file, point-in-time changes, overrides).
+- [x] T14 — Ticker linking (SEC file, point-in-time changes, overrides).
 - [ ] T15 — Options parser (call/put, strike, expiry, underlying).
 - [ ] T16 — Amendment linking and `is_current`.
 - [ ] T17 — Golden test set (50 filings) + CI regression gate.
