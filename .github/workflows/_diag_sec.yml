@@ -16,7 +16,7 @@ jobs:
           req = urllib.request.Request(
               "https://www.sec.gov/files/company_tickers.json",
               headers={
-                  "User-Agent": "congress-collector (personal research use; github.com/rwer2000/Evnt_Trden_public)"
+                  "User-Agent": "congress-collector rwer2000-github@users.noreply.github.com"
               },
           )
           with urllib.request.urlopen(req, timeout=30) as resp:
@@ -32,6 +32,7 @@ jobs:
           EOF
 
       - name: Also fetch company_tickers_exchange.json for comparison
+        if: always()
         run: |
           python3 - <<'EOF'
           import json
@@ -40,7 +41,7 @@ jobs:
           req = urllib.request.Request(
               "https://www.sec.gov/files/company_tickers_exchange.json",
               headers={
-                  "User-Agent": "congress-collector (personal research use; github.com/rwer2000/Evnt_Trden_public)"
+                  "User-Agent": "congress-collector rwer2000-github@users.noreply.github.com"
               },
           )
           with urllib.request.urlopen(req, timeout=30) as resp:
