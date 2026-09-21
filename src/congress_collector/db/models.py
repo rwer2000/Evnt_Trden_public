@@ -126,6 +126,9 @@ class Instrument(Base):
     cik: Mapped[str | None] = mapped_column(Text)
     name: Mapped[str | None] = mapped_column(Text)
     asset_class: Mapped[str | None] = mapped_column(Text)
+    sic: Mapped[str | None] = mapped_column(Text)
+    sic_description: Mapped[str | None] = mapped_column(Text)
+    sic_synced_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True))
     created_at: Mapped[datetime] = mapped_column(
         DateTime(timezone=True), nullable=False, server_default=text("now()")
     )

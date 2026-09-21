@@ -1,0 +1,33 @@
+name: sic-codes
+
+on:
+  workflow_dispatch:
+  schedule:
+    # SIC codes change essentially never once set; daily is only to keep
+    # up with however many new instruments T14 creates in a day, not to
+    # refresh anything -- see ingest/sic_codes.py's module docstring.
+    - cron: "45 6 * * *" # daily 06:45 UTC
+
+concurrency:
+  group: sic-codes
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v3
+
+      - name: Set up Python
+        run: uv python install 3.12
+
+      - name: Install dependencies
+        run: uv sync --all-extras --dev
+
+      - name: Sync SIC codes from SEC EDGAR
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+        run: uv run python -m congress_collector.ingest.sic_codes
