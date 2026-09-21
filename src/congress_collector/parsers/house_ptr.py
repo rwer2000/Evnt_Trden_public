@@ -30,12 +30,15 @@ premium paid per contract, no strike or expiry) -- the informal style is
 parsed for option_type only, since guessing a strike from the premium
 would be wrong.
 
-The leftmost "ID" column (a 10-digit number, e.g. "2000135564") is a
-persistent per-transaction identifier -- T16 confirmed live that it stays
-the same across an original filing and a later "Filing Status: Amended"
-row correcting that transaction, which is what makes cross-filing
-amendment linking possible at all (`ingest.amendments`). It sits left of
-the Owner code, in its own x0 zone.
+The leftmost "ID" column (a 10-digit number, e.g. "2000135564") isn't on
+every row -- confirmed live (both the T16 diagnostic and a later
+production backfill, ~17 of ~3200 real transactions) that it's specific
+to rows involved in an amendment: absent on an ordinary, never-amended
+row, present and identical across an original filing and a later "Filing
+Status: Amended" row correcting that transaction. That persistence
+across filings is what makes cross-filing amendment linking possible at
+all (`ingest.amendments`). Sits left of the Owner code, in its own x0
+zone, when present.
 
 The "Cap. Gains > $200?" column is a checkbox rendered as vector
 graphics, not text -- extract_words() never sees its value, so it isn't
