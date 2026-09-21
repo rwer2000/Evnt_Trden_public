@@ -603,7 +603,12 @@ and different precision guarantees would blur "source of truth" for
 every downstream consumer). Run manually via the
 `import-community-archive` workflow (`workflow_dispatch` only) -- a
 one-time (or occasional) operation, not part of `collect.yml`'s regular
-cadence.
+cadence. Slow: the first live run took ~1h20m for ~32k rows across both
+sources (each chunked commit round-trips the Supabase pooler, and
+apparently that's the bottleneck, not anything CPU-bound) -- expected,
+not a hang, even though it looks exactly like one from the workflow's
+`in_progress` status alone with no live log output to check progress
+against.
 
 Neither original project's own domain/repo is still around
 (`housestockwatcher.com` doesn't resolve; `timothycarambat/house-stock-
@@ -640,6 +645,15 @@ on every run, so the signal stays accurate as our own backfill/collector
 coverage grows rather than freezing whatever was true at the moment of
 the original import. `main()` prints a per-source matched/unmatched
 breakdown after every import.
+
+Live result from the first real import: House Stock Watcher had 4,245
+distinct filings, 4,016 matched (94.6%) -- 229 not found in our own
+`filings` table, a genuine ~5.4% gap worth a future look (likely a mix
+of very recent filings their continuously-updated scraper has that our
+own collector hasn't caught up to yet, and possibly some real
+survivorship cases). Senate Stock Watcher matched 950/950 (100%) --
+expected, since T20's backfill now covers Senate back to 2014, well
+past this frozen March-2021 snapshot.
 
 Idempotent like every other sync step here, but keyed differently:
 neither dataset gives a stable per-row ID, so `dedup_key_for()` hashes
