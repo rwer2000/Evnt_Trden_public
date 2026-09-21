@@ -66,6 +66,25 @@ def test_fetch_house_stock_watcher_parses_and_derives_our_filing_id() -> None:
     assert records[1].external_filing_id is None
 
 
+def test_fetch_house_stock_watcher_strips_nul_bytes_from_asset_description() -> None:
+    # Confirmed live: house-stock-watcher-data's own scraper leaks raw
+    # NUL-byte PTR PDF font artifacts (the "Filing Status:"/"Subholding
+    # Of:" annotation-label quirk parsers.house_ptr already handles
+    # carefully) straight into fields like asset_description. Postgres
+    # text columns can't store NUL bytes at all -- this broke the import
+    # until stripped.
+    jammed = "Applied Materials - Common Stock F\x00\x00\x00 S\x00: New"
+    row = {**_HOUSE_ROW, "asset_description": jammed}
+
+    def handler(request: httpx.Request) -> httpx.Response:
+        return httpx.Response(200, json=[row])
+
+    client = httpx.Client(transport=httpx.MockTransport(handler))
+    records = fetch_house_stock_watcher(client=client)
+
+    assert records[0].asset_description == "Applied Materials - Common Stock F S: New"
+
+
 def test_fetch_senate_stock_watcher_extracts_uuid_from_ptr_link() -> None:
     def handler(request: httpx.Request) -> httpx.Response:
         return httpx.Response(200, json=[_SENATE_ROW, _SENATE_ROW_BAD_LINK])

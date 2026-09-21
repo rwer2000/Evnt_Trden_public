@@ -149,7 +149,14 @@ def _fetch_json(url: str, *, client: httpx.Client | None = None) -> list[dict[st
 def _clean(value: Any) -> str | None:
     if value is None:
         return None
-    text = str(value).strip()
+    # House Stock Watcher's own scraper leaks raw NUL-byte font artifacts
+    # from the PTR PDF's annotation labels ("Filing Status:", "Subholding
+    # Of:", ... -- the same quirk parsers.house_ptr's own docstring
+    # describes, just unfiltered here) straight into fields like
+    # asset_description -- confirmed live, this broke the import with
+    # "PostgreSQL text fields cannot contain NUL (0x00) bytes" until
+    # stripped. Not our own parser's output, just noise from theirs.
+    text = str(value).replace("\x00", "").strip()
     return text if text and text != "--" else None
 
 
