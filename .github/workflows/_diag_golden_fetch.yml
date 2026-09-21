@@ -1,0 +1,143 @@
+name: _diag_golden_fetch
+
+on:
+  workflow_dispatch:
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v3
+
+      - name: Set up Python
+        run: uv python install 3.12
+
+      - name: Install dependencies
+        run: uv sync --all-extras --dev
+
+      - name: Fetch and parse candidate filings
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+        run: |
+          uv run python - <<'PYEOF'
+          import dataclasses
+          import json
+          import os
+          from pathlib import Path
+
+          from congress_collector.parsers.house_ptr import (
+              extract_pages_words,
+              is_electronic,
+              parse_ptr_transactions,
+          )
+          from congress_collector.parsers.senate_ptr import parse_ptr_html
+          from congress_collector.storage.supabase_storage import download
+
+          KEYS = """
+          house/2026/20033725.pdf
+          house/2026/20034345.pdf
+          house/2026/20033747.pdf
+          house/2026/20033945.pdf
+          house/2026/20022577.pdf
+          house/2026/20034013.pdf
+          house/2026/20034528.pdf
+          house/2026/20019182.pdf
+          house/2026/20020055.pdf
+          house/2026/20035455.pdf
+          house/2026/20034305.pdf
+          house/2026/20035024.pdf
+          house/2026/20034694.pdf
+          house/2026/20033759.pdf
+          house/2026/20033779.pdf
+          house/2026/20034718.pdf
+          house/2026/20034159.pdf
+          house/2026/20034128.pdf
+          house/2026/20033744.pdf
+          house/2026/20034920.pdf
+          house/2026/20035035.pdf
+          house/2026/20035136.pdf
+          house/2026/20034851.pdf
+          house/2026/20034740.pdf
+          house/2026/20033981.pdf
+          house/2026/20034473.pdf
+          house/2026/20035118.pdf
+          house/2026/20033918.pdf
+          house/2026/20034036.pdf
+          house/2026/20035275.pdf
+          house/2026/20034960.pdf
+          house/2026/20034908.pdf
+          house/2026/20035204.pdf
+          house/2026/20034713.pdf
+          house/2026/20034815.pdf
+          house/2026/20034670.pdf
+          house/2026/20035216.pdf
+          house/2026/20035309.pdf
+          house/2026/20034479.pdf
+          house/2026/20033734.pdf
+          house/2026/20033803.pdf
+          house/2026/20034709.pdf
+          house/2026/20034085.pdf
+          house/2026/20033648.pdf
+          house/2026/20034012.pdf
+          house/2026/20034938.pdf
+          senate/b999bc0e-3eb0-4ca9-ab07-8e8f2e04b41f.html
+          senate/e67c6e56-c81e-4e74-b960-849a460165e2.html
+          senate/6298991b-e48f-4b11-9bbb-dfc94a7e1b32.html
+          senate/e5144197-e49c-4f74-bec4-19f1f3124668.html
+          senate/0632f542-7ac2-46e4-bd9c-603e3673f0cd.html
+          senate/a0431e36-2161-4e97-b99a-74a966d7193a.html
+          """.split()
+
+          out_dir = Path("golden_out")
+          raw_dir = out_dir / "raw"
+          raw_dir.mkdir(parents=True, exist_ok=True)
+
+          summary = []
+          for key in KEYS:
+              local_name = key.replace("/", "__")
+              try:
+                  content = download(key)
+              except Exception as e:
+                  summary.append({"key": key, "error": f"download failed: {e}"})
+                  continue
+
+              (raw_dir / local_name).write_bytes(content)
+
+              entry = {"key": key, "local_name": local_name, "bytes": len(content)}
+              try:
+                  if key.endswith(".pdf"):
+                      pages_words = extract_pages_words(content)
+                      entry["is_electronic"] = is_electronic(pages_words)
+                      if entry["is_electronic"]:
+                          txs = parse_ptr_transactions(pages_words)
+                          entry["transactions"] = [dataclasses.asdict(t) for t in txs]
+                  else:
+                      html = content.decode("utf-8")
+                      txs = parse_ptr_html(html)
+                      entry["transactions"] = [
+                          {**dataclasses.asdict(t), "expiry": t.expiry.isoformat() if t.expiry else None,
+                           "tx_date": t.tx_date.isoformat() if t.tx_date else None}
+                          for t in txs
+                      ]
+              except Exception as e:
+                  entry["parse_error"] = str(e)
+
+              summary.append(entry)
+
+          (out_dir / "summary.json").write_text(json.dumps(summary, indent=2, default=str))
+          print(f"Fetched {len(summary)} filings")
+          for e in summary:
+              n = len(e.get("transactions", []))
+              print(f"  {e['key']}: {n} tx" + (f" ERROR: {e['error']}" if "error" in e else "")
+                    + (f" PARSE_ERROR: {e['parse_error']}" if "parse_error" in e else ""))
+          PYEOF
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: golden-fixtures
+          path: golden_out/
+          retention-days: 3
