@@ -41,6 +41,14 @@ def test_new_entries_all_new_when_none_seen() -> None:
     assert new_entries(entries, set()) == entries
 
 
+def test_new_entries_dedupes_repeated_report_uuid_within_a_single_fetch() -> None:
+    entries = [_entry("uuid1"), _entry("uuid2"), _entry("uuid1")]
+
+    result = new_entries(entries, set())
+
+    assert [e.report_uuid for e in result] == ["uuid1", "uuid2"]
+
+
 def test_backfill_first_seen_derives_from_filed_date() -> None:
     entry = _entry("uuid1")
 
