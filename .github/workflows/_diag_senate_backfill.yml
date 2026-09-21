@@ -1,0 +1,74 @@
+name: _diag_senate_backfill
+
+on:
+  workflow_dispatch:
+
+jobs:
+  diag:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v3
+
+      - name: Set up Python
+        run: uv python install 3.12
+
+      - name: Install dependencies
+        run: uv sync --all-extras --dev
+
+      - name: Probe Senate eFD search with various date ranges
+        run: |
+          uv run python - <<'PYEOF'
+          import sys
+          sys.path.insert(0, "src")
+          from datetime import date
+          from congress_collector.sources.senate import (
+              new_session, fetch_ptr_page, fetch_ptr_index, PTR_REPORT_TYPE, BASE_URL, SEARCH_DATA_URL,
+          )
+
+          session = new_session()
+
+          # Raw single-page probes at a few different submitted_start_date values,
+          # printing the site's own reported totals plus the raw submitted dates
+          # for the rows returned -- no pagination, no DB writes, just what the
+          # site itself says.
+          for start in [date(2012, 1, 1), date(2018, 1, 1), date(2023, 1, 1), date(2026, 1, 1)]:
+              csrf_token = session.cookies.get("csrftoken")
+              payload = {
+                  "csrfmiddlewaretoken": csrf_token,
+                  "report_types": f"[{PTR_REPORT_TYPE}]",
+                  "filer_types": "[]",
+                  "submitted_start_date": start.strftime("%m/%d/%Y 00:00:00"),
+                  "submitted_end_date": "",
+                  "candidate_state": "",
+                  "senator_state": "",
+                  "office_id": "",
+                  "first_name": "",
+                  "last_name": "",
+                  "start": "0",
+                  "length": "10",
+              }
+              response = session.post(
+                  SEARCH_DATA_URL,
+                  data=payload,
+                  headers={"Referer": f"{BASE_URL}/search/", "X-Requested-With": "XMLHttpRequest"},
+              )
+              body = response.json()
+              print(f"=== submitted_start_date={start} ===")
+              print("recordsTotal:", body.get("recordsTotal"))
+              print("recordsFiltered:", body.get("recordsFiltered"))
+              print("result:", body.get("result"))
+              for row in body.get("data", [])[:5]:
+                  print("  row submitted:", row[-1] if row else None)
+
+          print()
+          print("=== fetch_ptr_index (full pagination) for submitted_start=2012-01-01 ===")
+          entries = fetch_ptr_index(session, submitted_start=date(2012, 1, 1))
+          print("total entries:", len(entries))
+          if entries:
+              dates = sorted(e.filed_date for e in entries if e.filed_date)
+              print("min filed_date:", dates[0] if dates else None)
+              print("max filed_date:", dates[-1] if dates else None)
+          PYEOF
