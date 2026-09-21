@@ -3,6 +3,9 @@ name: _diag_golden_fetch
 on:
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   fetch:
     runs-on: ubuntu-latest
@@ -141,3 +144,12 @@ jobs:
           name: golden-fixtures
           path: golden_out/
           retention-days: 3
+
+      - name: Push fetched data to a branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git checkout -B claude/golden-set-t17-data
+          git add -f golden_out/
+          git commit -m "T17 golden set: raw filings + parsed summary (throwaway data branch)"
+          git push -f origin claude/golden-set-t17-data
