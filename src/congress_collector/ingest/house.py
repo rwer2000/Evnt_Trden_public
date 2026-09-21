@@ -7,6 +7,7 @@ from sqlalchemy import select
 
 from congress_collector.db.models import Filing, ScrapeRun
 from congress_collector.db.session import session_scope
+from congress_collector.notify.telegram import send_message
 from congress_collector.sources.house import (
     HouseIndexEntry,
     fetch_index,
@@ -18,6 +19,12 @@ from congress_collector.sources.house import (
 # callers running on a different cadence (e.g. the hourly schedule
 # fallback) should pass a larger value.
 DEFAULT_PRECISION_S = 300
+
+# Cap on how many filer names a single new-filing Telegram message lists,
+# so an unusual burst (a catch-up after downtime, say) doesn't produce a
+# wall of text -- the count in the message header already says how many
+# there really were.
+NOTIFY_MAX_LINES = 15
 
 # T20 backfill only: filed_date is day-granularity, so that's the honest
 # precision for a first_seen_at derived from it -- see backfill_house_year.
@@ -52,9 +59,10 @@ def new_entries(
 
 
 def sync_house_index(year: int, *, precision_s: int = DEFAULT_PRECISION_S) -> int:
-    """Fetch the House index for `year`, insert newly observed filings, and
-    record a scrape_runs row regardless of outcome. Returns the number of
-    new filings inserted."""
+    """Fetch the House index for `year`, insert newly observed filings,
+    send a Telegram notification for them (T12), and record a scrape_runs
+    row regardless of outcome. Returns the number of new filings
+    inserted."""
     started_at = datetime.now(UTC)
     status = "failed"
     new_count = 0
@@ -63,8 +71,11 @@ def sync_house_index(year: int, *, precision_s: int = DEFAULT_PRECISION_S) -> in
     try:
         entries = fetch_index(year)
         now = datetime.now(UTC)
-        new_count = _insert_new_filings(entries, first_seen_for=lambda _e: (now, precision_s))
+        inserted = _insert_new_filings(entries, first_seen_for=lambda _e: (now, precision_s))
+        new_count = len(inserted)
         status = "success"
+        if inserted:
+            notify_new_filings(inserted)
     except Exception as exc:
         error_message = str(exc)
         raise
@@ -96,7 +107,7 @@ def backfill_house_year(year: int) -> int:
 
     try:
         entries = fetch_index(year)
-        new_count = _insert_new_filings(entries, first_seen_for=backfill_first_seen)
+        new_count = len(_insert_new_filings(entries, first_seen_for=backfill_first_seen))
         status = "success"
     except Exception as exc:
         error_message = str(exc)
@@ -122,7 +133,9 @@ def backfill_first_seen(entry: HouseIndexEntry) -> tuple[datetime, int]:
     return datetime.combine(entry.filing_date, time.min, tzinfo=UTC), BACKFILL_DAY_PRECISION_S
 
 
-def _insert_new_filings(entries: Sequence[HouseIndexEntry], *, first_seen_for: FirstSeenFor) -> int:
+def _insert_new_filings(
+    entries: Sequence[HouseIndexEntry], *, first_seen_for: FirstSeenFor
+) -> list[HouseIndexEntry]:
     with session_scope() as session:
         candidate_ids = [filing_id_for(e.doc_id) for e in entries]
         existing = set(
@@ -146,7 +159,21 @@ def _insert_new_filings(entries: Sequence[HouseIndexEntry], *, first_seen_for: F
                 )
             )
         session.add_all(rows)
-        return len(to_insert)
+        return to_insert
+
+
+def notify_new_filings(entries: Sequence[HouseIndexEntry]) -> None:
+    lines = [f"{filer_name_for(e)} ({e.filing_type})" for e in entries[:NOTIFY_MAX_LINES]]
+    remaining = len(entries) - len(lines)
+    if remaining > 0:
+        lines.append(f"...and {remaining} more")
+    text = f"House: {len(entries)} new filing(s)\n" + "\n".join(lines)
+    try:
+        send_message(text, category="filing")
+    except Exception as exc:
+        # Best-effort: a Telegram outage must never break ingestion, the
+        # one thing this function absolutely cannot fail to do.
+        print(f"Failed to send new-filing notification: {exc}")
 
 
 def main() -> None:

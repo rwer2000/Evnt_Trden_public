@@ -1,10 +1,15 @@
 from datetime import UTC, date, datetime
 
+import pytest
+
+from congress_collector.ingest import house
 from congress_collector.ingest.house import (
     BACKFILL_DAY_PRECISION_S,
     BACKFILL_UNKNOWN_DATE_PRECISION_S,
+    NOTIFY_MAX_LINES,
     backfill_first_seen,
     new_entries,
+    notify_new_filings,
 )
 from congress_collector.sources.house import HouseIndexEntry
 
@@ -84,3 +89,50 @@ def test_backfill_first_seen_flags_missing_filed_date_as_low_precision() -> None
 
     assert first_seen_at.tzinfo is not None
     assert precision_s == BACKFILL_UNKNOWN_DATE_PRECISION_S
+
+
+def test_notify_new_filings_sends_one_message_naming_each_filer(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    entries = [_entry("1"), _entry("2")]
+    calls = []
+    monkeypatch.setattr(
+        house, "send_message", lambda text, category: calls.append((text, category))
+    )
+
+    notify_new_filings(entries)
+
+    assert len(calls) == 1
+    text, category = calls[0]
+    assert category == "filing"
+    assert text.startswith("House: 2 new filing(s)")
+    assert "Jane Doe (P)" in text
+    assert "...and" not in text
+
+
+def test_notify_new_filings_caps_lines_and_reports_remainder(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    entries = [_entry(str(i)) for i in range(NOTIFY_MAX_LINES + 3)]
+    calls = []
+    monkeypatch.setattr(
+        house, "send_message", lambda text, category: calls.append((text, category))
+    )
+
+    notify_new_filings(entries)
+
+    text, _category = calls[0]
+    assert text.startswith(f"House: {NOTIFY_MAX_LINES + 3} new filing(s)")
+    assert text.count("Jane Doe (P)") == NOTIFY_MAX_LINES
+    assert "...and 3 more" in text
+
+
+def test_notify_new_filings_swallows_send_failure(monkeypatch: pytest.MonkeyPatch) -> None:
+    # A Telegram outage must never break ingestion -- the one thing this
+    # function absolutely cannot fail to do.
+    def boom(text: str, category: str) -> None:
+        raise RuntimeError("telegram is down")
+
+    monkeypatch.setattr(house, "send_message", boom)
+
+    notify_new_filings([_entry("1")])
