@@ -40,12 +40,17 @@ def backup_object_key(today: datetime) -> str:
 
 def create_backup(database_url: str) -> bytes:
     """Run `pg_dump` against `database_url` and return the gzip-compressed
-    dump. Raises `subprocess.CalledProcessError` if `pg_dump` fails."""
+    dump. Raises `subprocess.CalledProcessError` (with `pg_dump`'s stderr
+    printed first, since the exception itself doesn't include it) if
+    `pg_dump` fails."""
     result = subprocess.run(
         ["pg_dump", *PG_DUMP_ARGS, database_url],
         capture_output=True,
-        check=True,
+        check=False,
     )
+    if result.returncode != 0:
+        print(result.stderr.decode(errors="replace"))
+        result.check_returncode()
     return gzip.compress(result.stdout)
 
 
