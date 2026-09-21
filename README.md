@@ -236,7 +236,7 @@ keep the setup to one bot/one chat; that can be split later if it gets
 noisy. Trigger the `Telegram smoke test` workflow (`workflow_dispatch`) to
 confirm `TELEGRAM_BOT_TOKEN`/`TELEGRAM_CHAT_ID` are wired up correctly.
 
-Two things trigger a message in practice:
+Three things trigger a message in practice:
 
 - **New filings.** `sync_house_index()`/`sync_senate_ptr_index()` (the
   *live* sync paths only — never the T20 backfill paths, which would
@@ -248,6 +248,24 @@ Two things trigger a message in practice:
   were). A `send_message()` failure here is swallowed and printed, never
   raised: a Telegram outage must never break ingestion, the one thing this
   path absolutely cannot fail to do.
+- **Parsed transactions (T22).** `parse_pending_house_ptrs()`/
+  `parse_pending_senate_ptrs()` call `notify_parsed_transactions()` for
+  whatever they just parsed, with one line per transaction: direction
+  (`BUY`/`SELL`/`SELL (partial)`/`EXCHANGE`), ticker (or the raw asset
+  description when there isn't one), amount range, owner (self/spouse/
+  child), and the filer's name plus party-state when linked to a
+  politician (T13) — e.g. `Jane Doe (D-CA): BUY AAPL $1,001-$15,000
+  [self]`. This is a *second*, separate message from the new-filing one
+  above rather than a merge into it: transaction detail only exists after
+  parsing, which runs as a later step in the same `collect.yml` job, and
+  paper/scanned/failed filings (which the new-filing message already
+  covered) never produce transactions to report here. Restricted to
+  filings detected live (`first_seen_precision_s == DEFAULT_PRECISION_S`)
+  for the same reason as above: `parse_pending_house_ptrs()`'s queue is
+  shared with T20's backfill (both insert `format='unknown'`), so without
+  this filter the backfill's ~46k historical House filings would flood
+  the chat as `collect.yml`'s 25-per-run parse batches quietly work
+  through them over time.
 - **Pipeline failures.** `collect.yml`'s final step (`if: failure()`)
   posts an alert with a link to the failed run. It's deliberately plain
   `curl` against the Bot API rather than the Python notifier, since it
@@ -774,3 +792,19 @@ repo):
 - [x] T20 — Official backfill (House + Senate, both historical periods).
 - [x] T21 — Community archive import, validation, survivorship-bias
       measurement.
+
+Added after the original plan, at the user's request, to enrich the
+Telegram notifications from T12:
+
+- [x] T22 — Per-transaction detail in the parsed-transaction notification
+      (ticker/asset, buy/sell, amount range, owner, filer party+state).
+- [ ] T23 — Ingest committee membership (`congress-legislators`'
+      `committee-membership-current.yaml`) so notifications can name a
+      filer's committee assignments.
+- [ ] T24 — Ingest a SIC code per instrument from SEC EDGAR's `submissions`
+      API (keyed by the `cik` T14 already links), as a sector proxy.
+- [ ] T25 — Hand-curated committee↔SIC mapping + a "possible sector
+      overlap" flag in the notification, combining T23 and T24. Necessarily
+      approximate (committee jurisdictions are broader than SIC codes), so
+      framed cautiously rather than as a hard conflict-of-interest claim —
+      consistent with this README's Legal note.
