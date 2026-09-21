@@ -296,14 +296,8 @@ behavior.
 
 Because a filing only ever gets parsed once (`parse_pending_house_ptrs`
 only looks at `format = 'unknown'`), this improvement doesn't reach
-filings parsed before it shipped. `congress_collector.ingest.
-backfill_house_options` re-parses just the PDFs behind existing
-`asset_type = 'OP'` transactions and fills in the newly-derived fields in
-place -- a maintenance operation, not part of `collect.yml`'s regular
-cadence, run manually via the `backfill-house-options` workflow
-(`workflow_dispatch` only) or `uv run python -m
-congress_collector.ingest.backfill_house_options`. Safe to re-run: it only
-touches rows where `option_type IS NULL`.
+filings parsed before it shipped -- see `backfill_house_reparse` below,
+which covers this alongside T16's `source_transaction_id`.
 
 ## Senate eFD index sync (T9)
 
@@ -468,6 +462,15 @@ was filed the prior year won't resolve until that backfill lands; nothing
 breaks in the meantime; the amended transaction just stands alone as its
 own `is_current = true` row (already the column's default) until a later
 run discovers the match.
+
+**Backfill**: `source_transaction_id` hits the same "a filing only ever
+gets parsed once" gap as T15's option fields (see T15 above) --
+`congress_collector.ingest.backfill_house_reparse` re-parses just the
+PDFs behind transactions still missing either field and fills them in in
+place. Not part of `collect.yml`'s regular cadence; run manually via the
+`backfill-house-reparse` workflow (`workflow_dispatch` only) or `uv run
+python -m congress_collector.ingest.backfill_house_reparse`. Safe to
+re-run: a transaction that already has both fields is left untouched.
 
 ## Data quality
 

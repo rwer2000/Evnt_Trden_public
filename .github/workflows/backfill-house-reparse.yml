@@ -1,4 +1,4 @@
-name: backfill-house-options
+name: backfill-house-reparse
 
 on:
   workflow_dispatch:
@@ -18,9 +18,9 @@ jobs:
       - name: Install dependencies
         run: uv sync --all-extras --dev
 
-      - name: Backfill House option details
+      - name: Re-parse House PTRs to backfill missing fields
         env:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
-        run: uv run python -m congress_collector.ingest.backfill_house_options
+        run: uv run python -m congress_collector.ingest.backfill_house_reparse
