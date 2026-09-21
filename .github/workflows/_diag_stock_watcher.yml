@@ -18,62 +18,39 @@ jobs:
       - name: Install dependencies
         run: uv sync --all-extras --dev
 
-      - name: Probe House/Senate Stock Watcher data sources
+      - name: Search GitHub for House Stock Watcher's current data repo
         run: |
           uv run python - <<'PYEOF'
-          import json
           import httpx
 
           UA = "congress-collector (personal research use; github.com/rwer2000/Evnt_Trden_public)"
           client = httpx.Client(follow_redirects=True, timeout=30.0, headers={"User-Agent": UA})
 
-          candidates = {
-              "house_stock_watcher (S3)": "https://house-stock-watcher-data.s3-us-west-2.amazonaws.com/data/all_transactions.json",
-              "house_stock_watcher (github raw)": "https://raw.githubusercontent.com/timothycarambat/house-stock-watcher/master/data/all_transactions.json",
-              "house_stock_watcher_disclosures (github raw)": "https://raw.githubusercontent.com/timothycarambat/house-stock-watcher/master/data/disclosures.json",
-              "senate_stock_watcher (S3)": "https://senate-stock-watcher-data.s3-us-west-2.amazonaws.com/aggregate/all_transactions.json",
-              "senate_stock_watcher (github raw)": "https://raw.githubusercontent.com/timothycarambat/senate-stock-watcher-data/master/aggregate/all_transactions.json",
-          }
-
-          for name, url in candidates.items():
-              print(f"=== {name} ===")
-              print("url:", url)
-              try:
-                  resp = client.get(url)
-                  print("status:", resp.status_code)
-                  if resp.status_code == 200:
-                      print("content-length:", len(resp.content))
-                      ct = resp.headers.get("content-type")
-                      print("content-type:", ct)
-                      try:
-                          data = resp.json()
-                          if isinstance(data, list):
-                              print("type: list, len:", len(data))
-                              print("sample[0]:", json.dumps(data[0], indent=2)[:1500])
-                              print("sample[1]:", json.dumps(data[1], indent=2)[:800] if len(data) > 1 else None)
-                          else:
-                              print("type:", type(data))
-                              print("keys:", list(data.keys())[:20] if isinstance(data, dict) else None)
-                      except Exception as e:
-                          print("not JSON or parse error:", e)
-                          print("first 500 chars:", resp.text[:500])
-              except Exception as e:
-                  print("ERROR:", repr(e))
+          for query in ["house-stock-watcher", "house stock watcher data", "housestockwatcher"]:
+              print(f"=== search: {query!r} ===")
+              resp = client.get(
+                  "https://api.github.com/search/repositories",
+                  params={"q": query, "sort": "updated", "order": "desc", "per_page": 10},
+              )
+              print("status:", resp.status_code)
+              if resp.status_code == 200:
+                  for item in resp.json().get("items", []):
+                      print(
+                          f"  {item['full_name']}  pushed_at={item['pushed_at']}  "
+                          f"archived={item['archived']}  desc={item.get('description')!r}"
+                      )
               print()
 
-          # Also check the GitHub repos themselves for a README / license via the API
-          for repo in ["timothycarambat/house-stock-watcher", "timothycarambat/senate-stock-watcher-data"]:
-              print(f"=== GitHub repo: {repo} ===")
+          # Also try the site directly (in case it self-hosts its own JSON export).
+          for url in [
+              "https://housestockwatcher.com/api/transactions",
+              "https://housestockwatcher.com/data/all_transactions.json",
+              "https://www.quiverquant.com/congresstrading/",
+          ]:
+              print(f"=== direct: {url} ===")
               try:
-                  resp = client.get(f"https://api.github.com/repos/{repo}")
-                  print("status:", resp.status_code)
-                  if resp.status_code == 200:
-                      info = resp.json()
-                      print("description:", info.get("description"))
-                      print("license:", info.get("license"))
-                      print("default_branch:", info.get("default_branch"))
-                      print("archived:", info.get("archived"))
-                      print("pushed_at:", info.get("pushed_at"))
+                  resp = client.get(url)
+                  print("status:", resp.status_code, "content-type:", resp.headers.get("content-type"))
               except Exception as e:
                   print("ERROR:", repr(e))
               print()
