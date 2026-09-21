@@ -173,3 +173,7 @@ def filing_id_for(report_uuid: str) -> str:
 
 def filer_name_for(entry: SenateIndexEntry) -> str:
     return f"{entry.first_name} {entry.last_name}".strip()
+
+
+def ptr_url_for(report_uuid: str) -> str:
+    return f"{BASE_URL}/search/view/ptr/{report_uuid}/"

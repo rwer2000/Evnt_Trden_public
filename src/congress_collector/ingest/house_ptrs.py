@@ -7,7 +7,7 @@ to be the thing everything downstream re-derives from.
 """
 
 from collections.abc import Sequence
-from datetime import date
+from datetime import UTC, date, datetime
 
 from sqlalchemy import select
 from sqlalchemy.orm import Session
@@ -29,6 +29,7 @@ from congress_collector.parsers.house_ptr import (
     is_electronic,
     parse_ptr_transactions,
 )
+from congress_collector.sources.house import pdf_url_for
 from congress_collector.storage.supabase_storage import download
 
 BATCH_SIZE = 25
@@ -187,6 +188,8 @@ def notify_parsed_transactions(filing_ids: Sequence[str]) -> None:
             politician = session.get(Politician, filing.bioguide_id) if filing.bioguide_id else None
             committees = _committee_labels(session, politician)
             who = describe_filer(filing.filer_name, politician, committees)
+            year = filing.filed_date.year if filing.filed_date else datetime.now(UTC).year
+            url = pdf_url_for(filing.filing_id.removeprefix("house:"), filing.filing_type, year)
             txs = (
                 session.execute(
                     select(Transaction)
@@ -197,7 +200,7 @@ def notify_parsed_transactions(filing_ids: Sequence[str]) -> None:
                 .all()
             )
             for t in txs:
-                lines.append(f"{who}: {describe_transaction(t)}")
+                lines.append(f"{who}: {describe_transaction(t)} — {url}")
 
     if not lines:
         return

@@ -258,9 +258,11 @@ Three things trigger a message in practice:
   whatever they just parsed, with one line per transaction: direction
   (`BUY`/`SELL`/`SELL (partial)`/`EXCHANGE`), ticker (or the raw asset
   description when there isn't one), amount range, owner (self/spouse/
-  child), and the filer's name plus party-state when linked to a
-  politician (T13) — e.g. `Jane Doe (D-CA): BUY AAPL $1,001-$15,000
-  [self]`. This is a *second*, separate message from the new-filing one
+  child), the filer's name plus party-state when linked to a politician
+  (T13), and a link to the filing itself (the House PTR PDF or the Senate
+  eFD report page) — e.g. `Jane Doe (D-CA): BUY AAPL $1,001-$15,000 [self]
+  — https://disclosures-clerk.house.gov/public_disc/ptr-pdfs/2026/
+  20035471.pdf`. This is a *second*, separate message from the new-filing one
   above rather than a merge into it: transaction detail only exists after
   parsing, which runs as a later step in the same `collect.yml` job, and
   paper/scanned/failed filings (which the new-filing message already
