@@ -20,6 +20,18 @@ to reapply by hand if needed.
 meaningfully unit tested without a real Postgres server -- verified live
 against production instead, same as every other DB-touching `ops`/`ingest`
 module in this repo.
+
+Confirmed live that `pg_dump` on `PATH` isn't reliable even after
+installing the matching major version: GitHub's ubuntu-24.04 runner image
+ships PostgreSQL 16 client tools pre-installed at `/usr/bin/pg_dump`, and
+installing `postgresql-client-17` alongside it (Supabase runs Postgres 17)
+doesn't repoint `/usr/bin/pg_dump` at the new version -- the old one still
+wins on `PATH`, and pg_dump refuses to dump a server newer than itself.
+The `PG_DUMP` env var (set to the versioned binary's path,
+`/usr/lib/postgresql/17/bin/pg_dump`, in db-backup.yml) sidesteps that
+`PATH`/`update-alternatives` ambiguity entirely; it defaults to plain
+`pg_dump` for local use, where whatever's on `PATH` is presumably already
+right.
 """
 
 import gzip
@@ -38,13 +50,13 @@ def backup_object_key(today: datetime) -> str:
     return f"congress_{today:%Y%m%d}.sql.gz"
 
 
-def create_backup(database_url: str) -> bytes:
+def create_backup(database_url: str, *, pg_dump_bin: str = "pg_dump") -> bytes:
     """Run `pg_dump` against `database_url` and return the gzip-compressed
     dump. Raises `subprocess.CalledProcessError` (with `pg_dump`'s stderr
     printed first, since the exception itself doesn't include it) if
     `pg_dump` fails."""
     result = subprocess.run(
-        ["pg_dump", *PG_DUMP_ARGS, database_url],
+        [pg_dump_bin, *PG_DUMP_ARGS, database_url],
         capture_output=True,
         check=False,
     )
@@ -60,7 +72,7 @@ def main() -> None:
     # DATABASE_URL from the environment as-is rather than going through
     # `db.session.get_engine()`.
     database_url = os.environ["DATABASE_URL"]
-    dump = create_backup(database_url)
+    dump = create_backup(database_url, pg_dump_bin=os.environ.get("PG_DUMP", "pg_dump"))
     object_key = backup_object_key(datetime.now(UTC))
 
     upload(object_key, dump, "application/gzip", bucket=BACKUP_BUCKET)

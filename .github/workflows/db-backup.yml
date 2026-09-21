@@ -25,11 +25,18 @@ jobs:
         # Supabase runs Postgres 17 -- an older pg_dump can't dump a newer
         # server. Pull from the official PGDG apt repo instead, matching
         # the server's major version (confirmed live: PostgreSQL 17.6).
+        #
+        # The runner image also ships a v16 pg_dump pre-installed at
+        # /usr/bin/pg_dump, which still wins on PATH after this -- confirmed
+        # live (first attempt at this fix) that update-alternatives doesn't
+        # repoint it. Verify the versioned binary directly instead of
+        # trusting PATH.
         run: |
           sudo apt-get update
           sudo apt-get install -y postgresql-common
           sudo /usr/share/postgresql-common/pgdg/apt.postgresql.org.sh -y
           sudo apt-get install -y postgresql-client-17
+          /usr/lib/postgresql/17/bin/pg_dump --version
 
       - name: Back up the congress schema to Storage
         env:
@@ -38,4 +45,5 @@ jobs:
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          PG_DUMP: /usr/lib/postgresql/17/bin/pg_dump
         run: uv run python -m congress_collector.ops.db_backup
