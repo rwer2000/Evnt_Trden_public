@@ -505,12 +505,36 @@ back to a type-only match when the ticker+type regex doesn't match.
 
 ## Data quality
 
-Every run checks for: duplicate transactions, amendments correctly linked to
-the original filing (`is_current`), late filings (> 45 days), per-chamber
+`congress_collector.ops.dq_report` (T18) computes a health snapshot of the
+whole dataset -- duplicate transactions, amendments correctly linked to the
+original filing (`is_current`), late filings (> 45 days), per-chamber
 parse-success rate, share of paper/scanned filings, ticker-linking rate, and
-implausible values. A hand-verified set of ~50 filings (House, Senate,
-options, amendments, unusual layouts) acts as a regression gate in CI —
-parser changes may not lower the score on this set.
+implausible values -- and sends it to Telegram once a day
+(`.github/workflows/dq-report.yml`, 12:30 UTC, separately from `collect.yml`'s
+5-minute cadence so routine variance doesn't spam the channel). The
+DB-querying part (`compute_metrics`) is verified live against production
+rather than unit tested (no database in CI); the message formatting
+(`format_report`) is pure and covered by `tests/test_dq_report.py`.
+
+"Late filing" uses each transaction's own `notification_date` where the
+parser captured one (House) and falls back to the filing's `filed_date`
+otherwise (Senate, which only exposes a filing-level submitted date -- see
+T10). "Duplicate transaction" groups by filing + owner + description + type +
+date + amount range, deliberately keying on the full `asset_description_raw`
+rather than `ticker`/`asset_type` alone -- an earlier version of this check
+keyed on ticker+type and flagged a member's 20 distinct US Treasury notes
+(same day, same amount bracket, no ticker -- see T17) as one giant duplicate
+group, since notes with different maturities share every other column.
+"Implausible values" flags amount ranges with min > max, negative amounts, a
+non-positive option strike, a transaction date in the future, and a
+notification recorded *before* the transaction it discloses -- live
+verification against production found 8 real rows tripping that last check
+(mostly private-placement rows where notification_date is a few days ahead
+of tx_date), which is the report doing its job, not a bug in the check.
+
+A hand-verified set of 52 real filings (House, Senate, options, amendments,
+unusual layouts) acts as a regression gate in CI (T17) -- parser changes may
+not lower the score on this set.
 
 ## Legal note
 
@@ -561,7 +585,7 @@ repo):
 - [x] T15 — Options parser (call/put, strike, expiry, underlying).
 - [x] T16 — Amendment linking and `is_current`.
 - [x] T17 — Golden test set (50 filings) + CI regression gate.
-- [ ] T18 — Daily data-quality report via Telegram.
+- [x] T18 — Daily data-quality report via Telegram.
 - [ ] T19 — Weekly database backup to Storage.
 - [ ] T20 — Official backfill (House + Senate, both historical periods).
 - [ ] T21 — Community archive import, validation, survivorship-bias
