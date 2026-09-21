@@ -128,6 +128,11 @@ Scheduling notes:
   Senate and for ordinary never-amended House rows).
 - `instruments`, `ticker_map` (with a validity period, for point-in-time
   ticker resolution), `scrape_runs`, `dq_issues`.
+- `community_transactions` — House/Senate Stock Watcher import (T21):
+  source, chamber, dedup_key, external_filing_id, matched_filing_id (a
+  `filings.filing_id` FK, NULL if the official site no longer shows that
+  filing), plus the community dataset's own filer/ticker/asset/date/amount
+  fields, unnormalized.
 
 Signals, orders, positions and prices are owned by the private strategy
 repository and are not part of this repo's schema.
@@ -587,6 +592,68 @@ the DB), the amendment suffix is now optional in the regex, and
 pagination now continues based on the raw row count the site returned,
 not how many of them happened to parse.
 
+## Community archive import (T21)
+
+`congress_collector.ingest.community_archive` imports House Stock
+Watcher and Senate Stock Watcher into their own table,
+`community_transactions` -- kept separate from `filings`/`transactions`
+(those hold our own parsed output, derived from our own archived raw
+source; mixing in an externally parsed dataset with a different schema
+and different precision guarantees would blur "source of truth" for
+every downstream consumer). Run manually via the
+`import-community-archive` workflow (`workflow_dispatch` only) -- a
+one-time (or occasional) operation, not part of `collect.yml`'s regular
+cadence.
+
+Neither original project's own domain/repo is still around
+(`housestockwatcher.com` doesn't resolve; `timothycarambat/house-stock-
+watcher` 404s) -- confirmed live via a GitHub Actions runner. Sources
+actually used, found by searching GitHub directly:
+
+- **House**: `TattooedHead/house-stock-watcher-data` -- actively
+  maintained (pushed within the last few days as of T21). Its `filing_id`
+  field *is* the House Clerk's own DocID, the same identifier
+  `sources.house.filing_id_for()` already uses, so matching a community
+  record to our own `filings` row is a direct string match.
+- **Senate**: `timothycarambat/senate-stock-watcher-data`
+  (senatestockwatcher.com's own former data repo) -- frozen since March
+  2021, no actively maintained successor found. Used anyway, deliberately:
+  a frozen snapshot is arguably *better* for this task's survivorship-bias
+  purpose than a live one would be, since it shows exactly what the site
+  captured at the time, uncontaminated by any later re-scraping. Its
+  records don't carry an explicit filing ID, but the Senate eFD report
+  UUID is embedded in their `ptr_link` field, which matches
+  `sources.senate.filing_id_for()`'s input directly.
+
+Neither dataset declares a license on GitHub -- acceptable for this
+project's own stated use (personal research, no commercial
+redistribution, see "Legal note" below), since the underlying content is
+a re-publication of U.S. government disclosure records, not original
+creative work either project holds a copyright claim over.
+
+**Survivorship-bias measurement**: a community `filing_id` with no
+matching row in our own `filings` table is exactly the signal this task
+calls for -- something a community scraper observed at some point that
+the official site no longer surfaces (or that our own coverage hasn't
+reached yet). `rematch_unmatched()` re-checks every still-unmatched row
+on every run, so the signal stays accurate as our own backfill/collector
+coverage grows rather than freezing whatever was true at the moment of
+the original import. `main()` prints a per-source matched/unmatched
+breakdown after every import.
+
+Idempotent like every other sync step here, but keyed differently:
+neither dataset gives a stable per-row ID, so `dedup_key_for()` hashes
+the record's own content (filing, filer, date, ticker, description, type,
+owner, amounts) instead of relying on a natural key -- re-importing the
+same source snapshot is a no-op.
+
+**Known gap**: matching is at the filing level only (does this filing_id
+exist in our table at all), not deeper field-by-field transaction
+validation (does our parsed ticker/amount/date agree with theirs) --
+left for a future pass; the datasets' looser, unnormalized vocabularies
+(free-text asset types, differently formatted amounts) would need
+careful reconciliation to avoid false-positive mismatches.
+
 ## Data quality
 
 `congress_collector.ops.dq_report` (T18) computes a health snapshot of the
@@ -672,5 +739,5 @@ repo):
 - [x] T18 — Daily data-quality report via Telegram.
 - [x] T19 — Weekly database backup to Storage.
 - [x] T20 — Official backfill (House + Senate, both historical periods).
-- [ ] T21 — Community archive import, validation, survivorship-bias
+- [x] T21 — Community archive import, validation, survivorship-bias
       measurement.

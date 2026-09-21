@@ -210,3 +210,32 @@ class DqIssue(Base):
         DateTime(timezone=True), nullable=False, server_default=text("now()")
     )
     resolved_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True))
+
+
+class CommunityTransaction(Base):
+    __tablename__ = "community_transactions"
+    __table_args__ = (UniqueConstraint("source", "dedup_key"),)
+
+    community_transaction_id: Mapped[uuid.UUID] = mapped_column(
+        UUID(as_uuid=True), primary_key=True, server_default=_GEN_UUID
+    )
+    source: Mapped[str] = mapped_column(Text, nullable=False)
+    chamber: Mapped[str] = mapped_column(Text, nullable=False)
+    dedup_key: Mapped[str] = mapped_column(Text, nullable=False)
+    external_filing_id: Mapped[str | None] = mapped_column(Text)
+    matched_filing_id: Mapped[str | None] = mapped_column(
+        Text, ForeignKey("congress.filings.filing_id")
+    )
+    filer_name: Mapped[str | None] = mapped_column(Text)
+    ticker: Mapped[str | None] = mapped_column(Text)
+    asset_description: Mapped[str | None] = mapped_column(Text)
+    asset_type: Mapped[str | None] = mapped_column(Text)
+    tx_type: Mapped[str | None] = mapped_column(Text)
+    owner: Mapped[str | None] = mapped_column(Text)
+    tx_date: Mapped[date | None] = mapped_column(Date)
+    disclosure_date: Mapped[date | None] = mapped_column(Date)
+    amount_min: Mapped[float | None] = mapped_column(Numeric)
+    amount_max: Mapped[float | None] = mapped_column(Numeric)
+    created_at: Mapped[datetime] = mapped_column(
+        DateTime(timezone=True), nullable=False, server_default=text("now()")
+    )
