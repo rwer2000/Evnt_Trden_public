@@ -116,6 +116,10 @@ Scheduling notes:
   start/end date), synced from congress-legislators.
 - `politician_overrides` — manual (chamber, filer_name) → bioguide_id
   overrides for filer names the fuzzy matcher can't resolve.
+- `committees` — thomas_id, chamber, name (top-level committees only,
+  synced from congress-legislators, T23).
+- `committee_memberships` — thomas_id, bioguide_id, party, rank, title;
+  fully replaced on each sync (T23).
 - `filings` — filing_id, chamber, filer_name, bioguide_id, filing_type,
   filed_date, `first_seen_at`, `first_seen_precision_s`, format,
   parse_status, source, raw_object_key, raw_sha256, supersedes_filing_id.
@@ -441,6 +445,31 @@ persistence today), so chamber + term-period overlap is the only
 narrowing besides the name itself. In practice this is enough --
 same-chamber, same-era name collisions are rare, and the override table
 exists for exactly that residual case.
+
+## Committee membership (T23)
+
+`congress_collector.ingest.committees.sync_committees()` fetches
+`committees-current.yaml` and `committee-membership-current.yaml` from the
+same `unitedstates/congress-legislators` repo T13 already pulls politicians
+from, and upserts `committees` (one row per top-level committee, keyed by
+`thomas_id`) and `committee_memberships` (fully replaced on each sync, same
+reasoning as `politician_terms`). Runs as a second step in
+`.github/workflows/legislators.yml`, right after the politicians sync, so
+`committee_memberships.bioguide_id`'s foreign key always has a matching
+`politicians` row -- defensively double-checked in code too (memberships
+for an unrecognized bioguide are dropped rather than failing the sync).
+
+Subcommittee memberships are dropped at parse time
+(`sources/committees.py`): this collector only needs "which committees is
+this person on" for the notification below and T25's planned sector-overlap
+flag, and subcommittee membership multiplies the row count several-fold
+without adding a meaningfully different jurisdiction signal.
+
+T22's parsed-transaction Telegram message (see Notifications above) now
+appends up to `MAX_COMMITTEES_SHOWN = 3` committee names per filer, with
+its title (Chairman, Ranking Member, ...) when the membership row carries
+one -- e.g. `Jane Doe (D-CA) [Financial Services (Chairman), Energy and
+Commerce]: BUY AAPL $1,001-$15,000 [self]`.
 
 ## Ticker linking (T14)
 
@@ -798,7 +827,7 @@ Telegram notifications from T12:
 
 - [x] T22 — Per-transaction detail in the parsed-transaction notification
       (ticker/asset, buy/sell, amount range, owner, filer party+state).
-- [ ] T23 — Ingest committee membership (`congress-legislators`'
+- [x] T23 — Ingest committee membership (`congress-legislators`'
       `committee-membership-current.yaml`) so notifications can name a
       filer's committee assignments.
 - [ ] T24 — Ingest a SIC code per instrument from SEC EDGAR's `submissions`

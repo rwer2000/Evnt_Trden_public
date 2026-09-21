@@ -44,6 +44,40 @@ class Politician(Base):
     )
 
 
+class Committee(Base):
+    __tablename__ = "committees"
+
+    thomas_id: Mapped[str] = mapped_column(Text, primary_key=True)
+    chamber: Mapped[str] = mapped_column(Text, nullable=False)
+    name: Mapped[str] = mapped_column(Text, nullable=False)
+    created_at: Mapped[datetime] = mapped_column(
+        DateTime(timezone=True), nullable=False, server_default=text("now()")
+    )
+    updated_at: Mapped[datetime] = mapped_column(
+        DateTime(timezone=True), nullable=False, server_default=text("now()")
+    )
+
+
+class CommitteeMembership(Base):
+    __tablename__ = "committee_memberships"
+
+    membership_id: Mapped[uuid.UUID] = mapped_column(
+        UUID(as_uuid=True), primary_key=True, server_default=_GEN_UUID
+    )
+    thomas_id: Mapped[str] = mapped_column(
+        Text, ForeignKey("congress.committees.thomas_id"), nullable=False
+    )
+    bioguide_id: Mapped[str] = mapped_column(
+        Text, ForeignKey("congress.politicians.bioguide_id"), nullable=False
+    )
+    party: Mapped[str | None] = mapped_column(Text)
+    rank: Mapped[int | None] = mapped_column(Integer)
+    title: Mapped[str | None] = mapped_column(Text)
+    created_at: Mapped[datetime] = mapped_column(
+        DateTime(timezone=True), nullable=False, server_default=text("now()")
+    )
+
+
 class PoliticianTerm(Base):
     __tablename__ = "politician_terms"
 

@@ -32,3 +32,11 @@ jobs:
         env:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
         run: uv run python -m congress_collector.ingest.legislators
+
+      - name: Sync committee membership
+        # Runs after the politicians sync above, in the same job, so
+        # committee_memberships' bioguide_id foreign key always has a
+        # matching politicians row to reference (see ingest/committees.py).
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+        run: uv run python -m congress_collector.ingest.committees
