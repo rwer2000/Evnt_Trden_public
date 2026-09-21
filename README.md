@@ -185,7 +185,28 @@ Migrating to a dedicated project later (a different Supabase account, or
 once an existing free project's slot frees up) is a schema dump/restore
 (`pg_dump --schema=congress` / restore) plus copying the Storage bucket's
 objects — no application code changes needed beyond the connection string,
-since nothing here references `public` or Sportlogging's tables.
+since nothing here references `public` or Sportlogging's tables. T19's
+weekly backup (below) already produces a ready-made dump for this.
+
+### Weekly database backup (T19)
+
+`congress_collector.ops.db_backup` runs `pg_dump --schema=congress
+--no-owner --no-privileges` (the same command the migration note above
+describes), gzip-compresses it, and uploads it to a separate private
+bucket, `congress-backups`, keyed by date
+(`congress_YYYYMMDD.sql.gz`). Runs weekly via
+`.github/workflows/db-backup.yml` (Sunday 03:00 UTC), with a Telegram
+confirmation on success. `--no-owner --no-privileges` drops
+role-specific `ALTER TABLE OWNER TO` / `GRANT` statements, since a
+future restore target's role names (a different Supabase project,
+someone's local Postgres) aren't guaranteed to match this project's
+`congress_app` role — the schema and data restore cleanly either way.
+`pg_dump` is a subprocess, not something unit-testable without a real
+Postgres server, so this is verified live against production like every
+other DB-touching module here; only the pure date-stamped object-key
+logic is unit tested (`tests/test_db_backup.py`). No automatic pruning
+of old backups yet -- a known gap, left for whenever storage cost or
+count actually becomes worth managing.
 
 Migrations are managed with Alembic (`alembic/`), targeting the tables
 this repo owns (see the data model above). Because the schema is shared
@@ -586,7 +607,7 @@ repo):
 - [x] T16 — Amendment linking and `is_current`.
 - [x] T17 — Golden test set (50 filings) + CI regression gate.
 - [x] T18 — Daily data-quality report via Telegram.
-- [ ] T19 — Weekly database backup to Storage.
+- [x] T19 — Weekly database backup to Storage.
 - [ ] T20 — Official backfill (House + Senate, both historical periods).
 - [ ] T21 — Community archive import, validation, survivorship-bias
       measurement.

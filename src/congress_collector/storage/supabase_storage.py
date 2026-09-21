@@ -1,5 +1,6 @@
-"""Thin wrapper around the official Supabase client, scoped to the
-congress-raw bucket.
+"""Thin wrapper around the official Supabase client, defaulting to the
+congress-raw bucket but usable against any bucket (T19's `congress-backups`,
+in particular) via the `bucket` keyword.
 
 Uses the officially maintained `supabase` client rather than hand-rolling
 the Storage REST API directly: its upsert/auth semantics are easy to get
@@ -21,20 +22,27 @@ def get_client() -> Client:
     return create_client(os.environ["SUPABASE_URL"], os.environ["SUPABASE_SERVICE_ROLE_KEY"])
 
 
-def upload(path: str, content: bytes, content_type: str, *, client: Any | None = None) -> None:
-    """Upload `content` to `congress-raw/{path}`, overwriting if present."""
+def upload(
+    path: str,
+    content: bytes,
+    content_type: str,
+    *,
+    bucket: str = BUCKET,
+    client: Any | None = None,
+) -> None:
+    """Upload `content` to `{bucket}/{path}`, overwriting if present."""
     active_client = client if client is not None else get_client()
-    active_client.storage.from_(BUCKET).upload(
+    active_client.storage.from_(bucket).upload(
         path=path,
         file=content,
         file_options={"content-type": content_type, "upsert": "true"},
     )
 
 
-def download(path: str, *, client: Any | None = None) -> bytes:
-    """Download `congress-raw/{path}`."""
+def download(path: str, *, bucket: str = BUCKET, client: Any | None = None) -> bytes:
+    """Download `{bucket}/{path}`."""
     active_client = client if client is not None else get_client()
-    result = active_client.storage.from_(BUCKET).download(path)
+    result = active_client.storage.from_(bucket).download(path)
     return bytes(result)
 
 
