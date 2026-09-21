@@ -20,8 +20,16 @@ jobs:
       - name: Install dependencies
         run: uv sync --all-extras --dev
 
-      - name: Install PostgreSQL client (pg_dump)
-        run: sudo apt-get update && sudo apt-get install -y postgresql-client
+      - name: Install PostgreSQL 17 client (pg_dump)
+        # Ubuntu 24.04's default `postgresql-client` package is v16, but
+        # Supabase runs Postgres 17 -- an older pg_dump can't dump a newer
+        # server. Pull from the official PGDG apt repo instead, matching
+        # the server's major version (confirmed live: PostgreSQL 17.6).
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y postgresql-common
+          sudo /usr/share/postgresql-common/pgdg/apt.postgresql.org.sh -y
+          sudo apt-get install -y postgresql-client-17
 
       - name: Back up the congress schema to Storage
         env:
