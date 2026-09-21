@@ -74,6 +74,7 @@ _TX_TYPE_CODES = {"P": "purchase", "S": "sale_full", "E": "exchange"}
 _DATE_RE = re.compile(r"^\d{2}/\d{2}/\d{4}$")
 _TX_TYPE_RE = re.compile(r"^(P|S|E)$")
 _TICKER_TYPE_RE = re.compile(r"\(([A-Za-z0-9.\-/]{1,15})\)\s*\[([A-Za-z]{1,4})\]\s*$")
+_TYPE_ONLY_RE = re.compile(r"\[([A-Za-z]{1,4})\]\s*$")
 
 _STRUCTURED_OPTION_RE = re.compile(
     r"(?P<type>call|put)s?\s+options?.*?"
@@ -287,6 +288,13 @@ class _OpenRecord:
         match = _TICKER_TYPE_RE.search(asset_description)
         if match:
             ticker, asset_type = match.group(1), match.group(2)
+        else:
+            # No "(TICKER)" -- e.g. government securities, private
+            # holdings, and other asset types that don't trade under a
+            # ticker -- but the type code in brackets is still present.
+            type_match = _TYPE_ONLY_RE.search(asset_description)
+            if type_match:
+                asset_type = type_match.group(1)
 
         option_type = strike = expiry = None
         if asset_type == "OP":

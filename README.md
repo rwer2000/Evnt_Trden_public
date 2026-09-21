@@ -475,6 +475,34 @@ place. Not part of `collect.yml`'s regular cadence; run manually via the
 python -m congress_collector.ingest.backfill_house_reparse`. Safe to
 re-run: a transaction that already has both fields is left untouched.
 
+## Golden test set (T17)
+
+`tests/golden/` is a CI regression gate for the House and Senate PTR
+parsers, built from 52 real filings pulled from production (this
+sandbox can't reach Supabase Storage's HTTP API directly, so the raw
+bytes were fetched via a throwaway GitHub Actions workflow and pushed
+to a data branch instead). The set spans every House `asset_type` seen
+in real data -- including ones with no ticker, like government
+securities and private holdings -- both option description styles
+(T15), an amendment pair (T16), partial sales, exchanges, all owner
+codes, and Senate stock/option/multi-transaction filings.
+
+Since parsing is deterministic, `tests/test_golden_set.py` enforces
+"score must not decrease" as an exact-match snapshot test against
+`tests/golden/manifest.json` rather than a fuzzy score: any parser
+change that alters the output for one of these real filings fails CI.
+A deliberate improvement regenerates the manifest in the same PR (`uv
+run python tests/golden/regenerate.py`, review the diff by hand before
+committing).
+
+Building this set surfaced a real parser bug: `asset_type` extraction
+was coupled to a ticker being present in `(TICKER) [TYPE]` form, so
+anything without a market ticker -- government securities, private
+holdings, crypto, and any description with a stray extra paren from
+the filer -- fell through to `asset_type = None` entirely, even though
+the bracketed type code was right there in the text. Fixed by falling
+back to a type-only match when the ticker+type regex doesn't match.
+
 ## Data quality
 
 Every run checks for: duplicate transactions, amendments correctly linked to
@@ -532,7 +560,7 @@ repo):
 - [x] T14 — Ticker linking (SEC file, point-in-time changes, overrides).
 - [x] T15 — Options parser (call/put, strike, expiry, underlying).
 - [x] T16 — Amendment linking and `is_current`.
-- [ ] T17 — Golden test set (50 filings) + CI regression gate.
+- [x] T17 — Golden test set (50 filings) + CI regression gate.
 - [ ] T18 — Daily data-quality report via Telegram.
 - [ ] T19 — Weekly database backup to Storage.
 - [ ] T20 — Official backfill (House + Senate, both historical periods).
