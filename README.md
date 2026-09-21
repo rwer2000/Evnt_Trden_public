@@ -330,8 +330,10 @@ the same URL with `prohibition_agreement=1`, which sets a `sessionid`
 cookie), then pages through `POST /search/report/data/` (a DataTables
 server-side endpoint) for report type `11` -- confirmed to mean Periodic
 Transaction Report by searching for it and getting back only PTR
-results -- over the last 14 days (per the plan; backfill uses a
-per-month window instead, added with T20).
+results -- over the last 14 days (T20's backfill uses the same
+`fetch_ptr_index()`, just with a `submitted_start` of 2012-01-01 instead
+of 14 days back -- the site's own `recordsTotal` scales correctly with
+that filter, so one paginated fetch covers the whole history).
 
 Unlike House, the search result's link path already says whether a
 filing is electronic (`/search/view/ptr/<uuid>/`, an HTML page) or paper
@@ -565,6 +567,25 @@ the real gap.
 Idempotent and resumable like every other sync step here: new-ness is
 decided by `filing_id`, so a failed or interrupted backfill run can just
 be re-triggered and picks up where it left off.
+
+**Two real bugs found live while actually running this**: House's Clerk
+index can list the same DocID twice within a single year's ZIP; the
+original `new_entries()` only filtered against filings already in the
+DB, not against duplicates within the fetch itself, so `session.add_all()`
+tried to `INSERT` the same primary key twice and crashed partway through
+2015. Separately (and far more impactful), a live backfill to 2012 only
+found 83 Senate filings out of a real ~2428: `sources.senate._LINK_RE`
+didn't account for a filer-amended report's link text carrying a
+"(Amendment N)" suffix ("... for 12/08/2025 (Amendment 1)"), silently
+dropping every amended filing (~17% of rows in one sampled page) from
+`_parse_rows` -- and `fetch_ptr_index`'s pagination compared the
+*parsed* row count against `page_size` to decide whether it had reached
+the last page, so a page with any dropped rows looked artificially
+short and pagination gave up after page 1. Both fixed: `new_entries()`
+in both chambers now dedupes within the fetch itself (not just against
+the DB), the amendment suffix is now optional in the regex, and
+pagination now continues based on the raw row count the site returned,
+not how many of them happened to parse.
 
 ## Data quality
 
