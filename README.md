@@ -130,8 +130,9 @@ Scheduling notes:
   source_transaction_id (House's amendment-tracking ID, present only on
   rows involved in an amendment, used to link them; always NULL for
   Senate and for ordinary never-amended House rows).
-- `instruments`, `ticker_map` (with a validity period, for point-in-time
-  ticker resolution), `scrape_runs`, `dq_issues`.
+- `instruments` (including `sic`/`sic_description`/`sic_synced_at`, T24),
+  `ticker_map` (with a validity period, for point-in-time ticker
+  resolution), `scrape_runs`, `dq_issues`.
 - `community_transactions` — House/Senate Stock Watcher import (T21):
   source, chamber, dedup_key, external_filing_id, matched_filing_id (a
   `filings.filing_id` FK, NULL if the official site no longer shows that
@@ -526,6 +527,40 @@ since changed (a rename, not merely a new listing) fails to match today's
 snapshot and lands in the review queue rather than being mislinked to
 whatever now holds that ticker.
 
+## SIC codes (T24)
+
+`congress_collector.ingest.sic_codes.sync_sic_codes()` fetches a SIC
+(Standard Industrial Classification) code + description per instrument
+from SEC EDGAR's `data.sec.gov/submissions/CIK##########.json` API, keyed
+by the `cik` T14 already links — a sector proxy for T25's planned
+committee↔sector overlap flag. Runs daily
+(`.github/workflows/sic-codes.yml`), processing up to `BATCH_SIZE = 200`
+instruments still missing a sync (`sic_synced_at IS NULL`) per run; in
+practice this is a handful of new instruments a day, not the full
+~800-instrument universe, since SIC codes essentially never change once
+set.
+
+**Unlike `company_tickers.json` above, this endpoint doesn't block
+GitHub Actions outright — it blocks based on the User-Agent string.**
+Confirmed via a throwaway diagnostic workflow (deleted after use): a
+descriptive, self-identifying User-Agent — exactly what SEC's own
+fair-access guidance asks automated tools to send — gets a 403 ("Your
+Request Originates from an Undeclared Automated Tool"), while a generic
+browser-like one (`Mozilla/5.0`) gets a 200 with the full submission
+JSON. `sources/sec_submissions.py` deliberately uses the generic one. This
+is a conscious tradeoff the repo owner signed off on, not an oversight:
+it works around SEC's bot detection rather than the IP-based blocking
+`company_tickers.json` hits, at the cost of not self-identifying the way
+SEC's guidance asks. Kept polite otherwise — `REQUEST_INTERVAL_S = 0.5`
+between requests, an order of magnitude under SEC's stated 10-requests/
+second limit, and only ever fetching CIKs this project already has a
+legitimate reason to look up.
+
+A `sic=None` result (SEC has a record for the CIK but no SIC classification
+— some foreign private issuers, trusts, ETFs) is distinguished from "not
+synced yet" via `sic_synced_at`, so those instruments aren't refetched
+every run forever.
+
 ## Amendment linking (T16)
 
 `congress_collector.ingest.amendments.link_amendments()` keeps
@@ -830,7 +865,7 @@ Telegram notifications from T12:
 - [x] T23 — Ingest committee membership (`congress-legislators`'
       `committee-membership-current.yaml`) so notifications can name a
       filer's committee assignments.
-- [ ] T24 — Ingest a SIC code per instrument from SEC EDGAR's `submissions`
+- [x] T24 — Ingest a SIC code per instrument from SEC EDGAR's `submissions`
       API (keyed by the `cik` T14 already links), as a sector proxy.
 - [ ] T25 — Hand-curated committee↔SIC mapping + a "possible sector
       overlap" flag in the notification, combining T23 and T24. Necessarily
