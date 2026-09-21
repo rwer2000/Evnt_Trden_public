@@ -391,8 +391,11 @@ def test_source_transaction_id_captured_real_coordinates() -> None:
 
 
 def test_no_id_word_leaves_source_transaction_id_none() -> None:
-    # Older captured fixtures (no leading ID column in the test data)
-    # shouldn't crash or fabricate a value.
+    # This is the common case, not an edge case: confirmed live (T16
+    # diagnostic + a production backfill) that the ID column only
+    # appears on rows involved in an amendment -- an ordinary row has
+    # nothing there at all, and this shouldn't crash or fabricate a
+    # value for it.
     line = [
         Word("SP", 65.7, 326.0),
         Word("Netflix,", 104.7, 326.0),

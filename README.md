@@ -123,8 +123,9 @@ Scheduling notes:
   asset_description_raw, asset_type, ticker, cik, instrument_id,
   option_type, strike, expiry, underlying_ticker, tx_type, tx_date,
   notification_date, amount_min, amount_max, filing_delay_days, is_current,
-  source_transaction_id (House's persistent per-row ID, used to link
-  amendments; always NULL for Senate).
+  source_transaction_id (House's amendment-tracking ID, present only on
+  rows involved in an amendment, used to link them; always NULL for
+  Senate and for ordinary never-amended House rows).
 - `instruments`, `ticker_map` (with a validity period, for point-in-time
   ticker resolution), `scrape_runs`, `dq_issues`.
 
@@ -437,22 +438,24 @@ whatever now holds that ticker.
 `transactions.is_current` accurate when a filer corrects an earlier PTR,
 as the last step of every `collect.yml` run.
 
-House PTRs have a persistent per-row `source_transaction_id` (the form's
-leftmost "ID" column, a 10-digit number) that stays the same across an
-original filing and any later filing that amends that specific
-transaction — confirmed live against a real "Filing Status: Amended" row
-during T16 (that label, like `Description:`, is otherwise treated as
-noise; see T8/T15). Whenever the same `source_transaction_id` appears on
-transactions from more than one filing, only the one from the
-most-recently-filed filing keeps `is_current = true`; the rest get
-`is_current = false` but stay in the table for audit/history — the
-plan's own wording is "only the most recent counts". The amending
-filing's `supersedes_filing_id` is set to the earliest filing in the
-group too, best-effort.
+House PTRs have a `source_transaction_id` (the form's leftmost "ID"
+column, a 10-digit number) that stays the same across an original filing
+and any later filing that amends that specific transaction — confirmed
+live against a real "Filing Status: Amended" row during T16 (that label,
+like `Description:`, is otherwise treated as noise; see T8/T15). It
+isn't on every row: verified against a production backfill that it's
+present only on rows actually involved in an amendment (~17 of ~3200
+real House transactions) and absent on an ordinary, never-amended one,
+so this step only ever has a small number of candidates to look at.
+Whenever the same `source_transaction_id` appears on transactions from
+more than one filing, only the one from the most-recently-filed filing
+keeps `is_current = true`; the rest get `is_current = false` but stay in
+the table for audit/history — the plan's own wording is "only the most
+recent counts". The amending filing's `supersedes_filing_id` is set to
+the earliest filing in the group too, best-effort.
 
-Senate has no equivalent per-transaction identifier, so
-`source_transaction_id` stays `NULL` there and this step never touches
-Senate rows.
+Senate has no equivalent identifier, so `source_transaction_id` stays
+`NULL` there and this step never touches Senate rows.
 
 **Known gap**: this only finds an amendment's original when both filings
 are already in `filings` — and today that's only ever the current
