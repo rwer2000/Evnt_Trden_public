@@ -226,7 +226,7 @@ after.
 
 Required environment variables are documented in `.env.example`.
 
-## Notifications
+## Notifications (T12)
 
 `congress_collector.notify.telegram.send_message()` posts to a single
 Telegram group chat over the Bot API directly (no bot framework — this
@@ -235,6 +235,25 @@ repo only ever sends, never receives). Messages are prefixed by category
 keep the setup to one bot/one chat; that can be split later if it gets
 noisy. Trigger the `Telegram smoke test` workflow (`workflow_dispatch`) to
 confirm `TELEGRAM_BOT_TOKEN`/`TELEGRAM_CHAT_ID` are wired up correctly.
+
+Two things trigger a message in practice:
+
+- **New filings.** `sync_house_index()`/`sync_senate_ptr_index()` (the
+  *live* sync paths only — never the T20 backfill paths, which would
+  otherwise spam years of history) call `notify_new_filings()` whenever a
+  run inserts at least one new filing. The message lists each filer name
+  (capped at `NOTIFY_MAX_LINES = 15`, with an "...and N more" tail for a
+  larger burst — e.g. a catch-up run after downtime — so the message stays
+  short; the count in the header already says how many there really
+  were). A `send_message()` failure here is swallowed and printed, never
+  raised: a Telegram outage must never break ingestion, the one thing this
+  path absolutely cannot fail to do.
+- **Pipeline failures.** `collect.yml`'s final step (`if: failure()`)
+  posts an alert with a link to the failed run. It's deliberately plain
+  `curl` against the Bot API rather than the Python notifier, since it
+  must still fire even if an earlier step failed before `uv sync` ran
+  (checkout, or the `uv`/Python setup itself) — it needs nothing but the
+  two secrets, not a working venv.
 
 ## House Clerk index sync (T6)
 
@@ -744,7 +763,7 @@ repo):
 - [x] T10 — Senate: electronic PTR parser.
 - [x] T11 — Collector deployed and running continuously (priority
       milestone — first-seen timestamps start accumulating here).
-- [ ] T12 — Telegram notifications for new filings and errors.
+- [x] T12 — Telegram notifications for new filings and errors.
 - [x] T13 — Politician linking (congress-legislators, fuzzy match, overrides).
 - [x] T14 — Ticker linking (SEC file, point-in-time changes, overrides).
 - [x] T15 — Options parser (call/put, strike, expiry, underlying).

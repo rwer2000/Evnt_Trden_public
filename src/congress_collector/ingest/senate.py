@@ -7,6 +7,7 @@ from sqlalchemy import select
 
 from congress_collector.db.models import Filing, ScrapeRun
 from congress_collector.db.session import session_scope
+from congress_collector.notify.telegram import send_message
 from congress_collector.sources.senate import (
     SenateIndexEntry,
     fetch_ptr_index,
@@ -20,6 +21,10 @@ DEFAULT_PRECISION_S = 300
 # missed or failed run doesn't silently drop filings -- new-ness is
 # decided by filing_id, so re-seeing the same report UUID is a no-op.
 LOOKBACK_DAYS = 14
+
+# Cap on how many filer names a single new-filing Telegram message lists
+# -- see house.NOTIFY_MAX_LINES's matching note.
+NOTIFY_MAX_LINES = 15
 
 # T20 backfill only: filed_date is day-granularity, so that's the honest
 # precision for a first_seen_at derived from it -- see backfill_senate_since.
@@ -56,9 +61,9 @@ def new_entries(
 
 
 def sync_senate_ptr_index(*, precision_s: int = DEFAULT_PRECISION_S) -> int:
-    """Fetch recent Senate PTR filings, insert newly observed ones, and
-    record a scrape_runs row regardless of outcome. Returns the number of
-    new filings inserted."""
+    """Fetch recent Senate PTR filings, insert newly observed ones, send
+    a Telegram notification for them (T12), and record a scrape_runs row
+    regardless of outcome. Returns the number of new filings inserted."""
     started_at = datetime.now(UTC)
     status = "failed"
     new_count = 0
@@ -69,8 +74,11 @@ def sync_senate_ptr_index(*, precision_s: int = DEFAULT_PRECISION_S) -> int:
         submitted_start = (datetime.now(UTC) - timedelta(days=LOOKBACK_DAYS)).date()
         entries = fetch_ptr_index(session, submitted_start=submitted_start)
         now = datetime.now(UTC)
-        new_count = _insert_new_filings(entries, first_seen_for=lambda _e: (now, precision_s))
+        inserted = _insert_new_filings(entries, first_seen_for=lambda _e: (now, precision_s))
+        new_count = len(inserted)
         status = "success"
+        if inserted:
+            notify_new_filings(inserted)
     except Exception as exc:
         error_message = str(exc)
         raise
@@ -104,7 +112,7 @@ def backfill_senate_since(submitted_start: date) -> int:
         session = new_session()
         entries = fetch_ptr_index(session, submitted_start=submitted_start)
         for chunk in _chunked(entries, BACKFILL_CHUNK_SIZE):
-            new_count += _insert_new_filings(chunk, first_seen_for=backfill_first_seen)
+            new_count += len(_insert_new_filings(chunk, first_seen_for=backfill_first_seen))
         status = "success"
     except Exception as exc:
         error_message = str(exc)
@@ -144,7 +152,7 @@ def main() -> None:
 
 def _insert_new_filings(
     entries: Sequence[SenateIndexEntry], *, first_seen_for: FirstSeenFor
-) -> int:
+) -> list[SenateIndexEntry]:
     with session_scope() as session:
         candidate_ids = [filing_id_for(e.report_uuid) for e in entries]
         existing = set(
@@ -169,7 +177,21 @@ def _insert_new_filings(
                 )
             )
         session.add_all(rows)
-        return len(to_insert)
+        return to_insert
+
+
+def notify_new_filings(entries: Sequence[SenateIndexEntry]) -> None:
+    lines = [filer_name_for(e) for e in entries[:NOTIFY_MAX_LINES]]
+    remaining = len(entries) - len(lines)
+    if remaining > 0:
+        lines.append(f"...and {remaining} more")
+    text = f"Senate: {len(entries)} new filing(s)\n" + "\n".join(lines)
+    try:
+        send_message(text, category="filing")
+    except Exception as exc:
+        # Best-effort: a Telegram outage must never break ingestion, the
+        # one thing this function absolutely cannot fail to do.
+        print(f"Failed to send new-filing notification: {exc}")
 
 
 def _record_scrape_run(
