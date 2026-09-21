@@ -524,6 +524,48 @@ the filer -- fell through to `asset_type = None` entirely, even though
 the bracketed type code was right there in the text. Fixed by falling
 back to a type-only match when the ticker+type regex doesn't match.
 
+## Official backfill (T20)
+
+`congress_collector.ingest.official_backfill.backfill_all()` backfills
+both chambers' filing indices back to 2012 -- the STOCK Act's electronic
+PTR era, matching T14's `DEFAULT_VALID_FROM` -- via
+`ingest.house.backfill_house_year(year)` (looped per year, since the
+Clerk index is one ZIP per year) and
+`ingest.senate.backfill_senate_since(date(2012, 1, 1))` (one paginated
+fetch, committed in chunks of 500). Run manually via the
+`backfill-official` workflow (`workflow_dispatch` only) -- a one-time
+(or rare) operation, not part of `collect.yml`'s regular cadence.
+
+This only backfills the `filings` index rows themselves. The rest of the
+pipeline (`house_pdfs`, `house_ptrs`, `senate_ptrs`, `politician_links`,
+`tickers`, `amendments`) already works as a generic backlog over every
+filing regardless of age -- each step selects on a status column
+(`format`, `parse_status`, `instrument_id IS NULL`, ...), never a date
+range -- so once the index rows land, the regular `collect.yml` cadence
+picks up archiving/parsing/linking them over subsequent runs like any
+other pending filing.
+
+**The one thing this had to get right, and the live sync steps don't
+have to think about**: `first_seen_at` is supposed to mean "the moment
+the collector observed this filing" (see "Why first seen matters"
+above) -- for a filing backfilled in 2026 that was actually filed in
+2013, `first_seen_at = now()` would be a lie, and a damaging one, since
+it would make a 13-year-late discovery look like a 5-minute one to any
+downstream timing analysis. `ingest.house.backfill_first_seen` /
+`ingest.senate.backfill_first_seen` derive `first_seen_at` from each
+entry's own filed/submitted date instead (`first_seen_precision_s =
+86400`, since that date is day-granularity) -- the live sync functions
+(`sync_house_index`, `sync_senate_ptr_index`) are unchanged and still
+record real `first_seen_at = now()` with the live precision. The one
+edge case with no filed date at all still falls back to `now()`, but
+flagged with a ~10-year `first_seen_precision_s` sentinel so it reads as
+"meaningless for latency analysis" rather than silently understating
+the real gap.
+
+Idempotent and resumable like every other sync step here: new-ness is
+decided by `filing_id`, so a failed or interrupted backfill run can just
+be re-triggered and picks up where it left off.
+
 ## Data quality
 
 `congress_collector.ops.dq_report` (T18) computes a health snapshot of the
@@ -608,6 +650,6 @@ repo):
 - [x] T17 — Golden test set (50 filings) + CI regression gate.
 - [x] T18 — Daily data-quality report via Telegram.
 - [x] T19 — Weekly database backup to Storage.
-- [ ] T20 — Official backfill (House + Senate, both historical periods).
+- [x] T20 — Official backfill (House + Senate, both historical periods).
 - [ ] T21 — Community archive import, validation, survivorship-bias
       measurement.
