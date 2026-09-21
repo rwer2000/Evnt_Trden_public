@@ -19,9 +19,10 @@ class _FakeBucket:
 class _FakeStorage:
     def __init__(self, bucket: _FakeBucket) -> None:
         self._bucket = bucket
+        self.requested_bucket_ids: list[str] = []
 
     def from_(self, bucket_id: str) -> _FakeBucket:
-        assert bucket_id == "congress-raw"
+        self.requested_bucket_ids.append(bucket_id)
         return self._bucket
 
 
@@ -36,8 +37,23 @@ def test_upload_calls_bucket_with_upsert() -> None:
 
     upload("house/2026/8068.pdf", b"%PDF-1.4 ...", "application/pdf", client=client)
 
+    assert client.storage.requested_bucket_ids == ["congress-raw"]
     assert len(client.bucket.calls) == 1
     call = client.bucket.calls[0]
     assert call["path"] == "house/2026/8068.pdf"
     assert call["file"] == b"%PDF-1.4 ..."
     assert call["file_options"] == {"content-type": "application/pdf", "upsert": "true"}
+
+
+def test_upload_targets_an_explicit_bucket_when_given() -> None:
+    client = _FakeClient()
+
+    upload(
+        "congress_20260921.sql.gz",
+        b"...",
+        "application/gzip",
+        bucket="congress-backups",
+        client=client,
+    )
+
+    assert client.storage.requested_bucket_ids == ["congress-backups"]
