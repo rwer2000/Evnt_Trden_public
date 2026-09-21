@@ -24,6 +24,17 @@ _PAPER_ROW = [
     'target="_blank">Periodic Transaction Report for 08/31/2026</a>',
     "08/31/2026",
 ]
+# A filer-amended report's link text carries a "(Amendment N)" suffix --
+# confirmed live during T20's backfill, where this pattern turned out to
+# be ~17% of all rows on one sampled page.
+_AMENDED_ROW = [
+    "John",
+    "Boozman",
+    "Boozman, John (Senator)",
+    '<a href="/search/view/ptr/51455bcd-4966-4e77-b481-09897ada81ae/" '
+    'target="_blank">Periodic Transaction Report for 12/08/2025 (Amendment 1)</a>',
+    "08/24/2026",
+]
 
 
 def test_new_session_accepts_agreement() -> None:
@@ -82,6 +93,19 @@ def test_fetch_ptr_page_parses_electronic_and_paper_rows() -> None:
     assert entries[1].first_name == "RICHARD"
 
 
+def test_fetch_ptr_page_parses_amended_rows() -> None:
+    def handler(request: httpx.Request) -> httpx.Response:
+        return httpx.Response(200, json={"data": [_AMENDED_ROW], "result": "ok"})
+
+    client = httpx.Client(transport=httpx.MockTransport(handler), cookies={"csrftoken": "abc123"})
+    entries = senate.fetch_ptr_page(client, date(2026, 1, 1), 0, 100)
+
+    assert len(entries) == 1
+    assert entries[0].report_uuid == "51455bcd-4966-4e77-b481-09897ada81ae"
+    assert entries[0].is_electronic is True
+    assert entries[0].filed_date == date(2026, 8, 24)  # the amendment's own submitted date
+
+
 def test_fetch_ptr_page_raises_on_error_result() -> None:
     def handler(request: httpx.Request) -> httpx.Response:
         return httpx.Response(200, json={"result": "error"})
@@ -106,6 +130,38 @@ def test_fetch_ptr_index_paginates_until_a_short_page() -> None:
 
     assert call_starts == [0, 2]
     assert len(entries) == 3
+
+
+def test_fetch_ptr_index_keeps_paginating_past_a_page_with_unparseable_rows() -> None:
+    # A full page whose rows don't all match _LINK_RE (e.g. amendments,
+    # before that regex was fixed) must not look like a short/last page --
+    # confirmed live that this silently truncated a 2428-row backfill to
+    # just 83 entries. This page has 2 raw rows (== page_size) but only 1
+    # parses; pagination must still continue to the next page.
+    _unparseable_row = [
+        "Jane",
+        "Doe",
+        "Doe, Jane (Senator)",
+        "<a>not a real link</a>",
+        "01/01/2026",
+    ]
+    call_starts: list[int] = []
+
+    def handler(request: httpx.Request) -> httpx.Response:
+        params = urllib.parse.parse_qs(request.read().decode())
+        start = int(params["start"][0])
+        call_starts.append(start)
+        rows = [_ELECTRONIC_ROW, _unparseable_row] if start == 0 else [_PAPER_ROW]
+        return httpx.Response(200, json={"data": rows, "result": "ok"})
+
+    client = httpx.Client(transport=httpx.MockTransport(handler), cookies={"csrftoken": "abc"})
+    entries = senate.fetch_ptr_index(client, submitted_start=date(2026, 1, 1), page_size=2)
+
+    assert call_starts == [0, 2]
+    assert [e.report_uuid for e in entries] == [
+        "b999bc0e-3eb0-4ca9-ab07-8e8f2e04b41f",
+        "929216d5-5dbd-429c-858c-1e9332924627",
+    ]
 
 
 def test_filing_id_for_prefixes_chamber() -> None:

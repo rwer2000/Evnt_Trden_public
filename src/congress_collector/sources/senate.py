@@ -16,6 +16,18 @@ itself says whether a filing is electronic (`/search/view/ptr/<uuid>/`,
 rendered as an HTML page) or paper (`/search/view/paper/<uuid>/`), so no
 separate content-based classification step is needed the way House's
 PDF-based filings require.
+
+A filer-amended report's link text carries a "(Amendment N)" suffix
+("Periodic Transaction Report for 12/08/2025 (Amendment 1)") -- confirmed
+live (T20's backfill) against real search results, where these turned out
+to be ~17% of all rows in one sampled page. `_LINK_RE` originally didn't
+allow for that suffix, so it silently dropped every amended filing from
+`_parse_rows`; worse, `fetch_ptr_index`'s pagination used the post-regex
+row count to decide when it had reached the last page, so a page with any
+dropped rows looked artificially short and pagination stopped early --
+one bug masking a second, much bigger one (a live backfill run to 2012
+only found 83 filings out of a real ~2428, since it silently gave up
+after page 1).
 """
 
 import re
@@ -36,7 +48,7 @@ USER_AGENT = "congress-collector (personal research use; github.com/rwer2000/Evn
 
 _LINK_RE = re.compile(
     r'<a href="/search/view/(?P<kind>ptr|paper)/(?P<uuid>[0-9a-f-]{36})/"[^>]*>'
-    r"Periodic Transaction Report for \d{2}/\d{2}/\d{4}</a>"
+    r"Periodic Transaction Report for \d{2}/\d{2}/\d{4}(?:\s*\(Amendment \d+\))?</a>"
 )
 
 
@@ -74,15 +86,20 @@ def new_session(*, client: httpx.Client | None = None) -> httpx.Client:
 def fetch_ptr_index(
     session: httpx.Client, *, submitted_start: date, page_size: int = PAGE_SIZE
 ) -> list[SenateIndexEntry]:
-    """Fetch all PTR filings submitted on/after `submitted_start`."""
+    """Fetch all PTR filings submitted on/after `submitted_start`.
+
+    Pagination continues based on the raw row count the site returned,
+    not the parsed entry count -- a page can have a full `page_size` raw
+    rows but fewer parsed entries if some rows don't match `_LINK_RE`
+    (confirmed live: this used to end a 2428-row backfill after just one
+    83-entry page, because the other 17 rows on that page were silently
+    dropped and made it look like the last page)."""
     entries: list[SenateIndexEntry] = []
     start = 0
     while True:
-        page = fetch_ptr_page(session, submitted_start, start, page_size)
-        if not page:
-            break
-        entries.extend(page)
-        if len(page) < page_size:
+        raw_rows = _fetch_raw_rows(session, submitted_start, start, page_size)
+        entries.extend(_parse_rows(raw_rows))
+        if len(raw_rows) < page_size:
             break
         start += page_size
     return entries
@@ -91,6 +108,12 @@ def fetch_ptr_index(
 def fetch_ptr_page(
     session: httpx.Client, submitted_start: date, start: int, length: int
 ) -> list[SenateIndexEntry]:
+    return _parse_rows(_fetch_raw_rows(session, submitted_start, start, length))
+
+
+def _fetch_raw_rows(
+    session: httpx.Client, submitted_start: date, start: int, length: int
+) -> list[list[str]]:
     csrf_token = session.cookies.get("csrftoken")
     payload = {
         "csrfmiddlewaretoken": csrf_token,
@@ -116,7 +139,7 @@ def fetch_ptr_page(
     if body.get("result") != "ok":
         raise RuntimeError(f"efdsearch search returned an error: {body}")
 
-    return _parse_rows(body["data"])
+    return list(body["data"])
 
 
 def _parse_rows(rows: Sequence[Sequence[str]]) -> list[SenateIndexEntry]:
