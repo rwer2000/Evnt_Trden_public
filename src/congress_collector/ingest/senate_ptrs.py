@@ -23,7 +23,7 @@ from congress_collector.db.session import session_scope
 from congress_collector.ingest.senate import DEFAULT_PRECISION_S
 from congress_collector.notify.telegram import send_message
 from congress_collector.parsers.senate_ptr import ParsedTransaction, parse_ptr_html
-from congress_collector.sources.senate import new_session
+from congress_collector.sources.senate import new_session, ptr_url_for
 from congress_collector.storage.supabase_storage import sha256_hex, upload
 
 BATCH_SIZE = 25
@@ -55,7 +55,7 @@ def parse_pending_senate_ptrs(*, batch_size: int = BATCH_SIZE) -> list[str]:
     session = new_session()
     parsed_filing_ids = []
     for filing_id, report_uuid in pending:
-        url = f"https://efdsearch.senate.gov/search/view/ptr/{report_uuid}/"
+        url = ptr_url_for(report_uuid)
         response = session.get(url)
         if response.status_code != 200:
             _mark_failed(filing_id, f"GET {url} -> {response.status_code}")
@@ -172,6 +172,7 @@ def notify_parsed_transactions(filing_ids: Sequence[str]) -> None:
             politician = session.get(Politician, filing.bioguide_id) if filing.bioguide_id else None
             committees = _committee_labels(session, politician)
             who = describe_filer(filing.filer_name, politician, committees)
+            url = ptr_url_for(filing.filing_id.removeprefix("senate:"))
             txs = (
                 session.execute(
                     select(Transaction)
@@ -182,7 +183,7 @@ def notify_parsed_transactions(filing_ids: Sequence[str]) -> None:
                 .all()
             )
             for t in txs:
-                lines.append(f"{who}: {describe_transaction(t)}")
+                lines.append(f"{who}: {describe_transaction(t)} — {url}")
 
     if not lines:
         return

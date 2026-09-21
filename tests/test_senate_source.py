@@ -168,3 +168,9 @@ def test_filing_id_for_prefixes_chamber() -> None:
     assert senate.filing_id_for("b999bc0e-3eb0-4ca9-ab07-8e8f2e04b41f") == (
         "senate:b999bc0e-3eb0-4ca9-ab07-8e8f2e04b41f"
     )
+
+
+def test_ptr_url_for_builds_the_public_report_view_url() -> None:
+    assert senate.ptr_url_for("b999bc0e-3eb0-4ca9-ab07-8e8f2e04b41f") == (
+        "https://efdsearch.senate.gov/search/view/ptr/b999bc0e-3eb0-4ca9-ab07-8e8f2e04b41f/"
+    )
