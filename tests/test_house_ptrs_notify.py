@@ -42,6 +42,24 @@ def test_describe_filer_omits_dash_when_party_or_state_missing() -> None:
     assert describe_filer("DOE, Jane", _politician(party=None, state=None)) == "Jane Doe"
 
 
+def test_describe_filer_appends_committees_in_brackets() -> None:
+    result = describe_filer("DOE, Jane", _politician(), ["Financial Services", "Agriculture"])
+
+    assert result == "Jane Doe (D-CA) [Financial Services, Agriculture]"
+
+
+def test_describe_filer_caps_committees_and_reports_remainder() -> None:
+    committees = ["A", "B", "C", "D", "E"]
+
+    result = describe_filer("DOE, Jane", _politician(), committees)
+
+    assert result == "Jane Doe (D-CA) [A, B, C, +2 more]"
+
+
+def test_describe_filer_omits_brackets_without_committees() -> None:
+    assert describe_filer("DOE, Jane", _politician(), []) == "Jane Doe (D-CA)"
+
+
 def test_describe_transaction_formats_buy_with_ticker_amount_and_owner() -> None:
     t = _transaction()
 

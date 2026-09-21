@@ -10,8 +10,16 @@ from collections.abc import Sequence
 from datetime import date
 
 from sqlalchemy import select
+from sqlalchemy.orm import Session
 
-from congress_collector.db.models import DqIssue, Filing, Politician, Transaction
+from congress_collector.db.models import (
+    Committee,
+    CommitteeMembership,
+    DqIssue,
+    Filing,
+    Politician,
+    Transaction,
+)
 from congress_collector.db.session import session_scope
 from congress_collector.ingest.house import DEFAULT_PRECISION_S
 from congress_collector.notify.telegram import send_message
@@ -28,6 +36,11 @@ BATCH_SIZE = 25
 # Cap on how many transaction lines a single parsed-transactions Telegram
 # message lists -- see house.NOTIFY_MAX_LINES's matching note.
 NOTIFY_MAX_LINES = 15
+
+# Cap on how many committee names a filer's description lists (T23) --
+# some members sit on several; the point is a quick "who is this and what
+# do they oversee" glance, not an exhaustive roster.
+MAX_COMMITTEES_SHOWN = 3
 
 _TX_LABELS = {
     "purchase": "BUY",
@@ -172,7 +185,8 @@ def notify_parsed_transactions(filing_ids: Sequence[str]) -> None:
         lines = []
         for filing in filings:
             politician = session.get(Politician, filing.bioguide_id) if filing.bioguide_id else None
-            who = describe_filer(filing.filer_name, politician)
+            committees = _committee_labels(session, politician)
+            who = describe_filer(filing.filer_name, politician, committees)
             txs = (
                 session.execute(
                     select(Transaction)
@@ -200,11 +214,33 @@ def notify_parsed_transactions(filing_ids: Sequence[str]) -> None:
         print(f"Failed to send parsed-transaction notification: {exc}")
 
 
-def describe_filer(filer_name: str, politician: Politician | None) -> str:
+def _committee_labels(session: Session, politician: Politician | None) -> list[str]:
+    """Committee names (T23) a politician sits on, each with its title
+    (e.g. "Chairman") appended when the membership row carries one."""
+    if politician is None:
+        return []
+    rows = session.execute(
+        select(Committee.name, CommitteeMembership.title)
+        .join(CommitteeMembership, CommitteeMembership.thomas_id == Committee.thomas_id)
+        .where(CommitteeMembership.bioguide_id == politician.bioguide_id)
+        .order_by(Committee.name)
+    ).all()
+    return [f"{name} ({title})" if title else name for name, title in rows]
+
+
+def describe_filer(
+    filer_name: str, politician: Politician | None, committees: Sequence[str] = ()
+) -> str:
     if politician is None:
         return filer_name
     party_state = "-".join(p for p in (politician.party, politician.state) if p)
-    return f"{politician.full_name} ({party_state})" if party_state else politician.full_name
+    who = f"{politician.full_name} ({party_state})" if party_state else politician.full_name
+    if committees:
+        shown = list(committees[:MAX_COMMITTEES_SHOWN])
+        if len(committees) > MAX_COMMITTEES_SHOWN:
+            shown.append(f"+{len(committees) - MAX_COMMITTEES_SHOWN} more")
+        who += f" [{', '.join(shown)}]"
+    return who
 
 
 def describe_transaction(t: Transaction) -> str:
