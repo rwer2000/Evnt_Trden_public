@@ -1,0 +1,80 @@
+name: _diag_stock_watcher
+
+on:
+  workflow_dispatch:
+
+jobs:
+  diag:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v3
+
+      - name: Set up Python
+        run: uv python install 3.12
+
+      - name: Install dependencies
+        run: uv sync --all-extras --dev
+
+      - name: Probe House/Senate Stock Watcher data sources
+        run: |
+          uv run python - <<'PYEOF'
+          import json
+          import httpx
+
+          UA = "congress-collector (personal research use; github.com/rwer2000/Evnt_Trden_public)"
+          client = httpx.Client(follow_redirects=True, timeout=30.0, headers={"User-Agent": UA})
+
+          candidates = {
+              "house_stock_watcher (S3)": "https://house-stock-watcher-data.s3-us-west-2.amazonaws.com/data/all_transactions.json",
+              "house_stock_watcher (github raw)": "https://raw.githubusercontent.com/timothycarambat/house-stock-watcher/master/data/all_transactions.json",
+              "house_stock_watcher_disclosures (github raw)": "https://raw.githubusercontent.com/timothycarambat/house-stock-watcher/master/data/disclosures.json",
+              "senate_stock_watcher (S3)": "https://senate-stock-watcher-data.s3-us-west-2.amazonaws.com/aggregate/all_transactions.json",
+              "senate_stock_watcher (github raw)": "https://raw.githubusercontent.com/timothycarambat/senate-stock-watcher-data/master/aggregate/all_transactions.json",
+          }
+
+          for name, url in candidates.items():
+              print(f"=== {name} ===")
+              print("url:", url)
+              try:
+                  resp = client.get(url)
+                  print("status:", resp.status_code)
+                  if resp.status_code == 200:
+                      print("content-length:", len(resp.content))
+                      ct = resp.headers.get("content-type")
+                      print("content-type:", ct)
+                      try:
+                          data = resp.json()
+                          if isinstance(data, list):
+                              print("type: list, len:", len(data))
+                              print("sample[0]:", json.dumps(data[0], indent=2)[:1500])
+                              print("sample[1]:", json.dumps(data[1], indent=2)[:800] if len(data) > 1 else None)
+                          else:
+                              print("type:", type(data))
+                              print("keys:", list(data.keys())[:20] if isinstance(data, dict) else None)
+                      except Exception as e:
+                          print("not JSON or parse error:", e)
+                          print("first 500 chars:", resp.text[:500])
+              except Exception as e:
+                  print("ERROR:", repr(e))
+              print()
+
+          # Also check the GitHub repos themselves for a README / license via the API
+          for repo in ["timothycarambat/house-stock-watcher", "timothycarambat/senate-stock-watcher-data"]:
+              print(f"=== GitHub repo: {repo} ===")
+              try:
+                  resp = client.get(f"https://api.github.com/repos/{repo}")
+                  print("status:", resp.status_code)
+                  if resp.status_code == 200:
+                      info = resp.json()
+                      print("description:", info.get("description"))
+                      print("license:", info.get("license"))
+                      print("default_branch:", info.get("default_branch"))
+                      print("archived:", info.get("archived"))
+                      print("pushed_at:", info.get("pushed_at"))
+              except Exception as e:
+                  print("ERROR:", repr(e))
+              print()
+          PYEOF
