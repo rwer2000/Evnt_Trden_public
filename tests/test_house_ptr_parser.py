@@ -414,6 +414,43 @@ def test_no_id_word_leaves_source_transaction_id_none() -> None:
     assert results[0].source_transaction_id is None
 
 
+def test_asset_type_captured_without_a_ticker_real_coordinates() -> None:
+    # Real DocID 20034473: a US Treasury Note has no market ticker, so the
+    # description ends "... (91282CJR3)) [GS]" -- note the stray extra
+    # ")" before "[GS]", from the filing itself, which also breaks the
+    # ticker+type regex. Government securities, private holdings, and
+    # anything else without a ticker must still get their asset_type from
+    # the bracketed code alone (T17 golden-set finding: this used to fall
+    # through to None entirely whenever there was no "(TICKER)" match).
+    line = [
+        Word("SP", 64.95, 659.7),
+        Word("US", 103.95, 659.7),
+        Word("Treasury", 117.97, 659.7),
+        Word("Note", 155.47, 659.7),
+        Word("3.75%", 176.85, 659.7),
+        Word("DUE", 203.05, 659.7),
+        Word("S", 262.2, 659.7),
+        Word("04/16/2026", 326.7, 659.7),
+        Word("05/04/2026", 381.45, 659.7),
+        Word("$100,001", 445.95, 659.7),
+        Word("-", 485.86, 659.7),
+    ]
+    continuation = [
+        Word("12/31/28", 103.95, 670.2),
+        Word("(91282CJR3))", 142.67, 670.2),
+        Word("[GS]", 201.07, 670.2),
+        Word("$250,000", 445.95, 670.2),
+    ]
+
+    pages = [[*_HEADER, *line, *continuation, *_FOOTER]]
+    results = parse_ptr_transactions(pages)
+
+    assert len(results) == 1
+    tx = results[0]
+    assert tx.asset_type == "GS"
+    assert tx.ticker is None
+
+
 def test_line_without_a_tx_type_code_never_starts_a_transaction() -> None:
     # A lone letter in the tx_type zone that isn't P/S/E (e.g. a stray
     # word) must not be mistaken for a new row.
