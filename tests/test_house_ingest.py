@@ -45,6 +45,17 @@ def test_new_entries_all_new_when_none_seen() -> None:
     assert new_entries(entries, set()) == entries
 
 
+def test_new_entries_dedupes_repeated_doc_id_within_a_single_fetch() -> None:
+    # Confirmed live during T20's backfill: a full year's Clerk index can
+    # list the same DocID twice, which would otherwise reach
+    # session.add_all() twice and violate the filings primary key.
+    entries = [_entry("1"), _entry("2"), _entry("1")]
+
+    result = new_entries(entries, set())
+
+    assert [e.doc_id for e in result] == ["1", "2"]
+
+
 def test_backfill_first_seen_derives_from_filed_date() -> None:
     # A 2013 filing must not look like it was caught within minutes of
     # filing -- see the module docstring's "Why first seen matters" note.

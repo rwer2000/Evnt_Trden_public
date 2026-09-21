@@ -39,8 +39,20 @@ FirstSeenFor = Callable[[SenateIndexEntry], tuple[datetime, int]]
 def new_entries(
     entries: Sequence[SenateIndexEntry], existing_filing_ids: set[str]
 ) -> list[SenateIndexEntry]:
-    """Entries whose filing_id isn't already in `existing_filing_ids`."""
-    return [e for e in entries if filing_id_for(e.report_uuid) not in existing_filing_ids]
+    """Entries whose filing_id isn't already in `existing_filing_ids`,
+    deduplicated by filing_id (keeping the first occurrence) in case the
+    same report appears more than once in a single fetch -- see
+    house.new_entries's matching note (confirmed live for House during
+    T20's backfill; applied here too for the same reason, defensively)."""
+    seen: set[str] = set()
+    result = []
+    for e in entries:
+        fid = filing_id_for(e.report_uuid)
+        if fid in existing_filing_ids or fid in seen:
+            continue
+        seen.add(fid)
+        result.append(e)
+    return result
 
 
 def sync_senate_ptr_index(*, precision_s: int = DEFAULT_PRECISION_S) -> int:

@@ -34,8 +34,21 @@ FirstSeenFor = Callable[[HouseIndexEntry], tuple[datetime, int]]
 def new_entries(
     entries: Sequence[HouseIndexEntry], existing_filing_ids: set[str]
 ) -> list[HouseIndexEntry]:
-    """Entries whose filing_id isn't already in `existing_filing_ids`."""
-    return [e for e in entries if filing_id_for(e.doc_id) not in existing_filing_ids]
+    """Entries whose filing_id isn't already in `existing_filing_ids`,
+    deduplicated by filing_id (keeping the first occurrence) in case the
+    same DocID appears more than once in a single fetch -- confirmed live
+    during T20's backfill that a full year's Clerk index can contain
+    duplicate <Member> entries for the same DocID, which would otherwise
+    reach session.add_all() twice and violate the primary key."""
+    seen: set[str] = set()
+    result = []
+    for e in entries:
+        fid = filing_id_for(e.doc_id)
+        if fid in existing_filing_ids or fid in seen:
+            continue
+        seen.add(fid)
+        result.append(e)
+    return result
 
 
 def sync_house_index(year: int, *, precision_s: int = DEFAULT_PRECISION_S) -> int:
