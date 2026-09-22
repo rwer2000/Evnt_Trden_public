@@ -31,6 +31,7 @@ after page 1).
 """
 
 import re
+import time
 from collections.abc import Sequence
 from dataclasses import dataclass
 from datetime import date, datetime
@@ -43,6 +44,14 @@ SEARCH_DATA_URL = f"{BASE_URL}/search/report/data/"
 
 PTR_REPORT_TYPE = 11
 PAGE_SIZE = 100
+
+# efdsearch.senate.gov occasionally 403s (or 5xx's) a routine GET /search/home/
+# -- confirmed live (collect.yml run 35687751405): no code or IP-blocking
+# change on our end, the next run 5 minutes later succeeded normally. A
+# short retry here is cheap and avoids losing a whole collect.yml cycle's
+# worth of Senate + downstream (politician/ticker linking) work to a blip.
+MAX_SESSION_ATTEMPTS = 3
+RETRY_DELAY_S = 5.0
 
 USER_AGENT = "congress-collector (personal research use; github.com/rwer2000/Evnt_Trden_public)"
 
@@ -62,12 +71,30 @@ class SenateIndexEntry:
 
 
 def new_session(*, client: httpx.Client | None = None) -> httpx.Client:
-    """A session with the site's search-prohibition agreement accepted."""
+    """A session with the site's search-prohibition agreement accepted.
+
+    Retries the initial GET up to MAX_SESSION_ATTEMPTS times on an HTTP
+    error (see MAX_SESSION_ATTEMPTS's note) before giving up and raising.
+    Not retried: the two RuntimeErrors below, since a missing cookie means
+    the site responded but not the way we expect -- a format change worth
+    surfacing immediately, not a transient blip worth waiting out."""
     session = client or httpx.Client(
         follow_redirects=True, timeout=30.0, headers={"User-Agent": USER_AGENT}
     )
-    response = session.get(HOME_URL)
-    response.raise_for_status()
+    last_error: httpx.HTTPStatusError | None = None
+    for attempt in range(MAX_SESSION_ATTEMPTS):
+        try:
+            response = session.get(HOME_URL)
+            response.raise_for_status()
+            break
+        except httpx.HTTPStatusError as exc:
+            last_error = exc
+            if attempt < MAX_SESSION_ATTEMPTS - 1:
+                time.sleep(RETRY_DELAY_S)
+    else:
+        assert last_error is not None
+        raise last_error
+
     csrf_token = session.cookies.get("csrftoken")
     if not csrf_token:
         raise RuntimeError("efdsearch.senate.gov did not set a csrftoken cookie")

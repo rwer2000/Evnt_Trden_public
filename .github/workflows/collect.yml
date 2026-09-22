@@ -38,6 +38,15 @@ jobs:
         run: uv run python -m congress_collector.ingest.house
 
       - name: Archive House Clerk PDFs
+        # From here down: if: success() || failure() on every step, so one
+        # failing step (e.g. a transient 403 from efdsearch.senate.gov --
+        # confirmed live, see sources/senate.py's new_session() retry) never
+        # cascade-skips the rest of the pipeline. Each step only touches
+        # what's already in the DB from prior runs when an earlier step in
+        # *this* run didn't get to add anything new -- still useful work,
+        # not a no-op. (Still excludes cancel()/being cancelled, unlike
+        # always().)
+        if: success() || failure()
         env:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
@@ -45,6 +54,7 @@ jobs:
         run: uv run python -m congress_collector.ingest.house_pdfs
 
       - name: Parse House PTRs
+        if: success() || failure()
         env:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
@@ -52,6 +62,7 @@ jobs:
         run: uv run python -m congress_collector.ingest.house_ptrs
 
       - name: Sync Senate eFD index
+        if: success() || failure()
         env:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
@@ -59,6 +70,7 @@ jobs:
         run: uv run python -m congress_collector.ingest.senate
 
       - name: Parse Senate PTRs
+        if: success() || failure()
         env:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
@@ -66,16 +78,19 @@ jobs:
         run: uv run python -m congress_collector.ingest.senate_ptrs
 
       - name: Link filings to politicians
+        if: success() || failure()
         env:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
         run: uv run python -m congress_collector.ingest.politician_links
 
       - name: Link transactions to tickers
+        if: success() || failure()
         env:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
         run: uv run python -m congress_collector.ingest.tickers
 
       - name: Link House PTR amendments
+        if: success() || failure()
         env:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
         run: uv run python -m congress_collector.ingest.amendments

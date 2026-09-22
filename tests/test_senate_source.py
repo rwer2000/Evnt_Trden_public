@@ -53,6 +53,40 @@ def test_new_session_accepts_agreement() -> None:
     assert session.cookies.get("sessionid") == "xyz"
 
 
+def test_new_session_retries_the_initial_get_on_a_transient_http_error(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    monkeypatch.setattr(senate, "RETRY_DELAY_S", 0)
+    get_attempts = []
+
+    def handler(request: httpx.Request) -> httpx.Response:
+        if request.method == "GET" and request.url.path == "/search/home/":
+            get_attempts.append(1)
+            if len(get_attempts) < senate.MAX_SESSION_ATTEMPTS:
+                return httpx.Response(403)
+            return httpx.Response(200, headers={"Set-Cookie": "csrftoken=abc123; Path=/"})
+        if request.method == "POST" and request.url.path == "/search/home/":
+            return httpx.Response(200, headers={"Set-Cookie": "sessionid=xyz; Path=/"})
+        raise AssertionError(f"unexpected request: {request.method} {request.url}")
+
+    client = httpx.Client(transport=httpx.MockTransport(handler))
+    session = senate.new_session(client=client)
+
+    assert len(get_attempts) == senate.MAX_SESSION_ATTEMPTS
+    assert session.cookies.get("sessionid") == "xyz"
+
+
+def test_new_session_gives_up_after_max_attempts(monkeypatch: pytest.MonkeyPatch) -> None:
+    monkeypatch.setattr(senate, "RETRY_DELAY_S", 0)
+
+    def handler(request: httpx.Request) -> httpx.Response:
+        return httpx.Response(403)
+
+    client = httpx.Client(transport=httpx.MockTransport(handler))
+    with pytest.raises(httpx.HTTPStatusError):
+        senate.new_session(client=client)
+
+
 def test_new_session_raises_without_csrf_cookie() -> None:
     def handler(request: httpx.Request) -> httpx.Response:
         return httpx.Response(200)
