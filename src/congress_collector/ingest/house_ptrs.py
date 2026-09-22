@@ -10,6 +10,7 @@ from collections.abc import Sequence
 from datetime import UTC, date, datetime
 
 from sqlalchemy import func, select
+from sqlalchemy.exc import IntegrityError
 from sqlalchemy.orm import Session
 
 from congress_collector.db.models import (
@@ -81,7 +82,18 @@ def parse_pending_house_ptrs(*, batch_size: int = BATCH_SIZE) -> list[str]:
             _mark_failed(filing_id, "no transactions parsed from an electronic PTR")
             continue
 
-        _save_transactions(filing_id, transactions)
+        # _fetch_pending() doesn't claim rows, so this filing can also be
+        # mid-parse in a concurrently-running process -- confirmed live: a
+        # regular collect.yml run and a manually-triggered
+        # catchup_house_backlog.py run both selected the same filing and
+        # both tried to insert the same (filing_id, row_index) transaction
+        # rows, crashing whichever one lost the race with a raw
+        # IntegrityError. The other process's insert already recorded
+        # this filing as parsed, so there's nothing left for us to do.
+        try:
+            _save_transactions(filing_id, transactions)
+        except IntegrityError:
+            continue
         parsed_filing_ids.append(filing_id)
     return parsed_filing_ids
 
