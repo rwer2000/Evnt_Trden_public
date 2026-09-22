@@ -8,7 +8,7 @@ that stays `format = 'unknown'` here and is T8's job.
 from datetime import UTC, date, datetime
 
 import httpx
-from sqlalchemy import select
+from sqlalchemy import case, select
 
 from congress_collector.db.models import Filing
 from congress_collector.db.session import session_scope
@@ -52,9 +52,22 @@ def main() -> None:
 
 def _fetch_pending(limit: int) -> list[tuple[str, str, str, date | None]]:
     with session_scope() as session:
+        # Periodic transaction reports (filing_type 'P') first: they're
+        # the only type house_ptrs.py ever parses into transactions, but
+        # this table is dominated by other filing types (annual reports,
+        # amendments, extensions, ...) that will sit archived and
+        # otherwise untouched forever. Without this ordering, those types
+        # compete for the same limited per-run budget and a PTR backlog
+        # (e.g. from T20's backfill) can take months to catch up even
+        # though it's the only part that actually blocks parsing --
+        # confirmed live: 395/7,666 House PTRs archived weeks after the
+        # backfill landed, most of this step's budget spent on the other
+        # ~40k non-PTR filings instead.
+        priority = case((Filing.filing_type == "P", 0), else_=1)
         rows = session.execute(
             select(Filing.filing_id, Filing.filing_type, Filing.filed_date)
             .where(Filing.chamber == "house", Filing.raw_object_key.is_(None))
+            .order_by(priority)
             .limit(limit)
         ).all()
         return [
