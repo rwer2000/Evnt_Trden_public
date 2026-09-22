@@ -9,7 +9,7 @@ to be the thing everything downstream re-derives from.
 from collections.abc import Sequence
 from datetime import UTC, date, datetime
 
-from sqlalchemy import select
+from sqlalchemy import func, select
 from sqlalchemy.orm import Session
 
 from congress_collector.db.models import (
@@ -81,6 +81,28 @@ def main() -> None:
     print(f"House PTR parse: {len(parsed_filing_ids)} filing(s) parsed.")
     if parsed_filing_ids:
         notify_parsed_transactions(parsed_filing_ids)
+
+
+def count_pending() -> int:
+    """How many archived House PTRs still haven't been classified/parsed.
+    Used by the catch-up backlog drain -- every row this step touches
+    leaves `format = 'unknown'` regardless of outcome (parsed, paper, or
+    failed), so unlike the archive/link stages there's no "stuck forever"
+    risk here, but the count is still the correct stopping signal: a
+    batch that's all paper/failed returns 0 from
+    parse_pending_house_ptrs() even though real progress happened."""
+    with session_scope() as session:
+        count = session.scalar(
+            select(func.count())
+            .select_from(Filing)
+            .where(
+                Filing.chamber == "house",
+                Filing.filing_type == "P",
+                Filing.format == "unknown",
+                Filing.raw_object_key.is_not(None),
+            )
+        )
+        return count or 0
 
 
 def _fetch_pending(limit: int) -> list[tuple[str, str]]:
