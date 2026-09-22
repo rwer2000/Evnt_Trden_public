@@ -28,7 +28,7 @@ from dataclasses import dataclass
 from datetime import date
 from pathlib import Path
 
-from sqlalchemy import select
+from sqlalchemy import case, func, select
 from sqlalchemy.orm import Session
 
 from congress_collector.db.models import DqIssue, Instrument, TickerMap, Transaction
@@ -69,6 +69,19 @@ def load_overrides(path: Path = OVERRIDES_PATH) -> dict[tuple[str, str], Overrid
     return overrides
 
 
+def count_pending() -> int:
+    """How many transactions still don't have an instrument_id. Used by
+    the catch-up backlog drain -- link_pending_transactions()'s return
+    value alone (successful links only) can't tell "nothing left pending"
+    apart from "a batch's candidates were all already-flagged unmatched
+    ones"."""
+    with session_scope() as session:
+        count = session.scalar(
+            select(func.count()).select_from(Transaction).where(Transaction.instrument_id.is_(None))
+        )
+        return count or 0
+
+
 def link_pending_transactions(*, batch_size: int = BATCH_SIZE) -> int:
     """Assign instrument_id to up to `batch_size` transactions that don't
     have one yet. Returns the number successfully linked."""
@@ -82,8 +95,20 @@ def link_pending_transactions(*, batch_size: int = BATCH_SIZE) -> int:
         instrument_by_cik = _existing_instruments_by_cik(session)
         ticker_map_keys = _existing_ticker_map_keys(session)
 
+        # Never-yet-flagged transactions first -- see
+        # politician_links.link_pending_filings's matching note (confirmed
+        # live here too: 3,405/19,897 transactions linked, with 1,206
+        # already-flagged-unmatched transactions exceeding this step's own
+        # batch_size, so every run was re-selecting the same stuck rows).
+        already_flagged_ids = select(DqIssue.transaction_id).where(
+            DqIssue.issue_type == "ticker_match_unmatched", DqIssue.resolved_at.is_(None)
+        )
+        priority = case((Transaction.transaction_id.in_(already_flagged_ids), 1), else_=0)
         pending = session.scalars(
-            select(Transaction).where(Transaction.instrument_id.is_(None)).limit(batch_size)
+            select(Transaction)
+            .where(Transaction.instrument_id.is_(None))
+            .order_by(priority)
+            .limit(batch_size)
         ).all()
 
         for tx in pending:

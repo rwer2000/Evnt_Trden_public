@@ -15,7 +15,7 @@ forever.
 
 from datetime import date
 
-from sqlalchemy import select
+from sqlalchemy import case, func, select
 from sqlalchemy.orm import Session
 
 from congress_collector.db.models import (
@@ -34,6 +34,18 @@ from congress_collector.parsers.politician_match import Candidate, best_match, n
 BATCH_SIZE = 1000
 
 
+def count_pending() -> int:
+    """How many filings still don't have a bioguide_id. Used by the
+    catch-up backlog drain -- link_pending_filings()'s return value alone
+    (successful links only) can't tell "nothing left pending" apart from
+    "a batch's candidates were all already-flagged unmatched ones"."""
+    with session_scope() as session:
+        count = session.scalar(
+            select(func.count()).select_from(Filing).where(Filing.bioguide_id.is_(None))
+        )
+        return count or 0
+
+
 def link_pending_filings(*, batch_size: int = BATCH_SIZE) -> int:
     """Assign bioguide_id to up to `batch_size` filings that don't have one
     yet. Returns the number successfully linked."""
@@ -41,8 +53,22 @@ def link_pending_filings(*, batch_size: int = BATCH_SIZE) -> int:
     with session_scope() as session:
         overrides = _load_overrides(session)
         already_flagged = _already_flagged_filing_ids(session)
+        # Never-yet-flagged filings first: without this, once the number
+        # of permanently-unmatchable filings (e.g. House "candidate"
+        # filings, who were never members) exceeds batch_size, every run
+        # re-selects the exact same stuck rows (no ORDER BY means a
+        # stable default scan order) and never reaches a filing it hasn't
+        # tried yet -- confirmed live: 352/48,047 filings linked, with
+        # "Politician linking: 0 filing(s) linked" recurring across many
+        # collect.yml runs. Already-flagged filings are still retried
+        # (just last), so a new politician_overrides entry or updated
+        # congress-legislators data can still resolve them eventually.
+        already_flagged_ids = select(DqIssue.filing_id).where(
+            DqIssue.issue_type.startswith("politician_match_"), DqIssue.resolved_at.is_(None)
+        )
+        priority = case((Filing.filing_id.in_(already_flagged_ids), 1), else_=0)
         pending = session.scalars(
-            select(Filing).where(Filing.bioguide_id.is_(None)).limit(batch_size)
+            select(Filing).where(Filing.bioguide_id.is_(None)).order_by(priority).limit(batch_size)
         ).all()
 
         for filing in pending:

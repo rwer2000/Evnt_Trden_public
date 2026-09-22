@@ -313,8 +313,11 @@ GitHub Actions runner:
 - PTRs: `public_disc/ptr-pdfs/{year}/{doc_id}.pdf`
 - everything else: `public_disc/financial-pdfs/{year}/{doc_id}.pdf`
 
-A filing whose PDF fetch fails (404, timeout, ...) is simply left pending
-and retried on the next `collect` run. Run it directly with
+A filing whose PDF fetch fails (404, timeout, ...) is left pending and
+flagged with a `dq_issues` row (`house_pdf_fetch_failed`), so it's
+retried on the next `collect` run but no longer competes evenly with
+filings that haven't been tried at all (see "Stuck-batch priority"
+below). Run it directly with
 `uv run python -m congress_collector.ingest.house_pdfs`.
 
 **Filing-type priority.** `_fetch_pending()` orders `filing_type = 'P'`
@@ -326,14 +329,38 @@ only 395 of the ~7,300 PTRs among them had been archived, since most of
 each run's budget kept going to filing types that were never going to be
 parsed anyway.
 
+**Stuck-batch priority.** Within each type tier, previously-failed
+filings (flagged via the `dq_issues` row above) sort last, behind
+never-yet-tried ones. Without this, a filing whose PDF is permanently
+gone (a 404 that will never resolve) can win the type-priority ordering
+every single run and crowd out every filing that hasn't been attempted
+at all -- confirmed live: a catch-up run "completed successfully" having
+archived only 3,226 of 7,666 PTRs, because the same batch of
+unfetchable filings kept getting re-selected and the run never reached
+the untried remainder. `politician_links.py` and `tickers.py` had the
+exact same bug (no ordering + no exclusion of already-flagged rows from
+the pending query) and got the same fix: once the number of
+permanently-unmatched filings/transactions exceeds a run's batch size,
+every run was re-selecting the identical stuck rows and never advancing
+-- confirmed live via `politician_links`: 352/48,047 filings linked, with
+"Politician linking: 0 filing(s) linked" recurring across many
+`collect.yml` runs. Already-flagged rows are still retried (just last),
+so a new override or refreshed `congress-legislators`/SEC data can still
+resolve them later.
+
 **Catching up a large backlog.** `catchup-house-backlog.yml`
 (`ingest.catchup_house_backlog`) drains the archive → parse → politician-
 link → ticker-link pipeline in one workflow run instead of waiting on
-`collect.yml`'s 5-minute cadence — each stage loops internally until
-nothing's left pending. Not part of the regular pipeline; trigger it
-manually (`workflow_dispatch`) after a big backfill. Safe to re-run if
-the job's 350-minute timeout cuts it off partway, since every stage just
-re-queries the DB for what's still pending.
+`collect.yml`'s 5-minute cadence. Each stage loops until its own
+`count_pending()` reaches zero -- not until a batch's *successful* count
+hits zero, since those aren't the same thing (see "Stuck-batch priority"
+above: a batch can flag real, permanent failures while still returning 0
+successes). If a stage's pending count stops shrinking between batches,
+the drain stops with an explicit message instead of silently
+under-reporting the run as complete. Not part of the regular pipeline;
+trigger it manually (`workflow_dispatch`) after a big backfill. Safe to
+re-run if the job's 350-minute timeout cuts it off partway, since every
+stage just re-queries the DB for what's still pending.
 
 ## House PTR parser (T8)
 
