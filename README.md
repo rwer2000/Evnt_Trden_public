@@ -317,6 +317,24 @@ A filing whose PDF fetch fails (404, timeout, ...) is simply left pending
 and retried on the next `collect` run. Run it directly with
 `uv run python -m congress_collector.ingest.house_pdfs`.
 
+**Filing-type priority.** `_fetch_pending()` orders `filing_type = 'P'`
+(PTRs) first. Without this, PTRs compete for the same 50-per-run budget
+as every other House filing type (annual reports, amendments,
+extensions, ...) that T8's parser never touches at all -- confirmed
+live: weeks after T20's backfill added ~46k historical House filings,
+only 395 of the ~7,300 PTRs among them had been archived, since most of
+each run's budget kept going to filing types that were never going to be
+parsed anyway.
+
+**Catching up a large backlog.** `catchup-house-backlog.yml`
+(`ingest.catchup_house_backlog`) drains the archive → parse → politician-
+link → ticker-link pipeline in one workflow run instead of waiting on
+`collect.yml`'s 5-minute cadence — each stage loops internally until
+nothing's left pending. Not part of the regular pipeline; trigger it
+manually (`workflow_dispatch`) after a big backfill. Safe to re-run if
+the job's 350-minute timeout cuts it off partway, since every stage just
+re-queries the DB for what's still pending.
+
 ## House PTR parser (T8)
 
 `congress_collector.ingest.house_ptrs.parse_pending_house_ptrs()` reads
