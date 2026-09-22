@@ -392,6 +392,19 @@ report UUID in that path becomes the filing_id (`senate:<uuid>`).
 
 Run it directly with `uv run python -m congress_collector.ingest.senate`.
 
+**Resilience.** efdsearch.senate.gov occasionally 403s (or 5xx's) the
+initial `GET /search/home/` for no apparent reason on our end — confirmed
+live (a `collect.yml` run failed on it, the next run 5 minutes later
+succeeded normally with no code or IP change in between).
+`sources.senate.new_session()` retries that GET up to
+`MAX_SESSION_ATTEMPTS = 3` times with a short delay before giving up.
+Separately, every `collect.yml` step from "Archive House Clerk PDFs"
+onward runs with `if: success() || failure()`, so one step failing (this
+one included, if retries are exhausted) doesn't cascade-skip the rest of
+the pipeline — House archiving/parsing and the shared politician/ticker
+linking steps still process whatever's already in the DB from prior runs
+even when this run's Senate sync didn't get to add anything new.
+
 ## Senate PTR parser (T10)
 
 `congress_collector.ingest.senate_ptrs.parse_pending_senate_ptrs()` fetches
