@@ -59,8 +59,18 @@ def parse_pending_house_ptrs(*, batch_size: int = BATCH_SIZE) -> list[str]:
     pending = _fetch_pending(batch_size)
     parsed_filing_ids = []
     for filing_id, object_key in pending:
-        content = download(object_key)
-        pages_words = extract_pages_words(content)
+        # A transient Storage read failure here used to crash the whole
+        # process -- confirmed live: house_pdfs.py's matching upload()
+        # call did the same thing on a long catch-up run. Treated the
+        # same way "no transactions parsed" already was: marked failed
+        # (removes it from `format = 'unknown'` pending either way) with
+        # a dq_issues row, rather than losing the rest of the batch.
+        try:
+            content = download(object_key)
+            pages_words = extract_pages_words(content)
+        except Exception as exc:
+            _mark_failed(filing_id, f"download/extract failed: {exc}")
+            continue
 
         if not is_electronic(pages_words):
             _mark_paper_deferred(filing_id)

@@ -33,16 +33,22 @@ def archive_pending_house_pdfs(*, batch_size: int = BATCH_SIZE) -> int:
         for filing_id, doc_id, filing_type, filed_date in pending:
             year = filed_date.year if filed_date else datetime.now(UTC).year
             url = pdf_url_for(doc_id, filing_type, year)
+            # Covers both the House-site fetch and the Supabase Storage
+            # upload -- confirmed live: a catch-up run crashed the whole
+            # process on an httpx.ReadTimeout from upload() (a transient
+            # Storage-side blip after tens of thousands of prior calls),
+            # since only the fetch used to be wrapped. Either failure gets
+            # the same treatment: flag and move on, not lose the run.
             try:
                 response = client.get(url)
                 response.raise_for_status()
+                content = response.content
+                object_key = f"house/{year}/{doc_id}.pdf"
+                upload(object_key, content, "application/pdf")
             except httpx.HTTPError as exc:
-                _record_fetch_failed(filing_id, f"GET {url} -> {exc}")
+                _record_fetch_failed(filing_id, f"{url} -> {exc}")
                 continue
 
-            content = response.content
-            object_key = f"house/{year}/{doc_id}.pdf"
-            upload(object_key, content, "application/pdf")
             _record_archived(filing_id, object_key, sha256_hex(content))
             archived += 1
     finally:
