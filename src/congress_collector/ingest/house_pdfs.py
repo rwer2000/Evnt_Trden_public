@@ -37,15 +37,21 @@ def archive_pending_house_pdfs(*, batch_size: int = BATCH_SIZE) -> int:
             # upload -- confirmed live: a catch-up run crashed the whole
             # process on an httpx.ReadTimeout from upload() (a transient
             # Storage-side blip after tens of thousands of prior calls),
-            # since only the fetch used to be wrapped. Either failure gets
-            # the same treatment: flag and move on, not lose the run.
+            # since only the fetch used to be wrapped. Widened from
+            # `httpx.HTTPError` to `Exception` after a second live crash:
+            # storage3's own error handling calls response.json() on a
+            # failed upload's response, which raised a raw
+            # json.JSONDecodeError (not an HTTPError subclass) when that
+            # response body was empty -- so the narrower catch let it
+            # straight through. Either failure gets the same treatment:
+            # flag and move on, not lose the run.
             try:
                 response = client.get(url)
                 response.raise_for_status()
                 content = response.content
                 object_key = f"house/{year}/{doc_id}.pdf"
                 upload(object_key, content, "application/pdf")
-            except httpx.HTTPError as exc:
+            except Exception as exc:
                 _record_fetch_failed(filing_id, f"{url} -> {exc}")
                 continue
 
