@@ -4,6 +4,7 @@ from collections.abc import Callable, Sequence
 from datetime import UTC, datetime, time
 
 from sqlalchemy import select
+from sqlalchemy.dialects.postgresql import insert as pg_insert
 
 from congress_collector.db.models import Filing, ScrapeRun
 from congress_collector.db.session import session_scope
@@ -13,6 +14,7 @@ from congress_collector.sources.house import (
     fetch_index,
     filer_name_for,
     filing_id_for,
+    pdf_url_for,
 )
 
 # Matches the primary external cron cadence (every 5 min on market hours);
@@ -136,34 +138,58 @@ def backfill_first_seen(entry: HouseIndexEntry) -> tuple[datetime, int]:
 def _insert_new_filings(
     entries: Sequence[HouseIndexEntry], *, first_seen_for: FirstSeenFor
 ) -> list[HouseIndexEntry]:
+    """Insert `entries` not already in `filings`, tolerating a concurrent
+    writer beating us to one of the same filing_ids -- confirmed live
+    (2026-09-21, scrape_runs): a manually-triggered backfill-official run
+    (no shared concurrency group with collect.yml) and a live
+    sync_house_index() run both decided the same filing_id was new and
+    both tried to INSERT it. Without ON CONFLICT DO NOTHING, one multi-row
+    INSERT statement is all-or-nothing, so that single collision rolled
+    back every other genuinely-new filing in the same batch too and
+    crashed the whole process on an unhandled UniqueViolation. RETURNING
+    reports back only the rows this statement actually inserted, so a
+    filing the other writer won the race on is excluded from the return
+    value (and so from the new-filing notification) rather than being
+    reported as inserted twice."""
     with session_scope() as session:
         candidate_ids = [filing_id_for(e.doc_id) for e in entries]
         existing = set(
             session.scalars(select(Filing.filing_id).where(Filing.filing_id.in_(candidate_ids)))
         )
         to_insert = new_entries(entries, existing)
+        if not to_insert:
+            return []
         rows = []
         for e in to_insert:
             first_seen_at, precision_s = first_seen_for(e)
             rows.append(
-                Filing(
-                    filing_id=filing_id_for(e.doc_id),
-                    chamber="house",
-                    filer_name=filer_name_for(e),
-                    filing_type=e.filing_type,
-                    filed_date=e.filing_date,
-                    first_seen_at=first_seen_at,
-                    first_seen_precision_s=precision_s,
-                    format="unknown",
-                    source="official",
-                )
+                {
+                    "filing_id": filing_id_for(e.doc_id),
+                    "chamber": "house",
+                    "filer_name": filer_name_for(e),
+                    "filing_type": e.filing_type,
+                    "filed_date": e.filing_date,
+                    "first_seen_at": first_seen_at,
+                    "first_seen_precision_s": precision_s,
+                    "format": "unknown",
+                    "source": "official",
+                }
             )
-        session.add_all(rows)
-        return to_insert
+        stmt = (
+            pg_insert(Filing)
+            .values(rows)
+            .on_conflict_do_nothing(index_elements=[Filing.filing_id])
+            .returning(Filing.filing_id)
+        )
+        inserted_ids = set(session.scalars(stmt).all())
+        return [e for e in to_insert if filing_id_for(e.doc_id) in inserted_ids]
 
 
 def notify_new_filings(entries: Sequence[HouseIndexEntry]) -> None:
-    lines = [f"{filer_name_for(e)} ({e.filing_type})" for e in entries[:NOTIFY_MAX_LINES]]
+    lines = [
+        f"{filer_name_for(e)} ({e.filing_type}) — {pdf_url_for(e.doc_id, e.filing_type, e.year)}"
+        for e in entries[:NOTIFY_MAX_LINES]
+    ]
     remaining = len(entries) - len(lines)
     if remaining > 0:
         lines.append(f"...and {remaining} more")
