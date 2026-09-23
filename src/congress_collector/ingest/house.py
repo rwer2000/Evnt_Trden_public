@@ -13,6 +13,7 @@ from congress_collector.sources.house import (
     fetch_index,
     filer_name_for,
     filing_id_for,
+    pdf_url_for,
 )
 
 # Matches the primary external cron cadence (every 5 min on market hours);
@@ -163,7 +164,11 @@ def _insert_new_filings(
 
 
 def notify_new_filings(entries: Sequence[HouseIndexEntry]) -> None:
-    lines = [f"{filer_name_for(e)} ({e.filing_type})" for e in entries[:NOTIFY_MAX_LINES]]
+    lines = [
+        f"{filer_name_for(e)} ({e.filing_type}) — "
+        f"{pdf_url_for(e.doc_id, e.filing_type, e.year)}"
+        for e in entries[:NOTIFY_MAX_LINES]
+    ]
     remaining = len(entries) - len(lines)
     if remaining > 0:
         lines.append(f"...and {remaining} more")

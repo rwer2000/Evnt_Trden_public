@@ -14,6 +14,7 @@ from congress_collector.sources.senate import (
     filer_name_for,
     filing_id_for,
     new_session,
+    view_url_for,
 )
 
 DEFAULT_PRECISION_S = 300
@@ -181,7 +182,10 @@ def _insert_new_filings(
 
 
 def notify_new_filings(entries: Sequence[SenateIndexEntry]) -> None:
-    lines = [filer_name_for(e) for e in entries[:NOTIFY_MAX_LINES]]
+    lines = [
+        f"{filer_name_for(e)} — {view_url_for(e.report_uuid, is_electronic=e.is_electronic)}"
+        for e in entries[:NOTIFY_MAX_LINES]
+    ]
     remaining = len(entries) - len(lines)
     if remaining > 0:
         lines.append(f"...and {remaining} more")

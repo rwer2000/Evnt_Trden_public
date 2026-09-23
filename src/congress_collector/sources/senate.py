@@ -203,4 +203,13 @@ def filer_name_for(entry: SenateIndexEntry) -> str:
 
 
 def ptr_url_for(report_uuid: str) -> str:
-    return f"{BASE_URL}/search/view/ptr/{report_uuid}/"
+    return view_url_for(report_uuid, is_electronic=True)
+
+
+def view_url_for(report_uuid: str, *, is_electronic: bool) -> str:
+    """The report's page on efdsearch.senate.gov -- `/search/view/ptr/...`
+    for an electronic filing (a plain HTML table), `/search/view/paper/...`
+    for a paper one (a scanned image, nothing to parse), matching
+    `_LINK_RE`'s two link kinds above."""
+    kind = "ptr" if is_electronic else "paper"
+    return f"{BASE_URL}/search/view/{kind}/{report_uuid}/"
