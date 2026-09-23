@@ -63,3 +63,45 @@ def test_best_match_prefers_unambiguous_high_confidence_over_tie() -> None:
 
     assert result.bioguide_id == "P000197"
     assert result.method == "fuzzy"
+
+
+def test_normalize_name_strips_professional_credentials() -> None:
+    assert normalize_name("Neal Patrick MD, Facs Dunn") == "neal patrick dunn"
+
+
+def test_best_match_resolves_extra_middle_name_via_first_and_last_trim() -> None:
+    # An extra middle name in the filer's own PTR can drag the full-name
+    # score below REVIEW_THRESHOLD even though first+last already match
+    # exactly and unambiguously -- e.g. Rep. Michael Guest signs PTRs as
+    # "Michael Patrick Guest".
+    candidates = [
+        Candidate(bioguide_id="G000591", full_name="Michael Guest"),
+        Candidate(bioguide_id="M000355", full_name="Mitch McConnell"),
+    ]
+
+    result = best_match("Hon. Michael Patrick Guest", candidates)
+
+    assert result.bioguide_id == "G000591"
+    assert result.method == "fuzzy"
+
+
+def test_best_match_middle_name_trim_does_not_resolve_a_genuine_collision() -> None:
+    # Two distinct candidates sharing a first and last name, differing
+    # only by middle initial -- trimming the query's middle name makes
+    # them score an exact tie, which must still come back ambiguous
+    # rather than silently picking one. Uses middle initials that share no
+    # letters with the query's own middle name ("Patrick"), since
+    # token_sort_ratio isn't purely token-structural -- a coincidentally
+    # shared letter (e.g. "Patrick" vs "R") can otherwise separate two
+    # candidates by a few points for reasons that have nothing to do with
+    # genuine identity, which would mask the exact tie this test means to
+    # exercise.
+    candidates = [
+        Candidate(bioguide_id="A000001", full_name="Michael X Guest"),
+        Candidate(bioguide_id="A000002", full_name="Michael Z Guest"),
+    ]
+
+    result = best_match("Michael Patrick Guest", candidates)
+
+    assert result.bioguide_id is None
+    assert result.method in ("ambiguous", "unmatched")

@@ -13,7 +13,7 @@ never members and never will be) would get a fresh dq_issues row every run
 forever.
 """
 
-from datetime import date
+from datetime import date, timedelta
 
 from sqlalchemy import case, func, select
 from sqlalchemy.orm import Session
@@ -32,6 +32,18 @@ from congress_collector.parsers.politician_match import Candidate, best_match, n
 # pure DB work (no external HTTP calls), so clearing the backlog in one or
 # two runs instead of ~9 is cheap.
 BATCH_SIZE = 1000
+
+# A PTR is filed *after* the trade it reports (STOCK Act allows up to 45
+# days), so a filing whose filed_date falls shortly after a term's
+# end_date almost always still concerns that term -- confirmed live for
+# Kathy Castor and Raul Grijalva, both filed 2 days into the ~3-day gap
+# between one Congress's term end_date and the next one's start_date, and
+# for Jacky Rosen and Tammy Duckworth, filed 29-49 days after leaving the
+# House for the Senate. Without this grace period, `_candidates_for`
+# doesn't even include the correct person as a candidate, so best_match()
+# can only return a low-scoring wrong guess -- not a fuzzy-matching
+# problem at all, a missing-candidate one.
+_TERM_END_GRACE_DAYS = 60
 
 
 def count_pending() -> int:
@@ -126,7 +138,8 @@ def _candidates_for(session: Session, chamber: str, as_of: date) -> list[Candida
         .where(
             PoliticianTerm.chamber == chamber,
             PoliticianTerm.start_date <= as_of,
-            (PoliticianTerm.end_date.is_(None)) | (PoliticianTerm.end_date >= as_of),
+            (PoliticianTerm.end_date.is_(None))
+            | (PoliticianTerm.end_date + timedelta(days=_TERM_END_GRACE_DAYS) >= as_of),
         )
     ).all()
     by_bioguide: dict[str, Candidate] = {}

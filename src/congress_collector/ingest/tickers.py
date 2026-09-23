@@ -181,6 +181,16 @@ def _resolve(
     if override is not None:
         return _company_from_override(override, by_ticker)
 
+    # Some filers write nothing but the bare ticker as the whole
+    # description (no "(TICKER)" for the parser to extract) -- e.g. "WMT",
+    # "GE". An exact dict lookup on the raw description carries none of
+    # match_by_description's mismatch risk (that's fuzzy company-*name*
+    # matching, not a ticker lookup), so it's safe to try before falling
+    # back to the fuzzy path.
+    company = match_by_ticker(tx.asset_description_raw, by_ticker)
+    if company is not None:
+        return company
+
     return match_by_description(tx.asset_description_raw, companies).company
 
 
