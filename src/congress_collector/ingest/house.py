@@ -187,8 +187,7 @@ def _insert_new_filings(
 
 def notify_new_filings(entries: Sequence[HouseIndexEntry]) -> None:
     lines = [
-        f"{filer_name_for(e)} ({e.filing_type}) — "
-        f"{pdf_url_for(e.doc_id, e.filing_type, e.year)}"
+        f"{filer_name_for(e)} ({e.filing_type}) — {pdf_url_for(e.doc_id, e.filing_type, e.year)}"
         for e in entries[:NOTIFY_MAX_LINES]
     ]
     remaining = len(entries) - len(lines)
