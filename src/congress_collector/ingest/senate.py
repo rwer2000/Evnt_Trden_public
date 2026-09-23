@@ -4,6 +4,7 @@ from collections.abc import Callable, Iterator, Sequence
 from datetime import UTC, date, datetime, time, timedelta
 
 from sqlalchemy import select
+from sqlalchemy.dialects.postgresql import insert as pg_insert
 
 from congress_collector.db.models import Filing, ScrapeRun
 from congress_collector.db.session import session_scope
@@ -154,31 +155,44 @@ def main() -> None:
 def _insert_new_filings(
     entries: Sequence[SenateIndexEntry], *, first_seen_for: FirstSeenFor
 ) -> list[SenateIndexEntry]:
+    """Insert `entries` not already in `filings`, tolerating a concurrent
+    writer beating us to one of the same filing_ids -- see
+    house._insert_new_filings's matching note (confirmed live for House;
+    applied here too since backfill-official.yml backfills both chambers
+    without a concurrency group shared with collect.yml's live sync)."""
     with session_scope() as session:
         candidate_ids = [filing_id_for(e.report_uuid) for e in entries]
         existing = set(
             session.scalars(select(Filing.filing_id).where(Filing.filing_id.in_(candidate_ids)))
         )
         to_insert = new_entries(entries, existing)
+        if not to_insert:
+            return []
         rows = []
         for e in to_insert:
             first_seen_at, precision_s = first_seen_for(e)
             rows.append(
-                Filing(
-                    filing_id=filing_id_for(e.report_uuid),
-                    chamber="senate",
-                    filer_name=filer_name_for(e),
-                    filing_type="P",
-                    filed_date=e.filed_date,
-                    first_seen_at=first_seen_at,
-                    first_seen_precision_s=precision_s,
-                    format="electronic" if e.is_electronic else "paper",
-                    parse_status="pending" if e.is_electronic else "paper_deferred",
-                    source="official",
-                )
+                {
+                    "filing_id": filing_id_for(e.report_uuid),
+                    "chamber": "senate",
+                    "filer_name": filer_name_for(e),
+                    "filing_type": "P",
+                    "filed_date": e.filed_date,
+                    "first_seen_at": first_seen_at,
+                    "first_seen_precision_s": precision_s,
+                    "format": "electronic" if e.is_electronic else "paper",
+                    "parse_status": "pending" if e.is_electronic else "paper_deferred",
+                    "source": "official",
+                }
             )
-        session.add_all(rows)
-        return to_insert
+        stmt = (
+            pg_insert(Filing)
+            .values(rows)
+            .on_conflict_do_nothing(index_elements=[Filing.filing_id])
+            .returning(Filing.filing_id)
+        )
+        inserted_ids = set(session.scalars(stmt).all())
+        return [e for e in to_insert if filing_id_for(e.report_uuid) in inserted_ids]
 
 
 def notify_new_filings(entries: Sequence[SenateIndexEntry]) -> None:
