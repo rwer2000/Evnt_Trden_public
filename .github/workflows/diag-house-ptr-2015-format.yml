@@ -1,0 +1,117 @@
+name: "Diagnostic: House PTR pre-2022 parse failure"
+
+on:
+  workflow_dispatch:
+
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v3
+
+      - name: Set up Python
+        run: uv python install 3.12
+
+      - name: Install dependencies
+        run: uv sync --all-extras --dev
+
+      - name: Fetch and inspect known-failing and known-good House PTR PDFs
+        run: |
+          uv run python - <<'PYEOF'
+          import httpx
+          from congress_collector.parsers.house_ptr import extract_pages_words, is_electronic
+          from congress_collector.sources.house import USER_AGENT, pdf_url_for
+
+          # (doc_id, filing_type, year, label)
+          samples = [
+              ("20002307", "P", 2015, "2015 -- known failing (0 transactions parsed)"),
+              ("20002347", "P", 2015, "2015 -- known failing"),
+              ("20016440", "P", 2020, "2020 -- known failing"),
+              ("20019490", "P", 2021, "2021 -- known failing"),
+              ("20034085", "P", 2026, "2026 -- known GOOD (golden set)"),
+          ]
+
+          client = httpx.Client(follow_redirects=True, timeout=30.0, headers={"User-Agent": USER_AGENT})
+          for doc_id, ftype, year, label in samples:
+              url = pdf_url_for(doc_id, ftype, year)
+              print(f"\n===== {label}: {url} =====")
+              try:
+                  resp = client.get(url)
+                  resp.raise_for_status()
+              except Exception as exc:
+                  print(f"FETCH FAILED: {exc}")
+                  continue
+
+              pages_words = extract_pages_words(resp.content)
+              print(f"pages: {len(pages_words)}, words on page 1: {len(pages_words[0]) if pages_words else 0}")
+              print(f"is_electronic(): {is_electronic(pages_words)}")
+
+              all_text = " ".join(w.text for words in pages_words for w in words)
+              print(f"contains '$200?': {'$200?' in all_text}")
+              print(f"contains 'Cap': {'Cap' in all_text}")
+              print(f"contains 'Gains': {'Gains' in all_text}")
+
+              # Dump every word containing '$' or 'Gain' or 'Cap' or '200' near the header,
+              # plus the raw text of the first ~40 lines of page 1 grouped loosely by top.
+              if pages_words:
+                  page1 = pages_words[0]
+                  interesting = [w for w in page1 if any(tok in w.text for tok in ("$", "Gain", "Cap", "200", "?"))]
+                  print("interesting header-ish words (text, x0, top):")
+                  for w in interesting[:40]:
+                      print(f"  {w.text!r:20s} x0={w.x0:.1f} top={w.top:.1f}")
+
+                  print("first 60 words of page 1 in reading order (text@x0,top):")
+                  ordered = sorted(page1, key=lambda w: (w.top, w.x0))
+                  for w in ordered[:60]:
+                      print(f"  {w.text!r:20s} x0={w.x0:.1f} top={w.top:.1f}")
+          PYEOF
+        env:
+          PYTHONUNBUFFERED: "1"
+
+      - name: Inspect scanned (paper) House PTRs for OCR feasibility
+        run: |
+          uv run python - <<'PYEOF'
+          import io
+          import httpx
+          import pdfplumber
+          from congress_collector.sources.house import USER_AGENT, pdf_url_for
+
+          # (doc_id, filing_type, year, label)
+          samples = [
+              ("20002313", "P", 2015, "2015 scanned"),
+              ("20010238", "P", 2018, "2018 scanned"),
+              ("9116331", "P", 2026, "2026 scanned -- most recent one in the DB"),
+          ]
+
+          client = httpx.Client(follow_redirects=True, timeout=30.0, headers={"User-Agent": USER_AGENT})
+          for doc_id, ftype, year, label in samples:
+              url = pdf_url_for(doc_id, ftype, year)
+              print(f"\n===== {label}: {url} =====")
+              try:
+                  resp = client.get(url)
+                  resp.raise_for_status()
+              except Exception as exc:
+                  print(f"FETCH FAILED: {exc}")
+                  continue
+
+              with pdfplumber.open(io.BytesIO(resp.content)) as pdf:
+                  print(f"pages: {len(pdf.pages)}")
+                  for i, page in enumerate(pdf.pages[:3]):
+                      words = page.extract_words()
+                      images = page.images
+                      print(f"  page {i}: {len(words)} extractable words, {len(images)} embedded image(s), "
+                            f"page size {page.width:.0f}x{page.height:.0f} pt")
+                      for img in images[:2]:
+                          w_px = img.get("width", 0)
+                          h_px = img.get("height", 0)
+                          # rough effective DPI = pixel width / (page width in inches)
+                          page_width_in = page.width / 72.0
+                          dpi = (w_px / page_width_in) if page_width_in else 0
+                          print(f"    image: {w_px}x{h_px}px, page width {page_width_in:.2f}in "
+                                f"-> approx {dpi:.0f} DPI")
+          PYEOF
+        env:
+          PYTHONUNBUFFERED: "1"
