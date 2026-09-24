@@ -76,6 +76,18 @@ a 100% parse-failure rate on every House PTR filed 2015 through most of
    Lynch)"), which broke `_TICKER_TYPE_RE`'s end-of-string anchor and
    silently dropped ticker/asset_type for every affected row. Fixed by
    `_annotation_label()`, which recognizes a label by either encoding.
+4. Filings from roughly 2015-2018 (before the "[TYPE]" bracket existed on
+   the form at all, alongside the missing Cap. Gains column) have a bare
+   "(TICKER)" at the end of the description with no bracket following it
+   -- confirmed live: "Actavis plc ordinary shares (ACT)" is the complete
+   description, once quirk 3's leaked annotation text is stripped out.
+   `_TICKER_TYPE_RE` requires that bracket, so it never matched this era
+   even after fixing quirk 3. `_TICKER_ONLY_RE` now catches the bare-ticker
+   case; `asset_type` stays `None` for these rows since the era's form
+   never recorded it. The extracted ticker is also upper-cased regardless
+   of which regex matched, since this era's mixed-case text-layer rendering
+   affects the ticker itself too (e.g. "(Cb)" for Chubb, "(gd)" for General
+   Dynamics), not just the bracketed type code.
 """
 
 import io
@@ -136,6 +148,10 @@ _DATE_RE = re.compile(r"^\d{2}/\d{2}/\d{4}$")
 _TX_TYPE_RE = re.compile(r"^(P|S|E)$", re.IGNORECASE)
 _TICKER_TYPE_RE = re.compile(r"\(([A-Za-z0-9.\-/]{1,15})\)\s*\[([A-Za-z]{1,4})\]\s*$")
 _TYPE_ONLY_RE = re.compile(r"\[([A-Za-z]{1,4})\]\s*$")
+# Pre-2019 filings (before the "[TYPE]" bracket existed on the form at
+# all -- see the module docstring) have a bare "(TICKER)" at the end of
+# the description instead, e.g. "Actavis plc ordinary shares (ACT)".
+_TICKER_ONLY_RE = re.compile(r"\(([A-Za-z0-9.\-/]{1,15})\)\s*$")
 
 _STRUCTURED_OPTION_RE = re.compile(
     r"(?P<type>call|put)s?\s+options?.*?"
@@ -481,10 +497,11 @@ class _OpenRecord:
         asset_type = None
         match = _TICKER_TYPE_RE.search(asset_description)
         if match:
-            # .upper(): pre-2022 filings render this bracketed code in
-            # lowercase in the text layer (e.g. "[sT]") -- see the
+            # .upper() on both: pre-2022 filings render the bracketed type
+            # code, and sometimes the ticker itself (e.g. "(Cb)" for
+            # Chubb), in lowercase/mixed case in the text layer -- see the
             # _TX_TYPE_RE note above, same underlying font quirk.
-            ticker, asset_type = match.group(1), match.group(2).upper()
+            ticker, asset_type = match.group(1).upper(), match.group(2).upper()
         else:
             # No "(TICKER)" -- e.g. government securities, private
             # holdings, and other asset types that don't trade under a
@@ -492,6 +509,12 @@ class _OpenRecord:
             type_match = _TYPE_ONLY_RE.search(asset_description)
             if type_match:
                 asset_type = type_match.group(1).upper()
+            else:
+                # Pre-2019 form: no "[TYPE]" bracket exists on the form at
+                # all, just a bare "(TICKER)" at the end.
+                ticker_match = _TICKER_ONLY_RE.search(asset_description)
+                if ticker_match:
+                    ticker = ticker_match.group(1).upper()
 
         option_type = strike = expiry = None
         if asset_type == "OP":
