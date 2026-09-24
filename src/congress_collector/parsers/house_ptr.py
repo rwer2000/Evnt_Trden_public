@@ -65,6 +65,29 @@ a 100% parse-failure rate on every House PTR filed 2015 through most of
    equivalent row reads "... [ST] P ...". `_TX_TYPE_RE` and the two
    asset-type regexes are now case-insensitive, with the captured values
    upper-cased before use, so this era parses the same as any other.
+3. The same pre-2022 filings render the annotation labels themselves
+   ("Filing Status:", "Subholding Of:", "Description:", "Location:") as
+   plain mixed-case ASCII text rather than the NUL-byte-padded,
+   first-letter-only style 2022+ forms use for the same labels. The
+   annotation-block detection only recognized the NUL-byte style, so this
+   era's label and content words fell through into `_OpenRecord.extend()`
+   and polluted `asset_description_raw` (e.g. "Actavis plc ordinary
+   shares (ACT) FILINg sTATus: New subHoLDINg oF: sP M81 (Merrill
+   Lynch)"), which broke `_TICKER_TYPE_RE`'s end-of-string anchor and
+   silently dropped ticker/asset_type for every affected row. Fixed by
+   `_annotation_label()`, which recognizes a label by either encoding.
+4. Filings from roughly 2015-2018 (before the "[TYPE]" bracket existed on
+   the form at all, alongside the missing Cap. Gains column) have a bare
+   "(TICKER)" at the end of the description with no bracket following it
+   -- confirmed live: "Actavis plc ordinary shares (ACT)" is the complete
+   description, once quirk 3's leaked annotation text is stripped out.
+   `_TICKER_TYPE_RE` requires that bracket, so it never matched this era
+   even after fixing quirk 3. `_TICKER_ONLY_RE` now catches the bare-ticker
+   case; `asset_type` stays `None` for these rows since the era's form
+   never recorded it. The extracted ticker is also upper-cased regardless
+   of which regex matched, since this era's mixed-case text-layer rendering
+   affects the ticker itself too (e.g. "(Cb)" for Chubb, "(gd)" for General
+   Dynamics), not just the bracketed type code.
 """
 
 import io
@@ -109,6 +132,13 @@ _COLUMN_MARGIN = 3.0
 _OWNER_CODES = {"SP": "spouse", "JT": "joint", "DC": "child"}
 _TX_TYPE_CODES = {"P": "purchase", "S": "sale_full", "E": "exchange"}
 
+# The form's annotation labels, normalized. Confirmed live (2026-09-24
+# diagnostic) that pre-2022 filings render these as plain mixed-case ASCII
+# text ("FILINg", "sUBHOLDINg oF:", "DESCRIPTION:", "LOCATION:") rather than
+# the NUL-byte-padded first-letter-only style 2022+ forms use -- the same
+# underlying font quirk, two different eras' rendering of it.
+_ANNOTATION_LABELS = {"filing", "subholding", "description", "location"}
+
 _DATE_RE = re.compile(r"^\d{2}/\d{2}/\d{4}$")
 # Case-insensitive: pre-2022 filings render this single-letter code (and the
 # asset-type-in-brackets code below) in lowercase in the PDF's text layer --
@@ -118,6 +148,10 @@ _DATE_RE = re.compile(r"^\d{2}/\d{2}/\d{4}$")
 _TX_TYPE_RE = re.compile(r"^(P|S|E)$", re.IGNORECASE)
 _TICKER_TYPE_RE = re.compile(r"\(([A-Za-z0-9.\-/]{1,15})\)\s*\[([A-Za-z]{1,4})\]\s*$")
 _TYPE_ONLY_RE = re.compile(r"\[([A-Za-z]{1,4})\]\s*$")
+# Pre-2019 filings (before the "[TYPE]" bracket existed on the form at
+# all -- see the module docstring) have a bare "(TICKER)" at the end of
+# the description instead, e.g. "Actavis plc ordinary shares (ACT)".
+_TICKER_ONLY_RE = re.compile(r"\(([A-Za-z0-9.\-/]{1,15})\)\s*$")
 
 _STRUCTURED_OPTION_RE = re.compile(
     r"(?P<type>call|put)s?\s+options?.*?"
@@ -292,9 +326,10 @@ def parse_ptr_transactions(pages_words: list[list[Word]]) -> list[ParsedTransact
                 describing = False
                 continue
 
-            if "\x00" in line[0].text:
+            label = _annotation_label(line[0].text)
+            if label is not None:
                 in_annotation_block = True
-                describing = line[0].text.startswith("D")
+                describing = label == "description"
                 if describing and current is not None:
                     current.add_description_words(line)
                 continue
@@ -349,6 +384,27 @@ def _is_header_line(line_text: str) -> bool:
         or ("Cap." in line_text and "Gains" in line_text)
         or "$200?" in line_text
     )
+
+
+def _annotation_label(word_text: str) -> str | None:
+    """Which annotation label (if any) a line's first word represents.
+
+    Handles both encodings the form uses for the same labels ("Filing
+    Status:", "Subholding Of:", "Description:", "Location:") -- the
+    NUL-byte-padded, first-letter-only style 2022+ forms render, and the
+    plain mixed-case ASCII style pre-2022 forms use instead ("FILINg",
+    "sUBHOLDINg", "DESCRIPTION:", "LOCATION:"), confirmed live via the
+    2026-09-24 diagnostic workflow. Returns None for an ordinary word.
+    """
+    if "\x00" in word_text:
+        return {
+            "F": "filing",
+            "S": "subholding",
+            "D": "description",
+            "L": "location",
+        }.get(word_text[0].upper())
+    stripped = word_text.rstrip(":").lower()
+    return stripped if stripped in _ANNOTATION_LABELS else None
 
 
 def _line_starts_transaction(line: list[Word], bounds: _ColumnBounds) -> bool:
@@ -426,6 +482,8 @@ class _OpenRecord:
         for w in line:
             if "\x00" in w.text:
                 continue  # the "D...:" label word itself, not content
+            if w.text.rstrip(":").lower() == "description":
+                continue  # plain-text label style (pre-2022 filings)
             self.description_parts.append(w.text)
 
     def finalize(self, row_index: int) -> ParsedTransaction:
@@ -439,10 +497,11 @@ class _OpenRecord:
         asset_type = None
         match = _TICKER_TYPE_RE.search(asset_description)
         if match:
-            # .upper(): pre-2022 filings render this bracketed code in
-            # lowercase in the text layer (e.g. "[sT]") -- see the
+            # .upper() on both: pre-2022 filings render the bracketed type
+            # code, and sometimes the ticker itself (e.g. "(Cb)" for
+            # Chubb), in lowercase/mixed case in the text layer -- see the
             # _TX_TYPE_RE note above, same underlying font quirk.
-            ticker, asset_type = match.group(1), match.group(2).upper()
+            ticker, asset_type = match.group(1).upper(), match.group(2).upper()
         else:
             # No "(TICKER)" -- e.g. government securities, private
             # holdings, and other asset types that don't trade under a
@@ -450,6 +509,12 @@ class _OpenRecord:
             type_match = _TYPE_ONLY_RE.search(asset_description)
             if type_match:
                 asset_type = type_match.group(1).upper()
+            else:
+                # Pre-2019 form: no "[TYPE]" bracket exists on the form at
+                # all, just a bare "(TICKER)" at the end.
+                ticker_match = _TICKER_ONLY_RE.search(asset_description)
+                if ticker_match:
+                    ticker = ticker_match.group(1).upper()
 
         option_type = strike = expiry = None
         if asset_type == "OP":
