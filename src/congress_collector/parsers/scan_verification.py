@@ -27,6 +27,18 @@ This is a v1: the checks below catch the specific failure shape #1 above,
 plus generic implausibility signals worth a second look. It is not a
 substitute for the human-review step the test batch's own recommendation
 calls for on every RISKY-tier filing above a modest transaction count.
+
+v2 (2026-09-24, same day, extraction_prompt_v2.txt re-test against the 6
+worst filings -- see `tests/fixtures/scanned_house_ptr_llm_testset/
+v2_prompt_retest.json`) confirmed none of the checks above catch
+under-extraction: a plausible-looking but incomplete result, where the
+model reads real data correctly for the rows it did extract but silently
+stops partway through a dense filing. Two live examples, both large
+filings the model was allowed to look at in full: `house:8218645`
+extracted 20 of an estimated 100+ transactions, and `house:8220570`
+extracted 169 of an estimated 300-400. Both a `reported_total_rows` check
+and a page-count heuristic are added for this -- see their own
+docstrings below for exactly how weak the evidence behind each is.
 """
 
 from collections import Counter
@@ -46,6 +58,24 @@ REVIEW_TRANSACTION_COUNT = 20
 # hallucinated-repetition artifact rather than a real filing pattern.
 REVIEW_DUPLICATE_COUNT = 3
 
+# Below this many transactions per page, a multi-page filing is flagged as
+# a possible under-extraction. Calibrated against exactly 3 known data
+# points, so treat this as a weak, advisory-only signal, not a validated
+# threshold: house:20019240 (4 pages, 22 correct transactions) sits at
+# 5.5/page and is fine; house:8218645 (6 pages, 20 of an estimated 100+)
+# sits at 3.3/page and is a real undercount; house:8220570 (23 pages, 169
+# of an estimated 300-400) sits at 7.3/page and is also a real undercount.
+# A threshold below the correct case's 5.5 and above neither undercount
+# would need to sit between 5.5 and everything below it, which the two bad
+# cases don't consistently satisfy (8220570's 7.3 is actually above
+# 20019240's 5.5) -- there is no clean separating threshold in this data.
+# Kept at a level that only flags PAGES_FOR_DENSITY_CHECK-or-more page
+# filings with a rate clearly below the one known-good case, accepting
+# that this will miss real undercounts (like 8220570) and is only useful
+# alongside the other checks, never alone.
+MIN_TRANSACTIONS_PER_PAGE = 4.0
+PAGES_FOR_DENSITY_CHECK = 4
+
 
 @dataclass(frozen=True)
 class VerificationResult:
@@ -54,7 +84,20 @@ class VerificationResult:
     reasons: tuple[str, ...]
 
 
-def verify_extraction(transactions: list[ParsedTransaction]) -> VerificationResult:
+def verify_extraction(
+    transactions: list[ParsedTransaction],
+    *,
+    reported_total_rows: int | None = None,
+    page_count: int | None = None,
+) -> VerificationResult:
+    """`reported_total_rows` and `page_count` are both optional, independent
+    signals a caller may not have: `reported_total_rows` requires the
+    extraction prompt to ask the model for a self-reported row count
+    alongside its transactions (not part of `extraction_prompt.txt` or
+    `extraction_prompt_v2.txt` -- would need a new prompt variant), and
+    `page_count` requires knowing the source PDF's page count (e.g. via
+    `house_ptr.extract_pages_words()`). Both are skipped silently when not
+    given, since callers before this feature existed have neither."""
     reasons: list[str] = []
     ok = True
     needs_review = False
@@ -93,6 +136,27 @@ def verify_extraction(transactions: list[ParsedTransaction]) -> VerificationResu
         reasons.append(
             "zero transactions extracted -- could be a genuinely empty filing, or the model "
             "giving up on a poor scan; both look identical from this output alone"
+        )
+
+    if reported_total_rows is not None and reported_total_rows != len(transactions):
+        needs_review = True
+        reasons.append(
+            f"model self-reported {reported_total_rows} row(s) visible but only "
+            f"{len(transactions)} were extracted -- it may know it under- or over-counted"
+        )
+
+    if (
+        page_count is not None
+        and page_count >= PAGES_FOR_DENSITY_CHECK
+        and transactions
+        and len(transactions) / page_count < MIN_TRANSACTIONS_PER_PAGE
+    ):
+        needs_review = True
+        reasons.append(
+            f"{len(transactions)} transactions over {page_count} pages "
+            f"({len(transactions) / page_count:.1f}/page) is below the "
+            f"{MIN_TRANSACTIONS_PER_PAGE}/page floor for a multi-page filing -- low-confidence "
+            "signal (see module docstring), worth a look but not a rejection on its own"
         )
 
     return VerificationResult(ok=ok, needs_review=needs_review, reasons=tuple(reasons))
