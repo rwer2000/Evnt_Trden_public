@@ -53,10 +53,49 @@ Extraction quality splits sharply by scan style, not by filing age alone:
 See `manifest.json` -> `summary_by_scan_style` for the full breakdown, and
 the individual filing entries for per-filing notes.
 
+## Prompt v2 experiment (2026-09-24, same day)
+
+Also see `src/congress_collector/parsers/scan_classification.py` and
+`scan_verification.py`, built the same day as a deterministic triage +
+sanity-check layer for whatever extraction method ends up in front of these
+filings -- this experiment is the evidence for why that layer exists
+independently of prompt quality.
+
+`extraction_prompt_v2.txt` adds three explicit guards on top of the
+original prompt: don't mistake an amount-bracket legend for transaction
+rows, don't invent an illegible name (null it instead), and don't try to
+install or invoke any tool other than Read. Re-run against the 6
+worst-performing filings from the original batch (`v2_prompt_retest.json`
+has the full per-filing before/after and `extractions_v2_retest/` the raw
+responses).
+
+**Result: modest and uneven, not a fix.** One clear win (`house:8218645`,
+the McCaul legend-confusion case, went from 14 fabricated blank-description
+rows to 20 real transactions with real company names), one new regression
+(`house:9111845` flipped from an honest empty result to a confident
+7-row array with every description blank -- the exact failure shape the
+prompt was written to prevent, just on a different filing), and one
+non-content finding worth its own investigation: `house:9114491`'s failure
+looks like the headless Read tool only surfacing page 1 of a multi-page
+PDF, not a reading-comprehension problem at all.
+
+The regression on `house:9111845` is the important part: it's independent
+confirmation that `scan_verification.verify_extraction()`'s
+blank-description check needs to stay a hard, non-negotiable gate rather
+than something prompt engineering can eventually make redundant --  it
+caught real bad output in this experiment on a filing the prompt change
+was never targeting.
+
+Do not treat `extraction_prompt_v2.txt` as validated or as a drop-in
+replacement for `extraction_prompt.txt` -- six filings is not a large
+enough sample, and it made at least one filing mechanically worse. See
+`v2_prompt_retest.json` -> `recommendations` for what to do before the
+next iteration.
+
 ## Regenerating / extending this set
 
-Re-run `extraction_prompt.txt` against the PDFs in `raw/` with a different
-model or prompt variant, and compare the resulting transaction counts and
-field values against each filing's `ground_truth_n_transactions` and notes
-in `manifest.json` to see whether it does better or worse than this Haiku
-baseline.
+Re-run `extraction_prompt.txt` (or `extraction_prompt_v2.txt`) against the
+PDFs in `raw/` with a different model or prompt variant, and compare the
+resulting transaction counts and field values against each filing's
+`ground_truth_n_transactions` and notes in `manifest.json` to see whether
+it does better or worse than the existing baselines.
