@@ -144,10 +144,13 @@ jobs:
               pages_words = extract_pages_words(resp.content)
               transactions = parse_ptr_transactions(pages_words)
               ok = len(transactions) >= expect_at_least
+              n_no_ticker = sum(1 for t in transactions if t.ticker is None)
               all_ok = all_ok and ok
-              print(f"{'OK ' if ok else 'FAIL'} {label} (doc {doc_id}): {len(transactions)} transaction(s) parsed")
+              print(f"{'OK ' if ok else 'FAIL'} {label} (doc {doc_id}): {len(transactions)} transaction(s) parsed, "
+                    f"{n_no_ticker} without a ticker")
               for t in transactions[:3]:
-                  print(f"    {t.tx_type} {t.ticker or t.asset_description_raw!r} "
+                  print(f"    {t.tx_type} ticker={t.ticker!r} asset_type={t.asset_type!r} "
+                        f"desc={t.asset_description_raw!r} "
                         f"{t.amount_min}-{t.amount_max} owner={t.owner}")
 
           print("\nALL OK" if all_ok else "\nSOME FAILED")
