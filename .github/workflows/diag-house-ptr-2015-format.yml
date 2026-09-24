@@ -157,34 +157,3 @@ jobs:
           PYEOF
         env:
           PYTHONUNBUFFERED: "1"
-
-      - name: Dump raw words around a 2015 transaction row (ticker regex miss)
-        run: |
-          uv run python - <<'PYEOF'
-          import httpx
-          from congress_collector.parsers.house_ptr import extract_pages_words
-          from congress_collector.sources.house import USER_AGENT, pdf_url_for
-
-          client = httpx.Client(follow_redirects=True, timeout=30.0, headers={"User-Agent": USER_AGENT})
-          url = pdf_url_for("20002307", "P", 2015)
-          resp = client.get(url)
-          resp.raise_for_status()
-          pages_words = extract_pages_words(resp.content)
-          page1 = pages_words[0]
-          ordered = sorted(page1, key=lambda w: (w.top, w.x0))
-
-          # Find the "(ACT)" row and print every word on that visual line
-          # plus the next two lines, so we can see whether a "[TYPE]"
-          # bracket exists anywhere for this era's form.
-          target_top = None
-          for w in ordered:
-              if "ACT" in w.text:
-                  target_top = w.top
-                  break
-          print(f"target row top={target_top}")
-          for w in ordered:
-              if target_top is not None and target_top - 5 <= w.top <= target_top + 40:
-                  print(f"  {w.text!r:20s} x0={w.x0:.1f} top={w.top:.1f}")
-          PYEOF
-        env:
-          PYTHONUNBUFFERED: "1"
