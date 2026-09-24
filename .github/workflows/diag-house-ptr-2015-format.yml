@@ -81,8 +81,8 @@ jobs:
 
           # (doc_id, filing_type, year, label)
           samples = [
-              ("20002313", "P", 2015, "2015 scanned"),
-              ("20010238", "P", 2018, "2018 scanned"),
+              ("20002315", "P", 2015, "2015 scanned"),
+              ("20008625", "P", 2018, "2018 scanned"),
               ("9116331", "P", 2026, "2026 scanned -- most recent one in the DB"),
           ]
 
@@ -112,6 +112,45 @@ jobs:
                           dpi = (w_px / page_width_in) if page_width_in else 0
                           print(f"    image: {w_px}x{h_px}px, page width {page_width_in:.2f}in "
                                 f"-> approx {dpi:.0f} DPI")
+          PYEOF
+        env:
+          PYTHONUNBUFFERED: "1"
+
+      - name: Validate the parser fix against real failing filings
+        run: |
+          uv run python - <<'PYEOF'
+          import httpx
+          from congress_collector.parsers.house_ptr import (
+              extract_pages_words,
+              parse_ptr_transactions,
+          )
+          from congress_collector.sources.house import USER_AGENT, pdf_url_for
+
+          # (doc_id, filing_type, year, label, expect_at_least)
+          samples = [
+              ("20002307", "P", 2015, "2015 -- no Cap Gains column at all", 1),
+              ("20002347", "P", 2015, "2015 -- no Cap Gains column at all", 1),
+              ("20016440", "P", 2020, "2020 -- lowercase tx-type ('s')", 1),
+              ("20019490", "P", 2021, "2021 -- lowercase tx-type", 1),
+              ("20034085", "P", 2026, "2026 -- must still parse correctly", 1),
+          ]
+
+          client = httpx.Client(follow_redirects=True, timeout=30.0, headers={"User-Agent": USER_AGENT})
+          all_ok = True
+          for doc_id, ftype, year, label, expect_at_least in samples:
+              url = pdf_url_for(doc_id, ftype, year)
+              resp = client.get(url)
+              resp.raise_for_status()
+              pages_words = extract_pages_words(resp.content)
+              transactions = parse_ptr_transactions(pages_words)
+              ok = len(transactions) >= expect_at_least
+              all_ok = all_ok and ok
+              print(f"{'OK ' if ok else 'FAIL'} {label} (doc {doc_id}): {len(transactions)} transaction(s) parsed")
+              for t in transactions[:3]:
+                  print(f"    {t.tx_type} {t.ticker or t.asset_description_raw!r} "
+                        f"{t.amount_min}-{t.amount_max} owner={t.owner}")
+
+          print("\nALL OK" if all_ok else "\nSOME FAILED")
           PYEOF
         env:
           PYTHONUNBUFFERED: "1"
