@@ -77,9 +77,15 @@ from congress_collector.parsers.amounts import parse_amount_range
 
 FOOTER_MARKER = "For the complete list of asset type abbreviations"
 
-# Column x0 boundaries in points, derived from the header row's real word
-# positions (stable across filings -- same form template). A word's zone
-# is [previous boundary, this boundary).
+# Column x0 boundaries in points, calibrated against the current (2026-era)
+# form's header row. Used only as a fallback when a filing's own header
+# can't be found (see _detect_column_bounds) -- confirmed live that these
+# drift for real between form revisions, not just by a uniform shift: the
+# 2019-2021 era's "Transaction Type" column starts at x0=246 vs 2026's
+# x0=262, a gap that widens to 14-19pt by the Amount/Cap. Gains columns
+# while Owner/Asset barely move (~4pt). A fixed reference table therefore
+# misclassifies that era's Transaction Type column as part of Asset. A
+# word's zone is [previous boundary, this boundary).
 ID_MAX_X = 55.0
 OWNER_MAX_X = 100.0
 ASSET_MAX_X = 260.0
@@ -87,8 +93,18 @@ TX_TYPE_MAX_X = 325.0
 TX_DATE_MAX_X = 380.0
 NOTIF_DATE_MAX_X = 445.0
 AMOUNT_MAX_X = 524.0
+_DEFAULT_BOUNDS = (
+    ID_MAX_X,
+    OWNER_MAX_X,
+    ASSET_MAX_X,
+    TX_TYPE_MAX_X,
+    TX_DATE_MAX_X,
+    NOTIF_DATE_MAX_X,
+    AMOUNT_MAX_X,
+)
 
 _ROW_TOLERANCE = 3.0
+_COLUMN_MARGIN = 3.0
 
 _OWNER_CODES = {"SP": "spouse", "JT": "joint", "DC": "child"}
 _TX_TYPE_CODES = {"P": "purchase", "S": "sale_full", "E": "exchange"}
@@ -117,6 +133,23 @@ class Word:
     text: str
     x0: float
     top: float
+
+
+@dataclass(frozen=True)
+class _ColumnBounds:
+    """Zone boundaries for one document, in points. A word's zone is
+    ``[previous boundary, this boundary)``."""
+
+    id_max_x: float
+    owner_max_x: float
+    asset_max_x: float
+    tx_type_max_x: float
+    tx_date_max_x: float
+    notif_date_max_x: float
+    amount_max_x: float
+
+
+_DEFAULT_COLUMN_BOUNDS = _ColumnBounds(*_DEFAULT_BOUNDS)
 
 
 @dataclass(frozen=True)
@@ -152,7 +185,70 @@ def is_electronic(pages_words: list[list[Word]]) -> bool:
     return any("Notification" in t for t in all_text) and any("Transaction" in t for t in all_text)
 
 
+def _detect_column_bounds(pages_words: list[list[Word]]) -> _ColumnBounds:
+    """Derive this filing's own column boundaries from its header row.
+
+    Column x0 positions drift between form revisions (see the module
+    docstring), so a fixed reference table misclassifies some eras'
+    columns. The header words themselves ("Owner", "Asset", "Transaction",
+    the row's own "Date", "Notification", "Amount", optionally "Cap.") are
+    stable text across every era observed, so locating them directly is
+    more robust than trusting any one fixed calibration. Falls back to
+    ``_DEFAULT_COLUMN_BOUNDS`` (2026-era) if a header row can't be found at
+    all, e.g. a filing with a genuinely unrecognizable layout.
+    """
+    for words in pages_words:
+        for line in _group_lines(words):
+            positions = {w.text: w.x0 for w in line}
+            if "Owner" not in positions or "Asset" not in positions:
+                continue
+            if "Transaction" not in positions or "Notification" not in positions:
+                continue
+            if "Amount" not in positions:
+                continue
+            # The row's "Date" belongs to the tx-date column when it sits
+            # between "Transaction" and "Notification" -- "Notification"'s
+            # own "Date" is on the second header line, not this one.
+            tx_date_x0 = next(
+                (
+                    w.x0
+                    for w in line
+                    if w.text == "Date"
+                    and positions["Transaction"] < w.x0 < positions["Notification"]
+                ),
+                None,
+            )
+            if tx_date_x0 is None:
+                continue
+            amount_x0 = positions["Amount"]
+            cap_x0 = positions.get("Cap.")
+            # A data row's value can start a fraction of a point left of the
+            # header label above it (confirmed live: a real "P" transaction-
+            # type value at x0=262.2 sits just under its own "Transaction"
+            # header at x0=262.3) -- a zone boundary placed exactly at the
+            # header's x0 has zero margin for that and misclassifies the
+            # value into the previous column. Shifting every boundary left
+            # by a few points restores the safety margin the original fixed
+            # constants happened to have.
+            return _ColumnBounds(
+                id_max_x=ID_MAX_X,
+                owner_max_x=positions["Asset"] - _COLUMN_MARGIN,
+                asset_max_x=positions["Transaction"] - _COLUMN_MARGIN,
+                tx_type_max_x=tx_date_x0 - _COLUMN_MARGIN,
+                tx_date_max_x=positions["Notification"] - _COLUMN_MARGIN,
+                notif_date_max_x=amount_x0 - _COLUMN_MARGIN,
+                # No Cap Gains column on the pre-2019 form: give the amount
+                # zone the same width it has on the reference form instead
+                # of an arbitrary guess.
+                amount_max_x=(cap_x0 - _COLUMN_MARGIN)
+                if cap_x0 is not None
+                else amount_x0 + (AMOUNT_MAX_X - NOTIF_DATE_MAX_X),
+            )
+    return _DEFAULT_COLUMN_BOUNDS
+
+
 def parse_ptr_transactions(pages_words: list[list[Word]]) -> list[ParsedTransaction]:
+    bounds = _detect_column_bounds(pages_words)
     results: list[ParsedTransaction] = []
     current: _OpenRecord | None = None
     in_annotation_block = False
@@ -187,11 +283,11 @@ def parse_ptr_transactions(pages_words: list[list[Word]]) -> list[ParsedTransact
             if past_footer:
                 continue
 
-            if _line_starts_transaction(line):
+            if _line_starts_transaction(line, bounds):
                 if current is not None:
                     results.append(current.finalize(row_index))
                     row_index += 1
-                current = _OpenRecord.from_line(line)
+                current = _OpenRecord.from_line(line, bounds)
                 in_annotation_block = False
                 describing = False
                 continue
@@ -211,7 +307,7 @@ def parse_ptr_transactions(pages_words: list[list[Word]]) -> list[ParsedTransact
                 continue
 
             if current is not None:
-                current.extend(line)
+                current.extend(line, bounds)
 
     if current is not None:
         results.append(current.finalize(row_index))
@@ -255,8 +351,11 @@ def _is_header_line(line_text: str) -> bool:
     )
 
 
-def _line_starts_transaction(line: list[Word]) -> bool:
-    return any(ASSET_MAX_X <= w.x0 < TX_TYPE_MAX_X and _TX_TYPE_RE.match(w.text) for w in line)
+def _line_starts_transaction(line: list[Word], bounds: _ColumnBounds) -> bool:
+    return any(
+        bounds.asset_max_x <= w.x0 < bounds.tx_type_max_x and _TX_TYPE_RE.match(w.text)
+        for w in line
+    )
 
 
 @dataclass
@@ -272,7 +371,7 @@ class _OpenRecord:
     description_parts: list[str]
 
     @classmethod
-    def from_line(cls, line: list[Word]) -> "_OpenRecord":
+    def from_line(cls, line: list[Word], bounds: _ColumnBounds) -> "_OpenRecord":
         id_word: str | None = None
         owner_word: str | None = None
         asset_parts: list[str] = []
@@ -283,25 +382,25 @@ class _OpenRecord:
         amount_parts: list[str] = []
 
         for w in line:
-            if w.x0 < ID_MAX_X:
+            if w.x0 < bounds.id_max_x:
                 id_word = w.text
-            elif w.x0 < OWNER_MAX_X:
+            elif w.x0 < bounds.owner_max_x:
                 if w.text.upper() in _OWNER_CODES:
                     owner_word = w.text.upper()
-            elif w.x0 < ASSET_MAX_X:
+            elif w.x0 < bounds.asset_max_x:
                 asset_parts.append(w.text)
-            elif w.x0 < TX_TYPE_MAX_X:
+            elif w.x0 < bounds.tx_type_max_x:
                 if _TX_TYPE_RE.match(w.text):
                     tx_type_raw = w.text.upper()
                 elif w.text.lower() == "(partial)":
                     is_partial = True
-            elif w.x0 < TX_DATE_MAX_X:
+            elif w.x0 < bounds.tx_date_max_x:
                 if _DATE_RE.match(w.text):
                     tx_date = w.text
-            elif w.x0 < NOTIF_DATE_MAX_X:
+            elif w.x0 < bounds.notif_date_max_x:
                 if _DATE_RE.match(w.text):
                     notif_date = w.text
-            elif w.x0 < AMOUNT_MAX_X:
+            elif w.x0 < bounds.amount_max_x:
                 amount_parts.append(w.text)
 
         return cls(
@@ -316,11 +415,11 @@ class _OpenRecord:
             description_parts=[],
         )
 
-    def extend(self, line: list[Word]) -> None:
+    def extend(self, line: list[Word], bounds: _ColumnBounds) -> None:
         for w in line:
-            if OWNER_MAX_X <= w.x0 < ASSET_MAX_X:
+            if bounds.owner_max_x <= w.x0 < bounds.asset_max_x:
                 self.asset_parts.append(w.text)
-            elif NOTIF_DATE_MAX_X <= w.x0 < AMOUNT_MAX_X:
+            elif bounds.notif_date_max_x <= w.x0 < bounds.amount_max_x:
                 self.amount_parts.append(w.text)
 
     def add_description_words(self, line: list[Word]) -> None:
