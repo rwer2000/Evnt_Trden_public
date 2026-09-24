@@ -43,6 +43,28 @@ zone, when present.
 The "Cap. Gains > $200?" column is a checkbox rendered as vector
 graphics, not text -- extract_words() never sees its value, so it isn't
 captured here, and `transactions` has no column for it either.
+
+Two form-generation quirks, both confirmed live via a throwaway diagnostic
+workflow (2026-09-24) against real pre-2022 filings, were silently causing
+a 100% parse-failure rate on every House PTR filed 2015 through most of
+2021 (973 of 973 `ptr_parse_failed` filings at the time, before this fix):
+
+1. Filings from roughly 2015-2018 don't have the "Cap. Gains > $200?"
+   column at all -- it was added to the form later. `parse_ptr_transactions`
+   used to gate on seeing that literal text before starting to read
+   transaction rows; on a filing where it never appears, nothing was ever
+   read. Fixed by dropping that gate entirely -- `_line_starts_transaction`
+   already identifies real transaction rows precisely enough (via the
+   Transaction Type column's x0 zone and value) that no separate "have we
+   reached the table yet" marker is needed.
+2. Filings from roughly 2019-2021 render the single-letter Transaction
+   Type code, and the asset-type code inside the asset description's
+   brackets, in lowercase in the PDF's stored text layer even though they
+   render as (small-caps) uppercase on screen -- confirmed against a 2020
+   filing: "3M Company (MMM) [sT] s 03/31/2020 ..." where a 2026 filing's
+   equivalent row reads "... [ST] P ...". `_TX_TYPE_RE` and the two
+   asset-type regexes are now case-insensitive, with the captured values
+   upper-cased before use, so this era parses the same as any other.
 """
 
 import io
@@ -72,7 +94,12 @@ _OWNER_CODES = {"SP": "spouse", "JT": "joint", "DC": "child"}
 _TX_TYPE_CODES = {"P": "purchase", "S": "sale_full", "E": "exchange"}
 
 _DATE_RE = re.compile(r"^\d{2}/\d{2}/\d{4}$")
-_TX_TYPE_RE = re.compile(r"^(P|S|E)$")
+# Case-insensitive: pre-2022 filings render this single-letter code (and the
+# asset-type-in-brackets code below) in lowercase in the PDF's text layer --
+# confirmed live against a 2020 filing ("3M Company (MMM) [sT] s ...") where
+# the visual small-caps rendering doesn't match the underlying stored text --
+# even though a 2026 filing's equivalent row renders it uppercase ("P").
+_TX_TYPE_RE = re.compile(r"^(P|S|E)$", re.IGNORECASE)
 _TICKER_TYPE_RE = re.compile(r"\(([A-Za-z0-9.\-/]{1,15})\)\s*\[([A-Za-z]{1,4})\]\s*$")
 _TYPE_ONLY_RE = re.compile(r"\[([A-Za-z]{1,4})\]\s*$")
 
@@ -133,7 +160,7 @@ def parse_ptr_transactions(pages_words: list[list[Word]]) -> list[ParsedTransact
     row_index = 0
 
     for words in pages_words:
-        started = False
+        past_footer = False
         for line in _group_lines(words):
             if not line:
                 in_annotation_block = False
@@ -142,13 +169,22 @@ def parse_ptr_transactions(pages_words: list[list[Word]]) -> list[ParsedTransact
 
             line_text = " ".join(w.text for w in line)
 
-            if not started:
-                if "$200?" in line_text:
-                    started = True
+            if _is_header_line(line_text):
+                # The column header repeats on every continuation page. It
+                # must be dropped explicitly now that nothing else gates
+                # parsing on "have we reached the table yet": confirmed
+                # live -- without this, a record whose amount wraps onto
+                # the next page picks up the repeated "Owner Asset ...
+                # Cap. Gains" header words via `current.extend()`, since
+                # several of them (e.g. "Gains", "Cap.") fall inside the
+                # amount column's x0 zone.
                 continue
 
             if FOOTER_MARKER in line_text:
-                started = False
+                past_footer = True
+                continue
+
+            if past_footer:
                 continue
 
             if _line_starts_transaction(line):
@@ -202,6 +238,23 @@ def _group_lines(words: list[Word]) -> list[list[Word]]:
     return lines
 
 
+def _is_header_line(line_text: str) -> bool:
+    """True for either of the table's two column-header rows.
+
+    Checked by content rather than position or era-specific text ("$200?"
+    doesn't exist on the pre-2019 form -- see the module docstring), so it
+    catches the header both at the top of the table and wherever it
+    repeats on a continuation page. No real asset description or amount
+    line plausibly contains any of these word pairs together.
+    """
+    return (
+        ("Owner" in line_text and "Asset" in line_text)
+        or ("Notification" in line_text and "Amount" in line_text)
+        or ("Cap." in line_text and "Gains" in line_text)
+        or "$200?" in line_text
+    )
+
+
 def _line_starts_transaction(line: list[Word]) -> bool:
     return any(ASSET_MAX_X <= w.x0 < TX_TYPE_MAX_X and _TX_TYPE_RE.match(w.text) for w in line)
 
@@ -233,14 +286,14 @@ class _OpenRecord:
             if w.x0 < ID_MAX_X:
                 id_word = w.text
             elif w.x0 < OWNER_MAX_X:
-                if w.text in _OWNER_CODES:
-                    owner_word = w.text
+                if w.text.upper() in _OWNER_CODES:
+                    owner_word = w.text.upper()
             elif w.x0 < ASSET_MAX_X:
                 asset_parts.append(w.text)
             elif w.x0 < TX_TYPE_MAX_X:
                 if _TX_TYPE_RE.match(w.text):
-                    tx_type_raw = w.text
-                elif w.text == "(partial)":
+                    tx_type_raw = w.text.upper()
+                elif w.text.lower() == "(partial)":
                     is_partial = True
             elif w.x0 < TX_DATE_MAX_X:
                 if _DATE_RE.match(w.text):
@@ -287,14 +340,17 @@ class _OpenRecord:
         asset_type = None
         match = _TICKER_TYPE_RE.search(asset_description)
         if match:
-            ticker, asset_type = match.group(1), match.group(2)
+            # .upper(): pre-2022 filings render this bracketed code in
+            # lowercase in the text layer (e.g. "[sT]") -- see the
+            # _TX_TYPE_RE note above, same underlying font quirk.
+            ticker, asset_type = match.group(1), match.group(2).upper()
         else:
             # No "(TICKER)" -- e.g. government securities, private
             # holdings, and other asset types that don't trade under a
             # ticker -- but the type code in brackets is still present.
             type_match = _TYPE_ONLY_RE.search(asset_description)
             if type_match:
-                asset_type = type_match.group(1)
+                asset_type = type_match.group(1).upper()
 
         option_type = strike = expiry = None
         if asset_type == "OP":
