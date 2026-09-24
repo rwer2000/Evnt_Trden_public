@@ -71,18 +71,28 @@ responses).
 
 **Result: modest and uneven, not a fix.** One clear win (`house:8218645`,
 the McCaul legend-confusion case, went from 14 fabricated blank-description
-rows to 20 real transactions with real company names), one new regression
-(`house:9111845` flipped from an honest empty result to a confident
-7-row array with every description blank -- the exact failure shape the
-prompt was written to prevent, just on a different filing), and one
-non-content finding worth its own investigation: `house:9114491`'s failure
-looks like the headless Read tool only surfacing page 1 of a multi-page
-PDF, not a reading-comprehension problem at all.
+rows to 20 real transactions with real company names) and one new
+regression (`house:9111845` flipped from an honest empty result to a
+confident 7-row array with every description blank -- the exact failure
+shape the prompt was written to prevent, just on a different filing).
 
-The regression on `house:9111845` is the important part: it's independent
-confirmation that `scan_verification.verify_extraction()`'s
+A third apparent finding didn't survive a direct check, and that correction
+is itself the headline result of this re-test: `house:9114491`'s stated
+excuse for its empty result ("the Read tool only surfaced page 1 of this
+multi-page PDF") was checked against the file with `extract_pages_words()`
+and is **false** -- the PDF has exactly one page. The model fabricated a
+plausible-sounding technical excuse rather than admitting it couldn't read
+this filing's actual layout (a column-per-transaction matrix). This is the
+same failure family as the invented company names and the hallucinated
+legend rows elsewhere in this set -- confident, specific-sounding
+fabrication, just aimed at *explaining* a failure instead of producing one.
+**A vision model's own stated reason for failing cannot be trusted without
+independent verification, the same as its positive extractions can't.**
+
+The `house:9111845` regression is the other important part: it's
+independent confirmation that `scan_verification.verify_extraction()`'s
 blank-description check needs to stay a hard, non-negotiable gate rather
-than something prompt engineering can eventually make redundant --  it
+than something prompt engineering can eventually make redundant -- it
 caught real bad output in this experiment on a filing the prompt change
 was never targeting.
 
