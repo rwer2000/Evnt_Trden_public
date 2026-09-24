@@ -1,0 +1,17 @@
+Read the PDF file at {PDF_PATH} (a scanned U.S. House Periodic Transaction Report). Extract every transaction listed in the table into a JSON array. If the scan quality makes a value illegible or ambiguous, still make your best reading rather than omitting the transaction, but you may set an individual field to null if it is truly unreadable.
+
+For each transaction include exactly these fields:
+- owner: one of "self", "spouse", "joint", "child", or null
+- asset_description_raw: string, the full asset description text as printed
+- ticker: string or null
+- asset_type: 2-letter code like ST/OP/GS/MF or null
+- option_type: "call" or "put" or null (only for option transactions)
+- strike: float or null (only for option transactions)
+- expiry: ISO yyyy-mm-dd or null (only for option transactions)
+- tx_type: one of "purchase", "sale_full", "sale_partial", "exchange"
+- tx_date: ISO yyyy-mm-dd
+- notification_date: ISO yyyy-mm-dd
+- amount_min: float
+- amount_max: float
+
+Output ONLY the JSON array as your final answer. No markdown code fences, no other text.
