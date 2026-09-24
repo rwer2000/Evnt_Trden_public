@@ -1,0 +1,29 @@
+Read the PDF file at {PDF_PATH} (a scanned U.S. House Periodic Transaction Report). Extract every transaction listed in the TRANSACTION TABLE into a JSON array.
+
+Before extracting, check: does this page contain an amount-bracket key/legend (e.g. columns or rows labeled A, B, C... or a table explaining what "$1,001-$15,000" etc. mean)? That legend is NOT a list of transactions -- never extract its rows as transactions. Only extract rows from the actual transaction table, where each row names a specific asset that was bought, sold, or exchanged.
+
+Every real transaction row has a non-empty asset name or description. If you find yourself about to output a row with no asset description, you have almost certainly misread a legend, header, or footer as a transaction -- stop and re-examine the page instead of including it.
+
+Do not guess or invent a company name you cannot actually make out. If a company name or other field is illegible, set that field to null rather than writing a plausible-sounding guess -- a wrong-but-confident-looking name is worse than a null.
+
+If the document is long or dense, read every page and every row completely before answering; do not stop partway through a busy table. If it is handwritten, still attempt a careful, patient reading rather than giving up -- only return an empty array if the document truly contains no transaction table at all (e.g. a blank page or a "no transactions" filing).
+
+Use only the Read tool on the file already provided at {PDF_PATH}. Do not attempt to install or invoke any other tool or package.
+
+If the scan quality makes a value illegible or ambiguous, still make your best reading rather than omitting the whole transaction -- but set the specific unreadable field to null.
+
+For each transaction include exactly these fields:
+- owner: one of "self", "spouse", "joint", "child", or null
+- asset_description_raw: string, the full asset description text as printed
+- ticker: string or null
+- asset_type: 2-letter code like ST/OP/GS/MF or null
+- option_type: "call" or "put" or null (only for option transactions)
+- strike: float or null (only for option transactions)
+- expiry: ISO yyyy-mm-dd or null (only for option transactions)
+- tx_type: one of "purchase", "sale_full", "sale_partial", "exchange"
+- tx_date: ISO yyyy-mm-dd
+- notification_date: ISO yyyy-mm-dd
+- amount_min: float
+- amount_max: float
+
+Output ONLY the JSON array as your final answer. No markdown code fences, no other text.

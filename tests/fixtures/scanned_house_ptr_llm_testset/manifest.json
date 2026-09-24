@@ -1,0 +1,294 @@
+{
+  "description": "Testset van 16 gescande House PTR-filings (format='scanned'), gebruikt om Claude Code headless CLI (claude -p --model haiku) te valideren als extractiemethode voor congress_collector. Steekproef getrokken op 2026-09-24, gespreid over jaren 2015-2026. Ground truth is een handmatige beoordeling door het scan-PDF zelf te lezen (niet uit de productiedatabase, die voor deze filings geen geparste transacties heeft aangezien format='scanned' nog niet verwerkt wordt).",
+  "created_at": "2026-09-24",
+  "model": "claude-haiku-4-5-20251001 (--model haiku)",
+  "invocation": "claude -p \"<extract_prompt.txt met PDF_PATH ingevuld>\" --model haiku --output-format json --allowedTools Read",
+  "sample_query": "chamber='house' AND filing_type='P' AND format='scanned' AND raw_object_key IS NOT NULL, gestratificeerd per jaar (2015-2018: 2x, 2019-2021: 1x, 2022-2026: 1x)",
+  "total_cost_usd_sample": 1.133,
+  "extrapolated_cost_usd_4680": {
+    "using_sample_mean": 331.46,
+    "using_sample_median_plus_one_outlier": 227.37,
+    "note": "gemiddelde wordt sterk vertekend door de Khanna-uitschieter (23 pagina's, $0.41); mediaan per filing is $0.042"
+  },
+  "rate_limit_or_quota_errors_observed": false,
+  "filings": [
+    {
+      "filing_id": "house:9107579",
+      "filer_name": "Hon. Rodney P. Frelinghuysen",
+      "filed_date": "2015-09-09",
+      "raw_object_key": "house/2015/9107579.pdf",
+      "scan_style": "oude geroteerde grid/checkbox-vorm (pre-2019)",
+      "ground_truth_n_transactions": 11,
+      "extracted_n_transactions": 10,
+      "cost_usd": 0.0737,
+      "verdict": "BAD",
+      "notes": "Bedrijfsnamen deels verzonnen (\"Malt Cocktail Wines Inc.\", \"Tar Brands Inc.\" bestaan niet -- moeten NOW Inc. / Yum Brands zijn). Transactietype bijna overal fout: alles als 'purchase' geëxtraheerd terwijl het merendeel 'sale' was volgens de scan.",
+      "fixture_pdf": "raw/house__2015__9107579.pdf",
+      "fixture_extraction": "extractions/house__2015__9107579.claude_response.json"
+    },
+    {
+      "filing_id": "house:9107699",
+      "filer_name": "Hon. Steve Stivers",
+      "filed_date": "2015-10-05",
+      "raw_object_key": "house/2015/9107699.pdf",
+      "scan_style": "oude geroteerde grid-vorm met trust-kruisverwijzingen (pijlen)",
+      "ground_truth_n_transactions": "6-8 (ambigu door pijlverwijzingen naar 'trust (below)')",
+      "extracted_n_transactions": 4,
+      "cost_usd": 0.0843,
+      "verdict": "BAD",
+      "notes": "Volledige pagina 1 (JP Morgan, Procter & Gamble, twee trust-rijen) gemist. De 4 wel gevonden transacties (pagina 2) hebben bedragen die meerdere schijven fout zijn (bv. $1.001-$15.000 werd $1.000.001-$5.000.000).",
+      "fixture_pdf": "raw/house__2015__9107699.pdf",
+      "fixture_extraction": "extractions/house__2015__9107699.claude_response.json"
+    },
+    {
+      "filing_id": "house:20004847",
+      "filer_name": "Hon. Alan S. Lowenthal",
+      "filed_date": "2016-04-02",
+      "raw_object_key": "house/2016/20004847.pdf",
+      "scan_style": "nette digitale PTR-layout (\"PerioDic tranSaction rePort\")",
+      "ground_truth_n_transactions": 2,
+      "extracted_n_transactions": 2,
+      "cost_usd": 0.0239,
+      "verdict": "GOOD",
+      "notes": "Volledig correct: bedrijfsnamen, data, bedragen, subholding allemaal juist.",
+      "fixture_pdf": "raw/house__2016__20004847.pdf",
+      "fixture_extraction": "extractions/house__2016__20004847.claude_response.json"
+    },
+    {
+      "filing_id": "house:20006123",
+      "filer_name": "Hon. Pete Sessions",
+      "filed_date": "2016-10-31",
+      "raw_object_key": "house/2016/20006123.pdf",
+      "scan_style": "nette digitale PTR-layout",
+      "ground_truth_n_transactions": 1,
+      "extracted_n_transactions": 1,
+      "cost_usd": 0.0248,
+      "verdict": "GOOD",
+      "notes": "Correct, inclusief owner=spouse (SP).",
+      "fixture_pdf": "raw/house__2016__20006123.pdf",
+      "fixture_extraction": "extractions/house__2016__20006123.claude_response.json"
+    },
+    {
+      "filing_id": "house:20007640",
+      "filer_name": "Hon. Susan W. Brooks",
+      "filed_date": "2017-07-17",
+      "raw_object_key": "house/2017/20007640.pdf",
+      "scan_style": "nette digitale PTR-layout",
+      "ground_truth_n_transactions": 1,
+      "extracted_n_transactions": 1,
+      "cost_usd": 0.0231,
+      "verdict": "GOOD",
+      "notes": "Correct.",
+      "fixture_pdf": "raw/house__2017__20007640.pdf",
+      "fixture_extraction": "extractions/house__2017__20007640.claude_response.json"
+    },
+    {
+      "filing_id": "house:9111845",
+      "filer_name": "Hon. Charles J. \"Chuck\" Fleischmann",
+      "filed_date": "2017-10-02",
+      "raw_object_key": "house/2017/9111845.pdf",
+      "scan_style": "oude geroteerde grid-vorm (pre-2019)",
+      "ground_truth_n_transactions": 8,
+      "extracted_n_transactions": 0,
+      "cost_usd": 0.0414,
+      "verdict": "FAILED (empty, valse negatief)",
+      "notes": "Model gaf lege array terug met de melding dat scankwaliteit te slecht was om betrouwbaar te extraheren -- terwijl de 8 transacties met blote oog goed leesbaar waren.",
+      "fixture_pdf": "raw/house__2017__9111845.pdf",
+      "fixture_extraction": "extractions/house__2017__9111845.claude_response.json"
+    },
+    {
+      "filing_id": "house:20009638",
+      "filer_name": "Hon. Bob Gibbs",
+      "filed_date": "2018-05-28",
+      "raw_object_key": "house/2018/20009638.pdf",
+      "scan_style": "nette digitale PTR-layout",
+      "ground_truth_n_transactions": 2,
+      "extracted_n_transactions": 2,
+      "cost_usd": 0.0286,
+      "verdict": "GOOD",
+      "notes": "Correct, inclusief asset_type [ST] en subholding account.",
+      "fixture_pdf": "raw/house__2018__20009638.pdf",
+      "fixture_extraction": "extractions/house__2018__20009638.claude_response.json"
+    },
+    {
+      "filing_id": "house:20010644",
+      "filer_name": "Hon. Scott H. Peters",
+      "filed_date": "2018-11-13",
+      "raw_object_key": "house/2018/20010644.pdf",
+      "scan_style": "nette digitale PTR-layout",
+      "ground_truth_n_transactions": 1,
+      "extracted_n_transactions": 1,
+      "cost_usd": 0.0235,
+      "verdict": "GOOD",
+      "notes": "Correct.",
+      "fixture_pdf": "raw/house__2018__20010644.pdf",
+      "fixture_extraction": "extractions/house__2018__20010644.claude_response.json"
+    },
+    {
+      "filing_id": "house:9114491",
+      "filer_name": "Hon. Ann Wagner",
+      "filed_date": "2019-03-22",
+      "raw_object_key": "house/2019/9114491.pdf",
+      "scan_style": "geroteerde matrix/checkbox-vorm (kolom per transactie i.p.v. rij per transactie)",
+      "ground_truth_n_transactions": 3,
+      "extracted_n_transactions": 0,
+      "cost_usd": 0.0999,
+      "verdict": "FAILED (empty + tool-verwarring)",
+      "notes": "Model probeerde `apt-get install poppler-utils` te draaien (geweigerd, niet in allowedTools) in plaats van door te gaan met de Read-tool, en leverde uiteindelijk geen data. 15 turns, relatief duur voor nul output.",
+      "fixture_pdf": "raw/house__2019__9114491.pdf",
+      "fixture_extraction": "extractions/house__2019__9114491.claude_response.json"
+    },
+    {
+      "filing_id": "house:20016829",
+      "filer_name": "Hon. Donna Shalala",
+      "filed_date": "2020-06-23",
+      "raw_object_key": "house/2020/20016829.pdf",
+      "scan_style": "nette digitale PTR-layout",
+      "ground_truth_n_transactions": 2,
+      "extracted_n_transactions": 2,
+      "cost_usd": 0.0261,
+      "verdict": "GOOD",
+      "notes": "Correct, inclusief sale_partial vs sale_full onderscheid.",
+      "fixture_pdf": "raw/house__2020__20016829.pdf",
+      "fixture_extraction": "extractions/house__2020__20016829.claude_response.json"
+    },
+    {
+      "filing_id": "house:20019240",
+      "filer_name": "Hon. Marie Newman",
+      "filed_date": "2021-08-05",
+      "raw_object_key": "house/2021/20019240.pdf",
+      "scan_style": "nette digitale PTR-layout, 4 pagina's",
+      "ground_truth_n_transactions": 22,
+      "extracted_n_transactions": 22,
+      "cost_usd": 0.1037,
+      "verdict": "GOOD (na retry)",
+      "notes": "Eerste poging faalde (probeerde apt-get, zie 9114491); retry zonder wijzigingen aan prompt gaf perfecte extractie -- alle 22 transacties met juiste owner/datum/bedrag, inclusief option-transacties (Tesla/Netflix calls).",
+      "fixture_pdf": "raw/house__2021__20019240.pdf",
+      "fixture_extraction": "extractions/house__2021__20019240.claude_response.json"
+    },
+    {
+      "filing_id": "house:8218645",
+      "filer_name": "Hon. Michael T. McCaul",
+      "filed_date": "2022-04-18",
+      "raw_object_key": "house/2022/8218645.pdf",
+      "scan_style": "geroteerde matrix-vorm, 6 pagina's, tientallen tot >100 assets",
+      "ground_truth_n_transactions": "~100+ (niet exact geteld, zeer dicht)",
+      "extracted_n_transactions": 14,
+      "cost_usd": 0.0562,
+      "verdict": "BAD (stille datavervuiling)",
+      "notes": "Alle 14 'transacties' hebben asset_description_raw=null en lijken de bedragsschijven-legenda (kolommen A-K) te zijn die het model per ongeluk als transactierijen heeft geïnterpreteerd. Geen enkele echte transactie correct geëxtraheerd. Dit is het gevaarlijkste faalpatroon: valide JSON, ziet er plausibel uit, is inhoudelijk compleet fout.",
+      "fixture_pdf": "raw/house__2022__8218645.pdf",
+      "fixture_extraction": "extractions/house__2022__8218645.claude_response.json"
+    },
+    {
+      "filing_id": "house:8219420",
+      "filer_name": "Hon. Mike Kelly",
+      "filed_date": "2023-03-06",
+      "raw_object_key": "house/2023/8219420.pdf",
+      "scan_style": "HANDGESCHREVEN grid-formulier",
+      "ground_truth_n_transactions": 1,
+      "extracted_n_transactions": 0,
+      "cost_usd": 0.044,
+      "verdict": "FAILED (empty)",
+      "notes": "Ook na retry met langere timeout (420s i.p.v. 180s) lege array. Handschrift lijkt een fundamentele blinde vlek.",
+      "fixture_pdf": "raw/house__2023__8219420.pdf",
+      "fixture_extraction": "extractions/house__2023__8219420.claude_response.json"
+    },
+    {
+      "filing_id": "house:8220570",
+      "filer_name": "Hon. Rohit Khanna (Ro Khanna)",
+      "filed_date": "2024-08-07",
+      "raw_object_key": "house/2024/8220570.pdf",
+      "scan_style": "nette digitale PTR-layout maar zeer groot: 23 pagina's, honderden transacties over meerdere trusts",
+      "ground_truth_n_transactions": "~300-400 (geschat, niet pagina voor pagina geteld)",
+      "extracted_n_transactions": 169,
+      "cost_usd": 0.4056,
+      "verdict": "PARTIAL",
+      "notes": "Technisch geslaagd (geldige JSON, geen refusal), 373s doorlooptijd, duurste in de steekproef. Steekproefcontrole toont systematische fout: owner op de vroege pagina's (die 'DC' = kind aangeven) werd overal als 'self' gelabeld; latere pagina's met 'SP' (echtgenoot) waren wel correct gelabeld. Aantal transacties is vermoedelijk een onderschatting van het werkelijke totaal.",
+      "fixture_pdf": "raw/house__2024__8220570.pdf",
+      "fixture_extraction": "extractions/house__2024__8220570.claude_response.json"
+    },
+    {
+      "filing_id": "house:8220836",
+      "filer_name": "Hon. Ann Wagner",
+      "filed_date": "2025-04-16",
+      "raw_object_key": "house/2025/8220836.pdf",
+      "scan_style": "moderne eenvoudige checkbox-vorm (1 transactie)",
+      "ground_truth_n_transactions": 1,
+      "extracted_n_transactions": 1,
+      "cost_usd": 0.042,
+      "verdict": "MOSTLY GOOD",
+      "notes": "Owner (joint), datum, bedrag en tx_type correct. Kleine letterfout in asset-naam: \"Washington Muun San Dist MD\" i.p.v. \"Washington Subn San Dist MD\".",
+      "fixture_pdf": "raw/house__2025__8220836.pdf",
+      "fixture_extraction": "extractions/house__2025__8220836.claude_response.json"
+    },
+    {
+      "filing_id": "house:9115809",
+      "filer_name": "Hon. Diana Harshbarger",
+      "filed_date": "2026-05-06",
+      "raw_object_key": "house/2026/9115809.pdf",
+      "scan_style": "moderne eenvoudige checkbox-vorm (1 transactie)",
+      "ground_truth_n_transactions": 1,
+      "extracted_n_transactions": 1,
+      "cost_usd": 0.0324,
+      "verdict": "GOOD",
+      "notes": "Volledig correct.",
+      "fixture_pdf": "raw/house__2026__9115809.pdf",
+      "fixture_extraction": "extractions/house__2026__9115809.claude_response.json"
+    }
+  ],
+  "summary_by_scan_style": {
+    "nette_digitale_PTR_layout": {
+      "filings": [
+        "20004847",
+        "20006123",
+        "20007640",
+        "20009638",
+        "20010644",
+        "20016829",
+        "20019240"
+      ],
+      "n": 7,
+      "verdict": "vrijwel perfect (7/7 GOOD, 1 had een retry nodig door tool-verwarring, niet door leeskwaliteit)"
+    },
+    "oude_geroteerde_grid_vorm_pre2019": {
+      "filings": [
+        "9107579",
+        "9107699",
+        "9111845"
+      ],
+      "n": 3,
+      "verdict": "onbetrouwbaar (0/3 GOOD: 2x verzonnen/foute data, 1x lege refusal)"
+    },
+    "geroteerde_matrix_meerdere_kolommen": {
+      "filings": [
+        "9114491",
+        "8218645"
+      ],
+      "n": 2,
+      "verdict": "onbetrouwbaar (0/2 GOOD: 1x lege refusal + tool-verwarring, 1x stille datavervuiling)"
+    },
+    "moderne_eenvoudige_checkbox_vorm": {
+      "filings": [
+        "8220836",
+        "9115809"
+      ],
+      "n": 2,
+      "verdict": "goed (2/2, kleine letterfouten mogelijk)"
+    },
+    "handgeschreven": {
+      "filings": [
+        "8219420"
+      ],
+      "n": 1,
+      "verdict": "faalt volledig (0/1)"
+    },
+    "zeer_groot_multipagina": {
+      "filings": [
+        "8220570"
+      ],
+      "n": 1,
+      "verdict": "gedeeltelijk: technisch geslaagd maar systematische owner-fout en vermoedelijke ondertelling"
+    }
+  }
+}
