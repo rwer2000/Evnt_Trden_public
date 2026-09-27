@@ -1,15 +1,14 @@
-name: catchup-house-backlog
+name: migrate-raw-archive-to-r2
 
 on:
   workflow_dispatch:
 
 jobs:
-  catchup:
+  migrate:
     runs-on: ubuntu-latest
-    # Thousands of PDFs to download+parse can genuinely take hours; this
-    # is a one-off manual run, not something collect.yml's 5-minute
-    # cadence has to wait behind.
-    timeout-minutes: 350
+    # 25k+ objects at ~1 GET+PUT each; a resumed run re-checks every one via
+    # a cheap R2 HEAD but only re-downloads/re-uploads what's still missing.
+    timeout-minutes: 180
     steps:
       - uses: actions/checkout@v4
 
@@ -22,10 +21,12 @@ jobs:
       - name: Install dependencies
         run: uv sync --all-extras --dev
 
-      - name: Catch up House PTR archive/parse/link backlog
+      - name: Copy congress-raw and congress-backups from Supabase Storage to R2
         env:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
           R2_ACCOUNT_ID: ${{ secrets.R2_ACCOUNT_ID }}
           R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
           R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
-        run: uv run python -m congress_collector.ingest.catchup_house_backlog
+        run: uv run python -m congress_collector.ops.migrate_raw_archive_to_r2

@@ -1,5 +1,5 @@
 """Download House Clerk PDFs for filings not yet archived, and store them
-in Supabase Storage with a SHA-256 hash.
+in Cloudflare R2 with a SHA-256 hash.
 
 Classifying a filing as electronic/paper/scanned needs the PDF itself, so
 that stays `format = 'unknown'` here and is T8's job.
@@ -13,7 +13,7 @@ from sqlalchemy import case, func, select
 from congress_collector.db.models import DqIssue, Filing
 from congress_collector.db.session import session_scope
 from congress_collector.sources.house import USER_AGENT, pdf_url_for
-from congress_collector.storage.supabase_storage import sha256_hex, upload
+from congress_collector.storage.r2_storage import sha256_hex, upload
 
 BATCH_SIZE = 50
 
@@ -33,18 +33,13 @@ def archive_pending_house_pdfs(*, batch_size: int = BATCH_SIZE) -> int:
         for filing_id, doc_id, filing_type, filed_date in pending:
             year = filed_date.year if filed_date else datetime.now(UTC).year
             url = pdf_url_for(doc_id, filing_type, year)
-            # Covers both the House-site fetch and the Supabase Storage
-            # upload -- confirmed live: a catch-up run crashed the whole
-            # process on an httpx.ReadTimeout from upload() (a transient
-            # Storage-side blip after tens of thousands of prior calls),
-            # since only the fetch used to be wrapped. Widened from
-            # `httpx.HTTPError` to `Exception` after a second live crash:
-            # storage3's own error handling calls response.json() on a
-            # failed upload's response, which raised a raw
-            # json.JSONDecodeError (not an HTTPError subclass) when that
-            # response body was empty -- so the narrower catch let it
-            # straight through. Either failure gets the same treatment:
-            # flag and move on, not lose the run.
+            # Covers both the House-site fetch and the R2 upload --
+            # confirmed live (back when this used Supabase Storage) that a
+            # catch-up run crashed the whole process on an
+            # httpx.ReadTimeout from upload() (a transient Storage-side
+            # blip after tens of thousands of prior calls), since only the
+            # fetch used to be wrapped. Either failure gets the same
+            # treatment: flag and move on, not lose the run.
             try:
                 response = client.get(url)
                 response.raise_for_status()

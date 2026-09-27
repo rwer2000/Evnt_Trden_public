@@ -24,7 +24,7 @@ from congress_collector.parsers.house_ptr import (
     extract_pages_words,
     parse_ptr_transactions,
 )
-from congress_collector.storage.supabase_storage import download
+from congress_collector.storage.r2_storage import download
 
 # A transaction needs re-parsing if any backfilled field it's eligible
 # for is still missing.

@@ -40,7 +40,7 @@ import subprocess
 from datetime import UTC, datetime
 
 from congress_collector.notify.telegram import send_message
-from congress_collector.storage.supabase_storage import upload
+from congress_collector.storage.r2_storage import upload
 
 BACKUP_BUCKET = "congress-backups"
 PG_DUMP_ARGS = ["--schema=congress", "--no-owner", "--no-privileges"]
