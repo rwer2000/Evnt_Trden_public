@@ -9,6 +9,7 @@ import uuid
 from datetime import date, datetime
 
 from sqlalchemy import (
+    BigInteger,
     Boolean,
     Date,
     DateTime,
@@ -274,5 +275,21 @@ class CommunityTransaction(Base):
     amount_min: Mapped[float | None] = mapped_column(Numeric)
     amount_max: Mapped[float | None] = mapped_column(Numeric)
     created_at: Mapped[datetime] = mapped_column(
+        DateTime(timezone=True), nullable=False, server_default=text("now()")
+    )
+
+
+class StorageUsage(Base):
+    """A cached running total per R2 bucket -- the free-tier budget guard
+    in `storage.quota` reads this on every upload rather than listing the
+    bucket from R2 each time; `storage.quota.reconcile()` is what keeps it
+    honest against the real thing."""
+
+    __tablename__ = "storage_usage"
+
+    bucket: Mapped[str] = mapped_column(Text, primary_key=True)
+    total_bytes: Mapped[int] = mapped_column(BigInteger, nullable=False, server_default=text("0"))
+    object_count: Mapped[int] = mapped_column(Integer, nullable=False, server_default=text("0"))
+    updated_at: Mapped[datetime] = mapped_column(
         DateTime(timezone=True), nullable=False, server_default=text("now()")
     )

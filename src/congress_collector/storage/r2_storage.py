@@ -80,5 +80,21 @@ def existing_sha256(path: str, *, bucket: str = BUCKET, client: Any | None = Non
     return metadata.get("sha256")
 
 
+def bucket_totals(bucket: str, *, client: Any | None = None) -> tuple[int, int]:
+    """Total size in bytes and object count for every object in `bucket`,
+    via a paginated ListObjectsV2 walk. Not for the hot path -- used by
+    `storage.quota.reconcile()` to correct the cached running total
+    against what's actually in R2."""
+    active_client = client if client is not None else get_client()
+    paginator = active_client.get_paginator("list_objects_v2")
+    total_bytes = 0
+    object_count = 0
+    for page in paginator.paginate(Bucket=bucket):
+        for obj in page.get("Contents", []):
+            total_bytes += obj["Size"]
+            object_count += 1
+    return total_bytes, object_count
+
+
 def sha256_hex(content: bytes) -> str:
     return hashlib.sha256(content).hexdigest()

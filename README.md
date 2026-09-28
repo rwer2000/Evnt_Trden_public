@@ -209,6 +209,30 @@ The one-time copy from Supabase Storage to R2 is
 only) — resumable, since it checks each key's SHA-256 against what's
 already in R2 rather than assuming a clean run.
 
+### Staying under R2's free tier (T-storage-quota)
+
+Cloudflare's own R2 dashboard only offers usage *notifications* (an
+email/webhook once you cross a threshold you configure there), not a hard
+stop on requests — there's no dashboard toggle that guarantees uploads
+simply can't push the account over the free 10 GB. That guarantee is
+enforced in this repo instead: `congress_collector.storage.quota` keeps a
+running total per bucket in `congress.storage_usage`, and
+`house_pdfs.py`/`senate_ptrs.py`/`ops.db_backup` all call
+`quota.ensure_budget()` before every upload, which raises rather than let
+a write through that would cross a configurable ceiling
+(`R2_STORAGE_CEILING_BYTES`, default 9 GiB — headroom under the 10 GiB free
+tier). A rejected upload is treated like any other archive failure
+(flagged in `dq_issues`, run continues) — the pipeline just stops growing
+the archive rather than crashing.
+
+`quota.reconcile()` recomputes the true total directly from R2 (correcting
+any drift the per-upload counter accumulated) and is run daily by
+`ops.check_storage_quota` (`.github/workflows/check-storage-quota.yml`),
+which also sends a Telegram alert once usage crosses 80% of the ceiling —
+an early warning on top of the hard stop, not a replacement for it.
+`migrate_raw_archive_to_r2` calls the same reconcile at the end of its run
+to seed the counter correctly right after the initial copy.
+
 Migrating Postgres to a dedicated Supabase project later (a different
 account, or once an existing free project's slot frees up) is a schema
 dump/restore (`pg_dump --schema=congress` / restore) — no application code
