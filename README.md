@@ -11,6 +11,20 @@ information anyway. It intentionally contains **no trading or strategy
 logic** — signal definitions, backtests, broker integration and execution
 live in a separate private repository that consumes this collector's data.
 
+Being public means anyone can open a pull request, and for a repo that also
+holds paid secrets (R2, Supabase, Telegram), that's the one real attack
+surface: a fork's PR modifying a `.github/workflows/*.yml` file to try to
+exfiltrate one. Two things close it. First,
+`congress_collector.ops.check_workflow_secrets` runs on every push and PR
+(needing no secrets itself, so it always runs, including on a fork's PR) and
+fails CI red if any `pull_request`-triggered workflow references a secret,
+or if `pull_request_target` (which runs with base-repo secrets against fork
+code) shows up at all. Second, the repo's own Settings → Actions → General
+→ "Fork pull request workflows from outside collaborators" is set to
+require approval for **all** outside collaborators, not just first-time
+ones — so no fork's workflow run, modified or not, executes without a
+maintainer clicking approve first.
+
 ## Why "first seen" matters
 
 Filing dates and even notification dates in the disclosures are not the same
@@ -916,7 +930,9 @@ processed data commercially.
 - Code, commit messages, and documentation are in English.
 - Python 3.12, managed with [uv](https://docs.astral.sh/uv/).
 - Linting/formatting: `ruff`. Type checking: `mypy --strict`. Tests:
-  `pytest`. All three run in CI on every push and pull request.
+  `pytest`. All three, plus `ops.check_workflow_secrets` (see the intro's
+  note on public-repo secret safety), run in CI on every push and pull
+  request.
 
 ## Development
 
