@@ -24,7 +24,7 @@ from congress_collector.ingest.senate import DEFAULT_PRECISION_S
 from congress_collector.notify.telegram import send_message
 from congress_collector.parsers.senate_ptr import ParsedTransaction, parse_ptr_html
 from congress_collector.sources.senate import new_session, ptr_url_for
-from congress_collector.storage.supabase_storage import sha256_hex, upload
+from congress_collector.storage.r2_storage import sha256_hex, upload
 
 BATCH_SIZE = 25
 

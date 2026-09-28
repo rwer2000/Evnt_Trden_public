@@ -57,7 +57,7 @@ GitHub Actions (US-based runners — required, Senate site blocks
         ├── House Clerk scraper  ──┐
         └── Senate eFD scraper   ──┤
                                    ▼
-                    Supabase Storage (raw PDF/HTML/ZIP + SHA-256)
+                    Cloudflare R2 (raw PDF/HTML/ZIP + SHA-256)
                                    │
                                    ▼
                     Supabase Postgres (normalized filings & transactions)
@@ -178,25 +178,44 @@ both pass `connect_args={"prepare_threshold": None}` to disable psycopg's
 server-side prepared-statement cache -- otherwise repeated inserts raise
 `DuplicatePreparedStatement`.
 
-Postgres and Storage live in a shared Supabase project (`Sportlogging`,
-`eu-central-1`) rather than a dedicated one — the account's free tier
-allows only 2 active free projects, both already in use. Isolation from
-the unrelated Sportlogging app is done at the schema/bucket level, not the
-project level:
+Postgres lives in a shared Supabase project (`Sportlogging`, `eu-central-1`)
+rather than a dedicated one — the account's free tier allows only 2 active
+free projects, both already in use. Isolation from the unrelated
+Sportlogging app is done at the schema level, not the project level:
 
 - All tables from this repo live in the `congress` Postgres schema, never
   `public`.
 - A dedicated `congress_app` Postgres role can only read/write the
   `congress` schema; it has no grants on `public` (Sportlogging's tables).
-- Raw filings are archived in a private Storage bucket, `congress-raw`,
-  separate from any Sportlogging bucket.
 
-Migrating to a dedicated project later (a different Supabase account, or
-once an existing free project's slot frees up) is a schema dump/restore
-(`pg_dump --schema=congress` / restore) plus copying the Storage bucket's
-objects — no application code changes needed beyond the connection string,
-since nothing here references `public` or Sportlogging's tables. T19's
-weekly backup (below) already produces a ready-made dump for this.
+At 124 MB (`congress` schema: 78 MB), Postgres is nowhere near its
+project's 500 MB free-tier quota, so it stays on Supabase.
+
+Raw filings and weekly backups, on the other hand, live in **Cloudflare
+R2** (`congress-raw` and `congress-backups` buckets), not Supabase
+Storage. They started out on Supabase Storage too, isolated the same way
+(separate buckets from Sportlogging's), but `congress-raw` outgrew
+Supabase's free 1 GB Storage quota — a quota shared project-wide with
+Sportlogging, unlike Postgres's separate 500 MB one — reaching 2.6 GB
+across ~25k archived filings. R2's free tier (10 GB, no egress fees, since
+filings get read back for reparsing) fits an archive this shape far
+better than paying for Supabase Storage overage would. `raw_object_key` is
+just a bucket key either way, so nothing in the data model changed; only
+`congress_collector.storage.r2_storage` (replacing `supabase_storage.py`
+as the thing every ingest/ops module calls) and the R2\_\* secrets did.
+The one-time copy from Supabase Storage to R2 is
+`congress_collector.ops.migrate_raw_archive_to_r2`
+(`.github/workflows/migrate-raw-archive-to-r2.yml`, `workflow_dispatch`
+only) — resumable, since it checks each key's SHA-256 against what's
+already in R2 rather than assuming a clean run.
+
+Migrating Postgres to a dedicated Supabase project later (a different
+account, or once an existing free project's slot frees up) is a schema
+dump/restore (`pg_dump --schema=congress` / restore) — no application code
+changes needed beyond the connection string, since nothing here references
+`public` or Sportlogging's tables. T19's weekly backup (below) already
+produces a ready-made dump for this. Storage wouldn't need to move again:
+R2 isn't tied to any Supabase project.
 
 ### Weekly database backup (T19)
 
@@ -299,11 +318,10 @@ electronic vs. paper needs the PDF itself (T7/T8). Run it directly with
 
 `congress_collector.ingest.house_pdfs.archive_pending_house_pdfs()` picks
 up to 50 House filings per run with `raw_object_key IS NULL`, downloads
-the PDF, and uploads it to the `congress-raw` bucket at
-`house/{year}/{doc_id}.pdf` via the official `supabase` client (used
-instead of hand-rolling the Storage REST API, since its upsert/auth
-semantics are easy to get subtly wrong). `raw_object_key` and
-`raw_sha256` are then recorded on the `filings` row; `format` stays
+the PDF, and uploads it to the `congress-raw` R2 bucket at
+`house/{year}/{doc_id}.pdf` via `congress_collector.storage.r2_storage`
+(a thin `boto3` S3-client wrapper, R2 being S3-compatible). `raw_object_key`
+and `raw_sha256` are then recorded on the `filings` row; `format` stays
 `'unknown'` (classification needs T8).
 
 Periodic transaction reports (`FilingType = 'P'`) are served from a

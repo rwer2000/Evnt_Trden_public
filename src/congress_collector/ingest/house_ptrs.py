@@ -31,7 +31,7 @@ from congress_collector.parsers.house_ptr import (
     parse_ptr_transactions,
 )
 from congress_collector.sources.house import pdf_url_for
-from congress_collector.storage.supabase_storage import download
+from congress_collector.storage.r2_storage import download
 
 BATCH_SIZE = 25
 
