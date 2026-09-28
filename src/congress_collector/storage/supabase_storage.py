@@ -46,5 +46,11 @@ def download(path: str, *, bucket: str = BUCKET, client: Any | None = None) -> b
     return bytes(result)
 
 
+def remove(paths: list[str], *, bucket: str = BUCKET, client: Any | None = None) -> Any:
+    """Delete each of `paths` from `bucket`."""
+    active_client = client if client is not None else get_client()
+    return active_client.storage.from_(bucket).remove(paths)
+
+
 def sha256_hex(content: bytes) -> str:
     return hashlib.sha256(content).hexdigest()

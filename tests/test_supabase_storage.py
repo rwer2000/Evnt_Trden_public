@@ -1,6 +1,6 @@
 import hashlib
 
-from congress_collector.storage.supabase_storage import sha256_hex, upload
+from congress_collector.storage.supabase_storage import remove, sha256_hex, upload
 
 
 def test_sha256_hex_matches_hashlib() -> None:
@@ -11,9 +11,14 @@ def test_sha256_hex_matches_hashlib() -> None:
 class _FakeBucket:
     def __init__(self) -> None:
         self.calls: list[dict[str, object]] = []
+        self.removed_paths: list[list[str]] = []
 
     def upload(self, path: str, file: bytes, file_options: dict[str, str]) -> None:
         self.calls.append({"path": path, "file": file, "file_options": file_options})
+
+    def remove(self, paths: list[str]) -> list[str]:
+        self.removed_paths.append(paths)
+        return paths
 
 
 class _FakeStorage:
@@ -57,3 +62,12 @@ def test_upload_targets_an_explicit_bucket_when_given() -> None:
     )
 
     assert client.storage.requested_bucket_ids == ["congress-backups"]
+
+
+def test_remove_targets_the_given_bucket() -> None:
+    client = _FakeClient()
+
+    remove(["congress_20260921.sql.gz"], bucket="congress-backups", client=client)
+
+    assert client.storage.requested_bucket_ids == ["congress-backups"]
+    assert client.bucket.removed_paths == [["congress_20260921.sql.gz"]]
