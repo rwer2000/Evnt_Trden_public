@@ -8,7 +8,11 @@ jobs:
     runs-on: ubuntu-latest
     # 25k+ objects at ~1 GET+PUT each; a resumed run re-checks every one via
     # a cheap R2 HEAD but only re-downloads/re-uploads what's still missing.
-    timeout-minutes: 180
+    # Confirmed live: at ~1.4 objects/sec sequential, the full copy takes
+    # ~5h -- 360 is GitHub's own hard ceiling for a hosted-runner job, so
+    # this is as much headroom as a single run can get; re-trigger if it
+    # still times out, the resumability handles the rest.
+    timeout-minutes: 360
     steps:
       - uses: actions/checkout@v4
 

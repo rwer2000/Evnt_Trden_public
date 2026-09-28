@@ -11,6 +11,20 @@ information anyway. It intentionally contains **no trading or strategy
 logic** — signal definitions, backtests, broker integration and execution
 live in a separate private repository that consumes this collector's data.
 
+Being public means anyone can open a pull request, and for a repo that also
+holds paid secrets (R2, Supabase, Telegram), that's the one real attack
+surface: a fork's PR modifying a `.github/workflows/*.yml` file to try to
+exfiltrate one. Two things close it. First,
+`congress_collector.ops.check_workflow_secrets` runs on every push and PR
+(needing no secrets itself, so it always runs, including on a fork's PR) and
+fails CI red if any `pull_request`-triggered workflow references a secret,
+or if `pull_request_target` (which runs with base-repo secrets against fork
+code) shows up at all. Second, the repo's own Settings → Actions → General
+→ "Fork pull request workflows from outside collaborators" is set to
+require approval for **all** outside collaborators, not just first-time
+ones — so no fork's workflow run, modified or not, executes without a
+maintainer clicking approve first.
+
 ## Why "first seen" matters
 
 Filing dates and even notification dates in the disclosures are not the same
@@ -208,6 +222,44 @@ The one-time copy from Supabase Storage to R2 is
 (`.github/workflows/migrate-raw-archive-to-r2.yml`, `workflow_dispatch`
 only) — resumable, since it checks each key's SHA-256 against what's
 already in R2 rather than assuming a clean run.
+
+If Supabase's own free tier is exceeded by the time this runs, its Data
+API (Storage *and* PostgREST, though not direct Postgres connections —
+`DATABASE_URL` keeps working) can start returning 402 Payment Required,
+which blocks the copy above at the read step. `congress_collector.ops.
+rearchive_from_source_to_r2` (`.github/workflows/rearchive-from-source-to-r2.yml`,
+`workflow_dispatch` only) is the fallback for that case: rather than
+copying the existing archive out of Supabase, it re-fetches every already-
+archived filing straight from House Clerk / Senate eFD — the same public
+sources `house_pdfs.py`/`senate_ptrs.py` fetch from for new filings — and
+writes it directly to R2, never touching Supabase Storage. Resumable the
+same way, and paced the same as the regular pipeline (no added delay for
+House, ~1 request/sec for Senate per `sources/senate.py`'s documented
+policy).
+
+### Staying under R2's free tier (T-storage-quota)
+
+Cloudflare's own R2 dashboard only offers usage *notifications* (an
+email/webhook once you cross a threshold you configure there), not a hard
+stop on requests — there's no dashboard toggle that guarantees uploads
+simply can't push the account over the free 10 GB. That guarantee is
+enforced in this repo instead: `congress_collector.storage.quota` keeps a
+running total per bucket in `congress.storage_usage`, and
+`house_pdfs.py`/`senate_ptrs.py`/`ops.db_backup` all call
+`quota.ensure_budget()` before every upload, which raises rather than let
+a write through that would cross a configurable ceiling
+(`R2_STORAGE_CEILING_BYTES`, default 9 GiB — headroom under the 10 GiB free
+tier). A rejected upload is treated like any other archive failure
+(flagged in `dq_issues`, run continues) — the pipeline just stops growing
+the archive rather than crashing.
+
+`quota.reconcile()` recomputes the true total directly from R2 (correcting
+any drift the per-upload counter accumulated) and is run daily by
+`ops.check_storage_quota` (`.github/workflows/check-storage-quota.yml`),
+which also sends a Telegram alert once usage crosses 80% of the ceiling —
+an early warning on top of the hard stop, not a replacement for it.
+`migrate_raw_archive_to_r2` calls the same reconcile at the end of its run
+to seed the counter correctly right after the initial copy.
 
 Migrating Postgres to a dedicated Supabase project later (a different
 account, or once an existing free project's slot frees up) is a schema
@@ -892,7 +944,9 @@ processed data commercially.
 - Code, commit messages, and documentation are in English.
 - Python 3.12, managed with [uv](https://docs.astral.sh/uv/).
 - Linting/formatting: `ruff`. Type checking: `mypy --strict`. Tests:
-  `pytest`. All three run in CI on every push and pull request.
+  `pytest`. All three, plus `ops.check_workflow_secrets` (see the intro's
+  note on public-repo secret safety), run in CI on every push and pull
+  request.
 
 ## Development
 

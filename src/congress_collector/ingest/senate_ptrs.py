@@ -24,7 +24,8 @@ from congress_collector.ingest.senate import DEFAULT_PRECISION_S
 from congress_collector.notify.telegram import send_message
 from congress_collector.parsers.senate_ptr import ParsedTransaction, parse_ptr_html
 from congress_collector.sources.senate import new_session, ptr_url_for
-from congress_collector.storage.r2_storage import sha256_hex, upload
+from congress_collector.storage import quota
+from congress_collector.storage.r2_storage import BUCKET, sha256_hex, upload
 
 BATCH_SIZE = 25
 
@@ -68,7 +69,15 @@ def parse_pending_senate_ptrs(*, batch_size: int = BATCH_SIZE) -> list[str]:
             continue
 
         object_key = f"senate/{report_uuid}.html"
-        upload(object_key, html.encode("utf-8"), "text/html")
+        content = html.encode("utf-8")
+        try:
+            quota.ensure_budget(BUCKET, len(content))
+            upload(object_key, content, "text/html")
+            quota.record_bytes(BUCKET, len(content))
+        except Exception as exc:
+            _mark_failed(filing_id, f"upload failed: {exc}")
+            continue
+
         _save_transactions(filing_id, object_key, html, transactions)
         parsed_filing_ids.append(filing_id)
     return parsed_filing_ids

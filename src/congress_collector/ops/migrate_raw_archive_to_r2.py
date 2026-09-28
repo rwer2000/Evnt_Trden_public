@@ -13,6 +13,10 @@ Postgres source of truth, so this doesn't need to download it from Supabase
 just to confirm that, unlike the small `congress-backups` bucket (no stored
 hash anywhere), where presence in R2 alone is enough to skip a key: backup
 object names are date-stamped and never rewritten with different content.
+
+Finishes by seeding `storage.quota`'s running total (`congress.storage_usage`)
+from R2 directly, so the free-tier budget guard has an accurate starting
+point immediately rather than reading 0 until the next daily reconcile.
 """
 
 import logging
@@ -21,7 +25,7 @@ from sqlalchemy import select
 
 from congress_collector.db.models import Filing
 from congress_collector.db.session import session_scope
-from congress_collector.storage import r2_storage, supabase_storage
+from congress_collector.storage import quota, r2_storage, supabase_storage
 
 logger = logging.getLogger(__name__)
 
@@ -120,6 +124,16 @@ def main() -> None:
     for label, failed in (("raw archive", raw_failed), ("backups", backup_failed)):
         if failed:
             logger.warning("%s: failed key(s): %s", label, ", ".join(failed[:20]))
+
+    # Seed storage.quota's running total from what's actually in R2 now,
+    # rather than leaving it at 0 until the next daily reconcile --
+    # ops.check_storage_quota.py's ensure_budget() calls start reading it
+    # immediately once collect.yml's next run picks up these R2 secrets.
+    for bucket in (RAW_BUCKET, BACKUP_BUCKET):
+        total_bytes, object_count = quota.reconcile(bucket)
+        logger.info(
+            "%s: running total seeded at %d bytes (%d objects)", bucket, total_bytes, object_count
+        )
 
 
 if __name__ == "__main__":

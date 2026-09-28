@@ -40,6 +40,7 @@ import subprocess
 from datetime import UTC, datetime
 
 from congress_collector.notify.telegram import send_message
+from congress_collector.storage import quota
 from congress_collector.storage.r2_storage import upload
 
 BACKUP_BUCKET = "congress-backups"
@@ -75,7 +76,9 @@ def main() -> None:
     dump = create_backup(database_url, pg_dump_bin=os.environ.get("PG_DUMP", "pg_dump"))
     object_key = backup_object_key(datetime.now(UTC))
 
+    quota.ensure_budget(BACKUP_BUCKET, len(dump))
     upload(object_key, dump, "application/gzip", bucket=BACKUP_BUCKET)
+    quota.record_bytes(BACKUP_BUCKET, len(dump))
 
     size_kb = len(dump) / 1024
     send_message(f"Database backup complete: {object_key} ({size_kb:.0f} KB)", category="system")

@@ -13,7 +13,8 @@ from sqlalchemy import case, func, select
 from congress_collector.db.models import DqIssue, Filing
 from congress_collector.db.session import session_scope
 from congress_collector.sources.house import USER_AGENT, pdf_url_for
-from congress_collector.storage.r2_storage import sha256_hex, upload
+from congress_collector.storage import quota
+from congress_collector.storage.r2_storage import BUCKET, sha256_hex, upload
 
 BATCH_SIZE = 50
 
@@ -33,19 +34,24 @@ def archive_pending_house_pdfs(*, batch_size: int = BATCH_SIZE) -> int:
         for filing_id, doc_id, filing_type, filed_date in pending:
             year = filed_date.year if filed_date else datetime.now(UTC).year
             url = pdf_url_for(doc_id, filing_type, year)
-            # Covers both the House-site fetch and the R2 upload --
-            # confirmed live (back when this used Supabase Storage) that a
-            # catch-up run crashed the whole process on an
+            # Covers the House-site fetch, the budget check, and the R2
+            # upload -- confirmed live (back when this used Supabase
+            # Storage) that a catch-up run crashed the whole process on an
             # httpx.ReadTimeout from upload() (a transient Storage-side
             # blip after tens of thousands of prior calls), since only the
-            # fetch used to be wrapped. Either failure gets the same
-            # treatment: flag and move on, not lose the run.
+            # fetch used to be wrapped. Every failure gets the same
+            # treatment: flag and move on, not lose the run -- including
+            # quota.StorageBudgetExceededError, which just means the archive
+            # stays paused at its ceiling until reconcile()'s next run
+            # confirms there's room again.
             try:
                 response = client.get(url)
                 response.raise_for_status()
                 content = response.content
                 object_key = f"house/{year}/{doc_id}.pdf"
+                quota.ensure_budget(BUCKET, len(content))
                 upload(object_key, content, "application/pdf")
+                quota.record_bytes(BUCKET, len(content))
             except Exception as exc:
                 _record_fetch_failed(filing_id, f"{url} -> {exc}")
                 continue
