@@ -223,6 +223,20 @@ The one-time copy from Supabase Storage to R2 is
 only) — resumable, since it checks each key's SHA-256 against what's
 already in R2 rather than assuming a clean run.
 
+If Supabase's own free tier is exceeded by the time this runs, its Data
+API (Storage *and* PostgREST, though not direct Postgres connections —
+`DATABASE_URL` keeps working) can start returning 402 Payment Required,
+which blocks the copy above at the read step. `congress_collector.ops.
+rearchive_from_source_to_r2` (`.github/workflows/rearchive-from-source-to-r2.yml`,
+`workflow_dispatch` only) is the fallback for that case: rather than
+copying the existing archive out of Supabase, it re-fetches every already-
+archived filing straight from House Clerk / Senate eFD — the same public
+sources `house_pdfs.py`/`senate_ptrs.py` fetch from for new filings — and
+writes it directly to R2, never touching Supabase Storage. Resumable the
+same way, and paced the same as the regular pipeline (no added delay for
+House, ~1 request/sec for Senate per `sources/senate.py`'s documented
+policy).
+
 ### Staying under R2's free tier (T-storage-quota)
 
 Cloudflare's own R2 dashboard only offers usage *notifications* (an

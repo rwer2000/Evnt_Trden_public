@@ -1,0 +1,34 @@
+name: rearchive-from-source-to-r2
+
+on:
+  workflow_dispatch:
+
+jobs:
+  rearchive:
+    runs-on: ubuntu-latest
+    # ~25k filings: House gets no added delay (matches house_pdfs.py /
+    # catchup_house_backlog.py at similar scale), Senate is paced at
+    # ~1 req/sec per efdsearch.senate.gov's documented policy -- expect
+    # a few hours total. 360 is GitHub's own hard ceiling for a
+    # hosted-runner job; re-trigger if it still times out, this is
+    # resumable the same way migrate-raw-archive-to-r2.yml is.
+    timeout-minutes: 360
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v3
+
+      - name: Set up Python
+        run: uv python install 3.12
+
+      - name: Install dependencies
+        run: uv sync --all-extras --dev
+
+      - name: Re-fetch archived filings from source and write to R2
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          R2_ACCOUNT_ID: ${{ secrets.R2_ACCOUNT_ID }}
+          R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+          R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+        run: uv run python -m congress_collector.ops.rearchive_from_source_to_r2
