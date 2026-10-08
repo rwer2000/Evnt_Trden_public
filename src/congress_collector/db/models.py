@@ -217,6 +217,35 @@ class Transaction(Base):
     )
 
 
+class Holding(Base):
+    """One Schedule A line of a House annual Financial Disclosure report:
+    an asset held at the end of `report_year`, with its value band."""
+
+    __tablename__ = "holdings"
+    __table_args__ = (UniqueConstraint("filing_id", "row_index"),)
+
+    holding_id: Mapped[uuid.UUID] = mapped_column(
+        UUID(as_uuid=True), primary_key=True, server_default=_GEN_UUID
+    )
+    filing_id: Mapped[str] = mapped_column(
+        Text, ForeignKey("congress.filings.filing_id"), nullable=False
+    )
+    row_index: Mapped[int] = mapped_column(Integer, nullable=False)
+    report_year: Mapped[int | None] = mapped_column(Integer)
+    owner: Mapped[str | None] = mapped_column(Text)
+    asset_description_raw: Mapped[str] = mapped_column(Text, nullable=False)
+    ticker: Mapped[str | None] = mapped_column(Text)
+    asset_type: Mapped[str | None] = mapped_column(Text)
+    value_raw: Mapped[str | None] = mapped_column(Text)
+    value_min: Mapped[float | None] = mapped_column(Numeric)
+    value_max: Mapped[float | None] = mapped_column(Numeric)
+    income_type: Mapped[str | None] = mapped_column(Text)
+    income_raw: Mapped[str | None] = mapped_column(Text)
+    created_at: Mapped[datetime] = mapped_column(
+        DateTime(timezone=True), nullable=False, server_default=text("now()")
+    )
+
+
 class ScrapeRun(Base):
     __tablename__ = "scrape_runs"
 
