@@ -32,8 +32,7 @@ def archive_pending_house_pdfs(*, batch_size: int = BATCH_SIZE) -> int:
     client = httpx.Client(follow_redirects=True, timeout=30.0, headers={"User-Agent": USER_AGENT})
     try:
         for filing_id, doc_id, filing_type, filed_date in pending:
-            year = filed_date.year if filed_date else datetime.now(UTC).year
-            url = pdf_url_for(doc_id, filing_type, year)
+            filed_year = filed_date.year if filed_date else datetime.now(UTC).year
             # Covers the House-site fetch, the budget check, and the R2
             # upload -- confirmed live (back when this used Supabase
             # Storage) that a catch-up run crashed the whole process on an
@@ -45,14 +44,13 @@ def archive_pending_house_pdfs(*, batch_size: int = BATCH_SIZE) -> int:
             # stays paused at its ceiling until reconcile()'s next run
             # confirms there's room again.
             try:
-                response = client.get(url)
-                response.raise_for_status()
-                content = response.content
+                year, content = _fetch_pdf(client, doc_id, filing_type, filed_year)
                 object_key = f"house/{year}/{doc_id}.pdf"
                 quota.ensure_budget(BUCKET, len(content))
                 upload(object_key, content, "application/pdf")
                 quota.record_bytes(BUCKET, len(content))
             except Exception as exc:
+                url = pdf_url_for(doc_id, filing_type, filed_year)
                 _record_fetch_failed(filing_id, f"{url} -> {exc}")
                 continue
 
@@ -61,6 +59,37 @@ def archive_pending_house_pdfs(*, batch_size: int = BATCH_SIZE) -> int:
     finally:
         client.close()
     return archived
+
+
+def candidate_years(filed_year: int) -> list[int]:
+    """Clerk folder years to try for a filing, most likely first.
+
+    The Clerk files a PDF under its index year -- the calendar year the
+    filing belongs to -- not the year it was filed: an annual report filed
+    in March 2016 for 2015 sits in `financial-pdfs/2015/`. Confirmed
+    against the Clerk's own yearly indexes (2026-10-08): 4,522 of the
+    annual reports in `filings` have a filed year differing from their
+    index year, behind most of the ~22k open house_pdf_fetch_failed issues.
+    """
+    return [filed_year, filed_year - 1, filed_year + 1]
+
+
+def _fetch_pdf(
+    client: httpx.Client, doc_id: str, filing_type: str, filed_year: int
+) -> tuple[int, bytes]:
+    """(folder year, PDF bytes); raises the last error if no year serves it."""
+    last_error: Exception | None = None
+    for year in candidate_years(filed_year):
+        try:
+            response = client.get(pdf_url_for(doc_id, filing_type, year))
+            response.raise_for_status()
+            return year, response.content
+        except httpx.HTTPStatusError as exc:
+            if exc.response.status_code != 404:
+                raise
+            last_error = exc
+    assert last_error is not None
+    raise last_error
 
 
 def count_pending() -> int:
@@ -128,6 +157,14 @@ def _record_archived(filing_id: str, object_key: str, sha256: str) -> None:
         if filing is not None:
             filing.raw_object_key = object_key
             filing.raw_sha256 = sha256
+        for issue in session.scalars(
+            select(DqIssue).where(
+                DqIssue.filing_id == filing_id,
+                DqIssue.issue_type == FETCH_FAILED_ISSUE_TYPE,
+                DqIssue.resolved_at.is_(None),
+            )
+        ):
+            issue.resolved_at = datetime.now(UTC)
 
 
 def _record_fetch_failed(filing_id: str, detail: str) -> None:

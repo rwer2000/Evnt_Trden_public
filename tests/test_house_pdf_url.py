@@ -1,3 +1,4 @@
+from congress_collector.ingest.house_pdfs import candidate_years
 from congress_collector.sources.house import pdf_url_for
 
 
@@ -13,3 +14,9 @@ def test_non_ptr_filing_uses_financial_pdfs_path() -> None:
             url
             == "https://disclosures-clerk.house.gov/public_disc/financial-pdfs/2026/10078673.pdf"
         )
+
+
+def test_candidate_years_try_the_index_year_before_and_after() -> None:
+    # An annual report filed in March 2016 covers 2015 and sits in the
+    # Clerk's 2015 folder.
+    assert candidate_years(2016) == [2016, 2015, 2017]

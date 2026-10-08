@@ -152,6 +152,11 @@ Scheduling notes:
   `filings.filing_id` FK, NULL if the official site no longer shows that
   filing), plus the community dataset's own filer/ticker/asset/date/amount
   fields, unnormalized.
+- `holdings` — one Schedule A line of a House annual Financial Disclosure
+  report (`filing_type = 'O'`): filing_id, row_index, report_year (holdings
+  are as of its year end), owner, asset_description_raw, ticker,
+  asset_type, value band (value_raw/value_min/value_max), income_type,
+  income_raw. See "House annual reports" below.
 
 Signals, orders, positions and prices are owned by the private strategy
 repository and are not part of this repo's schema.
@@ -431,6 +436,35 @@ under-reporting the run as complete. Not part of the regular pipeline;
 trigger it manually (`workflow_dispatch`) after a big backfill. Safe to
 re-run if the job's 350-minute timeout cuts it off partway, since every
 stage just re-queries the DB for what's still pending.
+
+## House annual reports (Schedule A holdings)
+
+`congress_collector.ingest.house_fds.parse_pending_house_fds()` (a
+`collect.yml` step, 25 reports per run) reads archived House annual
+reports and stores their Schedule A in `holdings`. PTRs only show trades;
+the annual report shows what a member already held -- on 80 electronic
+2018 reports of PTR-filing members, 765 of 1,743 ticker holdings never
+appear in that member's PTRs. A report without a text layer becomes
+`format = 'scanned'` / `paper_deferred` (about 30-125 a year since 2014,
+all of them before 2013); one with a Schedule A heading becomes `parsed`,
+also when it reads "None disclosed." and has no holdings.
+
+The parser (`congress_collector.parsers.house_fd`) reuses the PTR
+parser's word grouping, owner codes and ticker patterns. It locates the
+columns from Schedule A's header row ("asset owner value of asset income
+type(s) income tx. > $1,000?"), handles value bands and descriptions that
+wrap, "Account ⇒ held asset" sub-holdings, both heading styles (plain
+scrambled case before 2022, first letter plus NUL bytes from 2022) and
+skips annotation lines and footnotes. Checked on 128 reports from
+2013-2024: every row with an asset-type code is found, and no holding is
+left without a value.
+
+The Clerk files every PDF under its *index* year, the calendar year a
+filing belongs to, not the year it was filed (an annual report filed in
+March 2016 for 2015 is under `financial-pdfs/2015/`). The archive step
+therefore tries the filed year, the year before and the year after
+(`house_pdfs.candidate_years`), and resolves the filing's open
+`house_pdf_fetch_failed` issue once it succeeds.
 
 ## House PTR parser (T8)
 
