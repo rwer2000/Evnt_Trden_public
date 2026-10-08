@@ -139,7 +139,26 @@ _TX_TYPE_CODES = {"P": "purchase", "S": "sale_full", "E": "exchange"}
 # underlying font quirk, two different eras' rendering of it.
 _ANNOTATION_LABELS = {"filing", "subholding", "description", "location"}
 
-_DATE_RE = re.compile(r"^\d{2}/\d{2}/\d{4}$")
+# Month and day are usually zero-padded, but a text layer from the
+# 2015-2022 "20xxxxxx" filings also writes them unpadded ("11/7/2017",
+# confirmed against DocID 20008536).
+_DATE_RE = re.compile(r"^\d{1,2}/\d{1,2}/\d{4}$")
+# Header words, matched case-insensitively: the 2015-2022 "20xxxxxx"
+# filings that `format = 'scanned'` used to swallow carry a text layer whose
+# letter case is scrambled ("tranSaction", "notification", "owner asset"),
+# confirmed by downloading all 773 such filings still unparsed on
+# 2026-10-08 -- every one parses once the header is found this way.
+_HEADER_WORDS = {
+    w.lower(): w
+    for w in ("ID", "Owner", "Asset", "Transaction", "Date", "Notification", "Amount", "Cap.")
+}
+
+
+def _header_word(text: str) -> str:
+    """Canonical spelling of a header word, or the text unchanged."""
+    return _HEADER_WORDS.get(text.lower(), text)
+
+
 # Case-insensitive: pre-2022 filings render this single-letter code (and the
 # asset-type-in-brackets code below) in lowercase in the PDF's text layer --
 # confirmed live against a 2020 filing ("3M Company (MMM) [sT] s ...") where
@@ -214,12 +233,20 @@ def extract_pages_words(pdf_bytes: bytes) -> list[list[Word]]:
 
 def is_electronic(pages_words: list[list[Word]]) -> bool:
     """True if this looks like a text-layer PDF we can parse, rather than
-    a scanned image (paper filing)."""
-    all_text = [w.text for words in pages_words for w in words]
-    return any("Notification" in t for t in all_text) and any("Transaction" in t for t in all_text)
+    a scanned image (paper filing): it has the table's column-header row.
+
+    Requiring the whole header row (not just the words "Notification" and
+    "Transaction" somewhere) keeps an image-only scan whose cover sheet
+    happens to carry some text from being treated as electronic, now that
+    the header words are matched case-insensitively."""
+    return _find_column_bounds(pages_words) is not None
 
 
 def _detect_column_bounds(pages_words: list[list[Word]]) -> _ColumnBounds:
+    return _find_column_bounds(pages_words) or _DEFAULT_COLUMN_BOUNDS
+
+
+def _find_column_bounds(pages_words: list[list[Word]]) -> _ColumnBounds | None:
     """Derive this filing's own column boundaries from its header row.
 
     Column x0 positions drift between form revisions (see the module
@@ -233,7 +260,7 @@ def _detect_column_bounds(pages_words: list[list[Word]]) -> _ColumnBounds:
     """
     for words in pages_words:
         for line in _group_lines(words):
-            positions = {w.text: w.x0 for w in line}
+            positions = {_header_word(w.text): w.x0 for w in line}
             if "Owner" not in positions or "Asset" not in positions:
                 continue
             if "Transaction" not in positions or "Notification" not in positions:
@@ -247,7 +274,7 @@ def _detect_column_bounds(pages_words: list[list[Word]]) -> _ColumnBounds:
                 (
                     w.x0
                     for w in line
-                    if w.text == "Date"
+                    if _header_word(w.text) == "Date"
                     and positions["Transaction"] < w.x0 < positions["Notification"]
                 ),
                 None,
@@ -278,7 +305,7 @@ def _detect_column_bounds(pages_words: list[list[Word]]) -> _ColumnBounds:
                 if cap_x0 is not None
                 else amount_x0 + (AMOUNT_MAX_X - NOTIF_DATE_MAX_X),
             )
-    return _DEFAULT_COLUMN_BOUNDS
+    return None
 
 
 def parse_ptr_transactions(pages_words: list[list[Word]]) -> list[ParsedTransaction]:
@@ -378,10 +405,11 @@ def _is_header_line(line_text: str) -> bool:
     repeats on a continuation page. No real asset description or amount
     line plausibly contains any of these word pairs together.
     """
+    line_text = line_text.lower()
     return (
-        ("Owner" in line_text and "Asset" in line_text)
-        or ("Notification" in line_text and "Amount" in line_text)
-        or ("Cap." in line_text and "Gains" in line_text)
+        ("owner" in line_text and "asset" in line_text)
+        or ("notification" in line_text and "amount" in line_text)
+        or ("cap." in line_text and "gains" in line_text)
         or "$200?" in line_text
     )
 
@@ -558,4 +586,4 @@ def _parse_option_details(description: str) -> tuple[str | None, float | None, s
 
 def _to_iso_date(raw: str) -> str:
     month, day, year = raw.split("/")
-    return f"{year}-{month}-{day}"
+    return f"{year}-{int(month):02d}-{int(day):02d}"

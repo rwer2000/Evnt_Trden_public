@@ -5,6 +5,15 @@ pre-2022 House form quirks that used to defeat it entirely -- see
 this script was written those quirks caused a 100% parse-failure rate for
 every House PTR filed 2015 through most of 2021.
 
+Also retries `parse_status = 'paper_deferred'` filings: the "20xxxxxx"
+series filed 2015-2022 carries a text layer whose header words have
+scrambled letter case ("tranSaction"), which the old case-sensitive
+`is_electronic()` rejected as a scan. Confirmed against the public PDFs on
+2026-10-08: all 773 such filings not covered otherwise parse, and 2,053
+more are only covered by the community archive. A deferred filing is only
+parsed if `is_electronic()` now finds its header row; a genuine image-only
+scan is left exactly as it was.
+
 Not part of the regular collect.yml pipeline: `parse_pending_house_ptrs`
 only ever looks at `format = 'unknown'` filings and never retries a
 `failed` one on its own, so a parser fix expected to newly parse
@@ -26,6 +35,7 @@ from congress_collector.db.session import session_scope
 from congress_collector.parsers.house_ptr import (
     ParsedTransaction,
     extract_pages_words,
+    is_electronic,
     parse_ptr_transactions,
 )
 from congress_collector.storage.r2_storage import download
@@ -37,7 +47,7 @@ def reparse_failed_filings() -> tuple[int, int]:
     """Returns (filings newly parsed, filings still failing)."""
     now_parsed = 0
     still_failed = 0
-    for filing_id, object_key in _failed_filings():
+    for filing_id, object_key, status in _failed_filings():
         try:
             content = download(object_key)
             pages_words = extract_pages_words(content)
@@ -45,6 +55,9 @@ def reparse_failed_filings() -> tuple[int, int]:
             still_failed += 1
             continue
 
+        if status == "paper_deferred" and not is_electronic(pages_words):
+            still_failed += 1  # a real scan: stays paper_deferred
+            continue
         transactions = parse_ptr_transactions(pages_words)
         if not transactions:
             still_failed += 1
@@ -60,17 +73,17 @@ def reparse_failed_filings() -> tuple[int, int]:
     return now_parsed, still_failed
 
 
-def _failed_filings() -> list[tuple[str, str]]:
+def _failed_filings() -> list[tuple[str, str, str]]:
     with session_scope() as session:
         rows = session.execute(
-            select(Filing.filing_id, Filing.raw_object_key).where(
+            select(Filing.filing_id, Filing.raw_object_key, Filing.parse_status).where(
                 Filing.chamber == "house",
                 Filing.filing_type == "P",
-                Filing.parse_status == "failed",
+                Filing.parse_status.in_(("failed", "paper_deferred")),
                 Filing.raw_object_key.is_not(None),
             )
         ).all()
-        return [(filing_id, object_key) for filing_id, object_key in rows if object_key]
+        return [(fid, key, status) for fid, key, status in rows if key]
 
 
 def _save_and_resolve(filing_id: str, transactions: list[ParsedTransaction]) -> None:
@@ -78,6 +91,7 @@ def _save_and_resolve(filing_id: str, transactions: list[ParsedTransaction]) -> 
         filing = session.get(Filing, filing_id)
         if filing is None:
             return
+        filing.format = "electronic"
         filing.parse_status = "parsed"
 
         for t in transactions:
