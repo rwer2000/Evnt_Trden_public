@@ -11,8 +11,11 @@ block) are constructed by hand using the same verified column x0
 convention, and are marked as such below.
 """
 
+from pathlib import Path
+
 from congress_collector.parsers.house_ptr import (
     Word,
+    extract_pages_words,
     is_electronic,
     parse_ptr_transactions,
 )
@@ -461,3 +464,40 @@ def test_line_without_a_tx_type_code_never_starts_a_transaction() -> None:
     ]
     pages = [[*_HEADER, *line, *_FOOTER]]
     assert parse_ptr_transactions(pages) == []
+
+
+# --- 2015-2022 "20xxxxxx" filings with a scrambled-case text layer --------
+
+_FIXTURES = Path(__file__).parent / "fixtures" / "house_ptr"
+
+
+def test_header_words_match_case_insensitively() -> None:
+    scrambled = [Word(w.text.lower(), w.x0, w.top) for w in _HEADER]
+    scrambled[3] = Word("tranSaction", 262.3, 281.4)
+    assert is_electronic([scrambled]) is True
+
+
+def test_header_words_scattered_over_a_cover_sheet_are_not_electronic() -> None:
+    # The words alone, not on one header row, used to be enough.
+    cover = [
+        Word("Notification", 50.0, 100.0),
+        Word("Transaction", 50.0, 300.0),
+        Word("Owner", 50.0, 500.0),
+    ]
+    assert is_electronic([cover]) is False
+
+
+def test_real_scrambled_case_filing_with_unpadded_dates() -> None:
+    # Public House Clerk PDF, DocID 20008536 (Hon. Kenneth R. Buck, filed
+    # 2017-11): header reads "iD owner asset transaction Date notification
+    # amount" and dates are written "11/7/2017". The old case-sensitive
+    # check marked it paper_deferred.
+    pages = extract_pages_words((_FIXTURES / "20008536.pdf").read_bytes())
+    assert is_electronic(pages) is True
+    txs = parse_ptr_transactions(pages)
+    assert len(txs) == 37
+    first = txs[0]
+    assert (first.ticker, first.tx_type, first.owner) == ("ABT", "sale_full", "self")
+    assert (first.tx_date, first.notification_date) == ("2017-11-07", "2017-11-13")
+    assert (first.amount_min, first.amount_max) == (1001.0, 15000.0)
+    assert all(t.tx_date is not None for t in txs)
