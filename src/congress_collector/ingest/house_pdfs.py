@@ -134,11 +134,23 @@ def _fetch_pending(limit: int) -> list[tuple[str, str, str, date | None]]:
         #    only 3,226 of 7,666 PTRs, because it kept re-selecting the
         #    same batch of permanently-unfetchable filings and never
         #    reaching the untried remainder.
+        #
+        # Within each tier, electronic annual reports (filing_type 'O' with
+        # a "100xxxxx" DocID) come right after PTRs: house_fds.py parses
+        # them into holdings, and on 2026-10-08 4,126 of them still waited
+        # behind ~15k extensions, candidate reports and amendments nobody
+        # parses. Only the electronic series is promoted: thousands of old
+        # 'O' rows no longer in the Clerk's index 404 forever and would
+        # otherwise crowd the batch the way tier 2 describes.
         already_failed = select(DqIssue.filing_id).where(
             DqIssue.issue_type == FETCH_FAILED_ISSUE_TYPE, DqIssue.resolved_at.is_(None)
         )
         failed_priority = case((Filing.filing_id.in_(already_failed), 1), else_=0)
-        type_priority = case((Filing.filing_type == "P", 0), else_=1)
+        type_priority = case(
+            (Filing.filing_type == "P", 0),
+            ((Filing.filing_type == "O") & Filing.filing_id.like("house:100%"), 1),
+            else_=2,
+        )
         rows = session.execute(
             select(Filing.filing_id, Filing.filing_type, Filing.filed_date)
             .where(Filing.chamber == "house", Filing.raw_object_key.is_(None))
