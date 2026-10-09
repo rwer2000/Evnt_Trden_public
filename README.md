@@ -474,7 +474,8 @@ therefore tries the filed year, the year before and the year after
 Scanned House PTRs ("8/9xxxxxx" DocIDs) have no text layer and stay
 `paper_deferred`. Some are transcribed outside the pipeline -- each PDF
 read by two independent Claude vision passes, disagreements resolved by a
-third look at the scan -- into a CSV under `data/` with the source DocID,
+third look at the scan -- into a CSV under `data/` with the source DocID
+(method, reader instructions and comparison script: `tools/transcription/`),
 a combined `confidence` (high/medium/low) and a review note per row.
 `congress_collector.ingest.transcribed_ptrs` (manual workflow
 `import-transcribed-ptrs.yml`, CSV path as input) adds them as ordinary
