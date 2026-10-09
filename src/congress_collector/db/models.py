@@ -246,6 +246,29 @@ class Holding(Base):
     )
 
 
+class TransactionProvenance(Base):
+    """How a transaction was read, when not by the PDF/HTML parsers: e.g.
+    transcribed from a scanned filing with two independent vision readings
+    (`ingest.transcribed_ptrs`). Lets analyses include or exclude those
+    rows, and weigh them by `confidence` ('high' / 'medium' / 'low')."""
+
+    __tablename__ = "transaction_provenance"
+
+    transaction_id: Mapped[uuid.UUID] = mapped_column(
+        UUID(as_uuid=True),
+        ForeignKey("congress.transactions.transaction_id", ondelete="CASCADE"),
+        primary_key=True,
+    )
+    method: Mapped[str] = mapped_column(Text, nullable=False)
+    confidence: Mapped[str | None] = mapped_column(Text)
+    review: Mapped[str | None] = mapped_column(Text)
+    note: Mapped[str | None] = mapped_column(Text)
+    source_file: Mapped[str | None] = mapped_column(Text)
+    created_at: Mapped[datetime] = mapped_column(
+        DateTime(timezone=True), nullable=False, server_default=text("now()")
+    )
+
+
 class ScrapeRun(Base):
     __tablename__ = "scrape_runs"
 

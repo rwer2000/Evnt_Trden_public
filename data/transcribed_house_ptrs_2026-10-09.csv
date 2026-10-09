@@ -1,0 +1,690 @@
+doc_id,page,row,owner,asset_name,ticker,tx_type,tx_date,notification_date,amount_band,k_flag,confidence,review,note
+8213744,1,1,joint,Nuance Communications Inc,,sale_full,2013-12-27,2014-01-02,A,,high,both readings agree,""
+8213744,1,2,joint,"Lilly, Eli & Co",,sale_full,2013-12-27,2014-01-02,A,,high,both readings agree,""
+8213744,1,3,joint,Exelon Corp,,sale_full,2013-12-27,2014-01-02,A,,high,both readings agree,""
+8213782,1,1,spouse,Bexar Cnty Tex Rev Proj 4.00% 08/15/2033,,purchase,2013-12-20,2013-12-26,C,,high,both readings agree,""
+8213782,1,2,spouse,Tarrant Cnty Tex Cltr Ed 5.00% 11/15/2042,,sale_full,2013-12-20,2013-12-26,C,,high,both readings agree,""
+8213782,1,3,spouse,Austin Tex Cmnty Coll Rev 3.25% 02/01/2037,,purchase,2013-12-23,2013-12-27,C,,high,both readings agree,""
+8213784,1,1,self,IBM Corp,,purchase,2013-12-11,2014-01-05,A,,high,both readings agree,""
+8213785,1,1,joint,TAL INTERNATIONAL GROUP,,purchase,2013-12-02,2013-12-02,A,,high,both readings agree,""
+8213785,1,2,joint,MEMORIAL PRODTN PTNR LP,,purchase,2013-12-03,2013-12-03,B,,high,both readings agree,""
+8213785,1,3,joint,FORD MOTOR COMPANY,,purchase,2013-12-03,2013-12-03,B,,high,both readings agree,""
+8213785,1,4,joint,FEDEX CORPORATION,,purchase,2013-12-03,2013-12-03,B,,high,both readings agree,""
+8213785,1,5,joint,SCHW US SCAP EFT,,purchase,2013-12-03,2013-12-03,A,,high,both readings agree,""
+8213785,2,1,joint,NATURAL RESOURCE PTNR LP,,purchase,2013-12-17,2013-12-17,A,,high,both readings agree,""
+8213785,2,2,joint,FORD MOTOR COMPANY,,purchase,2013-12-23,2013-12-23,A,,high,both readings agree,""
+8213809,1,1,joint,Dominion Resources Stock,,purchase,2013-12-20,2014-01-07,A,,high,both readings agree,""
+8213819,1,1,self,American Capital Agency Corp,,sale_full,2013-12-20,2013-12-20,B,,high,both readings agree,""
+8213821,1,1,joint,"Telsa Motors, Inc. [1]",,purchase,2013-11-20,2013-12-10,A,,high,both readings agree,spelled 'Telsa' on form; footnote 1: asset belongs to Collins/Lofgren Family Trust; spelled 'Telsa' on form; footnote 1: asset belongs to Collins/Lofgren Family Trust
+8213825,2,1,spouse,"Caremi Investments LLC: Energy Pioneer Solutions, Inc.",,purchase,2013-12-13,2013-12-13,E,,medium,resolved by third look: asset_name,Caremi Investments LLC is a parent header line without its own checkboxes; band E vs F alignment on attachment small; listed indented under header line 'Caremi Investments LLC' (no checkboxes on that line); page 1 says 'See Attached'
+8213825,2,2,spouse,"Caremi Investments LLC: Energy Pioneer Solutions, Inc. (convertible debt was exchanged for equity)",,exchange,2013-12-13,2013-12-13,F,,medium,both readings agree,"Caremi Investments LLC is a parent header line; band column is the $501,001-1,000,000 column on a custom attachment; held via Caremi Investments LLC; typed attachment"
+8213827,1,1,joint,Media General Inc ClA - Common Stock,,sale_full,2013-12-06,2013-12-06,A,,medium,resolved by third look: owner,"owner cells blank; ""JT"" typed in owner header area only; page marked 2 of 2; owner JT written once in owner header area, applied to all rows; form says page 2 of 2 but only one page provided"
+8213827,1,2,joint,Gannett Co Inc Del - Common Stock,,purchase,2013-12-09,2013-12-09,A,,medium,resolved by third look: owner,"owner cells blank; ""JT"" typed in owner header area only; owner JT written once in owner header area"
+8213827,1,3,joint,Gannett Co Inc Del - Common Stock,,sale_full,2013-12-26,2013-12-26,A,,medium,resolved by third look: owner,"owner cells blank; ""JT"" typed in owner header area only; owner JT written once in owner header area"
+8213827,1,4,joint,Hewlett-Packard Company - Common Stock,,sale_full,2013-12-26,2013-12-26,A,,medium,resolved by third look: owner,"owner cells blank; ""JT"" typed in owner header area only; owner JT written once in owner header area"
+8213895,1,1,self,CHIPPEWA MIC VLY SCH CO 050133,,purchase,2013-12-27,2014-01-09,A,,high,both readings agree,""
+8213895,1,2,self,PENTWATER MI PUB SCHLS 050128,,sale_full,2013-12-27,2014-01-09,A,,high,both readings agree,""
+8213895,1,3,self,MEDLEY CAPITAL,,purchase,2013-12-30,2014-01-09,A,,high,both readings agree,""
+8213895,1,4,self,UBS SEP: CISCO SYSTEMS,,purchase,2013-12-27,2014-01-09,A,,high,both readings agree,""
+8213895,1,5,self,UBS SEP: EDUCATION REALTY TRUST INC,,purchase,2013-12-27,2014-01-09,A,,high,both readings agree,""
+8213895,2,1,self,UBS SEP: STANLEY BLACK & DECKER INC,,purchase,2013-12-27,2014-01-09,A,,high,both readings agree,""
+8213895,2,2,self,UBS SEP: GE CAPITAL RETAIL UT 12/31/18,,purchase,2013-12-31,2014-01-09,B,,high,both readings agree,""
+8213903,1,1,self,Dodge and Cox INTL Mutual Fund,,purchase,2013-12-30,2014-01-10,B,,medium,both readings agree,handwritten; footnote 1: IRA of William Owens - NBT Bank; handwritten; footnote 1: IRA of William Owens - NBT Bank
+8213903,1,2,self,Bank of America CRP MTN (Corporate Bond),,purchase,2014-01-02,2014-01-10,A,,medium,both readings agree,handwritten; footnote 1: IRA; handwritten; slanted rows; footnote 1 IRA
+8213903,1,3,self,Bank of America CRP MTN/Corporate Bond,,purchase,2014-01-02,2014-01-10,B,,medium,both readings agree,handwritten; footnote 1: IRA; handwritten; slanted rows; footnote 1 IRA
+8213903,1,4,self,Goldman Sachs GP MTN (Corporate Bond),,purchase,2014-01-02,2014-01-10,B,,medium,both readings agree,handwritten; footnote 1: IRA; handwritten; slanted rows; footnote 1 IRA
+8213903,1,5,self,HSBC Holdings (Corporate Bond),,purchase,2014-01-02,2014-01-10,C,,medium,both readings agree,handwritten; footnote 1: IRA; handwritten; slanted rows; footnote 1 IRA
+8213903,2,1,self,Intrexon Corp Common Stock,,purchase,2014-01-15,2014-01-15,A,,medium,both readings agree,handwritten; footnote 1: IRA; handwritten; footnote 1 IRA
+8213903,2,2,self,Bank of America Common Stock,,purchase,2014-01-21,2014-01-21,B,,medium,both readings agree,handwritten; footnote 1: IRA; handwritten; footnote 1 IRA
+8213903,2,3,self,Groupon Common Stock,,purchase,2014-01-21,2014-01-21,A,,medium,both readings agree,handwritten; footnote 1: IRA; handwritten; footnote 1 IRA
+8213952,1,1,joint,Sale of Cattle,,sale_full,2014-01-08,2014-01-15,B,,medium,both readings agree,handwritten; handwritten
+8213952,1,2,joint,Twitter stock,,purchase,2013-11-08,2013-11-20,A,,medium,both readings agree,handwritten; owner written JT; handwritten; tx date could be 11/6/13
+8213952,1,3,joint,Granite Construction Inc,,purchase,2013-11-08,2013-11-20,A,,low,both readings agree,handwritten; tx date could be 11/18/13; handwritten; tx date could be 11/18/13 or 11/6/13
+8213952,1,4,joint,Cattle Sale,,sale_full,2014-01-22,2014-01-22,A,,medium,both readings agree,handwritten; year 14 written over 13 in both dates; handwritten; year in both dates overwritten (13 corrected to 14)
+8213952,1,5,joint,WormMedia note,,exchange,2013-12-31,2013-12-31,A,,low,both readings agree,handwritten; notification year overwritten (13/14); filer wrote across amount columns: 'Note exchanged for stock'; asset name reading uncertain; handwritten name unclear (WovenMedia/WorldMedia?); written across amount columns: 'note exchanged for stock'
+8213967,1,1,spouse,Dreyfus Disciplined Stock Fund,,sale_full,2013-12-31,2014-01-31,A,,high,both readings agree,""
+8214028,1,1,joint,PENNANTPARK INVT CORP,,purchase,2014-01-03,2014-01-03,A,,high,both readings agree,""
+8214028,1,2,joint,TAL INTERNATIONAL GROUP,,purchase,2014-01-08,2014-01-08,A,,high,both readings agree,""
+8214028,1,3,joint,NATURAL RESOURCE PTNR LP,,purchase,2014-01-10,2014-01-10,B,,high,both readings agree,""
+8214034,1,1,self,Nextera Energy INC COM,,purchase,2014-01-10,2014-01-15,A,,high,both readings agree,""
+8214034,1,2,self,Nucor CORP,,purchase,2014-01-10,2014-01-15,A,,high,both readings agree,""
+8214083,1,1,joint,united airlines,,purchase,2013-03-20,2013-03-20,A,,high,both readings agree,owner written jt/ira; owner written jt/ira
+8214083,1,2,joint,kinder morgan inc,,purchase,2013-03-21,2013-03-21,A,,high,both readings agree,owner written jt/ira; owner written jt/ira
+8214083,1,3,joint,sangamo biosciences inc,,sale_full,2013-09-24,2013-09-24,A,,high,both readings agree,""
+8214083,1,4,joint,united airlines,,purchase,2013-09-27,,A,,high,both readings agree,owner written jt/ira; notification date blank; owner written jt/ira; notification date blank
+8214083,1,5,joint,monitise plc,,purchase,2014-01-07,2014-01-07,A,,high,both readings agree,""
+8214083,2,1,joint,digimarc corp,,purchase,2014-01-24,2014-01-24,A,,high,both readings agree,""
+8214083,2,2,joint,hippcricket,,purchase,2014-02-04,2014-02-04,A,,high,both readings agree,""
+8214083,2,3,joint,retail opportunity investments,,purchase,2013-06-25,2013-06-25,A,,high,both readings agree,""
+8214083,2,4,joint,kinder morgan,,sale_full,2013-07-15,2013-07-15,A,,high,both readings agree,owner written jt/ira; owner written jt/ira
+8214083,2,5,joint,monitise plc,,purchase,2013-12-23,2013-12-23,A,,high,both readings agree,""
+8214083,2,6,joint,retail opportunity investments,,purchase,2013-05-03,2013-05-03,A,,high,both readings agree,""
+8214151,1,1,spouse,Northwest Natural Gas,,purchase,2014-02-14,2014-02-18,A,,high,both readings agree,filer note: reinvestment of dividend distribution; filer note on p2: reinvestment of dividend distribution
+8214214,1,1,self,CLARK CNTY NEV FOR ISSUES DTD,,purchase,2014-01-29,2014-02-11,D,,high,both readings agree,""
+8214214,1,2,self,DISTRICT COLUMBIA INCOME TAX R,,purchase,2014-01-29,2014-02-11,D,,high,both readings agree,""
+8214214,1,3,self,REEDY CREEK IMPT DIST FLA,,purchase,2014-01-29,2014-02-11,D,,high,both readings agree,""
+8214214,1,4,self,LOS FRESNOS TEX CONS INDPT SCH DIST,,sale_full,2014-01-28,2014-02-11,C,,high,both readings agree,""
+8214214,1,5,self,LOS FRESNOS TEX CONS INDPT SCH DIST,,sale_full,2014-01-28,2014-02-11,D,,high,both readings agree,""
+8214214,2,1,self,MISSISSIPPI DEV BK SPL OBLIG,,sale_full,2014-01-28,2014-02-11,D,,high,both readings agree,""
+8214216,1,1,joint,Dow chemical,,sale_full,2014-02-06,,A,,medium,both readings agree,handwritten; notification date blank; handwritten; no notification date written
+8214216,1,2,joint,Dow chemical,,sale_full,2014-02-11,,A,,medium,both readings agree,handwritten date read as 2/11/14; notification date blank; handwritten; no notification date written
+8214217,1,1,joint,Dow Chemical,,sale_full,2014-03-04,,A,,high,both readings agree,notification date blank; notification date blank
+8214327,1,1,joint,Dow Chemical,,sale_full,2014-03-20,,A,,high,both readings agree,notification date blank; notification date blank
+8214372,1,1,self,Columbia MI School District Municipal Bond,,purchase,2014-03-14,2014-03-14,A,,high,both readings agree,""
+8214399,1,1,self,Thermo Fisher Scientific Inc.,,sale_full,2014-03-13,2014-03-13,B,,high,both readings agree,filer note: Recovered from Abandoned Property; filer note page 2: Recovered from Abandoned Property
+8214473,2,1,spouse,"Caremi Investments LLC: Sequentia Diversified U.S. Fund, LLC",,purchase,2014-03-27,2014-03-27,F,,medium,resolved by third look: asset_name,"attachment page; band column $501,001-1,000,000; listed under header line 'Caremi Investments LLC:' (no checkboxes); page 1 says 'See attached'"
+8214538,1,1,self,"Coach, Inc.",,purchase,2013-01-25,2013-01-01,A,,medium,resolved by third look: notification_date,notification date as written (01/01/13) precedes tx date; could be 01/01/14
+8214538,1,2,self,Procter and Gamble,,sale_full,2013-07-24,2013-10-01,A,,high,both readings agree,""
+8214582,1,1,self,GREATER ARIZ DEV AUTH INFRASTR,,purchase,2014-03-20,2014-04-15,D,,high,both readings agree,""
+8214582,1,2,self,LOUISIANA LOC GOVT ENV FACS&CMTY D,,sale_full,2014-03-14,2014-04-15,C,,high,both readings agree,""
+8214717,1,1,self,CENTURYLINK,,purchase,2013-01-07,2014-05-07,A,,medium,both readings agree,tx date year printed as 13 (notified 14); possibly a typo for 2014; tx date year 2013 as written (notified 2014)
+8214717,1,2,self,PFIZER,,purchase,2013-01-07,2014-05-07,A,,medium,both readings agree,tx date year printed as 13 (notified 14); possibly a typo for 2014; tx date year 2013 as written (notified 2014)
+8216636,1,1,spouse,KINV-CP - (MRVL) Marvell Technology Group Ltd.,MRVL,purchase,2019-09-19,2019-11-04,A,,medium,both readings agree,prefix before dash partly illegible (KINV-CP/INV-CP?)
+8217813,1,1,joint,FACEBOOK INC CLASS A COMMON STOC,,purchase,2020-12-28,2021-01-07,A,,medium,resolved by third look: owner,name truncated on form; leading quote mark omitted; owner cell blank (JT only in column header); owner JT written once in owner header area; asset name truncated on form as written
+8217813,1,2,joint,AMAZON COM INC COM EXECUTED 100%,,purchase,2020-12-28,2021-01-07,A,,medium,resolved by third look: owner,name truncated on form; leading quote mark omitted; owner cell blank (JT only in column header); owner JT written once in owner header area; asset name truncated on form as written
+8217813,1,3,joint,COSTCO WHOLESALE CRP DEL EXECUTE,,purchase,2020-12-28,2021-01-07,A,,medium,resolved by third look: owner,name truncated on form; leading quote mark omitted; owner cell blank (JT only in column header); owner JT written once in owner header area; asset name truncated on form as written
+8217813,1,4,joint,WORLD FUEL SERVICES CRP EXECUTED,,purchase,2020-12-07,2021-01-07,A,,medium,resolved by third look: owner,name truncated on form; leading quote mark omitted; owner cell blank (JT only in column header); owner JT written once in owner header area; asset name truncated on form as written
+8217813,1,5,joint,ENCORE CAPITAL GROUP INC EXECUTED,,purchase,2020-12-07,2021-01-07,A,,medium,resolved by third look: owner,name truncated on form; leading quote mark omitted; owner cell blank (JT only in column header); owner JT written once in owner header area; asset name truncated on form as written
+8217813,10,1,joint,MCDONALDS CORP UNSOLICITED Trade#,,sale_full,2020-12-22,2021-01-07,A,,medium,resolved by third look: owner,name truncated on form; owner cell blank (JT only in column header); owner JT written once in owner header area; asset name truncated on form as written
+8217813,10,2,joint,MARSH & MCLENNAN COS INC UNSOLICIT,,sale_full,2020-12-22,2021-01-07,A,,medium,resolved by third look: owner,name truncated on form; owner cell blank (JT only in column header); owner JT written once in owner header area; asset name truncated on form as written
+8217813,10,3,joint,MICROSOFT CORP UNSOLICITED Trade#:,,sale_full,2020-12-22,2021-01-07,A,,medium,resolved by third look: owner,name truncated on form; owner cell blank (JT only in column header); owner JT written once in owner header area; asset name truncated on form as written
+8217813,10,4,joint,LOCKHEED MARTIN CORP UNSOLICITED,,sale_full,2020-12-22,2021-01-07,A,,medium,resolved by third look: owner,name truncated on form; owner cell blank (JT only in column header); owner JT written once in owner header area; asset name truncated on form as written
+8217813,10,5,joint,LINDE PLC EUR UNSOLICITED Trade#:731,,sale_full,2020-12-22,2021-01-07,A,,medium,resolved by third look: owner,name truncated on form; owner cell blank (JT only in column header); owner JT written once in owner header area; asset name truncated on form as written
+8217813,10,6,joint,JPMORGAN CHASE & CO UNSOLICITED T,,sale_full,2020-12-22,2021-01-07,A,,medium,resolved by third look: owner,name truncated on form; owner cell blank (JT only in column header); owner JT written once in owner header area; asset name truncated on form as written
+8217813,10,7,joint,CISCO SYSTEMS INC UNSOLICITED Trade,,sale_full,2020-12-22,2021-01-07,A,,medium,resolved by third look: owner,name truncated on form; owner cell blank (JT only in column header); owner JT written once in owner header area; asset name truncated on form as written
+8217813,11,1,joint,JOHNSON & JOHNSON COM UNSOLICITED,,sale_full,2020-12-22,2021-01-07,A,,medium,resolved by third look: owner,name truncated on form; owner cell blank (JT only in column header); owner JT written once in owner header area; asset name truncated on form as written
+8217813,11,2,joint,INTEL CORP UNSOLICITED Trade#:73025,,sale_full,2020-12-22,2021-01-07,A,,medium,resolved by third look: owner,name truncated on form; owner cell blank (JT only in column header); owner JT written once in owner header area; asset name truncated on form as written
+8217813,11,3,joint,HOME DEPOT INC UNSOLICITED Trade#:7,,sale_full,2020-12-22,2021-01-07,A,,medium,resolved by third look: owner,name truncated on form; owner cell blank (JT only in column header); owner JT written once in owner header area; asset name truncated on form as written
+8217813,11,4,joint,DIAGEO PLC NEW GB SPON ADR Trade#:7,,sale_full,2020-12-22,2021-01-07,A,,medium,resolved by third look: owner,name truncated on form; owner cell blank (JT only in column header); owner JT written once in owner header area; asset name truncated on form as written
+8217813,11,5,joint,CRANE CO UNSOLICITED Trade#:73086 B,,sale_full,2020-12-22,2021-01-07,A,,medium,resolved by third look: owner,name truncated on form; owner cell blank (JT only in column header); owner JT written once in owner header area; asset name truncated on form as written
+8217813,11,6,joint,CHUBB LTD CHF UNSOLICITED Trade#:73,,sale_full,2020-12-22,2021-01-07,A,,medium,resolved by third look: owner,name truncated on form; owner cell blank (JT only in column header); owner JT written once in owner header area; asset name truncated on form as written
+8217813,11,7,joint,COCA COLA CO COM UNSOLICITED Trade,,sale_full,2020-12-22,2021-01-07,A,,medium,resolved by third look: owner,name truncated on form; owner cell blank (JT only in column header); owner JT written once in owner header area; asset name truncated on form as written
+8217813,12,1,joint,BLACKROCK INC UNSOLICITED Trade#:73,,sale_full,2020-12-22,2021-01-07,A,,medium,resolved by third look: owner,name truncated on form; owner cell blank (JT only in column header); owner JT written once in owner header area; asset name truncated on form as written
+8217813,12,2,joint,COMCAST CORP NEW CL A UNSOLICITED,,sale_full,2020-12-22,2021-01-07,A,,medium,resolved by third look: owner,name truncated on form; owner cell blank (JT only in column header); owner JT written once in owner header area; asset name truncated on form as written
+8217813,12,3,joint,AMGEN INC UNSOLICITED Trade#:73141 E,,sale_full,2020-12-22,2021-01-07,A,,medium,resolved by third look: owner,name truncated on form; owner cell blank (JT only in column header); owner JT written once in owner header area; asset name truncated on form as written
+8217813,12,4,joint,AMAZON.COM INC UNSOLICITED Trade#:6,,purchase,2020-12-31,2021-01-07,A,,medium,resolved by third look: owner,name truncated on form; owner cell blank (JT only in column header); owner JT written once in owner header area; asset name truncated on form as written
+8217813,12,5,joint,AMER ELECTRIC POWER CO UNSOLICITED,,purchase,2020-12-31,2021-01-07,A,,medium,resolved by third look: owner,name truncated on form; owner cell blank (JT only in column header); owner JT written once in owner header area; asset name truncated on form as written
+8217813,12,6,joint,AMERIPRISE FINANCIAL INC UNSOLICITED,,purchase,2020-12-31,2021-01-07,A,,medium,resolved by third look: owner,name truncated on form; owner cell blank (JT only in column header); owner JT written once in owner header area; asset name truncated on form as written
+8217813,12,7,joint,ADOBE INC. (DELAWARE) UNSOLICITED T,,purchase,2020-12-31,2021-01-07,A,,medium,resolved by third look: owner,name truncated on form; owner cell blank (JT only in column header); owner JT written once in owner header area; asset name truncated on form as written
+8217813,13,1,joint,AMGEN INC UNSOLICITED Trade#:52742 E,,purchase,2020-12-31,2021-01-07,A,,medium,resolved by third look: owner,name truncated on form; owner cell blank (JT only in column header); owner JT written once in owner header area; asset name truncated on form as written
+8217813,13,2,joint,COMCAST CORP NEW CL A UNSOLICITED,,purchase,2020-12-31,2021-01-07,A,,medium,resolved by third look: owner,name truncated on form; owner cell blank (JT only in column header); owner JT written once in owner header area; asset name truncated on form as written
+8217813,13,3,joint,COMCAST CORP NEW CL A UNSOLICITED,,purchase,2020-12-31,2021-01-07,A,,medium,resolved by third look: owner,name truncated on form; owner cell blank (JT only in column header); owner JT written once in owner header area; asset name truncated on form as written
+8217813,13,4,joint,APPLE INC UNSOLICITED Trade#:63106 B,,purchase,2020-12-31,2021-01-07,A,,medium,resolved by third look: owner,name truncated on form; owner cell blank (JT only in column header); owner JT written once in owner header area; asset name truncated on form as written
+8217813,13,5,joint,AMERICAN TOWER CORP REIT UNSOLICIT,,purchase,2020-12-31,2021-01-07,A,,medium,resolved by third look: owner,name truncated on form; owner cell blank (JT only in column header); owner JT written once in owner header area; asset name truncated on form as written
+8217813,13,6,joint,CISCO SYSTEMS INC UNSOLICITED Trade,,purchase,2020-12-31,2021-01-07,A,,medium,resolved by third look: owner,name truncated on form; owner cell blank (JT only in column header); owner JT written once in owner header area; asset name truncated on form as written
+8217813,13,7,joint,BLACKROCK INC UNSOLICITED Trade#:52,,purchase,2020-12-31,2021-01-07,A,,medium,resolved by third look: owner,name truncated on form; owner cell blank (JT only in column header); owner JT written once in owner header area; asset name truncated on form as written
+8217813,14,1,joint,COSTCO WHOLESALE CORP UNSOLICITED,,purchase,2020-12-31,2021-01-07,A,,medium,resolved by third look: owner,name truncated on form; owner cell blank (JT only in column header); owner JT written once in owner header area; asset name truncated on form as written
+8217813,14,2,joint,COCA COLA CO COM UNSOLICITED Trade,,purchase,2020-12-31,2021-01-07,A,,medium,resolved by third look: owner,name truncated on form; owner cell blank (JT only in column header); owner JT written once in owner header area; asset name truncated on form as written
+8217813,14,3,joint,ALPHABET INC CL A UNSOLICITED Trade#,,purchase,2020-12-31,2021-01-07,A,,medium,resolved by third look: owner,name truncated on form; owner cell blank (JT only in column header); owner JT written once in owner header area; asset name truncated on form as written
+8217813,14,4,joint,CHUBB LTD CHF UNSOLICITED Trade#:52,,purchase,2020-12-31,2021-01-07,A,,medium,resolved by third look: owner,name truncated on form; owner cell blank (JT only in column header); owner JT written once in owner header area; asset name truncated on form as written
+8217813,14,5,joint,DIAGEO PLC NEW GB SPON ADR Trade#:5,,purchase,2020-12-31,2021-01-07,A,,medium,resolved by third look: owner,name truncated on form; owner cell blank (JT only in column header); owner JT written once in owner header area; asset name truncated on form as written
+8217813,14,6,joint,DANAHER CORP UNSOLICITED Trade#:63,,purchase,2020-12-31,2021-01-07,A,,medium,resolved by third look: owner,name truncated on form; owner cell blank (JT only in column header); owner JT written once in owner header area; asset name truncated on form as written
+8217813,14,7,joint,DOLLAR GEN CORP NEW UNSOLICITED T,,purchase,2020-12-31,2021-01-07,A,,medium,resolved by third look: owner,name truncated on form; owner cell blank (JT only in column header); owner JT written once in owner header area; asset name truncated on form as written
+8217813,15,1,joint,FIDELITY NATL INFORMATION SVCS Trade,,purchase,2020-12-31,2021-01-07,A,,medium,resolved by third look: owner,name truncated on form; owner cell blank (JT only in column header); owner JT written once in owner header area; asset name truncated on form as written
+8217813,15,2,joint,HOME DEPOT INC UNSOLICITED Trade#:5,,purchase,2020-12-31,2021-01-07,A,,medium,resolved by third look: owner,name truncated on form; owner cell blank (JT only in column header); owner JT written once in owner header area; asset name truncated on form as written
+8217813,15,3,joint,HOME DEPOT INC UNSOLICITED Trade#:6,,purchase,2020-12-31,2021-01-07,A,,medium,resolved by third look: owner,name truncated on form; owner cell blank (JT only in column header); owner JT written once in owner header area; asset name truncated on form as written
+8217813,15,4,joint,HONEYWELL INTL INC UNSOLICITED Trad,,purchase,2020-12-31,2021-01-07,A,,medium,resolved by third look: owner,name truncated on form; owner cell blank (JT only in column header); owner JT written once in owner header area; asset name truncated on form as written
+8217813,15,5,joint,INTEL CORP UNSOLICITED Trade#:52837,,purchase,2020-12-31,2021-01-07,A,,medium,resolved by third look: owner,name truncated on form; owner cell blank (JT only in column header); owner JT written once in owner header area; asset name truncated on form as written
+8217813,15,6,joint,INTERCONTINENTALEXCHANGE GROUP,,purchase,2020-12-31,2021-01-07,A,,medium,resolved by third look: owner,name truncated on form; owner cell blank (JT only in column header); owner JT written once in owner header area; asset name truncated on form as written
+8217813,15,7,joint,JOHNSON & JOHNSON COM UNSOLICITED,,purchase,2020-12-31,2021-01-07,A,,medium,resolved by third look: owner,name truncated on form; owner cell blank (JT only in column header); owner JT written once in owner header area; asset name truncated on form as written
+8217813,16,1,joint,JPMORGAN CHASE & CO UNSOLICITED T,,purchase,2020-12-31,2021-01-07,A,,medium,resolved by third look: owner,name truncated on form; owner cell blank (JT only in column header); owner JT written once in owner header area; asset name truncated on form as written
+8217813,16,2,joint,FACEBOOK INC CL A UNSOLICITED Trade,,purchase,2020-12-31,2021-01-07,A,,medium,resolved by third look: owner,name truncated on form; owner cell blank (JT only in column header); owner JT written once in owner header area; asset name truncated on form as written
+8217813,16,3,joint,LINDE PLC EUR UNSOLICITED Trade#:528,,purchase,2020-12-31,2021-01-07,A,,medium,resolved by third look: owner,name truncated on form; owner cell blank (JT only in column header); owner JT written once in owner header area; asset name truncated on form as written
+8217813,16,4,joint,LOCKHEED MARTIN CORP UNSOLICITED,,purchase,2020-12-31,2021-01-07,A,,medium,resolved by third look: owner,name truncated on form; owner cell blank (JT only in column header); owner JT written once in owner header area; asset name truncated on form as written
+8217813,16,5,joint,LOWES COMPANIES INC UNSOLICITED Tr,,purchase,2020-12-31,2021-01-07,A,,medium,resolved by third look: owner,name truncated on form; owner cell blank (JT only in column header); owner JT written once in owner header area; asset name truncated on form as written
+8217813,16,6,joint,MICROSOFT CORP UNSOLICITED Trade#:,,purchase,2020-12-31,2021-01-07,A,,medium,resolved by third look: owner,name truncated on form; owner cell blank (JT only in column header); owner JT written once in owner header area; asset name truncated on form as written
+8217813,16,7,joint,MICROSOFT CORP UNSOLICITED Trade#:,,purchase,2020-12-31,2021-01-07,A,,medium,resolved by third look: owner,name truncated on form; owner cell blank (JT only in column header); owner JT written once in owner header area; asset name truncated on form as written
+8217813,17,1,joint,MARSH & MCLENNAN COS INC UNSOLICIT,,purchase,2020-12-31,2021-01-07,A,,medium,resolved by third look: owner,name truncated on form; owner cell blank (JT only in column header); owner JT written once in owner header area; asset name truncated on form as written
+8217813,17,2,joint,MONDELEZ INTL INC UNSOLICITED Trade,,purchase,2020-12-31,2021-01-07,A,,medium,resolved by third look: owner,name truncated on form; owner cell blank (JT only in column header); owner JT written once in owner header area; asset name truncated on form as written
+8217813,17,3,joint,MCDONALDS CORP UNSOLICITED Trade#,,purchase,2020-12-31,2021-01-07,A,,medium,resolved by third look: owner,name truncated on form; owner cell blank (JT only in column header); owner JT written once in owner header area; asset name truncated on form as written
+8217813,17,4,joint,MEDTRONIC PLC UNSOLICITED Trade#:52,,purchase,2020-12-31,2021-01-07,A,,medium,resolved by third look: owner,name truncated on form; owner cell blank (JT only in column header); owner JT written once in owner header area; asset name truncated on form as written
+8217813,17,5,joint,MEDTRONIC PLC UNSOLICITED Trade#:63,,purchase,2020-12-31,2021-01-07,A,,medium,resolved by third look: owner,name truncated on form; owner cell blank (JT only in column header); owner JT written once in owner header area; asset name truncated on form as written
+8217813,17,6,joint,NOVARTIS AG SPON ADR UNSOLICITED T,,purchase,2020-12-31,2021-01-07,A,,medium,resolved by third look: owner,name truncated on form; owner cell blank (JT only in column header); owner JT written once in owner header area; asset name truncated on form as written
+8217813,17,7,joint,NEXTERA ENERGY INC COM UNSOLICITED,,purchase,2020-12-31,2021-01-07,A,,medium,resolved by third look: owner,name truncated on form; owner cell blank (JT only in column header); owner JT written once in owner header area; asset name truncated on form as written
+8217813,19,1,joint,O REILLY AUTOMOTIVE INC UNSOLICITED,,purchase,2020-12-31,2021-01-07,A,,medium,resolved by third look: owner,name truncated on form; owner cell blank (JT only in column header); owner JT written once in owner header area; asset name truncated on form as written
+8217813,19,2,joint,PARKER HANNIFIN CORP UNSOLICITED T,,purchase,2020-12-31,2021-01-07,A,,medium,resolved by third look: owner,name truncated on form; owner cell blank (JT only in column header); owner JT written once in owner header area; asset name truncated on form as written
+8217813,19,3,joint,PHILLIPS 66 UNSOLICITED Trade#:52728,,purchase,2020-12-31,2021-01-07,A,,medium,resolved by third look: owner,name truncated on form; owner cell blank (JT only in column header); owner JT written once in owner header area; asset name truncated on form as written
+8217813,19,4,joint,PROCTER & GAMBLE CO UNSOLICITED T,,purchase,2020-12-31,2021-01-07,A,,medium,resolved by third look: owner,name truncated on form; owner cell blank (JT only in column header); owner JT written once in owner header area; asset name truncated on form as written
+8217813,19,5,joint,RAYTHEON TECHNOLOGIES CORP Trade,,purchase,2020-12-31,2021-01-07,A,,medium,resolved by third look: owner,name truncated on form; owner cell blank (JT only in column header); owner JT written once in owner header area; asset name truncated on form as written
+8217813,19,6,joint,REPUBLIC SERVICES INC UNSOLICITED T,,purchase,2020-12-31,2021-01-07,A,,medium,resolved by third look: owner,name truncated on form; owner cell blank (JT only in column header); owner JT written once in owner header area; asset name truncated on form as written
+8217813,19,7,joint,ROCKWELL AUTOMATION INC NEW Trade,,purchase,2020-12-31,2021-01-07,A,,medium,resolved by third look: owner,name truncated on form; owner cell blank (JT only in column header); owner JT written once in owner header area; asset name truncated on form as written
+8217813,2,1,joint,TWILIO INC CL A EXECUTED 100% AGENC,,purchase,2020-12-28,2021-01-07,A,,medium,resolved by third look: owner,name truncated on form; leading quote mark omitted; owner cell blank (JT only in column header); owner JT written once in owner header area; asset name truncated on form as written
+8217813,2,2,joint,DOORDASH INC REG SHS CL A EXECUTED,,purchase,2020-12-10,2021-01-07,A,,medium,resolved by third look: owner,name truncated on form; leading quote mark omitted; owner cell blank (JT only in column header); owner JT written once in owner header area; asset name truncated on form as written
+8217813,2,3,joint,ZILLOW GROUP INC SHS CL C EXECUTED,,purchase,2020-12-14,2021-01-07,A,,medium,resolved by third look: owner,name truncated on form; leading quote mark omitted; owner cell blank (JT only in column header); owner JT written once in owner header area; asset name truncated on form as written
+8217813,2,4,joint,SNOWFLAKE INC REG SHS CL A EXECUTE,,purchase,2020-12-15,2021-01-07,A,,medium,resolved by third look: owner,name truncated on form; leading quote mark omitted; owner cell blank (JT only in column header); owner JT written once in owner header area; asset name truncated on form as written
+8217813,2,5,joint,AIRBNB INC CL A EXECUTED 100% A,,purchase,2020-12-11,2021-01-07,A,,medium,resolved by third look: owner,name truncated on form; leading quote mark omitted; owner cell blank (JT only in column header); owner JT written once in owner header area; asset name truncated on form as written
+8217813,2,6,joint,LENDINGTREE INC EXECUTED 100% AGE,,purchase,2020-12-01,2021-01-07,A,,medium,resolved by third look: owner,name truncated on form; leading quote mark omitted; owner cell blank (JT only in column header); owner JT written once in owner header area; asset name truncated on form as written
+8217813,2,7,joint,INTUITIVE SURGICAL INC NEW EXECUTED,,purchase,2020-12-02,2021-01-07,A,,medium,resolved by third look: owner,name truncated on form; leading quote mark omitted; owner cell blank (JT only in column header); owner JT written once in owner header area; asset name truncated on form as written
+8217813,20,1,joint,ROCKWELL AUTOMATION INC NEW Trade,,purchase,2020-12-31,2021-01-07,A,,medium,resolved by third look: owner,name truncated on form; owner cell blank (JT only in column header); owner JT written once in owner header area; asset name truncated on form as written
+8217813,20,2,joint,SALESFORCE.COM INC UNSOLICITED Tra,,purchase,2020-12-31,2021-01-07,A,,medium,resolved by third look: owner,name truncated on form; owner cell blank (JT only in column header); owner JT written once in owner header area; asset name truncated on form as written
+8217813,20,3,joint,SHERWIN WILLIAMS CO UNSOLICITED Tr,,purchase,2020-12-31,2021-01-07,A,,medium,resolved by third look: owner,name truncated on form; owner cell blank (JT only in column header); owner JT written once in owner header area; asset name truncated on form as written
+8217813,20,4,joint,ACCENTURE PLC IRELAND CL A Trade#:52,,purchase,2020-12-31,2021-01-07,A,,medium,resolved by third look: owner,name truncated on form; owner cell blank (JT only in column header); owner JT written once in owner header area; asset name truncated on form as written
+8217813,20,5,joint,ACCENTURE PLC IRELAND CL A Trade#:63,,purchase,2020-12-31,2021-01-07,A,,medium,resolved by third look: owner,name truncated on form; owner cell blank (JT only in column header); owner JT written once in owner header area; asset name truncated on form as written
+8217813,20,6,joint,TEXAS INSTRUMENTS UNSOLICITED Trad,,purchase,2020-12-31,2021-01-07,A,,medium,resolved by third look: owner,name truncated on form; owner cell blank (JT only in column header); owner JT written once in owner header area; asset name truncated on form as written
+8217813,20,7,joint,THERMO FISHER SCIENTIFIC INC Trade#:,,purchase,2020-12-31,2021-01-07,A,,medium,resolved by third look: owner,name truncated on form; owner cell blank (JT only in column header); owner JT written once in owner header area; asset name truncated on form as written
+8217813,21,1,joint,TJX COS INC NEW UNSOLICITED Trade#:6,,purchase,2020-12-31,2021-01-07,A,,medium,resolved by third look: owner,name truncated on form; owner cell blank (JT only in column header); owner JT written once in owner header area; asset name truncated on form as written
+8217813,21,2,joint,TRUIST FINL CORP UNSOLICITED Trade#:,,purchase,2020-12-31,2021-01-07,A,,medium,resolved by third look: owner,name truncated on form; owner cell blank (JT only in column header); owner JT written once in owner header area; asset name truncated on form as written
+8217813,21,3,joint,UNION PACIFIC CORP UNSOLICITED Trade,,purchase,2020-12-31,2021-01-07,A,,medium,resolved by third look: owner,name truncated on form; owner cell blank (JT only in column header); owner JT written once in owner header area; asset name truncated on form as written
+8217813,21,4,joint,UNITED PARCEL SERVICE INC CL B Trade,,purchase,2020-12-31,2021-01-07,A,,medium,resolved by third look: owner,name truncated on form; owner cell blank (JT only in column header); owner JT written once in owner header area; asset name truncated on form as written
+8217813,21,5,joint,UNITEDHEALTH GROUP INC UNSOLICITED,,purchase,2020-12-31,2021-01-07,A,,medium,resolved by third look: owner,name truncated on form; owner cell blank (JT only in column header); owner JT written once in owner header area; asset name truncated on form as written
+8217813,21,6,joint,VISA INC CL A UNSOLICITED Trade#:6315,,purchase,2020-12-31,2021-01-07,A,,medium,resolved by third look: owner,name truncated on form; owner cell blank (JT only in column header); owner JT written once in owner header area; asset name truncated on form as written
+8217813,21,7,joint,VF CORP UNSOLICITED Trade#:52866 Blo,,purchase,2020-12-31,2021-01-07,A,,medium,resolved by third look: owner,name truncated on form; owner cell blank (JT only in column header); owner JT written once in owner header area; asset name truncated on form as written
+8217813,22,1,joint,RTY PHARMA PLC SHS CL A EXECUTED 1,,purchase,2020-12-21,2021-01-07,A,,medium,resolved by third look: owner,name truncated at both ends on form (likely ROYALTY PHARMA); leading quote mark omitted; owner cell blank (JT only in column header); owner JT written once in owner header area; asset name truncated on both ends as written (likely ROYALTY PHARMA)
+8217813,3,1,joint,CHEWY INC SH CL A EXECUTED 100%,,sale_full,2020-12-28,2021-01-07,A,,medium,resolved by third look: owner,name truncated on form; leading quote mark omitted; owner cell blank (JT only in column header); owner JT written once in owner header area; asset name truncated on form as written
+8217813,3,2,joint,SQUARE INC SHS CL A EXECUTED 100,,sale_full,2020-12-17,2021-01-07,A,,medium,resolved by third look: owner,name truncated on form; leading quote mark omitted; owner cell blank (JT only in column header); owner JT written once in owner header area; asset name truncated on form as written
+8217813,3,3,joint,SHOPIFY INC CL A EXECUTED 100% AGEN,,sale_full,2020-12-28,2021-01-07,A,,medium,resolved by third look: owner,name truncated on form; leading quote mark omitted; owner cell blank (JT only in column header); owner JT written once in owner header area; asset name truncated on form as written
+8217813,3,4,joint,SHOPIFY INC CL A EXECUTED 100% AGEN,,sale_full,2020-12-23,2021-01-07,A,,medium,resolved by third look: owner,name truncated on form; leading quote mark omitted; owner cell blank (JT only in column header); owner JT written once in owner header area; asset name truncated on form as written
+8217813,3,5,joint,SQUARE INC SHS CL A EXECUTED 100,,sale_full,2020-12-23,2021-01-07,A,,medium,resolved by third look: owner,name truncated on form; leading quote mark omitted; owner cell blank (JT only in column header); owner JT written once in owner header area; asset name truncated on form as written
+8217813,3,6,joint,GUARDANT HEALTH INC EXECUTED 100%,,sale_full,2020-12-28,2021-01-07,A,,medium,resolved by third look: owner,name truncated on form; leading quote mark omitted; owner cell blank (JT only in column header); owner JT written once in owner header area; asset name truncated on form as written
+8217813,3,7,joint,CLOUDFLARE INC REG SHS CL A EXECUT,,sale_full,2020-12-28,2021-01-07,A,,medium,resolved by third look: owner,name truncated on form; leading quote mark omitted; owner cell blank (JT only in column header); owner JT written once in owner header area; asset name truncated on form as written
+8217813,4,1,joint,CERENCE INC REG SHS ISSUED EXECUTE,,sale_full,2020-12-01,2021-01-07,A,,medium,resolved by third look: owner,name truncated on form; leading quote mark omitted; owner cell blank (JT only in column header); owner JT written once in owner header area; asset name truncated on form as written
+8217813,4,2,joint,TRADE (THE) DESK INC SHS CL A EXECUT,,sale_full,2020-12-21,2021-01-07,A,,medium,resolved by third look: owner,name truncated on form; leading quote mark omitted; owner cell blank (JT only in column header); owner JT written once in owner header area; asset name truncated on form as written
+8217813,4,3,joint,VEEVA SYS INC CL A EXECUTED 100%,,sale_full,2020-12-21,2021-01-07,A,,medium,resolved by third look: owner,name truncated on form; leading quote mark omitted; owner cell blank (JT only in column header); owner JT written once in owner header area; asset name truncated on form as written
+8217813,4,4,joint,WAYFAIR INC EXECUTED 100% AGENCY,,sale_full,2020-12-23,2021-01-07,A,,medium,resolved by third look: owner,name truncated on form; leading quote mark omitted; owner cell blank (JT only in column header); owner JT written once in owner header area; asset name truncated on form as written
+8217813,4,5,joint,CARVANA CO CL A EXECUTED 100%,,sale_full,2020-12-23,2021-01-07,A,,medium,resolved by third look: owner,name truncated on form; leading quote mark omitted; owner cell blank (JT only in column header); owner JT written once in owner header area; asset name truncated on form as written
+8217813,4,6,joint,SHOPIFY INC CL A EXECUTED 100% AGEN,,sale_full,2020-12-23,2021-01-07,A,,medium,resolved by third look: owner,name truncated on form; leading quote mark omitted; owner cell blank (JT only in column header); owner JT written once in owner header area; asset name truncated on form as written
+8217813,4,7,joint,ZOOM VIDEO COMMUNICATIONS INC CL,,sale_full,2020-12-23,2021-01-07,A,,medium,resolved by third look: owner,name truncated on form; leading quote mark omitted; owner cell blank (JT only in column header); owner JT written once in owner header area; asset name truncated on form as written
+8217813,5,1,joint,CARVANA CO CL A EXECUTED 100%,,sale_full,2020-12-28,2021-01-07,A,,medium,resolved by third look: owner,name truncated on form; leading quote mark omitted; owner cell blank (JT only in column header); owner JT written once in owner header area; asset name truncated on form as written
+8217813,5,2,joint,SQUARE INC SHS CL A PER ADVISORY,,sale_full,2020-12-01,2021-01-07,A,,medium,resolved by third look: owner,name truncated on form; leading quote mark omitted; owner cell blank (JT only in column header); owner JT written once in owner header area; asset name truncated on form as written
+8217813,5,3,joint,RedemptionREGIONS FINANCIAL CO CLD,,sale_full,2020-12-17,2021-01-07,A,,medium,resolved by third look: owner,name truncated on form; leading quote mark omitted; owner cell blank (JT only in column header); owner JT written once in owner header area; asset name truncated on form as written
+8217813,5,4,joint,GENTEX CORP EXECUTED 100% AGENCY,,sale_full,2020-12-07,2021-01-07,A,,medium,resolved by third look: owner,name truncated on form; leading quote mark omitted; owner cell blank (JT only in column header); owner JT written once in owner header area; asset name truncated on form as written
+8217813,5,5,joint,SQUARE INC SHS CL A EXECUTED 100,,sale_full,2020-12-28,2021-01-07,A,,medium,resolved by third look: owner,name truncated on form; leading quote mark omitted; owner cell blank (JT only in column header); owner JT written once in owner header area; asset name truncated on form as written
+8217813,5,6,joint,CLOUDFLARE INC REG SHS CL A EXECUT,,sale_full,2020-12-23,2021-01-07,A,,medium,resolved by third look: owner,name truncated on form; leading quote mark omitted; owner cell blank (JT only in column header); owner JT written once in owner header area; asset name truncated on form as written
+8217813,5,7,joint,RedemptionGOLDMAN SACHS GROUP INC,,sale_full,2020-12-28,2021-01-07,A,,medium,resolved by third look: owner,name truncated on form; leading quote mark omitted; owner cell blank (JT only in column header); owner JT written once in owner header area; asset name truncated on form as written
+8217813,6,1,joint,TRADE (THE) DESK INC SHS CL A EXECUT,,sale_full,2020-12-28,2021-01-07,A,,medium,resolved by third look: owner,name truncated on form; leading quote mark omitted; owner cell blank (JT only in column header); owner JT written once in owner header area; asset name truncated on form as written
+8217813,6,2,joint,SLACK TECHNOLOGIES INC CL A EXECUT,,sale_full,2020-12-02,2021-01-07,A,,medium,resolved by third look: owner,name truncated on form; leading quote mark omitted; owner cell blank (JT only in column header); owner JT written once in owner header area; asset name truncated on form as written
+8217813,6,3,joint,RedemptionREGIONS FINANCIAL CO CLD,,sale_full,2020-12-17,2021-01-07,A,,medium,resolved by third look: owner,name truncated on form; leading quote mark omitted; owner cell blank (JT only in column header); owner JT written once in owner header area; asset name truncated on form as written
+8217813,6,4,joint,RedemptionGOLDMAN SACHS GROUP INC,,sale_full,2020-12-28,2021-01-07,A,,medium,resolved by third look: owner,name truncated on form; leading quote mark omitted; owner cell blank (JT only in column header); owner JT written once in owner header area; asset name truncated on form as written
+8217813,6,5,joint,HARTFORD FINCL SERVICES GROUP INC,,purchase,2020-12-21,2021-01-07,A,,medium,resolved by third look: owner,name truncated on form; owner cell blank (JT only in column header); owner JT written once in owner header area; asset name truncated on form as written
+8217813,6,6,joint,COUSINS PROPERTIES INC UNSOLICITED,,purchase,2020-12-14,2021-01-07,B,,medium,resolved by third look: owner,name truncated on form; owner cell blank (JT only in column header); owner JT written once in owner header area; asset name truncated on form as written
+8217813,6,7,joint,HOME DEPOT INC UNSOLICITED Trade#:7,,purchase,2020-12-11,2021-01-07,B,,medium,resolved by third look: owner,name truncated on form; owner cell blank (JT only in column header); owner JT written once in owner header area; asset name truncated on form as written
+8217813,7,1,joint,AMERICAN TOWER CORP REIT UNSOLICIT,,purchase,2020-12-11,2021-01-07,B,,medium,resolved by third look: owner,name truncated on form; owner cell blank (JT only in column header); owner JT written once in owner header area; asset name truncated on form as written
+8217813,7,2,joint,WASTE MGMT INC NEW UNSOLICITED Tr,,purchase,2020-12-03,2021-01-07,A,,medium,resolved by third look: owner,name truncated on form; owner cell blank (JT only in column header); owner JT written once in owner header area; asset name truncated on form as written
+8217813,7,3,joint,AMERICAN TOWER CORP REIT UNSOLICIT,,purchase,2020-12-03,2021-01-07,A,,medium,resolved by third look: owner,name truncated on form; owner cell blank (JT only in column header); owner JT written once in owner header area; asset name truncated on form as written
+8217813,7,4,joint,SUN COMMUNITIES INC UNSOLICITED Tr,,purchase,2020-12-02,2021-01-07,A,,medium,resolved by third look: owner,name truncated on form; owner cell blank (JT only in column header); owner JT written once in owner header area; asset name truncated on form as written
+8217813,7,5,joint,GENL MILLS INC UNSOLICITED Trade#:14,,sale_full,2020-12-21,2021-01-07,A,,medium,resolved by third look: owner,name truncated on form; owner cell blank (JT only in column header); owner JT written once in owner header area; asset name truncated on form as written
+8217813,7,6,joint,COUSINS PROPERTIES INC UNSOLICITED,,sale_full,2020-12-21,2021-01-07,A,,medium,resolved by third look: owner,name truncated on form; owner cell blank (JT only in column header); owner JT written once in owner header area; asset name truncated on form as written
+8217813,7,7,joint,BCE INC NEW CAD UNSOLICITED Trade#:,,sale_full,2020-12-14,2021-01-07,A,,medium,resolved by third look: owner,name truncated on form; owner cell blank (JT only in column header); owner JT written once in owner header area; asset name truncated on form as written
+8217813,8,1,joint,NTHN TRUST CORP UNSOLICITED Trade#,,sale_full,2020-12-02,2021-01-07,A,,medium,resolved by third look: owner,name truncated on form; owner cell blank (JT only in column header); owner JT written once in owner header area; asset name truncated on form as written
+8217813,8,2,joint,SAN DIEGO CNTY CA WTR AU SR A RV BE,,sale_full,2020-12-23,2021-01-07,A,,medium,resolved by third look: owner,name truncated on form; owner cell blank (JT only in column header); owner JT written once in owner header area; asset name truncated on form as written
+8217813,8,3,joint,UNITED PARCEL SERVICE INC CL B Trade,,sale_full,2020-12-22,2021-01-07,A,,medium,resolved by third look: owner,name truncated on form; owner cell blank (JT only in column header); owner JT written once in owner header area; asset name truncated on form as written
+8217813,8,4,joint,UNION PACIFIC CORP UNSOLICITED Trad,,sale_full,2020-12-22,2021-01-07,A,,medium,resolved by third look: owner,name truncated on form; owner cell blank (JT only in column header); owner JT written once in owner header area; asset name truncated on form as written
+8217813,8,5,joint,TRUIST FINL CORP UNSOLICITED Trade#:,,sale_full,2020-12-22,2021-01-07,A,,medium,resolved by third look: owner,name truncated on form; owner cell blank (JT only in column header); owner JT written once in owner header area; asset name truncated on form as written
+8217813,8,6,joint,TEXAS INSTRUMENTS UNSOLICITED Trad,,sale_full,2020-12-22,2021-01-07,A,,medium,resolved by third look: owner,name truncated on form; owner cell blank (JT only in column header); owner JT written once in owner header area; asset name truncated on form as written
+8217813,8,7,joint,ACCENTURE PLC IRELAND CL A Trade#:7,,sale_full,2020-12-22,2021-01-07,A,,medium,resolved by third look: owner,name truncated on form; owner cell blank (JT only in column header); owner JT written once in owner header area; asset name truncated on form as written
+8217813,9,1,joint,ROCKWELL AUTOMATION INC NEW Trade,,sale_full,2020-12-22,2021-01-07,A,,medium,resolved by third look: owner,name truncated on form; owner cell blank (JT only in column header); owner JT written once in owner header area; asset name truncated on form as written
+8217813,9,2,joint,REPUBLIC SERVICES INC UNSOLICITED T,,sale_full,2020-12-22,2021-01-07,A,,medium,resolved by third look: owner,name truncated on form; owner cell blank (JT only in column header); owner JT written once in owner header area; asset name truncated on form as written
+8217813,9,3,joint,PROCTER & GAMBLE CO UNSOLICITED T,,sale_full,2020-12-22,2021-01-07,A,,medium,resolved by third look: owner,name truncated on form; owner cell blank (JT only in column header); owner JT written once in owner header area; asset name truncated on form as written
+8217813,9,4,joint,PHILLIPS 66 UNSOLICITED Trade#:73018,,sale_full,2020-12-22,2021-01-07,A,,medium,resolved by third look: owner,name truncated on form; owner cell blank (JT only in column header); owner JT written once in owner header area; asset name truncated on form as written
+8217813,9,5,joint,NEXTERA ENERGY INC COM UNSOLICITED,,sale_full,2020-12-22,2021-01-07,A,,medium,resolved by third look: owner,name truncated on form; owner cell blank (JT only in column header); owner JT written once in owner header area; asset name truncated on form as written
+8217813,9,6,joint,NOVARTIS AG SPON ADR UNSOLICITED T,,sale_full,2020-12-22,2021-01-07,A,,medium,resolved by third look: owner,name truncated on form; owner cell blank (JT only in column header); owner JT written once in owner header area; asset name truncated on form as written
+8217813,9,7,joint,MEDTRONIC PLC UNSOLICITED Trade#:73,,sale_full,2020-12-22,2021-01-07,A,,medium,resolved by third look: owner,name truncated on form; owner cell blank (JT only in column header); owner JT written once in owner header area; asset name truncated on form as written
+8217852,1,1,spouse,Tencent Music Entm. Group ADR,,sale_full,2020-07-21,2021-02-02,A,,high,both readings agree,""
+8217852,1,2,spouse,U.S. Treasury Note 9/15/2020,,sale_full,2020-07-31,2021-02-02,F,,high,both readings agree,""
+8217852,1,3,spouse,U.S. Treasury Note 11/30/2020,,purchase,2020-08-26,2021-02-02,,1,medium,both readings agree,no amount band checked; only K checked; only column K checked; no band
+8217852,1,4,spouse,U.S. Treasury Note 2/28/2021,,purchase,2020-08-26,2021-02-02,,1,medium,both readings agree,no amount band checked; only K checked; only column K checked; no band
+8217852,2,1,spouse,U.S. Treasury Note 8/31/2021,,purchase,2020-08-26,2021-02-02,,1,medium,both readings agree,no amount band checked; only K checked; only column K checked; no band
+8217852,2,2,spouse,U.S. Treasury Note 5/31/2021,,purchase,2020-08-26,2021-02-02,,1,medium,both readings agree,no amount band checked; only K checked; only column K checked; no band
+8217852,2,3,spouse,Zoom Video Communications,,sale_full,2020-09-04,2021-02-02,C,,high,both readings agree,""
+8217852,2,4,spouse,U.S. Treasury Note 7/15/2021,,sale_full,2020-09-17,2021-02-02,E,,high,both readings agree,""
+8217852,2,5,spouse,U.S. Treasury Note 11/30/2020,,sale_full,2020-10-09,2021-02-02,,1,medium,both readings agree,no amount band checked; only K checked; only column K checked; no band
+8217852,2,6,spouse,U.S. Treasury Note 11/30/2020,,sale_full,2020-10-28,2021-02-02,,1,medium,both readings agree,no amount band checked; only K checked; only column K checked; no band
+8217852,2,7,spouse,U.S. Treasury Note 3/15/2021,,purchase,2020-10-30,2021-02-02,,1,medium,both readings agree,no amount band checked; only K checked; only column K checked; no band; tx date scan reads 10/80/20 - taken as 10/30/20
+8218196,1,1,self,Allergan plc Ordinary Shares (AGN),AGN,exchange,2020-05-08,,A,,high,both readings agree,"notification date 'See Filer Note': unaware until filing on July 28, 2021; acquired by AbbVie; notification date says 'See Filer Note': filer unaware until filing on July 28 2021; Allergan acquired by AbbVie"
+8218196,1,2,self,AbbVie Inc. (ABBV),ABBV,exchange,2020-05-08,,A,,high,both readings agree,"notification date 'See Filer Note': unaware until filing on July 28, 2021; notification date says 'See Filer Note'"
+8218581,1,1,self,"Raven Industries, Inc.",,sale_full,2021-12-01,,C,,high,both readings agree,"notification date blank; filer note: IRA holding in mandatory merger in December; filer unaware until Feb 2022 Schwab report; notification date blank; filer note: held in IRA, mandatory merger in December, learned of it Feb 2022"
+8219063,2,1,self,"Amersco, Inc",,sale_full,2021-02-05,,A,,medium,both readings agree,"amendment letter chart, not a PTR form; listed in PTR as $15-$50K, amendment says correct range is $1-$15K; owner not stated; S assumed full sale; amendment letter chart, not a PTR form; owner not stated; band corrected from $15-50K to $1-15K"
+8219063,2,2,self,"Five9, Inc",,purchase,2021-02-25,,A,,medium,both readings agree,amendment chart; P (covered short); date listed in PTR 2/26/21 corrected to 2/25/2021; owner not stated; amendment letter chart; owner not stated; covered short; date corrected from 2/26/21 to 2/25/21
+8219063,2,3,self,"BlackLine, Inc.",,purchase,2021-02-17,,B,,medium,both readings agree,"amendment chart; listed as S (covered short) 2/12/21; amendment changes date to 2/17/2021 and type to covered short purchase; owner not stated; amendment letter chart; owner not stated; originally listed 2/12/21 S (covered short), amended to 2/17/2021 covered short purchase; band $15-50K"
+8219063,2,4,self,"Amersco, Inc",,sale_full,2021-02-08,,A,,medium,both readings agree,amendment chart; transaction to be added; owner not stated; S assumed full sale; amendment letter chart; owner not stated; transaction to be added
+8219063,2,5,self,"Amersco, Inc",,sale_full,2021-02-09,,A,,medium,both readings agree,amendment chart; transaction to be added; owner not stated; S assumed full sale; amendment letter chart; owner not stated; transaction to be added
+8219219,1,1,self,APA Corp. common stock,,purchase,2022-08-03,2022-08-16,B,,high,both readings agree,""
+8219219,1,2,self,HF Sinclair Corp. common stock,,purchase,2022-08-03,2022-08-16,B,,medium,resolved by third look: notification_date,notification date could be 08/16/22
+8219219,1,3,self,Visa Inc. Class A stock,,sale_full,2022-08-03,2022-08-16,C,,high,both readings agree,""
+8219250,1,1,self,Valero Energy Corp. common stock,,purchase,2022-09-13,2022-09-16,B,,high,both readings agree,""
+8219250,1,2,self,International Paper Co. common stock,,sale_full,2022-09-13,2022-09-16,B,,high,both readings agree,""
+8219250,1,3,self,"Advanced Micro Devices, Inc. common stock",,purchase,2022-09-26,2022-10-01,A,,high,both readings agree,""
+8219250,1,4,self,Generac Holdings Inc. common stock,,purchase,2022-09-26,2022-10-01,A,,high,both readings agree,""
+8219250,2,1,self,NVIDIA Corp. common stock,,purchase,2022-09-26,2022-10-01,B,,high,both readings agree,""
+8219250,2,2,self,Domino's Pizza Inc.common stock,,sale_full,2022-09-26,2022-10-01,B,,high,both readings agree,""
+8219250,2,3,self,Jazz Pharmaceuticals PLC common stock,,sale_full,2022-09-26,2022-10-01,A,,high,both readings agree,""
+8219250,2,4,self,"Advanced Micro Devices, Inc. common stock",,purchase,2022-09-26,2022-10-01,A,,high,both readings agree,""
+8219250,2,5,self,Boeing Co. common stock,,sale_full,2022-09-26,2022-10-01,A,,high,both readings agree,""
+8219250,2,6,self,"Advanced Micro Devices, Inc. common stock",,purchase,2022-09-26,2022-10-01,B,,high,both readings agree,""
+8219250,2,7,self,Generac Holdings Inc. common stock,,purchase,2022-09-26,2022-10-01,B,,high,both readings agree,""
+8219250,2,8,self,NVIDIA Corp. common stock,,purchase,2022-09-26,2022-10-01,B,,high,both readings agree,""
+8219286,1,1,self,"Advanced Micro Devices, Inc. common stock",,purchase,2022-10-11,2022-11-18,B,,high,both readings agree,""
+8219286,1,2,self,Eaton Corp. PLC common stock,,purchase,2022-10-11,2022-11-18,B,,high,both readings agree,""
+8219286,1,3,self,Generac Holdings Inc. common stock,,sale_full,2022-10-11,2022-11-18,C,,high,both readings agree,""
+8219286,1,4,self,Goldman Sachs Group Inc. common stock,,purchase,2022-10-11,2022-11-18,B,,high,both readings agree,""
+8219286,2,1,self,Royal Pines Holdings LLC,,purchase,2022-10-24,2022-11-18,D,,medium,both readings agree,C box blacked out and initialed; D box checked; C box blacked out with initials; D checked (correction)
+8219356,1,1,self,Us Treasury Bill 01/17/23,,sale_full,2023-01-17,,D,,high,both readings agree,notification date blank; notification date blank
+8219356,1,2,self,Us Treasury Bill 01/17/23,,sale_full,2023-01-17,,D,,high,both readings agree,notification date blank; notification date blank; duplicate of row 1 as written
+8219356,1,3,self,NEW WATER CAPITAL II,,purchase,2023-01-06,,A,,high,both readings agree,notification date blank; notification date blank
+8219442,1,1,self,"Mercato Partners IV, LP",,purchase,2023-02-15,,A,,high,both readings agree,notification date blank; notification date blank on form
+8219442,1,2,self,NEW WATER CAPITAL II,,purchase,2023-02-17,,A,,high,both readings agree,notification date blank; notification date blank on form
+8219742,1,1,spouse,"Golden Touch Fund I, LLC",,purchase,2023-05-24,2023-05-24,F,,medium,both readings agree,"asset name in very small blurry print; could be 'Golden Touch Food, LLC'; asset name in tiny low-res print; could be 'Golden Touch Fund' without 'I'"
+8219743,1,1,self,NINETY ONE GLOBAL FRANCHISE FUND I,,sale_full,2023-05-11,2023-05-30,A,,high,both readings agree,""
+8219743,1,2,self,BAILLIE GIFFORD LONG TERM GLBL GR INSTL,,sale_full,2023-05-11,2023-05-30,A,,high,both readings agree,""
+8219743,1,3,self,MONDRIAN GLOBAL EQUITY VALUE FUND,,sale_full,2023-05-11,2023-05-30,A,,high,both readings agree,""
+8219743,1,4,self,ISHARES MSCI EMR MRK EX CHNA,,sale_full,2023-05-11,2023-05-30,A,,high,both readings agree,""
+8219743,2,1,self,THE MERGER FUND CL I,,sale_full,2023-05-11,2023-05-30,A,,high,both readings agree,""
+8219743,2,2,self,NATIONWIDE INTL SMALL CAP FUND IS,,sale_full,2023-05-11,2023-05-30,A,,high,both readings agree,""
+8219743,2,3,self,PGIM TOTAL RETURN BOND CL Z,,sale_full,2023-05-11,2023-05-30,A,,high,both readings agree,""
+8219743,2,4,self,VANGUARD INDEX FUNDS S&P 500 ETF USD,,sale_full,2023-05-11,2023-05-30,A,,high,both readings agree,""
+8219743,2,5,self,FIDELITY MID CAP INDEX FUND,,sale_full,2023-05-09,2023-05-30,A,,medium,both readings agree,small print; tx date could be 05/08/2023; small print; tx date read as 05/09/2023
+8219743,2,6,self,PGIM HIGH YIELD CL Z,,sale_full,2023-05-09,2023-05-30,A,,medium,both readings agree,small print; tx date could be 05/08/2023; small print; tx date read as 05/09/2023
+8219743,2,7,spouse,PGIM TOTAL RETURN BOND CL Z,,purchase,2023-05-09,2023-05-30,A,,medium,both readings agree,small print; tx date could be 05/08/2023; small print; tx date read as 05/09/2023
+8219743,2,8,spouse,PGIM HIGH YIELD CL Z,,sale_full,2023-05-09,2023-05-30,A,,medium,both readings agree,small print; tx date could be 05/08/2023; small print; tx date read as 05/09/2023
+8219743,3,1,self,VANGUARD ULTRA SHORT TERM BOND ADMIRAL,,sale_partial,2023-05-26,2023-05-30,A,,medium,both readings agree,small print; tx date could be 05/25/2023 or 05/28/2023; small print; tx date could be 05/25 or 05/28
+8219743,3,2,self,LORD ABBETT SHORT DURATION INCOME CL I,,purchase,2023-05-09,2023-05-30,A,,medium,both readings agree,small print; tx date could be 05/08/2023; small print; tx date read as 05/09/2023
+8219743,3,3,self,PGIM HIGH YIELD CL Z,,sale_partial,2023-05-09,2023-05-30,A,,medium,both readings agree,small print; tx date could be 05/08/2023; small print; tx date read as 05/09/2023
+8219743,3,4,self,LORD ABBETT SHORT DURATION INCOME CL I,,purchase,2023-05-09,2023-05-30,A,,medium,both readings agree,small print; tx date could be 05/08/2023; small print; tx date read as 05/09/2023
+8219743,3,5,self,PGIM HIGH YIELD CL Z,,sale_partial,2023-05-09,2023-05-30,A,,medium,both readings agree,small print; tx date could be 05/08/2023; small print; tx date read as 05/09/2023
+8220118,1,1,self,Lineage Cell Therapeutics Inc,,sale_full,2024-01-02,2024-01-04,A,,medium,both readings agree,"asset name as written (Linage, likely Lineage); tx date 1/2/2024 slightly blurry"
+8220682,1,1,self,Intuitive Surgical Inc New (ISRG),ISRG,purchase,2021-01-05,2024-04-24,A,,high,both readings agree,""
+8220682,1,2,self,Shopify Inc Cl A (SHOP),SHOP,purchase,2021-01-05,2024-04-24,A,,high,both readings agree,""
+8220682,1,3,self,Veeva Systems Inc Cl A (VEEV),VEEV,purchase,2021-01-05,2024-04-24,A,,high,both readings agree,""
+8220682,1,4,self,Bristol Myers Squibb Cntngt VL RT,,sale_full,2021-01-05,2024-04-24,A,,high,both readings agree,""
+8220682,10,1,self,Factset Research Systems Inc (FDS),FDS,purchase,2022-03-01,2024-04-24,A,,high,both readings agree,""
+8220682,10,2,spouse,Factset Research Systems Inc (FDS),FDS,purchase,2022-03-01,2024-04-24,A,,high,both readings agree,""
+8220682,10,3,self,Zions Bancorporation NA (ZION),ZION,sale_full,2022-03-01,2024-04-24,A,,high,both readings agree,""
+8220682,10,4,spouse,Zions Bancorporation NA (ZION),ZION,sale_full,2022-03-01,2024-04-24,A,,high,both readings agree,""
+8220682,10,5,self,Alcoa Corp. (AA),AA,purchase,2022-04-05,2024-04-24,A,,high,both readings agree,""
+8220682,10,6,spouse,Alcoa Corp. (AA),AA,purchase,2022-04-05,2024-04-24,A,,high,both readings agree,""
+8220682,10,7,self,Robert Half Inc (RHI),RHI,purchase,2022-04-05,2024-04-24,A,,high,both readings agree,""
+8220682,10,8,spouse,Robert Half Inc (RHI),RHI,purchase,2022-04-05,2024-04-24,A,,high,both readings agree,""
+8220682,11,1,self,CH Robinson Worldwide (CHRW),CHRW,purchase,2022-05-03,2024-04-24,A,,high,both readings agree,""
+8220682,11,2,spouse,CH Robinson Worldwide (CHRW),CHRW,purchase,2022-05-03,2024-04-24,A,,high,both readings agree,""
+8220682,11,3,self,Westlake Corporation (WLK),WLK,purchase,2022-05-03,2024-04-24,A,,high,both readings agree,""
+8220682,11,4,spouse,Westlake Corporation (WLK),WLK,purchase,2022-05-03,2024-04-24,A,,high,both readings agree,""
+8220682,11,5,self,Labcorp Holdings Inc (LH),LH,sale_full,2022-05-03,2024-04-24,A,,high,both readings agree,""
+8220682,11,6,spouse,Labcorp Holdings Inc (LH),LH,sale_full,2022-05-03,2024-04-24,A,,high,both readings agree,""
+8220682,11,7,self,Shopify Inc Cl A (SHOP),SHOP,sale_full,2022-05-03,2024-04-24,A,,high,both readings agree,""
+8220682,11,8,self,Comerica Inc (CMA),CMA,purchase,2022-08-12,2024-04-24,A,,high,both readings agree,""
+8220682,12,1,spouse,Comerica Inc (CMA),CMA,purchase,2022-08-12,2024-04-24,A,,high,both readings agree,""
+8220682,12,2,self,Elevance Health Inc (ELV),ELV,purchase,2022-08-12,2024-04-24,A,,high,both readings agree,""
+8220682,12,3,spouse,Elevance Health Inc (ELV),ELV,purchase,2022-08-12,2024-04-24,A,,high,both readings agree,""
+8220682,12,4,self,Howmet Aerospace Inc (HWM),HWM,purchase,2022-08-12,2024-04-24,A,,high,both readings agree,""
+8220682,12,5,spouse,Howmet Aerospace Inc (HWM),HWM,purchase,2022-08-12,2024-04-24,A,,high,both readings agree,""
+8220682,12,6,self,Merck & Co Inc (MRK),MRK,purchase,2022-08-12,2024-04-24,A,,high,both readings agree,""
+8220682,12,7,spouse,Merck & Co Inc (MRK),MRK,purchase,2022-08-12,2024-04-24,A,,high,both readings agree,""
+8220682,12,8,self,Waters Corp (WAT),WAT,purchase,2022-08-12,2024-04-24,A,,high,both readings agree,""
+8220682,13,1,spouse,Waters Corp (WAT),WAT,purchase,2022-08-12,2024-04-24,A,,high,both readings agree,""
+8220682,13,2,self,Alcoa Corp. (AA),AA,sale_full,2022-08-12,2024-04-24,A,,high,both readings agree,""
+8220682,13,3,spouse,Alcoa Corp. (AA),AA,sale_full,2022-08-12,2024-04-24,A,,high,both readings agree,""
+8220682,13,4,self,Celanese Corp (CE),CE,sale_full,2022-08-12,2024-04-24,A,,high,both readings agree,""
+8220682,13,5,spouse,Celanese Corp (CE),CE,sale_full,2022-08-12,2024-04-24,A,,high,both readings agree,""
+8220682,13,6,self,Expeditors Intl Wash Inc (EXPD),EXPD,sale_full,2022-08-12,2024-04-24,A,,high,both readings agree,""
+8220682,13,7,spouse,Expeditors Intl Wash Inc (EXPD),EXPD,sale_full,2022-08-12,2024-04-24,A,,high,both readings agree,""
+8220682,13,8,self,Verizon Communications Inc (VZ),VZ,sale_full,2022-08-12,2024-04-24,A,,high,both readings agree,""
+8220682,14,1,spouse,Verizon Communications Inc (VZ),VZ,sale_full,2022-08-12,2024-04-24,A,,high,both readings agree,""
+8220682,14,2,self,Westlake Corporation (WLK),WLK,sale_full,2022-08-12,2024-04-24,A,,high,both readings agree,""
+8220682,14,3,spouse,Westlake Corporation (WLK),WLK,sale_full,2022-08-12,2024-04-24,A,,high,both readings agree,""
+8220682,14,4,self,Carlisle Cos Inc (CSL),CSL,purchase,2022-10-07,2024-04-24,A,,high,both readings agree,""
+8220682,14,5,spouse,Carlisle Cos Inc (CSL),CSL,purchase,2022-10-07,2024-04-24,A,,high,both readings agree,""
+8220682,14,6,self,Novo-Nordisk As Adr (NVO),NVO,purchase,2022-10-07,2024-04-24,A,,high,both readings agree,""
+8220682,14,7,spouse,Novo-Nordisk As Adr (NVO),NVO,purchase,2022-10-07,2024-04-24,A,,high,both readings agree,""
+8220682,14,8,self,Stellantis NV (STLA),STLA,sale_full,2022-10-07,2024-04-24,A,,high,both readings agree,""
+8220682,15,1,spouse,Stellantis NV (STLA),STLA,sale_full,2022-10-07,2024-04-24,A,,high,both readings agree,""
+8220682,15,2,self,Take-Two Software (TTWO),TTWO,sale_full,2022-10-07,2024-04-24,A,,high,both readings agree,""
+8220682,15,3,spouse,Take-Two Software (TTWO),TTWO,sale_full,2022-10-07,2024-04-24,A,,high,both readings agree,""
+8220682,15,4,self,Arch Resources Inc Cl A (ARCH),ARCH,purchase,2022-12-07,2024-04-24,A,,high,both readings agree,""
+8220682,15,5,spouse,Arch Resources Inc Cl A (ARCH),ARCH,purchase,2022-12-07,2024-04-24,A,,high,both readings agree,""
+8220682,15,6,self,Monolithic Power Systems (MPWR),MPWR,purchase,2022-12-07,2024-04-24,A,,high,both readings agree,""
+8220682,15,7,spouse,Monolithic Power Systems (MPWR),MPWR,purchase,2022-12-07,2024-04-24,A,,high,both readings agree,""
+8220682,15,8,self,Quidelortho Corp (QDEL),QDEL,purchase,2022-12-07,2024-04-24,A,,high,both readings agree,""
+8220682,16,1,spouse,Quidelortho Corp (QDEL),QDEL,purchase,2022-12-07,2024-04-24,A,,high,both readings agree,""
+8220682,16,2,self,Vertex Pharmaceuticals (VRTX),VRTX,purchase,2022-12-07,2024-04-24,A,,high,both readings agree,""
+8220682,16,3,spouse,Vertex Pharmaceuticals (VRTX),VRTX,purchase,2022-12-07,2024-04-24,A,,high,both readings agree,""
+8220682,16,4,self,Brunswick Corp (BC),BC,sale_full,2022-12-07,2024-04-24,A,,high,both readings agree,""
+8220682,16,5,spouse,Brunswick Corp (BC),BC,sale_full,2022-12-07,2024-04-24,A,,high,both readings agree,""
+8220682,16,6,self,CH Robinson Worldwide (CHRW),CHRW,sale_full,2022-12-07,2024-04-24,A,,high,both readings agree,""
+8220682,16,7,spouse,CH Robinson Worldwide (CHRW),CHRW,sale_full,2022-12-07,2024-04-24,A,,high,both readings agree,""
+8220682,16,8,self,Comerica Inc (CMA),CMA,sale_full,2022-12-07,2024-04-24,A,,high,both readings agree,""
+8220682,17,1,spouse,Comerica Inc (CMA),CMA,sale_full,2022-12-07,2024-04-24,A,,high,both readings agree,""
+8220682,17,2,self,Carlisle Cos Inc (CSL),CSL,sale_full,2022-12-07,2024-04-24,A,,high,both readings agree,""
+8220682,17,3,spouse,Carlisle Cos Inc (CSL),CSL,sale_full,2022-12-07,2024-04-24,A,,high,both readings agree,""
+8220682,17,4,self,Humana Inc. (HUM),HUM,purchase,2023-02-24,2024-04-24,A,,high,both readings agree,""
+8220682,17,5,spouse,Humana Inc. (HUM),HUM,purchase,2023-02-24,2024-04-24,A,,high,both readings agree,""
+8220682,17,6,self,Gartner Inc NEW (IT),IT,purchase,2023-02-24,2024-04-24,A,,high,both readings agree,""
+8220682,17,7,spouse,Gartner Inc NEW (IT),IT,purchase,2023-02-24,2024-04-24,A,,high,both readings agree,""
+8220682,17,8,self,MSCI Inc (MSCI),MSCI,purchase,2023-02-24,2024-04-24,A,,high,both readings agree,""
+8220682,18,1,spouse,MSCI Inc (MSCI),MSCI,purchase,2023-02-24,2024-04-24,A,,high,both readings agree,""
+8220682,18,2,self,Stmicroelectronics (STM),STM,purchase,2023-02-24,2024-04-24,A,,high,both readings agree,""
+8220682,18,3,spouse,Stmicroelectronics (STM),STM,purchase,2023-02-24,2024-04-24,A,,high,both readings agree,""
+8220682,18,4,self,Fortinet Inc. (FTNT),FTNT,sale_full,2023-02-24,2024-04-24,A,,high,both readings agree,""
+8220682,18,5,spouse,Fortinet Inc. (FTNT),FTNT,sale_full,2023-02-24,2024-04-24,A,,high,both readings agree,""
+8220682,18,6,self,Intuitive Surgical Inc New (ISRG),ISRG,sale_full,2023-02-24,2024-04-24,A,,high,both readings agree,""
+8220682,18,7,spouse,Intuitive Surgical Inc New (ISRG),ISRG,sale_full,2023-02-24,2024-04-24,A,,high,both readings agree,""
+8220682,18,8,self,Waters Corp (WAT),WAT,sale_full,2023-02-24,2024-04-24,A,,high,both readings agree,""
+8220682,19,1,spouse,Waters Corp (WAT),WAT,sale_full,2023-02-24,2024-04-24,A,,high,both readings agree,""
+8220682,19,2,self,Zebra Technologies Corp Cl A (ZBRA),ZBRA,sale_full,2023-02-24,2024-04-24,A,,high,both readings agree,""
+8220682,19,3,spouse,Zebra Technologies Corp Cl A (ZBRA),ZBRA,sale_full,2023-02-24,2024-04-24,A,,high,both readings agree,""
+8220682,19,4,self,Meta Platforms Inc Cl A (META),META,purchase,2023-07-05,2024-04-24,A,,high,both readings agree,""
+8220682,19,5,spouse,Meta Platforms Inc Cl A (META),META,purchase,2023-07-05,2024-04-24,A,,high,both readings agree,""
+8220682,19,6,self,Microsoft Corp (MSFT),MSFT,purchase,2023-07-05,2024-04-24,A,,medium,both readings agree,date could be 07/06/23 (scan blur)
+8220682,19,7,spouse,Microsoft Corp (MSFT),MSFT,purchase,2023-07-05,2024-04-24,A,,high,both readings agree,""
+8220682,19,8,self,R L I Corp (RLI),RLI,purchase,2023-07-05,2024-04-24,A,,medium,both readings agree,date could be 07/06/23 (scan blur)
+8220682,2,1,self,Alibaba Group Holding (BABA),BABA,sale_full,2021-01-05,2024-04-24,A,,high,both readings agree,""
+8220682,2,2,self,Republic Services Inc (RSG),RSG,sale_full,2021-01-05,2024-04-24,A,,high,both readings agree,""
+8220682,2,3,self,United Health Group Inc. (UNH),UNH,sale_full,2021-01-05,2024-04-24,A,,high,both readings agree,""
+8220682,2,4,self,Logitech Intl Sa (LOGI),LOGI,purchase,2021-02-02,2024-04-24,A,,high,both readings agree,""
+8220682,2,5,self,Take-Two Software (TTWO),TTWO,purchase,2021-02-02,2024-04-24,A,,high,both readings agree,""
+8220682,2,6,self,Zions Bancorporation NA (ZION),ZION,purchase,2021-02-02,2024-04-24,A,,high,both readings agree,""
+8220682,2,7,self,Biogen Inc. (BIIB),BIIB,sale_full,2021-02-02,2024-04-24,A,,high,both readings agree,""
+8220682,2,8,self,Ciena Corp. New (CIEN),CIEN,sale_full,2021-02-02,2024-04-24,A,,high,both readings agree,""
+8220682,20,1,spouse,R L I Corp (RLI),RLI,purchase,2023-07-05,2024-04-24,A,,high,both readings agree,""
+8220682,20,2,self,Arch Resources Cl A (ARCH),ARCH,sale_full,2023-07-05,2024-04-24,A,,high,both readings agree,""
+8220682,20,3,spouse,Arch Resources Cl A (ARCH),ARCH,sale_full,2023-07-05,2024-04-24,A,,high,both readings agree,""
+8220682,20,4,self,Revvity Inc. (RVTY),RVTY,sale_full,2023-07-05,2024-04-24,A,,high,both readings agree,""
+8220682,20,5,spouse,Revvity Inc. (RVTY),RVTY,sale_full,2023-07-05,2024-04-24,A,,high,both readings agree,""
+8220682,20,6,self,Washington Fed Inc Com (WAFD),WAFD,sale_full,2023-07-05,2024-04-24,A,,high,both readings agree,""
+8220682,20,7,spouse,Washington Fed Inc Com (WAFD),WAFD,sale_full,2023-07-05,2024-04-24,A,,high,both readings agree,""
+8220682,20,8,self,Dynatrace Inc New (DT),DT,purchase,2023-10-19,2024-04-24,A,,high,both readings agree,""
+8220682,21,1,spouse,Dynatrace Inc New (DT),DT,purchase,2023-10-19,2024-04-24,A,,high,both readings agree,""
+8220682,21,2,self,Alphabet Inc Cap Stock Cl C (GOOG),GOOG,purchase,2023-10-19,2024-04-24,A,,high,both readings agree,""
+8220682,21,3,spouse,Alphabet Inc Cap Stock Cl C (GOOG),GOOG,purchase,2023-10-19,2024-04-24,A,,high,both readings agree,""
+8220682,21,4,self,JP Morgan Chase & Co (JPM),JPM,purchase,2023-10-19,2024-04-24,A,,high,both readings agree,""
+8220682,21,5,spouse,JP Morgan Chase & Co (JPM),JPM,purchase,2023-10-19,2024-04-24,A,,high,both readings agree,""
+8220682,21,6,self,Nvidia Corporation (NVDA),NVDA,purchase,2023-10-19,2024-04-24,A,,high,both readings agree,""
+8220682,21,7,spouse,Nvidia Corporation (NVDA),NVDA,purchase,2023-10-19,2024-04-24,A,,high,both readings agree,""
+8220682,21,8,self,Elevance Health Inc (ELV),ELV,sale_full,2023-10-19,2024-04-24,A,,high,both readings agree,""
+8220682,22,1,spouse,Elevance Health Inc (ELV),ELV,sale_full,2023-10-19,2024-04-24,A,,high,both readings agree,""
+8220682,22,2,self,Edwards Life Sciences Corp (EW),EW,sale_full,2023-10-19,2024-04-24,A,,high,both readings agree,""
+8220682,22,3,spouse,Edwards Life Sciences Corp (EW),EW,sale_full,2023-10-19,2024-04-24,A,,high,both readings agree,""
+8220682,22,4,self,Quidelortho Corp (QDEL),QDEL,sale_full,2023-10-19,2024-04-24,A,,high,both readings agree,""
+8220682,22,5,spouse,Quidelortho Corp (QDEL),QDEL,sale_full,2023-10-19,2024-04-24,A,,high,both readings agree,""
+8220682,22,6,self,Stmicroelectronics (STM),STM,sale_full,2023-10-19,2024-04-24,A,,high,both readings agree,""
+8220682,22,7,spouse,Stmicroelectronics (STM),STM,sale_full,2023-10-19,2024-04-24,A,,high,both readings agree,""
+8220682,22,8,self,Alphabet Inc Cap Stock Cl C (GOOG),GOOG,purchase,2024-02-22,2024-04-24,A,,high,both readings agree,""
+8220682,23,1,self,Humana Inc. (HUM),HUM,purchase,2024-02-22,2024-04-24,A,,high,both readings agree,""
+8220682,23,2,self,Bristol Myers Squibb Cntngt VL RT (BMY),BMY,sale_full,2024-02-22,2024-04-24,A,,medium,both readings agree,very small print; ticker read as BMY
+8220682,23,3,self,General Motors Co (GM),GM,sale_full,2024-02-22,2024-04-24,A,,high,both readings agree,""
+8220682,23,4,self,Ingersoll Rand Inc (IR),IR,sale_full,2024-02-22,2024-04-24,A,,high,both readings agree,""
+8220682,23,5,self,Appfolio Inc A (APPF),APPF,purchase,2024-03-27,2024-04-24,A,,high,both readings agree,""
+8220682,23,6,spouse,Appfolio Inc A (APPF),APPF,purchase,2024-03-27,2024-04-24,A,,high,both readings agree,""
+8220682,23,7,self,Deckers Outdoor Corp (DECK),DECK,purchase,2024-03-27,2024-04-24,A,,high,both readings agree,""
+8220682,23,8,spouse,Deckers Outdoor Corp (DECK),DECK,purchase,2024-03-27,2024-04-24,A,,high,both readings agree,""
+8220682,24,1,self,Synopsys Inc (SNPS),SNPS,purchase,2024-02-22,2024-04-24,A,,high,both readings agree,""
+8220682,24,2,spouse,Synopsys Inc (SNPS),SNPS,purchase,2024-02-22,2024-04-24,A,,high,both readings agree,""
+8220682,24,3,self,Dynatrace Inc New (DT),DT,sale_full,2024-02-22,2024-04-24,A,,high,both readings agree,""
+8220682,24,4,spouse,Dynatrace Inc New (DT),DT,sale_full,2024-02-22,2024-04-24,A,,high,both readings agree,""
+8220682,24,5,self,Humana Inc. (HUM),HUM,sale_full,2024-02-22,2024-04-24,A,,high,both readings agree,""
+8220682,24,6,spouse,Humana Inc. (HUM),HUM,sale_full,2024-02-22,2024-04-24,A,,high,both readings agree,""
+8220682,24,7,self,Sony Group Corporation (SONY),SONY,sale_full,2024-02-22,2024-04-24,A,,high,both readings agree,""
+8220682,24,8,spouse,Sony Group Corporation (SONY),SONY,sale_full,2024-02-22,2024-04-24,A,,high,both readings agree,""
+8220682,25,1,self,Equifax Inc (EFX,EFX,purchase,2024-05-09,2024-04-24,A,,low,both readings agree,"tx date reads 05/09/24 but notification date is 04/24/24 and filing stamped 2024 MAY 8; date may be 03/09/24 or similar; tx date reads 05/09/24, which is after the notification date and the 2024-05-08 receipt stamp; could be misprinted"
+8220682,25,2,spouse,Equifax Inc (EFX,EFX,purchase,2024-05-09,2024-04-24,A,,low,both readings agree,"tx date reads 05/09/24 but notification date is 04/24/24 and filing stamped 2024 MAY 8; date may be 03/09/24 or similar; tx date reads 05/09/24, which is after the notification date and the 2024-05-08 receipt stamp; could be misprinted"
+8220682,25,3,self,Monster Beverage Corp (MNST),MNST,sale_full,2024-05-09,2024-04-24,A,,low,both readings agree,"tx date reads 05/09/24 but notification date is 04/24/24 and filing stamped 2024 MAY 8; date may be 03/09/24 or similar; tx date reads 05/09/24, which is after the notification date and the 2024-05-08 receipt stamp; could be misprinted"
+8220682,25,4,spouse,Monster Beverage Corp (MNST),MNST,sale_full,2024-05-09,2024-04-24,A,,low,both readings agree,"tx date reads 05/09/24 but notification date is 04/24/24 and filing stamped 2024 MAY 8; date may be 03/09/24 or similar; tx date reads 05/09/24, which is after the notification date and the 2024-05-08 receipt stamp; could be misprinted"
+8220682,3,1,self,AT&T Inc (T),T,sale_full,2021-02-02,2024-04-24,A,,high,both readings agree,""
+8220682,3,2,self,Edwards Life Sciences Corp (EW),EW,purchase,2021-03-05,2024-04-24,A,,high,both readings agree,""
+8220682,3,3,self,Take-Two Software (TTWO),TTWO,purchase,2021-03-05,2024-04-24,A,,high,both readings agree,""
+8220682,3,4,spouse,Ametek Inc. (AME),AME,purchase,2021-05-05,2024-04-24,A,,high,both readings agree,""
+8220682,3,5,spouse,Air Prods & Chems Inc. (APD),APD,purchase,2021-05-05,2024-04-24,A,,high,both readings agree,""
+8220682,3,6,spouse,Cadence Design System (CDNS),CDNS,purchase,2021-05-05,2024-04-24,A,,high,both readings agree,""
+8220682,3,7,spouse,Chemed Corp (CHE),CHE,purchase,2021-05-05,2024-04-24,A,,high,both readings agree,""
+8220682,3,8,spouse,Carlisle Cos Inc (CSL),CSL,purchase,2021-05-05,2024-04-24,A,,high,both readings agree,""
+8220682,4,1,spouse,Edwards Life Sciences Corp (EW),EW,purchase,2021-05-05,2024-04-24,A,,high,both readings agree,""
+8220682,4,2,spouse,Fortinet Inc. (FTNT),FTNT,purchase,2021-05-05,2024-04-24,A,,high,both readings agree,""
+8220682,4,3,spouse,Honeywell Intl Inc (HON),HON,purchase,2021-05-05,2024-04-24,A,,high,both readings agree,""
+8220682,4,4,spouse,Intuit (INTU),INTU,purchase,2021-05-05,2024-04-24,A,,high,both readings agree,""
+8220682,4,5,spouse,Intuitive Surgical Inc New (ISRG),ISRG,purchase,2021-05-05,2024-04-24,A,,high,both readings agree,""
+8220682,4,6,spouse,Lockheed Martin Corp (LMT),LMT,purchase,2021-05-05,2024-04-24,A,,high,both readings agree,""
+8220682,4,7,spouse,Logitech Intl Sa (LOGI),LOGI,purchase,2021-05-05,2024-04-24,A,,high,both readings agree,""
+8220682,4,8,spouse,Mastercard Cl A (MA),MA,purchase,2021-05-05,2024-04-24,A,,high,both readings agree,""
+8220682,5,1,spouse,Monster Beverage Corp (MNST),MNST,purchase,2021-05-05,2024-04-24,A,,high,both readings agree,""
+8220682,5,2,spouse,Molina Healthcare Inc (MOH),MOH,purchase,2021-05-05,2024-04-24,A,,high,both readings agree,""
+8220682,5,3,spouse,Parker-Hannifin Corp (PH),PH,purchase,2021-05-05,2024-04-24,A,,high,both readings agree,""
+8220682,5,4,spouse,Revvity Inc. (RVTY),RVTY,purchase,2021-05-05,2024-04-24,A,,high,both readings agree,""
+8220682,5,5,spouse,Shopify Inc Cl A (SHOP),SHOP,purchase,2021-05-05,2024-04-24,A,,high,both readings agree,""
+8220682,5,6,spouse,Sony Group Corp (SONY),SONY,purchase,2021-05-05,2024-04-24,A,,high,both readings agree,""
+8220682,5,7,spouse,Stellantis NV (STLA),STLA,purchase,2021-05-05,2024-04-24,A,,high,both readings agree,""
+8220682,5,8,spouse,T-Mobile US Inc (TMUS),TMUS,purchase,2021-05-05,2024-04-24,A,,high,both readings agree,""
+8220682,6,1,spouse,Trane Technologies Inc (TT),TT,purchase,2021-05-05,2024-04-24,A,,high,both readings agree,""
+8220682,6,2,spouse,Take-Two Software (TTWO),TTWO,purchase,2021-05-05,2024-04-24,A,,high,both readings agree,""
+8220682,6,3,spouse,Veeva Systems Inc Cl A (VEEV),VEEV,purchase,2021-05-05,2024-04-24,A,,high,both readings agree,""
+8220682,6,4,spouse,Verizon Communications Inc (VZ),VZ,purchase,2021-05-05,2024-04-24,A,,high,both readings agree,""
+8220682,6,5,spouse,Washington Fed Inc (WAFD),WAFD,purchase,2021-05-05,2024-04-24,A,,high,both readings agree,""
+8220682,6,6,spouse,Zebra Technologies Corp Cl A (ZBRA),ZBRA,purchase,2021-05-05,2024-04-24,A,,high,both readings agree,""
+8220682,6,7,spouse,Zions Bancorporation NA (ZION),ZION,purchase,2021-05-05,2024-04-24,A,,high,both readings agree,""
+8220682,6,8,spouse,Zoetis Inc Cl A (ZTS),ZTS,purchase,2021-05-05,2024-04-24,A,,high,both readings agree,""
+8220682,7,1,self,Brunswick Corp (BC),BC,purchase,2021-05-05,2024-04-24,A,,high,both readings agree,""
+8220682,7,2,spouse,Brunswick Corp (BC),BC,purchase,2021-06-02,2024-04-24,A,,high,both readings agree,""
+8220682,7,3,self,Expeditors Intl Wash Inc (EXPD),EXPD,purchase,2021-06-02,2024-04-24,A,,high,both readings agree,""
+8220682,7,4,spouse,Expeditors Intl Wash Inc (EXPD),EXPD,purchase,2021-06-02,2024-04-24,A,,high,both readings agree,""
+8220682,7,5,self,Ametek Inc. (AME),AME,sale_full,2021-06-02,2024-04-24,A,,high,both readings agree,""
+8220682,7,6,spouse,Ametek Inc. (AME),AME,sale_full,2021-06-02,2024-04-24,A,,high,both readings agree,""
+8220682,7,7,self,Air Prods & Chems Inc. (APD),APD,sale_full,2021-06-02,2024-04-24,A,,high,both readings agree,""
+8220682,7,8,spouse,Air Prods & Chems Inc. (APD),APD,sale_full,2021-06-02,2024-04-24,A,,high,both readings agree,""
+8220682,8,1,self,Celanese Corp (CE),CE,purchase,2021-08-03,2024-04-24,A,,high,both readings agree,""
+8220682,8,2,spouse,Celanese Corp (CE),CE,purchase,2021-08-03,2024-04-24,A,,high,both readings agree,""
+8220682,8,3,self,Robert Half Inc (RHI),RHI,purchase,2021-08-03,2024-04-24,A,,high,both readings agree,""
+8220682,8,4,spouse,Robert Half Inc (RHI),RHI,purchase,2021-08-03,2024-04-24,A,,high,both readings agree,""
+8220682,8,5,self,Honeywell Intl Inc (HON),HON,sale_full,2021-08-03,2024-04-24,A,,high,both readings agree,""
+8220682,8,6,spouse,Honeywell Intl Inc (HON),HON,sale_full,2021-08-03,2024-04-24,A,,high,both readings agree,""
+8220682,8,7,self,T-Mobile US Inc (TMUS),TMUS,sale_full,2021-08-03,2024-04-24,A,,high,both readings agree,""
+8220682,8,8,spouse,T-Mobile US Inc (TMUS),TMUS,sale_full,2021-08-03,2024-04-24,A,,high,both readings agree,""
+8220682,9,1,self,Regeneron Pharmaceuticals (REGN),REGN,purchase,2021-10-05,2024-04-24,A,,high,both readings agree,""
+8220682,9,2,spouse,Regeneron Pharmaceuticals (REGN),REGN,purchase,2021-10-05,2024-04-24,A,,high,both readings agree,""
+8220682,9,3,self,Logitech Intl Sa (LOGI),LOGI,sale_full,2021-10-05,2024-04-24,A,,high,both readings agree,""
+8220682,9,4,spouse,Logitech Intl Sa (LOGI),LOGI,sale_full,2021-10-05,2024-04-24,A,,high,both readings agree,""
+8220682,9,5,self,Labcorp Holdings Inc (LH),LH,purchase,2022-01-06,2024-04-24,A,,high,both readings agree,""
+8220682,9,6,spouse,Labcorp Holdings Inc (LH),LH,purchase,2022-01-06,2024-04-24,A,,high,both readings agree,""
+8220682,9,7,self,Carlisle Cos Inc (CSL),CSL,sale_full,2022-01-06,2024-04-24,A,,high,both readings agree,""
+8220682,9,8,spouse,Carlisle Cos Inc (CSL),CSL,sale_full,2022-01-06,2024-04-24,A,,high,both readings agree,""
+8220764,1,1,self,Carter Baldwin,,purchase,2025-01-14,2025-01-14,A,,medium,both readings agree,handwritten; handwritten asset name
+8220768,1,1,self,USA Treasury Bonds,,purchase,2025-02-19,2025-02-20,A,,high,both readings agree,filer note on page 2 (labeled page 3 of 3): listed on page 2 a/k/a USA Treasury I Bonds; handwritten; filer note on second page (marked page 3 of 3): listed asset is USA Treasury I Bonds; page 2 of 3 not in scan
+8220770,,,,,,,,,,,,both readings agree,"no transactions; letter retracting PTR of 2025-02-20 as filed in error (purchase of USA Treasury Bonds 2/19/2025, notified 2/20/2025, $1,001-$50,000 did not take place)"
+8220780,1,1,self,US Treasury Bonds,,purchase,2025-03-03,2025-03-03,A,,medium,both readings agree,"handwritten; notification date digit overwritten (could be 3/05/25 but filing stamped 2025 MAR 3); second image is page 3 of 3 (page 2 not in scan) and filer note says US Treasury Bonds listed on page 2 are USA Treasury I Bonds; handwritten; notification date appears overwritten (3/03/25 or 3/08/25); scan page 2 is form page 3 of 3 with filer note ""USA Treasury Bonds, listed on Page 2 are USA Treasury I Bonds"" - form page 2 not in scan set"
+9105065,1,1,self,Proctor & Gamble Co.,,purchase,2014-02-19,2014-03-03,A,,high,both readings agree,spelled 'Proctor' on form
+9105111,1,1,self,ML: Wash DC CCA Dedicated Bond,,sale_full,2014-02-26,2014-02-28,B,,high,both readings agree,""
+9105111,1,2,self,ML: MD ST Cmnty Dev Admin Bond,,purchase,2014-02-28,2014-02-28,B,,high,both readings agree,""
+9105412,1,1,self,Absolute Strategies Fund-I,,purchase,2014-08-04,2014-09-08,A,,medium,both readings agree,handwritten
+9105412,1,2,self,Oppenheimer Developing Markets-Y,,purchase,2014-08-05,2014-09-08,A,,medium,both readings agree,handwritten
+9105412,1,3,self,TCW Funds Inc. Emerging Markets Income Fd Cl-I,,purchase,2014-08-05,2014-09-08,A,,medium,both readings agree,"handwritten; ""Emerging Markets"" written above line; handwritten; name written across two lines (Emerging Markets inserted above)"
+9105412,1,4,self,AT&T Inc.,,purchase,2014-08-11,2014-09-08,A,,medium,both readings agree,handwritten
+9105412,1,5,self,Altria Group Inc.,,purchase,2014-08-11,2014-09-08,A,,medium,both readings agree,handwritten
+9105412,2,1,self,American International Group Inc.,,purchase,2014-08-11,2014-09-08,A,,medium,both readings agree,handwritten
+9105412,2,2,self,Apple Inc.,,purchase,2014-08-11,2014-09-08,A,,medium,both readings agree,handwritten
+9105412,2,3,self,Bank America Corp,,purchase,2014-08-11,2014-09-08,A,,medium,both readings agree,handwritten
+9105412,2,4,self,CVS/Caremark Corporation,,purchase,2014-08-11,2014-09-08,A,,medium,both readings agree,handwritten
+9105412,2,5,self,Capital One Financial Corp,,purchase,2014-08-11,2014-09-08,A,,medium,both readings agree,handwritten
+9105412,2,6,self,Chevron Corporation,,purchase,2014-08-11,2014-09-08,A,,medium,both readings agree,handwritten
+9105412,3,1,self,Comcast Corp. Class A,,purchase,2014-08-11,2014-09-08,A,,medium,both readings agree,handwritten
+9105412,3,2,self,Walt Disney Co.,,purchase,2014-08-11,2014-09-08,A,,medium,both readings agree,handwritten
+9105412,3,3,self,East West Bancorp Inc.,,purchase,2014-08-11,2014-09-08,A,,medium,both readings agree,handwritten
+9105412,3,4,self,Exxon Mobil Corp.,,purchase,2014-08-11,2014-09-08,A,,medium,both readings agree,handwritten
+9105412,3,5,self,Gilead Sciences Inc. Common,,purchase,2014-08-11,2014-09-08,A,,medium,both readings agree,handwritten
+9105412,3,6,self,Home Depot Inc.,,purchase,2014-08-11,2014-09-08,A,,medium,both readings agree,handwritten
+9105412,4,1,self,Google Inc.,,purchase,2014-08-11,2014-09-08,A,,medium,both readings agree,handwritten
+9105412,4,2,self,Johnson & Johnson,,purchase,2014-08-11,2014-09-08,A,,medium,both readings agree,handwritten
+9105412,4,3,self,Estee Lauder Cos. Inc.,,purchase,2014-08-11,2014-09-08,A,,medium,both readings agree,handwritten
+9105412,4,4,self,McKesson Corporation,,purchase,2014-08-11,2014-09-08,A,,medium,both readings agree,handwritten
+9105412,4,5,self,Mylan Inc.,,purchase,2014-08-11,2014-09-08,A,,medium,both readings agree,handwritten
+9105412,4,6,self,Nextera Energy,,purchase,2014-08-11,2014-09-08,A,,medium,both readings agree,handwritten
+9105412,5,1,self,Packaging Corp. of America,,purchase,2014-08-11,2014-09-08,A,,medium,both readings agree,handwritten
+9105412,5,2,self,Sandisk Corp.,,purchase,2014-08-11,2014-09-08,A,,medium,both readings agree,handwritten
+9105412,5,3,self,Schlumberger Ltd.,,purchase,2014-08-11,2014-09-08,A,,medium,both readings agree,handwritten
+9105412,5,4,self,3M Co.,,purchase,2014-08-11,2014-09-08,A,,medium,both readings agree,handwritten
+9105412,5,5,self,US Bancorp Del.,,purchase,2014-08-11,2014-09-08,A,,medium,both readings agree,handwritten
+9105412,5,6,self,United Rentals Inc.,,purchase,2014-08-11,2014-09-08,A,,medium,both readings agree,handwritten
+9105412,6,1,self,Morgan Stanley,,purchase,2014-08-20,2014-09-08,A,,medium,both readings agree,handwritten
+9105412,6,2,self,Union Pacific Corp.,,purchase,2014-08-20,2014-09-08,A,,medium,both readings agree,handwritten
+9105412,6,3,self,Berkshire Hathaway Inc Class B New,,purchase,2014-08-20,2014-09-08,A,,medium,both readings agree,"handwritten; ""Class"" written above line; handwritten; ""Class"" written above line"
+9105412,6,4,self,Merck & Co. Inc. New,,purchase,2014-08-20,2014-09-08,A,,medium,both readings agree,handwritten; tx date day could be 26
+9105412,6,5,self,Eaton Vance Mutual Funds TR,,sale_full,2014-08-05,2014-09-08,A,,medium,both readings agree,handwritten
+9105412,6,6,self,Touchstone Small Cap Core Fund,,sale_full,2014-08-05,2014-09-08,A,,medium,both readings agree,handwritten; handwritten name partly hard to read
+9105412,7,1,self,UBS E-Tracs Alerian MLP Infrastructure,,sale_full,2014-08-07,2014-09-08,A,,medium,both readings agree,handwritten; handwritten
+9105412,7,2,self,Automatic Data Processing,,sale_full,2014-08-11,2014-09-08,A,,medium,both readings agree,handwritten; a struck-through line of text below it is ignored; handwritten; a second line under the name is crossed out
+9105412,7,3,self,Berkshire Hathaway Inc. Class B New,,sale_full,2014-08-11,2014-09-08,A,,medium,both readings agree,"handwritten; handwritten; ""Class B New"" written above line"
+9105412,7,4,self,CHUBB Corp.,,sale_full,2014-08-11,2014-09-08,A,,medium,both readings agree,handwritten
+9105412,7,5,self,Citigroup Inc.,,sale_full,2014-08-11,2014-09-08,A,,medium,both readings agree,handwritten
+9105412,7,6,self,Ecolab Inc.,,sale_full,2014-08-11,2014-09-08,A,,medium,both readings agree,handwritten
+9105412,8,1,self,General Electric Co.,,sale_full,2014-08-11,2014-09-08,A,,medium,both readings agree,handwritten
+9105412,8,2,self,International Business Machines,,sale_full,2014-08-11,2014-09-08,A,,medium,both readings agree,handwritten
+9105412,8,3,self,Pepsico Inc. Common,,sale_full,2014-08-11,2014-09-08,A,,medium,both readings agree,handwritten
+9105412,8,4,self,Proctor & Gamble Co.,,sale_full,2014-08-11,2014-09-08,A,,medium,both readings agree,handwritten; spelled Proctor on form
+9105412,8,5,self,Health Care Select Sector Spdr,,sale_full,2014-08-11,2014-09-08,B,,medium,both readings agree,handwritten
+9105412,8,6,self,Energy Select Sector Spdr,,sale_full,2014-08-11,2014-09-08,B,,medium,both readings agree,handwritten
+9105412,9,1,self,TJX Cos. New Common,,sale_full,2014-08-11,2014-09-08,A,,medium,both readings agree,handwritten
+9105412,9,2,self,United Technologies Corp.,,sale_full,2014-08-11,2014-09-08,A,,medium,both readings agree,handwritten; a word before Corp. is blacked out; handwritten; a word before Corp. is blotted out
+9105412,9,3,self,Walgreen Co.,,sale_full,2014-08-11,2014-09-08,A,,medium,both readings agree,handwritten
+9105412,9,4,self,American Express Co.,,sale_full,2014-08-20,2014-09-08,A,,medium,both readings agree,handwritten
+9105412,9,5,self,Deere & Co.,,sale_full,2014-08-20,2014-09-08,A,,medium,both readings agree,handwritten
+9105412,9,6,self,Mylan Inc.,,sale_full,2014-08-26,2014-09-08,A,,medium,both readings agree,handwritten
+9105413,1,1,joint,Access Midstream PTNRS,,purchase,2014-08-15,2014-08-15,A,,high,both readings agree,""
+9105413,1,2,joint,Alliance Res Partners LP,,purchase,2014-08-15,2014-08-15,A,,high,both readings agree,""
+9105413,1,3,joint,Energy Transfer Equity,,purchase,2014-08-15,2014-08-15,A,,high,both readings agree,""
+9105413,1,4,joint,Enlink Midstream PTRS LP,,purchase,2014-08-15,2014-08-15,A,,high,both readings agree,""
+9105413,1,5,joint,Enterprise Prd Prtnrs LP,,purchase,2014-08-15,2014-08-15,A,,high,both readings agree,""
+9105413,2,1,joint,Magellan Midstream Ptnrs,,purchase,2014-08-15,2014-08-15,A,,high,both readings agree,""
+9105413,2,2,joint,Markwest Energy Ptnr LP,,purchase,2014-08-15,2014-08-15,A,,high,both readings agree,""
+9105413,2,3,joint,MPLX LP,,purchase,2014-08-15,2014-08-15,A,,high,both readings agree,""
+9105413,2,4,joint,NGL Energy Partners LP,,purchase,2014-08-15,2014-08-15,A,,high,both readings agree,""
+9105413,2,5,joint,Oil Tanking Ptnrs LP,,purchase,2014-08-15,2014-08-15,A,,high,both readings agree,""
+9105413,2,6,joint,Oneok Partners LP,,purchase,2014-08-15,2014-08-15,A,,high,both readings agree,""
+9105413,3,1,joint,Plains All Amern PPLN LP,,purchase,2014-08-15,2014-08-15,A,,high,both readings agree,""
+9105413,3,2,joint,Regnecy Energy Partners,,purchase,2014-08-15,2014-08-15,A,,high,both readings agree,""
+9105413,3,3,joint,Rose Rock Midstream LP,,purchase,2014-08-15,2014-08-15,A,,high,both readings agree,""
+9105413,3,4,joint,Summit Midstream LP,,purchase,2014-08-15,2014-08-15,A,,high,both readings agree,""
+9105413,3,5,joint,Sunoco Logistics Ptnr LP,,purchase,2014-08-15,2014-08-15,A,,high,both readings agree,""
+9105413,3,6,joint,Targa Resources Ptnr LP,,purchase,2014-08-15,2014-08-15,A,,high,both readings agree,""
+9105413,4,1,joint,Tesoro Logistics LP,,purchase,2014-08-15,2014-08-15,A,,high,both readings agree,""
+9105413,4,2,joint,Valero Energy Prtnrs LP,,purchase,2014-08-15,2014-08-15,A,,high,both readings agree,""
+9105413,4,3,joint,Western Gas Partners L P,,purchase,2014-08-15,2014-08-15,A,,high,both readings agree,""
+9105413,4,4,joint,Williams Partners LP,,purchase,2014-08-15,2014-08-15,A,,high,both readings agree,""
+9105618,1,1,spouse,Solazyme,,sale_full,,,A,,medium,both readings agree,transaction and notification dates left blank on form; no transaction or notification dates written
+9105673,1,1,self,American International Group,,sale_full,2014-10-15,2014-11-07,A,,medium,both readings agree,handwritten; handwritten
+9105673,1,2,self,East West Bancorp Inc.,,sale_full,2014-10-01,2014-11-07,A,,medium,both readings agree,handwritten; handwritten
+9105673,1,3,self,Oppenheimer Developing Markets-Y,,purchase,2014-10-30,2014-11-07,A,,medium,both readings agree,handwritten; handwritten
+9105673,1,4,self,Axis Capital Holdings Ltd.,,purchase,2014-10-15,2014-11-07,A,,medium,both readings agree,handwritten; handwritten
+9105673,1,5,self,Boeing Co.,,purchase,2014-10-08,2014-11-07,A,,medium,both readings agree,handwritten; handwritten
+9105673,2,1,self,Bank America Corp.,,purchase,2014-10-07,2014-11-07,A,,medium,both readings agree,handwritten; handwritten
+9105673,2,2,self,Bank America Corp.,,purchase,2014-10-08,2014-11-07,A,,medium,both readings agree,handwritten; tx date could be 10/28/14; handwritten; tx day digit overwritten (08?)
+9105673,2,3,self,Google Inc.,,sale_full,2014-09-18,2014-10-07,A,,medium,both readings agree,handwritten; tx date could be 9/12/14; handwritten
+9105735,1,1,self,NBT Bank Common Stock,,sale_full,2014-12-02,2014-12-05,D,,low,both readings agree,handwritten dates hard to read: tx date 12/2/14 and notified 12/5/14 are best readings; handwritten dates read as 12/2/14 and 12/5/14
+9105825,1,1,joint,Oha Investment Corp,,sale_full,2014-12-23,2014-12-23,A,,medium,both readings agree,handwritten asset name and dates; handwritten
+9105835,1,1,joint,DISNEY COMMON STOCK,,purchase,2015-01-07,2015-01-12,A,,medium,both readings agree,handwritten; handwritten
+9105835,1,2,joint,MASTERCARD C/S,,purchase,2015-01-07,2015-01-12,A,,medium,both readings agree,handwritten; dates are ditto marks; handwritten; dates given as ditto marks
+9105835,1,3,joint,MIDDLEBY C/S,,purchase,2015-01-07,2015-01-12,A,,medium,both readings agree,handwritten; dates are ditto marks; handwritten; dates given as ditto marks
+9105835,1,4,joint,NXP SEMICONDUCTOR C/S,,purchase,2015-01-07,2015-01-12,A,,medium,both readings agree,handwritten; dates are ditto marks; handwritten; dates given as ditto marks
+9105835,1,5,joint,SHERWIN WILLIAMS C/S,,purchase,2015-01-07,2015-01-12,A,,medium,both readings agree,handwritten; dates are ditto marks; handwritten; dates given as ditto marks
+9105835,2,1,joint,WALGREENS C/S,,purchase,2015-01-07,2015-01-12,A,,medium,both readings agree,handwritten; handwritten
+9105835,2,2,joint,GENERAL ELECTRIC C/S,,sale_full,2015-01-07,2015-01-12,B,,medium,both readings agree,handwritten; dates are ditto marks; handwritten; dates given as ditto marks
+9105835,2,3,joint,IBM C/S,,sale_full,2015-01-07,2015-01-12,B,,medium,both readings agree,handwritten; dates are ditto marks; handwritten; dates given as ditto marks
+9105835,2,4,joint,QUALCOMM C/S,,sale_full,2015-01-07,2015-01-12,A,,medium,both readings agree,handwritten; dates are ditto marks; handwritten; dates given as ditto marks
+9106200,1,1,self,AUBURN MASS GO MUN PRUP LN BDS,,sale_full,2015-03-15,2015-03-23,C,,high,both readings agree,""
+9106201,1,1,self,"Philz Coffee, Inc.",,purchase,2015-02-26,2015-02-27,,,medium,both readings agree,no amount column checked; no amount column checked
+9106294,1,1,self,Orbital ATK Inc. com,,purchase,2015-04-08,2015-04-08,A,,medium,both readings agree,handwritten; dates read 4/8/15 (could be 4/9/15); handwritten
+9106294,1,2,self,Access Midstream Partners merged to Williams Partners,,exchange,2015-02-10,2015-03-10,A,,low,both readings agree,handwritten; tx date overwritten (reads 02/10/15); footnote 1: Access Midstream Partners LP (ACMP) merged and changed name to Williams Partners LP (cash at way $45.00); handwritten; footnote 1: Access Midstream Partners LP (ACMP) merged and changed name to Williams Partners LP (cash at was $45.00)
+9106434,1,1,spouse,Iron Mountain Inc De Sr Subnote 8.375% Due 08-15-21,,sale_full,2014-01-08,2014-02-01,A,,high,both readings agree,amendment of reports 1/2014 3/2014 8/2014 12/2014; amendment of 1/2014 3/2014 8/2014 12/2014 reports
+9106434,1,10,spouse,CORE MARK HOLDING CO INC UNSOLICITED TRADE,,,2014-03-25,2014-04-01,A,,low,both readings agree,no transaction type marked on form; no transaction type marked on form
+9106434,1,2,spouse,Iron Mountain Inc Sr Sub Note 5.750% Due 08-15-24,,purchase,2014-01-08,2014-02-01,A,,high,both readings agree,""
+9106434,1,3,spouse,UNITED RENTALS INC UNSOLICITED TRADE,,sale_full,2014-03-05,2014-04-01,A,,high,both readings agree,""
+9106434,1,4,spouse,FIRSTMERIT CORPORATION UNSOLICITED TRADE,,sale_full,2014-03-05,2014-04-01,A,,high,both readings agree,""
+9106434,1,5,spouse,MARKETO INC COM UNSOLICITED TRADE,,purchase,2014-03-05,2014-04-01,A,,high,both readings agree,""
+9106434,1,6,spouse,FAIR ISAAC & CO INC UNSOLICITED TRADE,,sale_full,2014-03-07,2014-04-01,A,,high,both readings agree,""
+9106434,1,7,spouse,TAL INTERNATIONAL GROUP INC UNSOLICITED TRADE,,sale_full,2014-03-12,2014-04-01,A,,high,both readings agree,""
+9106434,1,8,spouse,ONE GAS INC UNSOLICITED TRADE,,purchase,2014-03-13,2014-04-01,A,,high,both readings agree,""
+9106434,1,9,spouse,JOS A BANK CLOTHIERS UNSOLICITED TRADE,,sale_full,2014-03-25,2014-04-01,A,,high,both readings agree,""
+9106434,2,1,spouse,BANK OF THE OZARKS INC UNSOLICITED TRADE,,purchase,2014-03-25,2014-04-01,A,,high,both readings agree,""
+9106434,2,2,spouse,GREATBATCH INC UNSOLICITED TRADE,,purchase,2014-03-25,2014-04-01,A,,high,both readings agree,""
+9106434,2,3,spouse,North East Indpt Sch Dist Tx B/E Psf GTd 5.000% Due 08-01-25 (Redeem),,sale_full,2014-08-01,2015-03-31,B,,high,both readings agree,""
+9106434,2,4,spouse,STRATASYS LTD SHS,,sale_full,2014-12-03,2015-03-31,E,,high,both readings agree,""
+9106434,2,5,spouse,HOME DEPOT INC,,purchase,2014-12-18,2015-03-31,E,,high,both readings agree,""
+9106434,2,6,spouse,GOOGLE INC CL C,,sale_full,2014-12-18,2015-03-31,D,,high,both readings agree,""
+9106434,2,7,spouse,GOOGLE INC-CL A,,sale_full,2014-12-18,2015-03-31,D,,high,both readings agree,""
+9106434,2,8,spouse,FIRSTBANK CD Santurce PR CD REDEMPTION OF MATURED BONDRATE:N/A/N/A 0.750% DUE:2014-12-15,,sale_full,2014-12-15,2015-03-31,D,,high,both readings agree,""
+9106434,2,9,spouse,BARCLAYS BK DE WILMINGTON FID EARLY REDEMPTIONRATE:N/A/N/A 1.250% DUE:2018-06-28,,sale_full,2014-12-18,2015-03-31,D,,high,both readings agree,""
+9106475,1,1,spouse,Wisdomtree TR Emerging Mkts ISIN,,sale_full,2015-04-29,2015-05-04,A,,high,both readings agree,""
+9106475,1,2,spouse,Oppenheimer Dev Mkts TD Class A,,sale_full,2015-04-29,2015-05-04,A,,high,both readings agree,""
+9106475,1,3,self,Guggenheim S&P 500,,sale_full,2015-04-09,2015-05-04,A,,high,both readings agree,owner column blank
+9106475,1,4,self,iShares Short Maturity Bond,,purchase,2015-04-09,2015-05-04,A,,high,both readings agree,owner column blank
+9106475,2,1,self,iShares High Dividend,,sale_full,2015-04-09,2015-05-04,A,,high,both readings agree,""
+9106475,2,2,self,iShares Core US Aggregate Bond,,purchase,2015-04-09,2015-05-04,A,,high,both readings agree,""
+9106477,1,1,self,Select Medical Holding,,sale_full,2015-03-24,2015-04-07,B,,medium,both readings agree,handwritten
+9106557,1,1,spouse,BANK OF THE OZARKS INC UNSOLICITED TRADE,,purchase,2014-03-25,2014-04-01,A,,high,both readings agree,form page 2 of 2 (image page-1); amendment; amendment; scan page 1 is form page 2 of 2
+9106557,1,2,spouse,GREATBATCH INC UNSOLICITED TRADE,,purchase,2014-03-25,2014-04-01,A,,high,both readings agree,form page 2 of 2 (image page-1); amendment
+9106557,1,3,spouse,North East Indpt Sch Dist Tx B/E Psf GTd 5.000% Due 08-01-25 (Redeem),,sale_full,2014-08-01,2015-03-31,B,,high,both readings agree,form page 2 of 2 (image page-1); amendment
+9106557,1,4,spouse,STRATASYS LTD SHS,,sale_full,2014-12-03,2015-03-31,E,,high,both readings agree,form page 2 of 2 (image page-1); amendment
+9106557,1,5,spouse,HOME DEPOT INC,,purchase,2014-12-18,2015-03-31,E,,high,both readings agree,form page 2 of 2 (image page-1); amendment
+9106557,1,6,spouse,GOOGLE INC CL C,,sale_full,2014-12-18,2015-03-31,D,,high,both readings agree,form page 2 of 2 (image page-1); amendment
+9106557,1,7,spouse,GOOGLE INC-CL A,,sale_full,2014-12-18,2015-03-31,D,,high,both readings agree,form page 2 of 2 (image page-1); amendment
+9106557,1,8,spouse,FIRSTBANK CD Santurce PR CD REDEMPTION OF MATURED BONDRATE:N/A/N/A 0.750% DUE:2014-12-15,,sale_full,2014-12-15,2015-03-31,D,,high,both readings agree,form page 2 of 2 (image page-1); amendment
+9106557,1,9,spouse,BARCLAYS BK DE WILMINGTON FID EARLY REDEMPTIONRATE:N/A/N/A 1.250% DUE:2018-06-28,,sale_full,2014-12-18,2015-03-31,D,,high,both readings agree,form page 2 of 2 (image page-1); amendment
+9106557,2,1,spouse,Iron Mountain Inc De Sr Subnote 8.375% Due 08-15-21,,sale_full,2014-01-08,2014-02-01,A,,high,both readings agree,form page 1 of 2 (image page-2); amendment; amendment; scan page 2 is form page 1 of 2
+9106557,2,10,spouse,CORE MARK HOLDING CO INC UNSOLICITED TRADE,,,2014-03-25,2014-04-01,A,,medium,resolved by third look: tx_type,form page 1 of 2 (image page-2); amendment; no transaction type marked
+9106557,2,2,spouse,Iron Mountain Inc Sr Sub Note 5.750% Due 08-15-24,,purchase,2014-01-08,2014-02-01,A,,high,both readings agree,form page 1 of 2 (image page-2); amendment
+9106557,2,3,spouse,UNITED RENTALS INC UNSOLICITED TRADE,,sale_full,2014-03-05,2014-04-01,A,,high,both readings agree,form page 1 of 2 (image page-2); amendment
+9106557,2,4,spouse,FIRSTMERIT CORPORATION UNSOLICITED TRADE,,sale_full,2014-03-05,2014-04-01,A,,high,both readings agree,form page 1 of 2 (image page-2); amendment
+9106557,2,5,spouse,MARKETO INC COM UNSOLICITED TRADE,,purchase,2014-03-05,2014-04-01,A,,high,both readings agree,form page 1 of 2 (image page-2); amendment
+9106557,2,6,spouse,FAIR ISAAC & CO INC UNSOLICITED TRADE,,sale_full,2014-03-07,2014-04-01,A,,high,both readings agree,form page 1 of 2 (image page-2); amendment
+9106557,2,7,spouse,TAL INTERNATIONAL GROUP INC UNSOLICITED TRADE,,sale_full,2014-03-12,2014-04-01,A,,high,both readings agree,form page 1 of 2 (image page-2); amendment
+9106557,2,8,spouse,ONE GAS INC UNSOLICITED TRADE,,purchase,2014-03-13,2014-04-01,A,,high,both readings agree,form page 1 of 2 (image page-2); amendment
+9106557,2,9,spouse,JOS A BANK CLOTHIERS UNSOLICITED TRADE,,sale_full,2014-03-25,2014-04-01,A,,high,both readings agree,form page 1 of 2 (image page-2); amendment
+9107215,1,1,self,Procera Networks Inc.,,sale_full,2015-06-10,2015-06-10,A,,high,both readings agree,""
+9107427,1,1,self,Alibaba Group Holding Ltd,,purchase,2015-06-09,2015-06-09,B,,high,both readings agree,""
+9107548,1,1,spouse,BBVA Compass Stock,,sale_full,2013-02-20,2014-05-15,A,,medium,both readings agree,amount X marked beside (not inside) column A box
+9107548,1,2,spouse,BBVA Compass Stock,,sale_full,2014-05-15,2015-08-03,A,,medium,both readings agree,sale X marked beside (not inside) box
+9107549,1,1,spouse,Schibsted - Class A,,,2014-05-12,2014-05-14,,,low,both readings agree,no transaction type and no amount band checked; no transaction type and no amount column checked on this row
+9107549,1,2,,Schibsted - Class B,,purchase,2014-05-12,2014-05-14,B,,low,both readings agree,"owner column reads ""DP"" (not a valid code; possibly DC or SP); owner code written as ""DP"" (not a form code; may mean DC or SP); B checked with a tick"
+9107690,1,1,spouse,FORD MOTOR CO.,,sale_full,2015-09-04,2015-10-02,A,,medium,both readings agree,handwritten; handwritten
+9107690,1,2,spouse,"NETFLIX COM. INC, COM.",,purchase,2015-09-04,2015-10-02,A,,medium,both readings agree,handwritten; handwritten
+9107720,,,,,,,,,,,,both readings agree,"no transactions; cover letter correcting PTR filed 2014-09-19: sale of Touchstone Small Cap Core Fund should be $15,000-$50,000 not $1,000-$15,000"
+9107759,1,1,joint,Patterson Common Stock,,purchase,2015-10-13,2015-10-14,A,,low,resolved by third look: notification_date,"handwritten checkmarks; notification date hard to read, could be 10/16/15; handwritten; dates read as 10/13/15 and 10/16/15, could be 10/15"
+9107759,1,2,joint,Walgreens c/s,,purchase,2015-10-13,2015-10-14,A,,low,resolved by third look: notification_date,dates given as ditto marks referring to row 1; notification date uncertain; handwritten; dates given as ditto marks of row 1
+9107759,1,3,joint,Genuine Parts c/s,,sale_full,2015-10-13,2015-10-14,A,,low,resolved by third look: notification_date,dates given as ditto marks referring to row 1; notification date uncertain; handwritten; dates given as ditto marks of row 1
+9107759,1,4,joint,Wal-Mart c/s,,sale_full,2015-10-13,2015-10-14,A,,low,resolved by third look: notification_date,dates given as ditto marks referring to row 1; notification date uncertain; handwritten; dates given as ditto marks of row 1
+9107955,1,1,self,"PFIZER, INC. PFE COMMON STOCK",PFE,sale_full,2015-11-23,2015-11-23,A,,medium,both readings agree,handwritten dates; handwritten; ticker PFE written on form
+9107994,1,1,self,Computer Science Corp.,,sale_full,2015-11-17,2015-11-17,A,,medium,both readings agree,handwritten; handwritten
+9108096,1,1,child,Microsoft Corp. Stock,,sale_full,2015-12-16,2015-12-29,A,,medium,both readings agree,handwritten; owner written DC (could read PC); handwritten; owner written DC (could read PC); notification date could be 12/28/15
+9109787,1,1,joint,SEP-IRA/FTAI-Fortress Transp + Infrastructure,FTAI,purchase,2016-07-01,2016-07-11,A,,low,both readings agree,handwritten; handwritten; prefix before FTAI unclear (SEP-16A?); notification could be 7/1/16
+9109787,1,2,joint,ATOIX - Alpine Income TR ULT Muni DtSH,ATOIX,purchase,2016-06-29,2016-07-11,A,,low,both readings agree,handwritten; last word of name unclear; handwritten; fund name partly illegible; notification could be 7/1/16
+9109787,1,3,joint,LMHIX - Western Asset Municipal High Inc. Fund(I),LMHIX,purchase,2016-06-29,2016-07-11,A,,medium,both readings agree,handwritten; handwritten; notification could be 7/1/16
+9109787,1,4,joint,JMVAX - Perkins Mid Cap Value Fund (I),JMVAX,purchase,2016-06-29,2016-07-11,A,,medium,resolved by third look: ticker,handwritten; ticker letters partly unclear; handwritten; Perkins read from handwriting; notification could be 7/1/16
+9109787,2,1,joint,GFFFX - Growth Fund of America Fund Class F2,GFFFX,purchase,2016-06-29,2016-07-11,A,,medium,both readings agree,handwritten; handwritten
+9109787,2,2,joint,HFOIX - Henderson Internat'l Opp Fund Class,HFOIX,purchase,2016-06-29,2016-07-11,A,,medium,both readings agree,handwritten; handwritten
+9109787,2,3,joint,LEXCX - Voya Corporate Leaders Trust Series B,LEXCX,purchase,2016-06-28,2016-07-11,A,,medium,both readings agree,handwritten; handwritten
+9109787,2,4,joint,ACITX - American Century Inf. Adjusted Treas.,ACITX,purchase,2016-06-29,2016-07-11,A,,low,both readings agree,handwritten; A box marked with an overwritten X; handwritten; fund name partly illegible; amount A box marked with scribble
+9109787,2,5,joint,MANLX - Blackrock Nat'l Municipal Fund,MANLX,purchase,2016-06-29,2016-07-11,A,,medium,both readings agree,handwritten; handwritten
+9110001,1,1,self,Colgate palmolive,,sale_full,2016-08-23,2016-08-23,B,,medium,both readings agree,handwritten dates; handwritten
+9110001,1,2,self,General Electric,,sale_full,2016-08-23,2016-08-23,B,,medium,both readings agree,handwritten dates; handwritten; dates could be 8/22/16
+9110286,1,1,self,Bank America Corp Dep Repstg 1/25th Series M PFD Perpetual FXD/VAR CPN 8.125% Due 12/29/49 DTD 4/30/08 FC 1/30/08 CALL 05/15/18 @ 100.00,,purchase,2016-11-18,2016-11-18,B,,low,both readings agree,handwritten asset name hard to read beyond 'Bank America Corp'; coupon/dates in name uncertain; handwritten multi-line asset name; some characters (rates/dates in name) uncertain
+9110301,1,1,self,Comcast Corp,,sale_full,2016-12-05,,A,,medium,both readings agree,handwritten; notification date blank; handwritten; notification date blank
+9110301,1,2,self,General Electric,,sale_full,2016-12-05,,A,,medium,both readings agree,handwritten; notification date blank; handwritten; notification date blank
+9110301,1,3,self,Johnson & Johnson,,sale_full,2016-12-05,,A,,medium,both readings agree,handwritten; notification date blank; handwritten; notification date blank
+9110301,1,4,self,Pepsico Inc,,sale_full,2016-12-05,,B,,medium,both readings agree,handwritten; notification date blank; handwritten; notification date blank
+9110424,1,1,self,Lululemon Athletica Common Stk,,sale_full,2017-01-27,2017-01-27,C,,medium,both readings agree,handwritten; handwritten
+9110545,1,1,self,Facebook,,sale_full,2017-01-17,2017-01-17,A,,high,both readings agree,""
+9110545,1,2,self,Tesla,,sale_full,2017-01-17,2017-01-17,A,,high,both readings agree,""
+9110545,1,3,self,Lululemon Athletica,,sale_full,2017-01-17,2017-01-17,A,,high,both readings agree,""
+9110545,1,4,self,Tesla,,purchase,2017-01-25,2017-01-25,A,,high,both readings agree,""
+9110545,2,1,self,Casey's General Stores,,purchase,2017-01-25,2017-01-25,A,,high,both readings agree,""
+9110745,1,1,self,Sturm Ruger & Company,,sale_full,2017-04-28,2017-05-09,B,,medium,both readings agree,handwritten; handwritten
+9112278,1,1,self,COLGATE-PALMOLIVE,,sale_full,2018-01-10,2018-01-10,A,,medium,both readings agree,handwritten; handwritten dates
+9112285,1,1,self,NVIDIA CORP,,purchase,2017-10-26,2018-01-09,A,,high,both readings agree,""
+9112285,1,2,self,MICRON TECH,,purchase,2017-10-26,2018-01-09,A,,high,both readings agree,""
+9112301,1,1,self,JD.com,,purchase,2018-01-12,,A,,low,both readings agree,"handwritten tx date cramped; reads 01/12/18 (could be 01/02/18); notification date blank; handwritten date cramped, reads like 01/12/18 (could be 01/11/18); notification date blank"
+9112336,1,1,self,"Tesla Motors Corp, Common",,purchase,2018-01-19,2018-01-19,A,,medium,both readings agree,handwritten; handwritten; notification date could be 1/17/18; asset name runs off into checkbox
+9112399,1,1,self,JD.COM,,sale_full,2018-02-06,2018-02-06,A,,high,both readings agree,handwritten
+9112600,1,1,self,Annaly Capital Mgmt. Inc.,,sale_full,2018-02-14,2018-03-05,A,,high,both readings agree,""
+9112600,1,2,self,Annaly Capital Mgmt. Inc,,sale_full,2018-02-14,2018-03-05,A,,high,both readings agree,""
+9112600,1,3,self,AT&T Inc.,,sale_full,2018-02-14,2018-03-05,A,,high,both readings agree,""
+9112600,1,4,self,Amazon.com Inc.,,purchase,2018-02-14,2018-03-05,A,,high,both readings agree,""
+9112600,2,1,self,NVIDIA Corp,,purchase,2018-02-14,2018-03-05,A,,high,both readings agree,""
+9112600,2,2,self,Boeing Company,,purchase,2018-02-14,2018-03-05,A,,high,both readings agree,""
+9112600,2,3,self,Mastercard Inc.,,purchase,2018-02-14,2018-03-05,A,,high,both readings agree,""
+9112600,2,4,self,Advanced Micro Devices Inc.,,purchase,2018-02-14,2018-03-05,A,,medium,both readings agree,purchase and A boxes marked with filled dot rather than X; purchase and A boxes marked with a filled dot rather than an X
+9112638,1,1,self,American Outdoor Brands Corporation,,sale_full,2018-02-26,2018-04-09,A,,high,both readings agree,""
+9112681,1,1,self,Micron Corporation,MU,purchase,2018-03-23,2018-03-23,A,,high,both readings agree,'MU' written in owner column (ticker); ticker MU written in owner column
+9112681,1,2,self,Micron Corporation,MU,purchase,2018-04-06,2018-04-06,A,,high,both readings agree,'MU' written in owner column (ticker); ticker MU written in owner column
+9112681,1,3,self,Sphere ThreeD Corp.,ANY,purchase,2018-04-16,2018-04-16,A,,high,both readings agree,'ANY' written in owner column (ticker); notification date handwritten; ticker ANY written in owner column; notification date handwritten
+9114448,,,,,,,,,,,,both readings agree,"no transactions; letter amending PTR filed 2019-02-11 (ref 20001134): entry for additional investment in The Joinery on 01/31/2019 ($100,001-$250,000) was reported in error"
+9115167,1,1,spouse,KI-09-(61371ASL5) MONTGOMERY CNTY TX MUD 113 RD IMPT BAM B/E CPN 3.000% DUE 09/01/37,,purchase,2019-04-23,2019-06-26,B,,low,both readings agree,"tiny print; asset name approximate and abbreviated (CUSIP in parentheses); dates and boxes clear; very small print; asset name partly illegible, CUSIP/coupon/dates uncertain"
+9115167,1,2,spouse,TRUST-KF19-(61371ASL5) MONTGOMERY CNTY TX MUD 113 RD IMPT BAM B/E CPN 3.000% DUE 09/01/37,,purchase,2019-04-23,2019-06-26,B,,low,both readings agree,"tiny print; asset name approximate and abbreviated (CUSIP in parentheses); dates and boxes clear; very small print; asset name partly illegible, CUSIP/coupon/dates uncertain"
+9115167,1,3,spouse,TRUST-KF19-(60534RZ51) MISSISSIPPI DEV BK SPL OBLIG RFDG JACKSON WAS REV A B/E OID @97.425 CPN 4.500% DUE 09/01/31,,sale_full,2019-03-21,2019-06-26,C,,low,both readings agree,"tiny print; asset name approximate and abbreviated (CUSIP in parentheses); dates and boxes clear; very small print; asset name partly illegible, CUSIP/coupon/dates uncertain"
+9115167,1,4,spouse,TRUST-KF19-(60534R4S5) MISSISSIPPI DEV BK SPL OBLIG RFDG JACKSON WAS AGM B/E OID @96.655 CPN 4.500% DUE 09/01/34,,sale_full,2019-03-21,2019-06-26,C,,low,both readings agree,"tiny print; asset name approximate and abbreviated (CUSIP in parentheses); dates and boxes clear; very small print; asset name partly illegible, CUSIP/coupon/dates uncertain"
+9115167,1,5,spouse,TRUST-KF19-(704780CQ6) PEARL RIVER CNTY MS SCH DIST BAM B/E OID @97.995 CPN 3.250% DUE 08/01/36,,purchase,2019-02-15,2019-06-26,A,,low,both readings agree,"tiny print; asset name approximate and abbreviated (CUSIP in parentheses); dates and boxes clear; very small print; asset name partly illegible, CUSIP/coupon/dates uncertain"
+9115167,2,1,spouse,TRUST-KF19-(704780CP8) PEARL RIVER CNTY MS SCH DIST BAM B/E OID @98.713 CPN 3.250% DUE 08/01/35,,purchase,2019-02-15,2019-06-26,C,,low,both readings agree,"tiny print; asset name approximate and abbreviated (CUSIP in parentheses); dates and boxes clear; very small print; asset name partly illegible, CUSIP/coupon/dates uncertain"
