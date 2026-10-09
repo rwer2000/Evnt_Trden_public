@@ -490,6 +490,13 @@ medium, 26 low confidence). The two readings agreed on every transaction
 date and amount band; three filings are letters (corrections, a
 retraction) and add no transactions.
 
+Second batch (`data/transcribed_house_ptrs_2026-10-09b.csv`): the 90 House PTRs
+of the 14 filers missing 4-10 filings, 586 transactions (486 high, 88 medium,
+12 low confidence). The readings agreed on every row count and on all but two
+dates, resolved by a third look (one left empty: unreadable digit). Five rows
+have no transaction type marked on the form (both boxes, or none) and become
+`unknown_tx_type` dq issues on import.
+
 ## House PTR parser (T8)
 
 `congress_collector.ingest.house_ptrs.parse_pending_house_ptrs()` reads
