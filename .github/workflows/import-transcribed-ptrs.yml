@@ -1,0 +1,30 @@
+name: import-transcribed-ptrs
+
+on:
+  workflow_dispatch:
+    inputs:
+      csv:
+        description: "Transcribed PTR CSV under data/"
+        required: true
+        default: "data/transcribed_house_ptrs_2026-10-09.csv"
+
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v3
+
+      - name: Set up Python
+        run: uv python install 3.12
+
+      - name: Install dependencies
+        run: uv sync --all-extras --dev
+
+      - name: Import transcribed scanned House PTRs
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          CSV_PATH: ${{ inputs.csv }}
+        run: uv run python -m congress_collector.ingest.transcribed_ptrs "$CSV_PATH"

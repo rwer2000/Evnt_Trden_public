@@ -157,6 +157,9 @@ Scheduling notes:
   are as of its year end), owner, asset_description_raw, ticker,
   asset_type, value band (value_raw/value_min/value_max), income_type,
   income_raw. See "House annual reports" below.
+- `transaction_provenance` — transaction_id, method (`transcribed`),
+  confidence, review, note, source_file: how a transaction was read when
+  not by the parsers. See "Transcribed scanned PTRs" below.
 
 Signals, orders, positions and prices are owned by the private strategy
 repository and are not part of this repo's schema.
@@ -465,6 +468,27 @@ March 2016 for 2015 is under `financial-pdfs/2015/`). The archive step
 therefore tries the filed year, the year before and the year after
 (`house_pdfs.candidate_years`), and resolves the filing's open
 `house_pdf_fetch_failed` issue once it succeeds.
+
+## Transcribed scanned PTRs
+
+Scanned House PTRs ("8/9xxxxxx" DocIDs) have no text layer and stay
+`paper_deferred`. Some are transcribed outside the pipeline -- each PDF
+read by two independent Claude vision passes, disagreements resolved by a
+third look at the scan -- into a CSV under `data/` with the source DocID,
+a combined `confidence` (high/medium/low) and a review note per row.
+`congress_collector.ingest.transcribed_ptrs` (manual workflow
+`import-transcribed-ptrs.yml`, CSV path as input) adds them as ordinary
+transactions and records each in `transaction_provenance` (method
+`transcribed`), so analyses can include, exclude or weigh them. An
+imported filing becomes `parse_status = 'parsed'` and keeps `format =
+'scanned'`. Filings already parsed or with transactions are skipped, so a
+rerun is a no-op.
+
+First batch (`data/transcribed_house_ptrs_2026-10-09.csv`): the 89 PTRs of
+the 57 filers missing only 1-3 filings, 686 transactions (367 high, 293
+medium, 26 low confidence). The two readings agreed on every transaction
+date and amount band; three filings are letters (corrections, a
+retraction) and add no transactions.
 
 ## House PTR parser (T8)
 
