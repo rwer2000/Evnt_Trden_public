@@ -1,0 +1,45 @@
+name: sic-backfill
+
+on:
+  workflow_dispatch:
+    inputs:
+      limit:
+        description: "Max candidate tickers this run (empty = all)"
+        required: false
+        default: ""
+  schedule:
+    # Monthly: catches tickers that appeared since the last run and
+    # retries unmatched names (see ingest/sic_backfill.py's docstring).
+    - cron: "17 7 3 * *" # 07:17 UTC on the 3rd
+
+concurrency:
+  # Same group as sic-codes.yml so the two never sync SIC codes at once.
+  group: sic-codes
+  cancel-in-progress: false
+
+jobs:
+  backfill:
+    runs-on: ubuntu-latest
+    timeout-minutes: 150
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v3
+
+      - name: Set up Python
+        run: uv python install 3.12
+
+      - name: Install dependencies
+        run: uv sync --all-extras --dev
+
+      - name: Backfill instruments + SIC codes for every traded ticker
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          LIMIT: ${{ github.event.inputs.limit }}
+        run: |
+          if [ -n "$LIMIT" ]; then
+            uv run python -m congress_collector.ingest.sic_backfill --limit "$LIMIT"
+          else
+            uv run python -m congress_collector.ingest.sic_backfill
+          fi

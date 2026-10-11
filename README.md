@@ -757,6 +757,40 @@ A `sic=None` result (SEC has a record for the CIK but no SIC classification
 synced yet" via `sic_synced_at`, so those instruments aren't refetched
 every run forever.
 
+### SIC backfill for every traded ticker (A3)
+
+The sync above only covers instruments T14 created, and T14 only creates
+instruments for tickers in today's `company_tickers.json` snapshot — so
+delisted, acquired and renamed companies (VMW, BRCM, CBI, ...) had no
+instrument and no SIC. `congress_collector.ingest.sic_backfill`
+(`.github/workflows/sic-backfill.yml`, monthly + `workflow_dispatch`
+with an optional `limit`) closes that gap for every distinct,
+ticker-shaped `transactions.ticker` that no instrument covers yet (not a
+primary ticker, not in `ticker_map`, no linked transaction; CUSIPs, dates
+and SEDOL-style numbers are skipped):
+
+1. ticker in the vendored snapshot → its CIK directly;
+2. otherwise the company name is cut out of the ticker's raw descriptions
+   (up to 3, most common first; brackets, `(TICKER)`, `TICKER - ` prefixes
+   and security wording like "Class A Common Stock" / "Unsponsored ADR"
+   removed) and looked up on EDGAR's entity search
+   (`efts.sec.gov/LATEST/search-index?keysTyped=`, same generic
+   User-Agent as the submissions API above). A CIK is accepted only on an
+   **exact** match after normalisation (case, punctuation, `&`→`and`,
+   EDGAR `/DE/` tags, a *trailing* legal form such as Inc./Corp/L.P.).
+   Several CIKs with the same normalised name are only resolved if exactly
+   one still lists the ticker on EDGAR; otherwise the ticker is printed
+   as `AMBIGUOUS` and skipped. No fuzzy matching.
+
+A CIK that already has an instrument gets only a `ticker_map` row for the
+old ticker (`source = 'sec_name_search'`); a new CIK gets a new
+`instruments` row (`primary_ticker` = the traded ticker), whose SIC the
+same job then syncs by running `sync_sic_codes()` until nothing is
+pending. Transactions are not relinked (that stays T14's job), and nothing
+records "tried and failed", so unmatched tickers are simply retried next
+month. Any HTTP error from the search endpoint stops the lookups and fails
+the run red rather than hammering a blocking endpoint.
+
 ## Amendment linking (T16)
 
 `congress_collector.ingest.amendments.link_amendments()` keeps
