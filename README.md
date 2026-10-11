@@ -607,6 +607,61 @@ already on `filings`), so `notification_date` is always `NULL` here.
 
 Run it directly with `uv run python -m congress_collector.ingest.senate_ptrs`.
 
+## Senate annual reports (prototype, not wired in)
+
+Senate annual Financial Disclosure reports come from the same eFD search
+as PTRs (`sources.senate_annual`): the same agreement session, and `POST
+/search/report/data/` with `report_types=[7]` (the search form's "Annual"
+checkbox) instead of 11. Checked live on 2026-10-11 (eFD was reachable
+from the Claude sandbox that day): 1,602 senator filings submitted since
+2012, of which 1,232 electronic and 370 paper. Type 7 also returns
+candidate reports ("Candidate Report") and new-filer reports ("New Filer
+Report for MM/DD/YYYY"), same form; `SenateAnnualIndexEntry.kind` tells
+them apart, along with the calendar year ("Annual Report for CY 2025")
+and the amendment number.
+
+- **Electronic** (`/search/view/annual/<uuid>/`): one HTML page per report,
+  one `<section>` per part. Every filing since 2014 (CY 2013) uses this
+  layout unchanged. Without the agreement cookie the page answers 302 to
+  `/search/home/`; `fetch_annual_report()` turns that into an error.
+- **Paper** (`/search/view/paper/<uuid>/`): scanned GIF page images on
+  `efd-media-public.senate.gov`, no text. All of 2012-2013's filings, and
+  7-29 a year since. Two thirds of their links use an upper-case UUID;
+  the index parser lower-cases it.
+
+`parsers.senate_annual.parse_assets()` reads Part 3 ("Assets") into
+holdings-shaped rows (`ParsedSenateHolding`):
+
+- Rows are numbered "2" (asset) or "2.1" (held inside account 2). An
+  account row with sub-rows has value "--" and is not a holding itself;
+  each sub-row's description is prefixed "Account ⇒ ", as in House's
+  parser.
+- `ticker` comes from the asset's "TICKER - Name" link (to
+  finance.yahoo.com), only present when the filer picked a listed
+  security. `details` keeps the extra lines (location, account type,
+  "Description:", "Filer comment:").
+- `asset_type_raw` is "Category: Sub-type" ("Corporate Securities:
+  Stock"); `asset_type` maps the unambiguous ones to House's codes (ST,
+  OP, MF, EF, GS, BA, HE, PE, CT) so `holdings.asset_type` queries work
+  across chambers, and keeps the raw label otherwise.
+- `owner` is self / spouse / joint / child. Value bands become
+  `value_min`/`value_max`; "None (or less than $1,001)" is 0-1,000;
+  "Unascertainable" has no band. `income_raw` joins multi-part cells with
+  "; " ("None (or less than $201); Other $50,001.00").
+
+Everything maps onto `holdings` as is (`filing_id` would be
+`senate:<uuid>`, `report_year` from `report_year()`, which is `None` for
+candidate and new-filer reports); `item_number` and `details` have no
+column. Fixtures: five real reports (CY 2013, 2017, 2025 x2, a 2022
+candidate report) in `tests/fixtures/senate_annual/`.
+
+Limits: nothing stores these yet -- there's no ingest module, no
+`collect.yml` step. Stored, they would naturally be `filings.filing_type
+= 'O'` (Senate PTRs already reuse House's 'P'); candidate reports would
+need their own value or to be skipped. Paper reports would need
+the same vision transcription as scanned House PTRs. Only Part 3 is read;
+Part 4b (transactions over the year) and Part 7 (liabilities) are not.
+
 ## Politician linking (T13)
 
 `congress_collector.ingest.legislators.sync_legislators()` fetches the

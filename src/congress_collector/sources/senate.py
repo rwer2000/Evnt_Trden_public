@@ -139,12 +139,17 @@ def fetch_ptr_page(
 
 
 def _fetch_raw_rows(
-    session: httpx.Client, submitted_start: date, start: int, length: int
+    session: httpx.Client,
+    submitted_start: date,
+    start: int,
+    length: int,
+    *,
+    report_type: int = PTR_REPORT_TYPE,
 ) -> list[list[str]]:
     csrf_token = session.cookies.get("csrftoken")
     payload = {
         "csrfmiddlewaretoken": csrf_token,
-        "report_types": f"[{PTR_REPORT_TYPE}]",
+        "report_types": f"[{report_type}]",
         "filer_types": "[]",
         "submitted_start_date": submitted_start.strftime("%m/%d/%Y 00:00:00"),
         "submitted_end_date": "",
