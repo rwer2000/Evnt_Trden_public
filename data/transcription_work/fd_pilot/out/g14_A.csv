@@ -1,0 +1,101 @@
+doc_id,filer_name,page,row_in_page,asset_name,ticker_on_form,asset_type_code,owner,value_band,income_types,income_amount_band,confidence,note
+8205430,HONORABLE JEFF DENHAM,3,1,"11580 Longview Ave, Atwater, CA",,,JT,"$250,001 - $500,000",Farm Income/Rent,"$50,001 - $100,000",high,income type written as FARM INCOME/RENT
+8205430,HONORABLE JEFF DENHAM,3,2,"Denham Plastics, Salinas, CA",,,,"$1,000,001 - $5,000,000",Dividends,"$50,001 - $100,000",high,
+9107156,Hon. Evan H. Jenkins,2,1,Morgan Stanley Bank Dep,,,,"$1,001 - $15,000",Tax-Deferred,None,medium,Form B; Current Year income marked N/A per instructions; income band from Preceding Year column
+9107156,Hon. Evan H. Jenkins,2,2,Allstate Corp Stock,,,,"$1,001 - $15,000",Tax-Deferred,None,medium,Form B; income band from Preceding Year column (Current Year N/A)
+9107156,Hon. Evan H. Jenkins,2,3,Bank of America Stock,,,,"$1,001 - $15,000",Tax-Deferred,None,medium,Form B; income band from Preceding Year column (Current Year N/A)
+9107156,Hon. Evan H. Jenkins,2,4,Citigroup Inc Stock,,,,"$1 - $1,000",Tax-Deferred,None,medium,Form B; income band from Preceding Year column (Current Year N/A)
+9107156,Hon. Evan H. Jenkins,2,5,City Holding Inc. Stock,,,,"$1,001 - $15,000",Tax-Deferred,None,medium,Form B; income band from Preceding Year column (Current Year N/A)
+9107156,Hon. Evan H. Jenkins,2,6,Coca-Cola Co Stock,,,,"$1,001 - $15,000",Tax-Deferred,None,medium,Form B; income band from Preceding Year column (Current Year N/A)
+9107156,Hon. Evan H. Jenkins,2,7,General Electric Stock,,,,"$1,001 - $15,000",Tax-Deferred,None,medium,Form B; income band from Preceding Year column (Current Year N/A)
+9107156,Hon. Evan H. Jenkins,2,8,IBM Stock,,,,"$15,001 - $50,000",Tax-Deferred,None,medium,Form B; income band from Preceding Year column (Current Year N/A)
+9107156,Hon. Evan H. Jenkins,2,9,JPMorgan Chase Stock,,,,"$15,001 - $50,000",Tax-Deferred,None,low,"scribbled-out mark in $1,001 - $15,000 column; X in $15,001 - $50,000; income band from Preceding Year column"
+9107156,Hon. Evan H. Jenkins,2,10,Dr Pepper Snapple Stock,,,,"$1,001 - $15,000",Tax-Deferred,None,low,handwritten name partly illegible; income band from Preceding Year column (Current Year N/A)
+9107156,Hon. Evan H. Jenkins,2,11,Travelers Co Stock,,,,"$1 - $1,000",Tax-Deferred,None,medium,Form B; income band from Preceding Year column (Current Year N/A)
+9107156,Hon. Evan H. Jenkins,2,12,Walgreens Stock,,,,"$1,001 - $15,000",Tax-Deferred,None,low,handwritten name uncertain; income band from Preceding Year column (Current Year N/A)
+9107156,Hon. Evan H. Jenkins,2,13,Wells Fargo Stock,,,,"$1 - $1,000",Tax-Deferred,None,medium,Form B; income band from Preceding Year column (Current Year N/A)
+9107156,Hon. Evan H. Jenkins,2,14,Verizon Corp Stock,,,,"$1,001 - $15,000",Tax-Deferred,None,low,"scribbled-out mark in $1 - $1,000 column and X in $1,001 - $15,000; income band from Preceding Year column"
+9107156,Hon. Evan H. Jenkins,2,15,American [illegible] Mutual C,,,,"$100,001 - $250,000",Tax-Deferred,None,low,middle word of name illegible; income band from Preceding Year column (Current Year N/A)
+9107156,Hon. Evan H. Jenkins,3,1,Clearbridge Agg Growth C,,,,"$15,001 - $50,000",Tax-Deferred,None,medium,Form B; income band from Preceding Year column (Current Year N/A)
+9107156,Hon. Evan H. Jenkins,3,2,Clearbridge App C,,,,"$1,001 - $15,000",Tax-Deferred,None,medium,Form B; income band from Preceding Year column (Current Year N/A)
+9107156,Hon. Evan H. Jenkins,3,3,Clearbridge Div Strat C,,,,"$1,001 - $15,000",Tax-Deferred,None,medium,Form B; income band from Preceding Year column (Current Year N/A)
+9107156,Hon. Evan H. Jenkins,3,4,Clearbridge Large Cap Gr,,,,"$50,001 - $100,000",Tax-Deferred,None,medium,name abbreviation uncertain; income band from Preceding Year column (Current Year N/A)
+9107156,Hon. Evan H. Jenkins,3,5,Clearbridge Mid Cap C,,,,"$1,001 - $15,000",Tax-Deferred,None,medium,Form B; income band from Preceding Year column (Current Year N/A)
+9107156,Hon. Evan H. Jenkins,3,6,Clearbridge Small Cap,,,,"$1,001 - $15,000",Tax-Deferred,None,medium,Form B; income band from Preceding Year column (Current Year N/A)
+9107156,Hon. Evan H. Jenkins,3,7,Dreyfus Res Growth A,,,,"$1,001 - $15,000",Tax-Deferred,None,low,handwritten name uncertain; income band from Preceding Year column (Current Year N/A)
+9107156,Hon. Evan H. Jenkins,3,8,Templeton Growth C,,,,"$100,001 - $250,000",Tax-Deferred,None,medium,Form B; income band from Preceding Year column (Current Year N/A)
+9107156,Hon. Evan H. Jenkins,3,9,Western Asset Corp Bd,,,,"$1,001 - $15,000",Tax-Deferred,None,medium,Form B; income band from Preceding Year column (Current Year N/A)
+9107156,Hon. Evan H. Jenkins,3,10,Western Asset Govt Res,,,,"$15,001 - $50,000",Tax-Deferred,None,medium,Form B; income band from Preceding Year column (Current Year N/A)
+9107156,Hon. Evan H. Jenkins,3,11,BB&T Ins Deposit WV,,,,"$15,001 - $50,000",Interest,"$1 - $200",medium,Form B; income band from Preceding Year column (Current Year N/A)
+9107156,Hon. Evan H. Jenkins,3,12,BB&T Checking WV,,,,"$15,001 - $50,000",None,None,medium,Form B; income band from Preceding Year column (Current Year N/A)
+9107156,Hon. Evan H. Jenkins,3,13,T. Rowe Price Retirement,,,SP,"$1,001 - $15,000",Tax-Deferred,None,medium,name partly uncertain; income band from Preceding Year column (Current Year N/A)
+9107156,Hon. Evan H. Jenkins,3,14,Northwestern Mutual Life,,,,"$15,001 - $50,000",Dividends,"$201 - $1,000",low,"Preceding Year column has scribbled marks at None and $1,001 - $2,500 plus X at $201 - $1,000"
+9107156,Hon. Evan H. Jenkins,3,15,First Sentry Bank WV Savings,,,,"$1,001 - $15,000",Interest,"$1 - $200",low,bank name uncertain (First Sentry/First Security); income band from Preceding Year column
+9107156,Hon. Evan H. Jenkins,4,1,Smart 529 College Savings,,,DC,"$1,001 - $15,000",Tax-Deferred,None,medium,Form B; income band from Preceding Year column (Current Year N/A)
+9107156,Hon. Evan H. Jenkins,4,2,Consolidated [illegible] Pub Bd,,,,"$15,001 - $50,000",None,None,low,"name illegible; owner code scribbled out; scribbled marks in Preceding Year $5,001 - $15,000 area; X at None"
+9107156,Hon. Evan H. Jenkins,4,3,Smart 529 College Savings,,,DC,"$15,001 - $50,000",Tax-Deferred,None,low,"scribbled mark in Preceding Year $15,001 - $50,000 column; X at None"
+9107156,Hon. Evan H. Jenkins,4,4,Smart 529 College Savings,,,DC,"$15,001 - $50,000",Tax-Deferred,None,low,"scribbled mark in Preceding Year $15,001 - $50,000 column; X at None"
+9107156,Hon. Evan H. Jenkins,4,5,WV Pre-Paid College Fund,,,,"$1,001 - $15,000",None,None,low,scribbled mark in Preceding Year income grid; X at None
+9107156,Hon. Evan H. Jenkins,4,6,WV Pre-Paid College Fund,,,,"$1,001 - $15,000",None,None,low,scribbled mark in Preceding Year income grid; X at None
+9107156,Hon. Evan H. Jenkins,4,7,[illegible] Timeshare,,,,,,None,low,name partly illegible; no value or income type marked
+9107156,Hon. Evan H. Jenkins,4,8,Security Fixed Life Annuity,,,,"$1,001 - $15,000",None,None,low,handwritten name uncertain (two lines)
+9107156,Hon. Evan H. Jenkins,4,9,Morgan Stanley [illegible] A,,,,"$15,001 - $50,000",Tax-Deferred,None,low,name partly illegible; income band from Preceding Year column
+9107156,Hon. Evan H. Jenkins,4,10,Calvert LargeCap Y,,,,"$15,001 - $50,000",Tax-Deferred,None,low,fund family name uncertain (Calvert/Columbia); income band from Preceding Year column
+9107156,Hon. Evan H. Jenkins,4,11,Calvert Income Fund,,,,"$15,001 - $50,000",Tax-Deferred,None,low,name uncertain; income band from Preceding Year column
+9107156,Hon. Evan H. Jenkins,4,12,[illegible] Stock Growth,,,,"$15,001 - $50,000",Tax-Deferred,None,low,name mostly illegible; income band from Preceding Year column
+9107156,Hon. Evan H. Jenkins,4,13,T Rowe Blue Chip,,,,"$15,001 - $50,000",Tax-Deferred,None,medium,Form B; income band from Preceding Year column (Current Year N/A)
+9107156,Hon. Evan H. Jenkins,4,14,Neuberger Berman Growth,,,,"$15,001 - $50,000",Tax-Deferred,None,low,name uncertain; income band from Preceding Year column
+9107156,Hon. Evan H. Jenkins,4,15,Calvert VP S&P Index,,,,"$15,001 - $50,000",Tax-Deferred,None,low,name uncertain; income band from Preceding Year column
+9107156,Hon. Evan H. Jenkins,5,1,MFS VIT Growth,,,,"$15,001 - $50,000",Tax-Deferred,None,medium,name partly uncertain; income band from Preceding Year column (Current Year N/A)
+9107156,Hon. Evan H. Jenkins,5,2,MFS Total Return,,,,"$15,001 - $50,000",Tax-Deferred,None,medium,Form B; income band from Preceding Year column (Current Year N/A)
+9107156,Hon. Evan H. Jenkins,5,3,Calvert VP SRI,,,,"$15,001 - $50,000",Tax-Deferred,None,medium,Form B; income band from Preceding Year column (Current Year N/A)
+9107156,Hon. Evan H. Jenkins,5,4,American Century Mid Cap,,,,"$15,001 - $50,000",Tax-Deferred,None,medium,Form B; income band from Preceding Year column (Current Year N/A)
+9107156,Hon. Evan H. Jenkins,5,5,Calvert S&P MidCap,,,,"$15,001 - $50,000",Tax-Deferred,None,low,name uncertain; income band from Preceding Year column
+9107156,Hon. Evan H. Jenkins,5,6,American Century Heritage,,,,"$15,001 - $50,000",Tax-Deferred,None,medium,Form B; income band from Preceding Year column (Current Year N/A)
+9107156,Hon. Evan H. Jenkins,5,7,Neuberger Berman Genesis,,,,"$15,001 - $50,000",Tax-Deferred,None,medium,Form B; income band from Preceding Year column (Current Year N/A)
+9107156,Hon. Evan H. Jenkins,5,8,Baron Small Cap,,,,"$1,001 - $15,000",Tax-Deferred,None,medium,Form B; income band from Preceding Year column (Current Year N/A)
+9107156,Hon. Evan H. Jenkins,5,9,Royce Penn Mutual,,,,"$15,001 - $50,000",Tax-Deferred,None,medium,Form B; income band from Preceding Year column (Current Year N/A)
+9107156,Hon. Evan H. Jenkins,5,10,Calvert VP Intl.,,,,"$15,001 - $50,000",Tax-Deferred,None,medium,Form B; income band from Preceding Year column (Current Year N/A)
+9107156,Hon. Evan H. Jenkins,5,11,Thornburg Intl Val,,,,"$15,001 - $50,000",Tax-Deferred,None,medium,Form B; income band from Preceding Year column (Current Year N/A)
+9107156,Hon. Evan H. Jenkins,5,12,3rd Ave Intl Val,,,,"$15,001 - $50,000",Tax-Deferred,None,low,name uncertain; income band from Preceding Year column
+9107156,Hon. Evan H. Jenkins,5,13,Fidelity Money Mkt,,,,"$1,001 - $15,000",Tax-Deferred,None,medium,Form B; income band from Preceding Year column (Current Year N/A)
+8205637,HONORABLE TODD RUSSELL PLATTS,3,1,Susquehanna Bank Acct,,,DC,"$1 - $1,000",Interest,"$1 - $200",high,owner written as DC1
+8205637,HONORABLE TODD RUSSELL PLATTS,3,2,Susquehanna Bank Acct,,,DC,"$1,001 - $15,000",Interest,"$1 - $200",high,owner written as DC2
+8205637,HONORABLE TODD RUSSELL PLATTS,3,3,Capital World Growth + Income Fund,,,DC,"$1 - $1,000",Dividends,"$1 - $200",high,owner written as DC1
+8205637,HONORABLE TODD RUSSELL PLATTS,3,4,Capital World Growth + Income Fund,,,DC,"$1 - $1,000",Dividends,"$1 - $200",high,owner written as DC2
+8205637,HONORABLE TODD RUSSELL PLATTS,3,5,The Income Fund of America,,,DC,"$1 - $1,000",Dividends,"$1 - $200",high,owner written as DC1
+8205637,HONORABLE TODD RUSSELL PLATTS,3,6,The Income Fund of America,,,DC,"$1 - $1,000",Dividends,"$1 - $200",high,owner written as DC2
+8205637,HONORABLE TODD RUSSELL PLATTS,4,1,PA Treasury 529 College Fund,,,DC,"$1,001 - $15,000",Tax-Deferred,None,medium,owner written as DC1; None type box scribbled out
+8205637,HONORABLE TODD RUSSELL PLATTS,4,2,PA Treasury 529 College Fund,,,DC,"$1,001 - $15,000",Tax-Deferred,None,medium,owner written as DC2; None type box scribbled out
+8205637,HONORABLE TODD RUSSELL PLATTS,4,3,Thornburg Value Fund,,,,"$1,001 - $15,000",None,None,medium,"Dividends, $201 - $1,000 and transaction boxes scribbled out"
+8205637,HONORABLE TODD RUSSELL PLATTS,4,4,Growth Fund of America,,,,"$1,001 - $15,000",None,None,high,
+8205637,HONORABLE TODD RUSSELL PLATTS,4,5,Eagle Mid Cap Growth Fund,,,,"$1,001 - $15,000",None,None,high,
+8205637,HONORABLE TODD RUSSELL PLATTS,4,6,Columbia Seligman Comm & Info Fund,,,,"$1,001 - $15,000",Capital Gains,"$1 - $200",high,
+8205637,HONORABLE TODD RUSSELL PLATTS,4,7,Thornburg Investment Income Bldr Fund,,,,"$1,001 - $15,000",Dividends,"$201 - $1,000",medium,name abbreviated on form
+8205637,HONORABLE TODD RUSSELL PLATTS,4,8,Susquehanna Bank Acct #1,,,,"$1,001 - $15,000",None,None,high,
+8205637,HONORABLE TODD RUSSELL PLATTS,4,9,Susquehanna Bank Acct #2,,,,"$1,001 - $15,000",None,None,high,
+8205637,HONORABLE TODD RUSSELL PLATTS,4,10,Raymond James Bank Deps Prog,,,,"$1 - $1,000",None,None,high,
+8205437,HONORABLE ROBERT J. DOLD,3,1,"414 FRONTAGE ROAD, NORTHFIELD, IL",,,,"$500,001 - $1,000,000",Rent,"$5,001 - $15,000",high,
+8205437,HONORABLE ROBERT J. DOLD,3,2,KELLOGG INC. STOCK,,,,"$1,001 - $15,000",Dividends,"$1 - $200",high,
+8205437,HONORABLE ROBERT J. DOLD,3,3,WINTRUST FINANCIAL CORPORATION STOCK,,,,"$1,001 - $15,000",Dividends,"$1 - $200",high,
+8205437,HONORABLE ROBERT J. DOLD,3,4,PROCTER AND GAMBLE INC. STOCK,,,,"$50,001 - $100,000",Dividends,"$2,501 - $5,000",high,
+8205437,HONORABLE ROBERT J. DOLD,3,5,BP STOCK,,,,"$1,001 - $15,000",Dividends,"$201 - $1,000",high,
+8205437,HONORABLE ROBERT J. DOLD,3,6,AMERICAN INTERNATIONAL GROUP STOCK,,,,"$1,001 - $15,000",Dividends,"$1 - $200",high,
+8205437,HONORABLE ROBERT J. DOLD,4,1,CISCO SYSTEMS INC. STOCK,,,,"$1,001 - $15,000",Dividends,"$1 - $200",high,
+8205437,HONORABLE ROBERT J. DOLD,4,2,DELL INC. STOCK,,,,"$1,001 - $15,000",Dividends,"$1 - $200",high,
+8205437,HONORABLE ROBERT J. DOLD,4,3,TD AMERITRADE HOLDING CORP STOCK,,,,"$1,001 - $15,000",Dividends,"$1 - $200",high,
+8205437,HONORABLE ROBERT J. DOLD,4,4,IRA - FUNDAMENTAL INVESTORS CLASS A,,,,"$1,001 - $15,000",Dividends,"$1 - $200",high,
+8205437,HONORABLE ROBERT J. DOLD,4,5,TIME WARNER INC. NEW STOCK,,,,"$15,001 - $50,000",Dividends,"$1,001 - $2,500",high,
+8205437,HONORABLE ROBERT J. DOLD,4,6,IRA-DODGE & COX INTERNATIONAL FUND,,,,"$1,001 - $15,000",Dividends,"$201 - $1,000",high,
+8205437,HONORABLE ROBERT J. DOLD,4,7,IRA - GROWTH FUND OF AMERICA CLASS C,,,,"$1,001 - $15,000",Dividends,"$1 - $200",high,
+8205437,HONORABLE ROBERT J. DOLD,4,8,IRA - KEELEY SMALL CAP VALUE FUND CLASS A,,,,"$1,001 - $15,000",Dividends,"$1 - $200",high,
+8205437,HONORABLE ROBERT J. DOLD,4,9,"ROSE EXTERMINATOR COMPANY, INC. 401(K) PLAN - PRINCIPAL FINANCIAL GROUP - MORLEY FINANCIAL SERVICES STABLE VALUE SIG FUND",,,,"$1,001 - $15,000",Dividends,"$1 - $200",high,
+8205437,HONORABLE ROBERT J. DOLD,4,10,JANUS ORION FUND J SHARES - TRADITIONAL IRA,,,SP,"$1,001 - $15,000",Dividends,"$1 - $200",high,
+8205437,HONORABLE ROBERT J. DOLD,4,11,AMERITRADE IRA ROLLOVER - INSURED DEPOSIT ACCOUNT,,,SP,"$1,001 - $15,000",Interest,"$1 - $200",high,
+8205437,HONORABLE ROBERT J. DOLD,4,12,AMERITRADE IRA ROLLOVER - INTEL CORP. STOCK,,,SP,"$1,001 - $15,000",Dividends,"$1 - $200",high,
+8205437,HONORABLE ROBERT J. DOLD,5,1,"ALL OUTSTANDING UNITS OF ROSE PEST SOLUTIONS, LLC D/B/A IMPERIAL PEST MANAGEMENT - A PEST MANAGEMENT COMPANY LOCATED IN THE RACINE WISCONSIN AREA",,,,"$100,001 - $250,000",Net Income From The Activity,None,high,
+8205437,HONORABLE ROBERT J. DOLD,5,2,"30% OF ALL OUTSTANDING STOCK OF ROSE EXTERMINATOR CO., INC. - A PEST MANAGEMENT COMPANY LOCATED IN NORTHFIELD ILLINOIS",,,,"$1,000,001 - $5,000,000",Dividends,None,high,
+8205437,HONORABLE ROBERT J. DOLD,5,3,"20% OF ALL OUSTANDING UNITS OF FOUNTAINHEAD PARTNERS, LLC - A RENTAL PROPERTY LOCATED IN MICHIGAN CITY INDIANA",,,,"$15,001 - $50,000",Rent,None,high,
+8205437,HONORABLE ROBERT J. DOLD,5,4,IRA-ENTERGY ARK INC. 4.72 PFD STOCK,,,,"$1,001 - $15,000",Dividends,"$1 - $200",high,
+8205437,HONORABLE ROBERT J. DOLD,5,5,MCDONALDS INC STOCK,,,,"$1,001 - $15,000",Dividends,"$1 - $200",high,
+8210795,GEORGE BRIKHO,,,,,,,,,,,no schedule A
