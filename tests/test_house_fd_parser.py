@@ -10,7 +10,10 @@ House Clerk PDFs in tests/fixtures/house_fd/:
 
 from pathlib import Path
 
+import pytest
+
 from congress_collector.parsers.house_fd import (
+    _Row,
     has_schedule_a,
     is_electronic_fd,
     parse_schedule_a,
@@ -63,3 +66,43 @@ def test_none_disclosed_report_has_schedule_a_but_no_holdings() -> None:
 def test_scanned_report_without_text_is_not_electronic() -> None:
     assert not is_electronic_fd([[]])
     assert not has_schedule_a([[]])
+
+
+def _ticker_and_type(description: str) -> tuple[str | None, str | None]:
+    holding = _Row(asset=[description], value=["None"]).finalize(0)
+    return holding.ticker, holding.asset_type
+
+
+# Descriptions as they appear on real reports (congress.holdings, 2026-10-11).
+@pytest.mark.parametrize(
+    ("description", "expected"),
+    [
+        # an asset-type code in the ticker's parentheses is a label, not a ticker
+        ("Morgan Stanley Trad. IRA ⇒ Berkshire Hathaway CL B New (MF) [BA]", (None, "BA")),
+        ("Dodge and Cox International Fund (MF) [MF]", (None, "MF")),
+        ("Maryland Retirement Agency (PE) [PE]", (None, "PE")),
+        ("Investacorp Inc. (S.E.P) (PE) [FN]", (None, "FN")),
+        ("Voya Intermediate Bond Fund (EF) [PE]", (None, "PE")),
+        ("IShares TR Russell Mid-Cap ETF (EF) [EF]", (None, "EF")),
+        ("JPMorgan Ultra-Short Income (ETF) [EF]", (None, "EF")),
+        ("CEFCU Checking and Savings (BA) [OT]", (None, "OT")),
+        ("USC Retirement Savings 401(a) - Fidelity Cash Reserve (IH) [BA]", (None, "BA")),
+        ("Brighthouse Life Insurance Company (FN) [FN]", (None, "FN")),
+        ("Pacific Life Portfolio Moderate (mf) [mf]", (None, "MF")),  # scrambled case
+        # real tickers, including ones that spell a code
+        ("Apple Inc. (AAPL) [ST]", ("AAPL", "ST")),
+        ("Boeing Company (BA) [ST]", ("BA", "ST")),
+        ("Goldman Sachs Group, Inc. (GS) [ST]", ("GS", "ST")),
+        ("Sensata Technologies Holding N.V. (ST) [ST]", ("ST", "ST")),
+        ("AllianceBernstein Holding L.P. Units (AB) [OL]", ("AB", "OL")),
+        ("Energy Transfer LP Common Units (ET) [AB]", ("ET", "AB")),
+        ("aF IRa ⇒ CaPITaL INCOME BUILDER (CaIBX) [mF]", ("CAIBX", "MF")),
+        # pre-2019 form, no bracket: nothing tells a label from a ticker
+        ("Boeing Company (BA)", ("BA", None)),
+        ("Fidelity Investments ⇒ SEP: FIDELITY CASH RESERVES [MF]", (None, "MF")),
+    ],
+)
+def test_asset_type_code_in_parentheses_is_not_a_ticker(
+    description: str, expected: tuple[str | None, str | None]
+) -> None:
+    assert _ticker_and_type(description) == expected

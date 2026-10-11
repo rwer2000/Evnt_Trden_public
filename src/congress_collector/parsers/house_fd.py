@@ -25,6 +25,15 @@ all seen on real reports:
 
 Only electronic reports parse; a scanned paper report has no text layer
 and is reported as such by ``is_electronic_fd``.
+
+Some filers put an asset-type code in the ticker's parentheses as well as
+in the brackets: "Berkshire Hathaway CL B New (MF) [BA]", "Maryland
+Retirement Agency (PE) [PE]", "JPMorgan Ultra-Short Income (ETF) [EF]".
+``_ticker_or_none`` drops such a "ticker" when the row has a bracketed type
+that isn't a traded-equity one (see ``_EQUITY_TYPES``); "Boeing Company
+(BA) [ST]" and pre-2019 untyped "Boeing Company (BA)" keep theirs. Same
+rule as the strategy repo's ``portfolio.inputs`` (checked 2026-10-11
+against every holding whose ticker is a code: 117 of 505 were labels).
 """
 
 import re
@@ -45,6 +54,55 @@ _SCHEDULE_RE = re.compile(r"^schedule$", re.IGNORECASE)
 _ANNOTATION_RE = re.compile(r"^(description|location|subholding|comments|filing)\b", re.IGNORECASE)
 _SINGLE_VALUE_WORDS = {"none", "undetermined"}
 _RANGE_START_RE = re.compile(r"^\$[\d,]+$")
+
+# The form's asset-type codes (the "[XX]" after an asset description), plus
+# "ETF", which filers write in the parentheses though it isn't on the list.
+ASSET_TYPE_CODES = frozenset(
+    [
+        "AB",
+        "BA",
+        "CO",
+        "CS",
+        "DB",
+        "DO",
+        "EF",
+        "EQ",
+        "ET",
+        "ETF",
+        "FA",
+        "FN",
+        "GS",
+        "HE",
+        "IH",
+        "IP",
+        "MF",
+        "OI",
+        "OL",
+        "OP",
+        "OT",
+        "PE",
+        "PS",
+        "RE",
+        "RP",
+        "SA",
+        "ST",
+        "WU",
+    ]
+)
+# Types whose parenthesised token is a real exchange ticker even when it
+# spells a code: stocks ("Boeing Company (BA) [ST]") and listed partnership
+# units ("AllianceBernstein Holding L.P. Units (AB) [OL]", "Energy Transfer
+# LP Common Units (ET) [AB]"), both seen on real reports.
+_EQUITY_TYPES = frozenset({"ST", "OL", "AB"})
+
+
+def _ticker_or_none(ticker: str | None, asset_type: str | None) -> str | None:
+    """`ticker`, or None if it is the filer's asset-type code rather than a
+    symbol. Untyped rows (pre-2019 forms) keep theirs: without a bracket
+    there is nothing to tell "(BA)" Boeing from a label."""
+    if ticker in ASSET_TYPE_CODES and asset_type is not None and asset_type not in _EQUITY_TYPES:
+        return None
+    return ticker
 
 
 @dataclass(frozen=True)
@@ -92,6 +150,7 @@ class _Row:
             asset_type = type_match.group(1).upper()
         elif ticker_match := _TICKER_ONLY_RE.search(description):
             ticker = ticker_match.group(1).upper()
+        ticker = _ticker_or_none(ticker, asset_type)
         value_raw = " ".join(self.value).strip()
         value_min, value_max = parse_amount_range(value_raw)
         return ParsedHolding(
