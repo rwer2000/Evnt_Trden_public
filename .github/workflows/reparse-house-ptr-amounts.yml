@@ -1,0 +1,48 @@
+name: reparse-house-ptr-amounts
+
+# Manual only. Fills in amount_min/amount_max for House PTR transactions
+# stored without one -- see congress_collector.ingest.reparse_house_ptr_amounts.
+# Dry run unless `apply` is checked.
+on:
+  workflow_dispatch:
+    inputs:
+      apply:
+        description: "Write changes (unchecked = dry run, report only)"
+        type: boolean
+        default: false
+      delete_phantoms:
+        description: "With apply: also delete phantom 'DESCRIPTION: ...' rows"
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+jobs:
+  reparse:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v3
+
+      - name: Set up Python
+        run: uv python install 3.12
+
+      - name: Install dependencies
+        run: uv sync --all-extras --dev
+
+      - name: Re-parse House PTR amounts
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          R2_ACCOUNT_ID: ${{ secrets.R2_ACCOUNT_ID }}
+          R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+          R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+          APPLY: ${{ inputs.apply }}
+          DELETE_PHANTOMS: ${{ inputs.delete_phantoms }}
+        run: |
+          args=()
+          if [ "$APPLY" = "true" ]; then args+=(--apply); fi
+          if [ "$DELETE_PHANTOMS" = "true" ]; then args+=(--delete-phantoms); fi
+          uv run python -m congress_collector.ingest.reparse_house_ptr_amounts "${args[@]}"

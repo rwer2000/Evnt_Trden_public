@@ -522,6 +522,44 @@ rather than guessed at.
 
 Run it directly with `uv run python -m congress_collector.ingest.house_ptrs`.
 
+### House PTR amounts: exact values, Spouse/DC band, phantom rows
+
+On 2026-10-11, 698 House PTR transactions (303 filings) had a null
+`amount_min`. Parsing every affected public PDF locally showed four causes:
+
+- **Exact amounts** (~510 rows): the House form lets a filer write an exact
+  value ("$2,722.50") instead of a band. `parse_amount_range` now returns
+  `min == max == value` -- except for a lone band lower bound ("$15,001"),
+  which is more likely a truncated band and stays null.
+- **"Spouse/DC Over $1,000,000"** (~134 rows): parsed like any "Over $X"
+  band (`amount_min = 1000000`, `amount_max = NULL`). A soft hyphen (U+00AD)
+  or en dash between the two halves of a band is accepted too.
+- **Stale parses** (~25 rows, e.g. Pelosi's DocID 20026590): stored in
+  September 2026 by a parser version with fixed column bounds that dropped
+  the amount and put the notification date in `tx_date`. The current
+  per-filing column detection parses them right; they just needed a re-run.
+- **Phantom rows** (15 rows, "DESCRIPTION: PUT BABA Nov 19 21 155.0"): a
+  Description annotation with a lone "P"/"S" in the Transaction Type
+  column started a fake transaction. Annotation-label lines are now
+  checked before the transaction-start test, and the pre-2022 form's
+  trailing sections ("Asset class details", "Initial public offerings",
+  "Certification and signature") end the table.
+
+`congress_collector.ingest.reparse_house_ptr_amounts` applies this to
+rows already stored: for each electronic House PTR with an amount-less
+transaction it re-parses the archived PDF, copies the amount (and, when the
+stored row has no `notification_date`, the corrected dates) onto rows that
+match by `row_index` + description (or a unique description + type +
+owner), and reports phantom rows -- deleting them only with
+`--delete-phantoms`, and never one a `dq_issues` row references. It is a
+dry run unless `--apply` is passed. Run it from the
+`reparse-house-ptr-amounts` workflow (manual `workflow_dispatch`, inputs
+`apply` and `delete_phantoms`): first with both unchecked to read the
+report, then with `apply` (and `delete_phantoms`) checked. A local run of
+the same logic against all 303 public PDFs filled 674 of the 689
+electronic rows and flagged the other 15 as phantoms; the 9 rows of
+scanned filings are out of its scope.
+
 ## House options parser (T15)
 
 The House form itself never gives option_type/strike/expiry as columns --

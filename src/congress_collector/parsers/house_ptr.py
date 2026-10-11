@@ -337,11 +337,24 @@ def parse_ptr_transactions(pages_words: list[list[Word]]) -> list[ParsedTransact
                 # amount column's x0 zone.
                 continue
 
-            if FOOTER_MARKER in line_text:
+            if FOOTER_MARKER in line_text or _is_trailing_section(line_text):
                 past_footer = True
                 continue
 
             if past_footer:
+                continue
+
+            # An annotation line is checked before the transaction-start
+            # test: a Description's free text can hold a lone "P"/"S" at
+            # the Transaction Type column's x0 ("PUT BABA Nov 19 21 155.0
+            # P", "SOLD SEI S P 500 INDX"), which used to start a phantom
+            # transaction with no amount (DocIDs 20019923, 20006575).
+            if _is_annotation_line(line):
+                label = _annotation_label(line[0].text)
+                in_annotation_block = True
+                describing = label == "description"
+                if describing and current is not None:
+                    current.add_description_words(line)
                 continue
 
             if _line_starts_transaction(line, bounds):
@@ -433,6 +446,40 @@ def _annotation_label(word_text: str) -> str | None:
         }.get(word_text[0].upper())
     stripped = word_text.rstrip(":").lower()
     return stripped if stripped in _ANNOTATION_LABELS else None
+
+
+def _is_annotation_line(line: list[Word]) -> bool:
+    """True if a line starts with an annotation label in a form that can't
+    be the start of an asset name: the NUL-padded 2022+ style, or the
+    plain style followed by its colon ("DESCRIPTION:", "FILING STATUS:",
+    "SUBHOLDING OF:", "LOCATION:"). A bare "Filing" without "Status:" is
+    left to the transaction-start test, as an asset name could begin so.
+    """
+    first = line[0].text
+    label = _annotation_label(first)
+    if label is None:
+        return False
+    if "\x00" in first or first.endswith(":"):
+        return True
+    second = line[1].text.lower() if len(line) > 1 else ""
+    return (label, second) in {("filing", "status:"), ("subholding", "of:")}
+
+
+# Section headings that follow the transaction table on the pre-2022 form,
+# which has no asset-type footer line to stop at. Without these, the
+# certification text after the last transaction was appended to it
+# (e.g. "$15,001 - $50,000 correct to the best" as an amount, DocID
+# 20005968, or "offeringS anD Signature the statements ..." as an asset
+# description, DocID 20006575).
+_TRAILING_SECTIONS = (
+    "asset class details",
+    "initial public offerings",
+    "certification and signature",
+)
+
+
+def _is_trailing_section(line_text: str) -> bool:
+    return line_text.lower().startswith(_TRAILING_SECTIONS)
 
 
 def _line_starts_transaction(line: list[Word], bounds: _ColumnBounds) -> bool:

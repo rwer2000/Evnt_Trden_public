@@ -14,6 +14,7 @@ convention, and are marked as such below.
 from pathlib import Path
 
 from congress_collector.parsers.house_ptr import (
+    ParsedTransaction,
     Word,
     extract_pages_words,
     is_electronic,
@@ -501,3 +502,89 @@ def test_real_scrambled_case_filing_with_unpadded_dates() -> None:
     assert (first.tx_date, first.notification_date) == ("2017-11-07", "2017-11-13")
     assert (first.amount_min, first.amount_max) == (1001.0, 15000.0)
     assert all(t.tx_date is not None for t in txs)
+
+
+# Item A1: public House Clerk PDFs whose transactions were stored with a
+# null amount_min (698 rows in 303 filings on 2026-10-11).
+
+
+def _fixture(doc_id: str) -> list[ParsedTransaction]:
+    return parse_ptr_transactions(extract_pages_words((_FIXTURES / f"{doc_id}.pdf").read_bytes()))
+
+
+def test_real_filing_with_exact_dollar_amount() -> None:
+    # DocID 20034999 (2026): amount column reads "$2,722.50", no band.
+    (tx,) = _fixture("20034999")
+    assert tx.ticker == "ICHR"
+    assert (tx.tx_date, tx.notification_date) == ("2026-06-17", "2026-07-14")
+    assert (tx.amount_min, tx.amount_max) == (2722.5, 2722.5)
+
+
+def test_real_pre_2022_filing_with_exact_dollar_amounts() -> None:
+    # DocID 20016912 (2020): every row is an exact amount ("$269.33").
+    txs = _fixture("20016912")
+    assert len(txs) == 10
+    assert (txs[0].amount_min, txs[0].amount_max) == (269.33, 269.33)
+    assert all(t.amount_min is not None and t.amount_min == t.amount_max for t in txs)
+
+
+def test_real_filing_with_spouse_dc_over_one_million_band() -> None:
+    # DocID 20033695 (2025): "Spouse/DC Over" / "$1,000,000" wraps over
+    # two lines in the amount column.
+    txs = _fixture("20033695")
+    assert len(txs) == 4
+    assert all((t.amount_min, t.amount_max) == (1_000_000.0, None) for t in txs)
+
+
+def test_real_pelosi_filing_parses_amounts_and_dates() -> None:
+    # DocID 20026590 (Jan 2025): stored with null amounts and the
+    # notification date in tx_date by a September 2026 parser version
+    # with fixed column bounds; today's per-filing bounds read it right.
+    txs = _fixture("20026590")
+    assert len(txs) == 9
+    assert (txs[0].ticker, txs[0].amount_min, txs[0].amount_max) == ("GOOGL", 250001.0, 500000.0)
+    assert (txs[2].tx_date, txs[2].notification_date) == ("2024-12-31", "2024-12-31")
+    assert (txs[2].amount_min, txs[2].amount_max) == (5_000_001.0, 25_000_000.0)
+    assert all(t.amount_min is not None for t in txs)
+
+
+def test_description_with_lone_tx_type_letter_is_not_a_phantom_transaction() -> None:
+    # DocID 20019923 (2021): "DESCRIPTION: PUT BABA Nov 19 21 155.0 P Not
+    # part of ..." -- the lone "P" sits in the Transaction Type column and
+    # used to start a second, amount-less transaction.
+    txs = _fixture("20019923")
+    assert len(txs) == 1
+    assert (txs[0].ticker, txs[0].asset_type) == ("BABA", "OP")
+    assert (txs[0].amount_min, txs[0].amount_max) == (1001.0, 15000.0)
+
+
+def test_soft_hyphen_band_with_trailing_certification_text() -> None:
+    # DocID 20005968 (2019): "$15,001 \xad $50,000" with a soft hyphen, on
+    # a form without the asset-type footer line.
+    (tx,) = _fixture("20005968")
+    assert (tx.amount_min, tx.amount_max) == (15001.0, 50000.0)
+
+
+def test_plain_description_label_line_never_starts_a_transaction() -> None:
+    lines = [
+        *_HEADER,
+        Word("SP", 65.1, 312.6),
+        Word("Acme", 104.1, 312.6),
+        Word("(ACME)", 130.0, 312.6),
+        Word("[OP]", 170.0, 312.6),
+        Word("P", 262.2, 312.6),
+        Word("11/19/2021", 326.8, 312.6),
+        Word("11/22/2021", 381.6, 312.6),
+        Word("$1,001", 445.0, 312.6),
+        Word("-", 474.0, 312.6),
+        Word("$15,000", 480.0, 312.6),
+        Word("DESCRIPTION:", 104.1, 330.0),
+        Word("PUT", 150.0, 330.0),
+        Word("155.0", 230.0, 330.0),
+        Word("P", 262.2, 330.0),
+        Word("11/19/2021", 326.8, 330.0),
+        *_FOOTER,
+    ]
+    txs = parse_ptr_transactions([lines])
+    assert len(txs) == 1
+    assert txs[0].option_type == "put"

@@ -743,8 +743,8 @@
         "tx_type": "purchase"
       },
       {
-        "amount_max": null,
-        "amount_min": null,
+        "amount_max": 15.0,
+        "amount_min": 15.0,
         "asset_description_raw": "Versant Media Group, Inc. - Class A Common Stock (VSNT) [ST]",
         "asset_type": "ST",
         "expiry": null,
