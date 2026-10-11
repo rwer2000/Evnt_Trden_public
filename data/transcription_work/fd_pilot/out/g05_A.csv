@@ -1,0 +1,123 @@
+doc_id,filer_name,page,row_in_page,asset_name,ticker_on_form,asset_type_code,owner,value_band,income_types,income_amount_band,confidence,note
+8205548,HONORABLE ROBERT E. LATTA,3,1,Fidelity Asset Manager 50%,,,JT,"$50,001 - $100,000",Dividends;Capital Gains,"$1,001 - $2,500",high,transaction P
+8205548,HONORABLE ROBERT E. LATTA,3,2,Fidelity Equity Income II,,,JT,"$100,001 - $250,000",Dividends,"$2,500 - $5,000",high,"income band written as $2,500 - $5,000; transaction P"
+8205548,HONORABLE ROBERT E. LATTA,3,3,Fidelity Contrafund,,,JT,"$15,001 - $50,000",Dividends;Interest,$1 - $200,high,
+8205548,HONORABLE ROBERT E. LATTA,3,4,Fidelity Fund,,,JT,"$1,001 - $15,000",Dividends,$1 - $200,high,
+8205548,HONORABLE ROBERT E. LATTA,3,5,Fidelity Puritan,,,JT,"$50,001 - $100,000",Dividends;Capital Gains,"$1,001 - $2,500",high,
+8205548,HONORABLE ROBERT E. LATTA,3,6,Fidelity Low Priced Stock,,,JT,"$100,001 - $250,000",Dividends;Capital Gains,"$1,001 - $2,500",high,transaction P
+8205548,HONORABLE ROBERT E. LATTA,4,1,Fidelity Growth and Income,,,JT,"$1,001 - $15,000",Dividends,$1 - $200,high,
+8205548,HONORABLE ROBERT E. LATTA,4,2,Fidelity Equity Income II,,,,"$15,001 - $50,000",Dividends,"$201 - $1,000",high,
+8205548,HONORABLE ROBERT E. LATTA,4,3,Fidelity Puritan,,,,"$100,001 - $250,000",Dividends,"$1,001 - $2,500",high,transaction P
+8205548,HONORABLE ROBERT E. LATTA,4,4,Fidelity Value,,,,"$1,001 - $15,000",Dividends;Capital Gains,$1 - $200,high,
+8205548,HONORABLE ROBERT E. LATTA,4,5,Fidelity Blue Chip,,,SP,"$1,001 - $15,000",Dividends;Capital Gains,"$201 - $1,000",high,
+8205548,HONORABLE ROBERT E. LATTA,4,6,Fidelity Puritan,,,DC,"$50,001 - $100,000",Dividends;Capital Gains,"$201 - $1,000",high,owner written DC1; transaction P
+8205548,HONORABLE ROBERT E. LATTA,4,7,Fidelity Puritan,,,DC,"$15,001 - $50,000",Dividends;Capital Gains,"$201 - $1,000",high,owner written DC2; transaction P
+8205548,HONORABLE ROBERT E. LATTA,4,8,Vanguard 500 Index Fund Admiral,,,JT,"$50,001 - $100,000",Dividends,"$1,001 - $2,500",high,
+8205548,HONORABLE ROBERT E. LATTA,4,9,"Farmers and Merchants State Bank, Inc. Stock",,,SP,"$15,001 - $50,000",Dividends,"$201 - $1,000",high,
+8205548,HONORABLE ROBERT E. LATTA,4,10,ING MFS Total Return Portfolio SVC,,,SP,"$15,001 - $50,000",Dividends,"$201 - $1,000",high,
+8205548,HONORABLE ROBERT E. LATTA,4,11,Fidelity VIP Equity Income Port I,,,SP,"$1,001 - $15,000",Dividends,"$201 - $1,000",high,
+8205548,HONORABLE ROBERT E. LATTA,4,12,Fidelity VIP Growth Portfolio I,,,SP,"$15,001 - $50,000",Dividends,"$201 - $1,000",high,
+8205548,HONORABLE ROBERT E. LATTA,4,13,ING Index Plus MidCap Portfolio I,,,SP,"$1,001 - $15,000",Dividends,"$201 - $1,000",high,transaction P
+8205548,HONORABLE ROBERT E. LATTA,4,14,ING TrowePrc Divrsd MdCp Gr Pt I,,,SP,"$1,001 - $15,000",Dividends,$1 - $200,high,
+8205548,HONORABLE ROBERT E. LATTA,5,1,REFCORP ZERO,,,DC,"$15,001 - $50,000",Interest,"$1,001 - $2,500",high,owner written DC1; transaction S(part)
+8205548,HONORABLE ROBERT E. LATTA,5,2,US Treasury Bonds and Notes,,,DC,"$15,001 - $50,000",Interest,"$1,001 - $2,500",high,owner written DC2
+8205548,HONORABLE ROBERT E. LATTA,5,3,Huntington National Bank account,,,JT,"$50,001 - $100,000",Interest,"$1,001 - $2,500",high,
+8205548,HONORABLE ROBERT E. LATTA,5,4,Huntington National Bank,,,JT,"$50,001 - $100,000",Interest,"$1,001 - $2,500",high,
+8205548,HONORABLE ROBERT E. LATTA,5,5,Huntington National Bank,,,,"$1,001 - $15,000",Interest,$1 - $200,high,
+8205548,HONORABLE ROBERT E. LATTA,5,6,Fifth Third Bank account,,,JT,"$15,001 - $50,000",Interest,$1 - $200,high,
+8205548,HONORABLE ROBERT E. LATTA,5,7,Fifth Third Bank account,,,JT,"$15,001 - $50,000",Interest,$1 - $200,high,
+8205548,HONORABLE ROBERT E. LATTA,5,8,Fifth Third Bank account,,,JT,"$15,001 - $50,000",Interest,$1 - $200,high,
+8205548,HONORABLE ROBERT E. LATTA,5,9,Fifth Third Bank account,,,JT,"$15,001 - $50,000",Interest,$1 - $200,high,
+8205548,HONORABLE ROBERT E. LATTA,5,10,Fifth Third Bank account,,,JT,"$15,001 - $50,000",Interest,$1 - $200,high,
+8205548,HONORABLE ROBERT E. LATTA,5,11,Fifth Third Bank account,,,JT,"$15,001 - $50,000",Interest,"$201 - $1,000",high,
+8205548,HONORABLE ROBERT E. LATTA,5,12,Farmers and Merchants State Bank account,,,JT,"$15,001 - $50,000",Interest,None,high,
+8205548,HONORABLE ROBERT E. LATTA,5,13,Farmers and Merchants State Bank account,,,JT,"$15,001 - $50,000",Interest,None,high,
+8205548,HONORABLE ROBERT E. LATTA,5,14,First Federal Bank account,,,JT,"$15,001 - $50,000",Interest,None,high,
+8205548,HONORABLE ROBERT E. LATTA,6,1,First Federal Bank account,,,JT,"$15,001 - $50,000",Interest,None,high,
+8205548,HONORABLE ROBERT E. LATTA,6,2,PNC Bank account,,,JT,"$15,001 - $50,000",Interest,$1 - $200,high,
+8205548,HONORABLE ROBERT E. LATTA,6,3,PNC Bank account,,,JT,"$15,001 - $50,000",Interest,$1 - $200,medium,second PNC Bank account line; check duplicate reading
+8205548,HONORABLE ROBERT E. LATTA,6,4,Huntington National Bank account,,,SP,"$1,001 - $15,000",Interest,$1 - $200,high,
+8205548,HONORABLE ROBERT E. LATTA,6,5,Ohio Public Employees Retirement System-deferred benefits plan not self-directed,,,,"$100,001 - $250,000",other-pension,None,high,
+8205548,HONORABLE ROBERT E. LATTA,6,6,Ohio Public Employees Retirement System-deferred benefits plan not self-directed,,,SP,"$250,001 - $500,000",other-pension,None,high,
+8212292,HONORABLE JIM COOPER,3,1,"2319 Woodmont Blvd., Nashville TN (vacant land)",,,,"$500,001 - $1,000,000",None,None,high,
+8212292,HONORABLE JIM COOPER,3,2,"Adams Properties (owns proerty on Beach Dr., Gulfport, MS)",,,,"$100,001 - $250,000",Partnership Income,"$201 - $1,000",high,
+8212292,HONORABLE JIM COOPER,3,3,Berkshire Hathaway (BRK/A)(IRA),BRK/A,,,"$100,001 - $250,000",Tax-Deferred,None,high,
+8212292,HONORABLE JIM COOPER,3,4,City Holding Company (CHCO),CHCO,,,"$1,001 - $15,000",Dividends,"$201 - $1,000",high,
+8212292,HONORABLE JIM COOPER,3,5,Coca-Cola Co. (KO)(IRA and brokerage acct),KO,,,"$1,001 - $15,000",Tax-Deferred;Dividends,"$201 - $1,000",high,
+8212292,HONORABLE JIM COOPER,3,6,Comcast Corp. Class A (CMCSA),CMCSA,,,"$1,001 - $15,000",Dividends,$1 - $200,high,
+8212292,HONORABLE JIM COOPER,4,1,Congressional Federal Credit Union accts,,,,"$1,001 - $15,000",Interest,"$201 - $1,000",high,
+8212292,HONORABLE JIM COOPER,4,2,"Cooper Bros Land Co. Partnership, farm, land and lots, Shelbyville TN, Smith Mills, KY Nashville TN (see attached)",,,,"$1,000,001 - $5,000,000",Partnership Income,"$100,001 - $1,000,000",low,"value cell partly obscured; only lower line '$5,?00,000' legible, read as $5,000,000 upper bound"
+8212292,HONORABLE JIM COOPER,4,3,DNP Select Income FD Inc. (DNP),DNP,,,"$1,001 - $15,000",Dividends,"$201 - $1,000",high,
+8212292,HONORABLE JIM COOPER,4,4,Fauqier Bankshares Inc. (FBSS),FBSS,,,"$1,001 - $15,000",Dividends,$1 - $200,high,name spelled Fauqier on form
+8212292,HONORABLE JIM COOPER,4,5,Federated GNMA Inst Fund (FGMAX),FGMAX,,,"$15,001 - $50,000",Dividends,"$201 - $1,000",high,
+8212292,HONORABLE JIM COOPER,4,6,Fidelity Contrafund (FCNTX),FCNTX,,,"$15,001 - $50,000",Dividends,"$201 - $1,000",high,
+8212292,HONORABLE JIM COOPER,4,7,Fidelity Growth and Income Fund (FGRIX),FGRIX,,,"$15,001 - $50,000",Dividends,"$201 - $1,000",high,
+8212292,HONORABLE JIM COOPER,4,8,Fidelity Municipal Money Market Fund (FTEXX),FTEXX,,,"$15,001 - $50,000",Dividends,$1 - $200,high,
+8212292,HONORABLE JIM COOPER,4,9,General Electric Co. (GE) (IRA and brokerage acct.),GE,,,"$50,001 - $100,000",Tax-Deferred;Dividends,"$1,001 - $2,500",high,
+8212292,HONORABLE JIM COOPER,4,10,"Hamilton Fairfax LLC (apt. bldg. on Fairfax, Nashville TN)",,,,"$100,001 - $250,000",Partnership Income,"$15,001 - $50,000",high,
+8212292,HONORABLE JIM COOPER,4,11,Harpeth Green Properties LLC (interest in Heritage Retirement Facilities LLC and Heritage Health Center LLC),,,,"$100,001 - $250,000",None,None,high,
+8212292,HONORABLE JIM COOPER,4,12,Helios Strategic Mortgage Fund (HSM),HSM,,,"$15,001 - $50,000",Dividends,"$1,001 - $2,500",high,
+8212292,HONORABLE JIM COOPER,5,1,Hewlett Packard Co. HPQ (IRA),HPQ,,,"$1,001 - $15,000",Tax-Deferred,None,high,
+8212292,HONORABLE JIM COOPER,5,2,Intel Corp. (INTC),INTC,,,"$15,001 - $50,000",Dividends,"$1,001 - $2,500",high,
+8212292,HONORABLE JIM COOPER,5,3,International Business Machines (IBM),IBM,,,"$100,001 - $250,000",Dividends,"$1,001 - $2,500",high,
+8212292,HONORABLE JIM COOPER,5,4,Lennox Intl. Inc. (IRA),,,,"$50,001 - $100,000",Dividends,"$1,001 - $2,500",high,
+8212292,HONORABLE JIM COOPER,5,5,Microsoft Corp. (MSFT)(IRA),MSFT,,,"$1,001 - $15,000",Tax-Deferred,None,high,
+8212292,HONORABLE JIM COOPER,5,6,Northern Trust Inst. Gov't Portfolio,,,,"$250,001 - $500,000",Interest,$1 - $200,high,
+8212292,HONORABLE JIM COOPER,5,7,"Northwestern Mutual ""Adjustable Comp Life"" policy (fn)",,,,"$250,001 - $500,000",Dividends,"$5,001 - $15,000",high,footnote: dividend applied towards cash value of policy
+8212292,HONORABLE JIM COOPER,5,8,"PLC Properties (warehouse on Hwy. 31, Orlinda TN (fn))",,,,"$250,001 - $500,000",Partnership Income,"$15,001 - $50,000",high,
+8212292,HONORABLE JIM COOPER,5,9,Proctor and Gamble Co. (PG),PG,,,"$1,001 - $15,000",Dividends,"$201 - $1,000",high,
+8212292,HONORABLE JIM COOPER,5,10,Qualcomm Inc. (QCOM)(IRA),QCOM,,,"$15,001 - $50,000",Dividends,"$201 - $1,000",high,
+8212292,HONORABLE JIM COOPER,5,11,State Bank Financial Corp. (STBZ),STBZ,,,"$1,001 - $15,000",Dividends,$1 - $200,high,
+8212292,HONORABLE JIM COOPER,5,12,Sun Trust accts.,,,,"$1,001 - $15,000",Interest,$1 - $200,high,
+8212292,HONORABLE JIM COOPER,5,13,Sun Trust Banks Inc. (STI)(IRA),STI,,,"$15,001 - $50,000",Dividends,"$201 - $1,000",high,
+8212292,HONORABLE JIM COOPER,5,14,Thoma Cressey Friends Fund VI LP (see attached for investments and transactions),,,,"$15,001 - $50,000",Partnership Income,"$2,501 - $5,000",high,
+8212292,HONORABLE JIM COOPER,6,1,Thoma Cressey Friends Fund VII LP (IRA)(see attached for investments and transactions),,,,"$100,001 - $250,000",Tax-Deferred,None,high,
+8212292,HONORABLE JIM COOPER,6,2,TIAA CREF Stock (annuity),,,,"$15,001 - $50,000",None,None,high,
+8212292,HONORABLE JIM COOPER,6,3,TIAA Traditional (annuity),,,,"$1,001 - $15,000",None,None,high,
+8212292,HONORABLE JIM COOPER,6,4,"Virginia Springs Investments, LLC (undeveloped land, Brentwood, TN (fn))",,,,"$250,001 - $500,000",Partnership Income,"$100,001 - $1,000,000",high,
+8212292,HONORABLE JIM COOPER,6,5,Virtus Investment Partners inc. (VRTS)(IRA),VRTS,,,"$1,001 - $15,000",None,None,high,
+8212292,HONORABLE JIM COOPER,6,6,Wells Fargo Co. (WFC)(IRA),WFC,,,"$1,001 - $15,000",Dividends,$1 - $200,high,
+8212292,HONORABLE JIM COOPER,6,7,Wells Fargo Money Market and cash deposits (taxable),,,,"$100,001 - $250,000",Interest,$1 - $200,high,
+8212292,HONORABLE JIM COOPER,6,8,Wells Fargo Money Market cash deposits (IRA),,,,"$250,001 - $500,000",Tax-Deferred,None,high,
+8212292,HONORABLE JIM COOPER,11,1,Cooper Bros. Partnership (Gross assets reported),,,,"$5,781,274",,,medium,"account header; supplementary Schedule III; value is Jim's share of total"
+8212292,HONORABLE JIM COOPER,11,2,"Located in or near Shelbyville, TN",,,,"$707,567",,,medium,"sub-group of Cooper Bros.; value is Jim's 1/3"
+8212292,HONORABLE JIM COOPER,11,3,Lots at 756 Madison Street,,,,"$826,400",,,medium,"Cooper Bros. sub-holding; tax appraisal value (gross, not filer share)"
+8212292,HONORABLE JIM COOPER,11,4,Lot on East Holland Street,,,,"$87,600",,,medium,"Cooper Bros. sub-holding; tax appraisal value (gross)"
+8212292,HONORABLE JIM COOPER,11,5,Lot on East Depot Street,,,,"$37,400",,,medium,"Cooper Bros. sub-holding; tax appraisal value (gross)"
+8212292,HONORABLE JIM COOPER,11,6,"Lots at 319, 401, 409, and 414 East Lane Street, and 410 Deery Street (purchased 11/25/03)",,,,"$153,500",,,medium,"Cooper Bros. sub-holding; tax appraisal value (gross)"
+8212292,HONORABLE JIM COOPER,11,7,"Lots at 319, 401, 409, and 414 East Lane Street, and 410 Deery Street (purchased 12/30/89)",,,,"$38,400",,,medium,"Cooper Bros. sub-holding; tax appraisal value (gross)"
+8212292,HONORABLE JIM COOPER,11,8,"Lots at 319, 401, 409, and 414 East Lane Street, and 410 Deery Street (purchased 12/28/92)",,,,"$95,200",,,medium,"Cooper Bros. sub-holding; tax appraisal value (gross)"
+8212292,HONORABLE JIM COOPER,11,9,410 Deery St. (purchased 10/19/06),,,,"$32,000",,,medium,"Cooper Bros. sub-holding; amount is purchase price, not a valuation"
+8212292,HONORABLE JIM COOPER,11,10,"Farm at 497 Shofner Bridge Road, 463 acres",,,,"$807,400",,,medium,"Cooper Bros. sub-holding; tax appraised value (gross)"
+8212292,HONORABLE JIM COOPER,11,11,"Field on Thompson Creek Road, 80 acres",,,,"$44,800",,,medium,"Cooper Bros. sub-holding; tax appraisal value (gross)"
+8212292,HONORABLE JIM COOPER,11,12,"Located in or near Smith Mills, KY",,,,"$533,333",,,medium,"sub-group of Cooper Bros.; value is Jim's 1/3; bank appraised value of all KY farms in 1999 at $1.6 million"
+8212292,HONORABLE JIM COOPER,11,13,"Tweedy and Floyd Farms, Hwy. 266, 575 acres",,,,,,,medium,Cooper Bros. sub-holding; no value given
+8212292,HONORABLE JIM COOPER,11,14,"Utley Farms, Burbank Road, 75 acres",,,,,,,medium,Cooper Bros. sub-holding; no value given
+8212292,HONORABLE JIM COOPER,11,15,"Mueth and Brahm Farms, Alzey-Uniontown Road, 270 acres",,,,,,,medium,Cooper Bros. sub-holding; no value given
+8212292,HONORABLE JIM COOPER,11,16,"Klondike Farm, Klondike Road, 453 acres",,,,,,,medium,Cooper Bros. sub-holding; no value given
+8212292,HONORABLE JIM COOPER,12,1,"Located in Brentwood, TN",,,,"$3,250,222",,,medium,sub-group of Cooper Bros.; value is Jim's share
+8212292,HONORABLE JIM COOPER,12,2,"Park Center Partnership I, owns 21% of Gambro Bldg., 5200 Virginia Way",,,,"$14,623,700",,,medium,"Cooper Bros. sub-holding; tax appraised value (gross)"
+8212292,HONORABLE JIM COOPER,12,3,"Park Center Partnership II, owns 21% of LBMC Bldg., 5250 Virginia Way",,,,"$14,628,300",,,medium,"Cooper Bros. sub-holding; tax appraised value (gross)"
+8212292,HONORABLE JIM COOPER,12,4,"Located in Nashville, TN",,,,"$1,290,252",,,medium,sub-group of Cooper Bros.; value is Jim's share
+8212292,HONORABLE JIM COOPER,12,5,"Lot 6A at 658 Grassmere Office Park, Trousdale Pike, Nashville, TN (contributed to Grassmere Five LLC for 58% ownership interest)",,,,"$6,673,200",,,medium,"Cooper Bros. sub-holding; tax appraised value (gross); repeated Cooper Bros. total line at page bottom not duplicated"
+8212292,HONORABLE JIM COOPER,13,1,"Thoma Cressey Friends Fund VI, LP",,,,,,,medium,"account header; portfolio summary as of 12/31/2012, fund total 516,520; Cooper owns small percentage"
+8212292,HONORABLE JIM COOPER,13,2,Select Medical Corporation (SEM),SEM,,,"464,522",,,medium,"fund-level current FMV, not filer's share"
+8212292,HONORABLE JIM COOPER,13,3,"HGH Equity, LLC (Assistive Technology Group Inc., medical and hospital equipment, Rocky Hill, CT)",,,,"51,998",,,medium,"fund-level current FMV, not filer's share"
+8212292,HONORABLE JIM COOPER,13,4,"Thoma Cressey Friends Fund VII, LP",,,,,,,medium,"account header; fund total 3,086,171; Cooper owns small percentage"
+8212292,HONORABLE JIM COOPER,13,5,"Wizard Parent LLC, Attachmate Corporation (software company, Seattle WA)",,,,"296,802",,,medium,"fund-level current FMV, not filer's share"
+8212292,HONORABLE JIM COOPER,13,6,"Hospice Compassus, Inc. (hospice care, Brentwood, TN)",,,,"260,858",,,medium,"fund-level current FMV, not filer's share"
+8212292,HONORABLE JIM COOPER,13,7,Jazz Pharmaceuticals plc (JAZZ),JAZZ,,,"1,061,858",,,medium,"fund-level current FMV, not filer's share"
+8212292,HONORABLE JIM COOPER,13,8,"Porter & Chester Institute, Inc. (technical schools located in CT and MA)",,,,"390,505",,,medium,"fund-level current FMV, not filer's share"
+8212292,HONORABLE JIM COOPER,13,9,Select Medical Corporation (SEM),SEM,,,"953,090",,,medium,"fund-level current FMV, not filer's share"
+8212292,HONORABLE JIM COOPER,13,10,"SpineWave, Inc. (medical devices, Shelton, CT)",,,,"124,058",,,medium,"fund-level current FMV, not filer's share; page 14 (dated realized gains/dividends) skipped as transactions"
+8208944,JOAQUIN CASTRO,3,1,"Residential Property in San Antonio, TX 78240",,,,"$100,001 - $250,000",Rent,"$2,501 - $5,000",medium,"handwritten name over three lines with ditto marks; preceding year income $2,501 - $5,000"
+8208944,JOAQUIN CASTRO,3,2,LLC,,,,"$15,001 - $50,000",,None,low,"handwritten name mostly ditto marks/illegible, only 'LLC' readable; no income type checked; preceding year income None"
+8208944,JOAQUIN CASTRO,3,3,Generations Federal Credit Union,,,,"$15,001 - $50,000",Interest,$1 - $200,medium,"handwritten; preceding year income $201 - $1,000"
+8211978,HONORABLE MADELEINE Z. BORDALLO,3,1,Allanz-Variable Annuity (added to existing account),,,,"$100,001 - $250,000",None,None,high,spelled Allanz on form; transaction P
+8211978,HONORABLE MADELEINE Z. BORDALLO,3,2,"Certificate of Deposit (1) Sun Trust Bank Orlando, FL",,,,"$15,001 - $50,000",Interest,$1 - $200,high,
+8211978,HONORABLE MADELEINE Z. BORDALLO,3,3,"Certificates of Deposit (8)(1 CD matured) Congressional Federal Credit Union Washington, DC",,,,"$500,001 - $1,000,000",Interest,"$15,001 - $50,000",high,transaction S (1 CD)
+8211978,HONORABLE MADELEINE Z. BORDALLO,3,4,"Checking Account Sun Trust Bank Ocala, FL",,,,"$15,001 - $50,000",Interest,"$201 - $1,000",high,
+8211978,HONORABLE MADELEINE Z. BORDALLO,4,1,"Money Market Account Congressional Federal Credit Union Washington, DC",,,,"$15,001 - $50,000",Dividends,$1 - $200,high,
+8211978,HONORABLE MADELEINE Z. BORDALLO,4,2,"Rental 1 Tamuning, GU",,,,"$1,000,001 - $5,000,000",Rent,"$50,001 - $100,000",high,
+8211978,HONORABLE MADELEINE Z. BORDALLO,4,3,"Rental 2 Ocala, FL",,,,"$500,001 - $1,000,000",Rent,"$15,001 - $50,000",high,
+8211978,HONORABLE MADELEINE Z. BORDALLO,4,4,"Rental 3 Las Vegas, NV",,,,"$500,001 - $1,000,000",Rent,"$5,001 - $15,000",high,

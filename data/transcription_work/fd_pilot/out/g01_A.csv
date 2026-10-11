@@ -1,0 +1,681 @@
+doc_id,filer_name,page,row_in_page,asset_name,ticker_on_form,asset_type_code,owner,value_band,income_types,income_amount_band,confidence,note
+8208469,BILL DRISCOLL,15,1,US Bank - Checking Accounts,,,,"$1,001 - $15,000",Interest,$1 - $200,medium,"Form B candidate report; income_amount_band = current year; prior yr: $1 - $200"
+8208469,BILL DRISCOLL,15,2,Wells Fargo - Bank Accounts,,,,"$1,001 - $15,000",Interest,$1 - $200,medium,prior yr: $1 - $200
+8208469,BILL DRISCOLL,15,3,Fidelity Cash Reserves,,,,"$1 - $1,000",Dividends,$1 - $200,medium,prior yr: None
+8208469,BILL DRISCOLL,15,4,Fidelity Municipal Money Market Fund,,,,"$250,001 - $500,000",Interest,$1 - $200,medium,prior yr: $1 - $200
+8208469,BILL DRISCOLL,15,5,Clearwater Tax Exempt Bond Fund,,,,"$1,000,001 - $5,000,000",Interest,"$50,001 - $100,000",medium,"prior yr: $100,001 - $1,000,000"
+8208469,BILL DRISCOLL,15,6,Potlatch Corp New Com,,,,"$1,000,001 - $5,000,000",Dividends,"$15,001 - $50,000",medium,"prior yr: $100,001 - $1,000,000"
+8208469,BILL DRISCOLL,15,7,Weyerhaeuser Co,,,,"$1,000,001 - $5,000,000",Dividends,"$15,001 - $50,000",medium,"prior yr: $50,001 - $100,000"
+8208469,BILL DRISCOLL,15,8,Berkshire Hathaway Inc CL A,,,,"$1,000,001 - $5,000,000",None,None,medium,prior yr: None
+8208469,BILL DRISCOLL,15,9,Berkshire Hathaway Inc CL B,,,,"$100,001 - $250,000",None,None,medium,prior yr: None
+8208469,BILL DRISCOLL,15,10,Clearwater Core Equity Fund,,,,"$1,000,001 - $5,000,000",Dividends,None,medium,"prior yr: $15,001 - $50,000"
+8208469,BILL DRISCOLL,15,11,Travelers Cos Inc Com,,,,"$250,001 - $500,000",Dividends,"$1,001 - $2,500",medium,"prior yr: $5,000 - $15,000"
+8208469,BILL DRISCOLL,15,12,Xcel Energy Inc,,,,"$15,001 - $50,000",Dividends,"$201 - $1,000",medium,"prior yr: $201 - $1,000"
+8208469,BILL DRISCOLL,15,13,Clearwater Paper Corp Com,,,,"$50,001 - $100,000",None,None,medium,prior yr: None
+8208469,BILL DRISCOLL,15,14,Clearwater Small Companies Fund,,,,"$100,001 - $250,000",Dividends;Capital Gains,None,medium,"prior yr: $15,001 - $50,000"
+8208469,BILL DRISCOLL,15,15,Columbia Acorn Fund Class Z,,,,"$1,000,001 - $5,000,000",Dividends;Capital Gains,"$15,001 - $50,000",medium,"prior yr: $50,001 - $100,000"
+8208469,BILL DRISCOLL,15,16,Life Time Fitness Inc,,,,"$1,000,001 - $5,000,000",None,None,medium,prior yr: None
+8208469,BILL DRISCOLL,15,17,Meru Networks Inc,,,,"$1,001 - $15,000",None,None,medium,prior yr: None
+8208469,BILL DRISCOLL,15,18,Clearwater International Fund,,,,"$1,000,001 - $5,000,000",Dividends;Capital Gains,None,medium,"prior yr: $100,001 - $1,000,000"
+8208469,BILL DRISCOLL,15,19,Eaton Vance Parametric T-M Emerging Markets,,,,"$1,000,001 - $5,000,000",Dividends,None,low,"prior yr: $15,001 - $50,000; dense grid, Capital Gains mark may belong to this row or neighbour"
+8208469,BILL DRISCOLL,15,20,Templeton Dragon,,,,"$500,001 - $1,000,000",Dividends;Capital Gains,None,medium,"prior yr: $15,001 - $50,000"
+8208469,BILL DRISCOLL,15,21,Templeton Institutional Emerging Markets,,,,"$250,001 - $500,000",Dividends;Capital Gains,None,medium,"prior yr: $100,001 - $1,000,000"
+8208469,BILL DRISCOLL,15,22,Touchstone Emerging Markets Fund CL I,,,,"$1,001 - $15,000",Dividends;Capital Gains,$1 - $200,medium,prior yr: $1 - $200
+8208469,BILL DRISCOLL,15,23,Potlatch Corp - Deferred Compensation Account,,,,"$500,001 - $1,000,000",None,None,medium,prior yr: None
+8208469,BILL DRISCOLL,15,24,"Through Bluestream Ventures, LP",,,,,Limited Partnership,"$2,501 - $5,000",medium,"partnership account, holdings listed below; prior yr: $5,000 - $15,000"
+8208469,BILL DRISCOLL,15,25,Cash,,,,"$1,001 - $15,000",,,medium,under Bluestream Ventures
+8208469,BILL DRISCOLL,15,26,Akorn Escrow Receivable,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,15,27,"Xora, Inc.",,,,"$15,001 - $50,000",,,medium,
+8208469,BILL DRISCOLL,15,28,INCA Corporation,,,,"$15,001 - $50,000",,,medium,
+8208469,BILL DRISCOLL,15,29,"Spanlink Communication, Inc.",,,,"$15,001 - $50,000",,,medium,
+8208469,BILL DRISCOLL,15,30,Meru Networks Inc,,,,"$1,001 - $15,000",,,medium,second Meru line (under Bluestream)
+8208469,BILL DRISCOLL,15,31,Calabrio,,,,"$15,001 - $50,000",,,medium,
+8208469,BILL DRISCOLL,15,32,"Akorn Networks, Inc.",,,,None,,,medium,
+8208469,BILL DRISCOLL,15,33,Through Churchill Environmental & Industrial Equity Partners,,,,,Limited Partnership,None,medium,"partnership account; prior yr: $1,001 - $2,500"
+8208469,BILL DRISCOLL,15,34,Oahu Waste Services,,,,None,,,medium,
+8208469,BILL DRISCOLL,15,35,Through Churchill Equity & ESOP Cap B,,,,,Limited Partnership,"$100,001 - $1,000,000",medium,"partnership account; prior yr: $100,001 - $1,000,000"
+8208469,BILL DRISCOLL,15,36,Cash,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,15,37,Cal Quality Electronics,,,,"$15,001 - $50,000",,,medium,
+8208469,BILL DRISCOLL,15,38,"GCM North American Aerospace, LLC",,,,None,,,medium,
+8208469,BILL DRISCOLL,15,39,"Orchid Orthopedic Solutions, LLC",,,,None,,,medium,
+8208469,BILL DRISCOLL,15,40,Escrow Receivable,,,,"$50,001 - $100,000",,,medium,
+8208469,BILL DRISCOLL,15,41,Through Churchill ESOP Capital Partners,,,,,Limited Partnership,"$201 - $1,000",medium,"partnership account; prior yr: $1,001 - $2,500"
+8208469,BILL DRISCOLL,15,42,"Churchill Aerospace, LLC",,,,"$50,001 - $100,000",,,medium,
+8208469,BILL DRISCOLL,16,1,Receivable,,,,"$1,001 - $15,000",,,low,"line reads only 'Receivable'; may continue an asset name from page 15"
+8208469,BILL DRISCOLL,16,2,Through Clearwater Private Opportunity Fund LP,,,,,Limited Partnership,"$15,001 - $50,000",medium,"partnership account; prior yr: $15,001 - $50,000"
+8208469,BILL DRISCOLL,16,3,"2003 Riverside Capital Appreciation Fund, LP",,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,16,4,"Adam Street Partnership Fund-2002 Non-U.S. Fund, LP",,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,16,5,"Adam Street Partnership Fund-2002 U.S. Fund, LP",,,,"$50,001 - $100,000",,,medium,
+8208469,BILL DRISCOLL,16,6,"BDCM Opportunity Fund, LP",,,,"$15,001 - $50,000",,,medium,
+8208469,BILL DRISCOLL,16,7,"HarbourVest Int'l Private Equity Partners IV-Partnership Fund, LP",,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,16,8,"HarbourVest Partners VII-Buyout Partnership Fund, LP",,,,"$15,001 - $50,000",,,medium,
+8208469,BILL DRISCOLL,16,9,"HarbourVest Partners VII-Venture Partnership Fund, LP",,,,"$50,001 - $100,000",,,medium,
+8208469,BILL DRISCOLL,16,10,"Institutional Venture Partners XI, LP",,,,"$15,001 - $50,000",,,medium,
+8208469,BILL DRISCOLL,16,11,"JLL Partners Fund IV, LP",,,,"$15,001 - $50,000",,,medium,
+8208469,BILL DRISCOLL,16,12,"Kelso Investment Associates VII, LP",,,,"$15,001 - $50,000",,,medium,
+8208469,BILL DRISCOLL,16,13,"Morgan Stanley AIP Global Diversified Fund, LP",,,,"$15,001 - $50,000",,,medium,
+8208469,BILL DRISCOLL,16,14,Through Clearwater Private Opportunity Fund II LP,,,,,Limited Partnership,"$5,001 - $15,000",medium,"partnership account; prior yr: $15,001 - $50,000"
+8208469,BILL DRISCOLL,16,15,"HIG Europe Capital Partners, LP",,,,"$15,001 - $50,000",,,medium,
+8208469,BILL DRISCOLL,16,16,Adams Street 2006 Direct Fund LP,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,16,17,Adams Street 2006 Non-US Fund LP,,,,"$15,001 - $50,000",,,medium,
+8208469,BILL DRISCOLL,16,18,Adams Street 2006 US Fund LP,,,,"$15,001 - $50,000",,,medium,
+8208469,BILL DRISCOLL,16,19,BDCM Opportunity Fund II LP,,,,"$15,001 - $50,000",,,medium,
+8208469,BILL DRISCOLL,16,20,"Cerberus Institutional Partners, LP Series Four",,,,"$50,001 - $100,000",,,medium,
+8208469,BILL DRISCOLL,16,21,"Coral 2007 Inst Momentum Fund, LP",,,,"$50,001 - $100,000",,,medium,
+8208469,BILL DRISCOLL,16,22,"Housatonic Equity Investors IV, LP",,,,"$15,001 - $50,000",,,medium,
+8208469,BILL DRISCOLL,16,23,"Institutional Venture Partners XII, LP",,,,"$100,001 - $250,000",,,medium,
+8208469,BILL DRISCOLL,16,24,KIA VIII (International) LP,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,16,25,"Kelso Investment Associates VIII, LP",,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,16,26,"Morgan Stanley Private Markets Fund III, LP",,,,"$50,001 - $100,000",,,medium,
+8208469,BILL DRISCOLL,16,27,"Permal Private Equity Opportunities II, LP",,,,"$15,001 - $50,000",,,medium,
+8208469,BILL DRISCOLL,16,28,"Permal Private Equity Opportunities III, LP",,,,"$15,001 - $50,000",,,medium,
+8208469,BILL DRISCOLL,16,29,"Portfolio Advisors Private Equity Fund III, LP",,,,"$15,001 - $50,000",,,medium,
+8208469,BILL DRISCOLL,16,30,"Spell Capital Partners Qualified Fund III, LP",,,,"$15,001 - $50,000",,,medium,
+8208469,BILL DRISCOLL,16,31,"Veritas Capital Fund III, LP",,,,"$50,001 - $100,000",,,medium,
+8208469,BILL DRISCOLL,16,32,"Wynnchurch Capital Partners II, LP",,,,"$15,001 - $50,000",,,medium,
+8208469,BILL DRISCOLL,16,33,Through Clearwater Private Opportunity Fund III LP,,,,,Limited Partnership,"$5,001 - $15,000",medium,"partnership account; prior yr: $15,001 - $50,000"
+8208469,BILL DRISCOLL,16,34,Adams Street 2009 Direct Fund LP,,,,"$15,001 - $50,000",,,medium,
+8208469,BILL DRISCOLL,16,35,"Adams Street 2009 Non US Developed Fund, LP",,,,"$15,001 - $50,000",,,medium,
+8208469,BILL DRISCOLL,16,36,"Adams Street 2009 Non US Emerging Fund, LP",,,,"$1,001 - $15,000",,,low,row/column alignment unclear (could be $15,001 - $50,000 row of neighbour)
+8208469,BILL DRISCOLL,16,37,"Adams Street 2009 US Fund, LP",,,,"$15,001 - $50,000",,,medium,
+8208469,BILL DRISCOLL,16,38,BDCM Opportunity Fund III LP,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,16,39,"H.I.G Bayside Debt & LBO Fund II, LP",,,,"$15,001 - $50,000",,,medium,
+8208469,BILL DRISCOLL,16,40,Institutional Venture Partners XIII,,,,"$15,001 - $50,000",,,medium,
+8208469,BILL DRISCOLL,16,41,"JLL Partners Fund VI, LP",,,,"$15,001 - $50,000",,,medium,
+8208469,BILL DRISCOLL,16,42,"Morgan Stanley Emerging Private Markets Fund I, LP",,,,"$15,001 - $50,000",,,medium,
+8208469,BILL DRISCOLL,17,1,"Morgan Stanley Private Markets Fund IV, LP",,,,"$100,001 - $250,000",,,medium,
+8208469,BILL DRISCOLL,17,2,"Oaktree Principal Fund V, LP",,,,"$15,001 - $50,000",,,medium,
+8208469,BILL DRISCOLL,17,3,"Selene Residential Mortgage Opportunity Fund, LP",,,,"$15,001 - $50,000",,,medium,
+8208469,BILL DRISCOLL,17,4,"Veritas Capital Fund IV, LP",,,,"$15,001 - $50,000",,,medium,
+8208469,BILL DRISCOLL,17,5,Wynnchurch Partners III,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,17,6,Through Clearwater Private Opportunity Fund IV LP,,,,,Limited Partnership,None,medium,partnership account; prior yr: None
+8208469,BILL DRISCOLL,17,7,Adams Street 2012 Global Fund LP,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,17,8,"Morgan Stanley Private Markets Fund V, LP",,,,"$15,001 - $50,000",,,medium,
+8208469,BILL DRISCOLL,17,9,Through Coral's 2007 Momentum Fund LP,,,,,Limited Partnership,"$201 - $1,000",medium,"partnership account; prior yr: $201 - $1,000"
+8208469,BILL DRISCOLL,17,10,Cash,,,,"$15,001 - $50,000",,,medium,
+8208469,BILL DRISCOLL,17,11,"Delivery Agent, Inc.",,,,"$15,001 - $50,000",,,medium,
+8208469,BILL DRISCOLL,17,12,"Entone, Inc.",,,,"$50,001 - $100,000",,,medium,
+8208469,BILL DRISCOLL,17,13,"Firetide, Inc.",,,,"$15,001 - $50,000",,,medium,
+8208469,BILL DRISCOLL,17,14,"Fon Wireless, Limited",,,,"$100,001 - $250,000",,,medium,
+8208469,BILL DRISCOLL,17,15,"InfoGin, Ltd.",,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,17,16,"PlayPhone, Inc.",,,,"$15,001 - $50,000",,,medium,
+8208469,BILL DRISCOLL,17,17,Red Bend Software Ltd.,,,,"$50,001 - $100,000",,,medium,
+8208469,BILL DRISCOLL,17,18,"SugarSync, Inc.",,,,"$50,001 - $100,000",,,medium,
+8208469,BILL DRISCOLL,17,19,Through Coral's Momentum Fund LP,,,,,Limited Partnership,$1 - $200,medium,partnership account; prior yr: $1 - $200
+8208469,BILL DRISCOLL,17,20,Cash,,,,"$15,001 - $50,000",,,medium,
+8208469,BILL DRISCOLL,17,21,"Force10 Networks, Inc.",,,,None,,,medium,
+8208469,BILL DRISCOLL,17,22,"Firetide, Inc.",,,,"$15,001 - $50,000",,,medium,
+8208469,BILL DRISCOLL,17,23,"Freeborders, Inc.",,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,17,24,Infinera Corporation,,,,"$50,001 - $100,000",,,medium,
+8208469,BILL DRISCOLL,17,25,IP Unity,,,,None,,,medium,
+8208469,BILL DRISCOLL,17,26,Movius Interactive Corporation,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,17,27,"Vertical Communications, Inc.",,,,None,,,medium,
+8208469,BILL DRISCOLL,17,28,Through Morgan Stanley AIP Global Diversified Fund LP,,,,,Limited Partnership,"$50,001 - $100,000",medium,"partnership account; prior yr: $100,001 - $1,000,000"
+8208469,BILL DRISCOLL,17,29,"Newbridge Asia IV, LP",,,,"$15,001 - $50,000",,,medium,
+8208469,BILL DRISCOLL,17,30,"Baring Vostok Private Equity Fund, LP",,,,"$15,001 - $50,000",,,medium,
+8208469,BILL DRISCOLL,17,31,Asia Opportunity Fund II LP,,,,"$15,001 - $50,000",,,medium,
+8208469,BILL DRISCOLL,17,32,Paine & Partners Capital Fund III LP,,,,"$15,001 - $50,000",,,medium,
+8208469,BILL DRISCOLL,17,33,Brazos Equity Fund II LP,,,,"$15,001 - $50,000",,,medium,
+8208469,BILL DRISCOLL,17,34,Kohlberg Investors V LP,,,,"$15,001 - $50,000",,,medium,
+8208469,BILL DRISCOLL,17,35,Advent Latin America Private Equity Fund III,,,,"$15,001 - $50,000",,,medium,
+8208469,BILL DRISCOLL,17,36,Century Park Capital Partners II LP,,,,"$15,001 - $50,000",,,medium,
+8208469,BILL DRISCOLL,17,37,Quad Partners III LP,,,,"$15,001 - $50,000",,,medium,
+8208469,BILL DRISCOLL,17,38,MSAIP Investment Holdings SRL (Edgestone Capital Equity Fund III LP),,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,17,39,Quad Partners II LP,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,17,40,"Trinity Equity Holdings, LLC",,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,17,41,Alchemy Plan (Private Markets II) LP,,,,"$15,001 - $50,000",,,medium,
+8208469,BILL DRISCOLL,17,42,Carlyle Europe Partners II LP,,,,"$15,001 - $50,000",,,medium,
+8208469,BILL DRISCOLL,18,1,Advent International GPE V- C LP,,,,"$15,001 - $50,000",,,medium,
+8208469,BILL DRISCOLL,18,2,Palamon European Equity II LP,,,,"$15,001 - $50,000",,,medium,
+8208469,BILL DRISCOLL,18,3,MBO Capital 2,,,,"$15,001 - $50,000",,,medium,
+8208469,BILL DRISCOLL,18,4,German Equity Partners III LP,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,18,5,Lion Capital Fund I LP,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,18,6,Apax Europe V-B LP,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,18,7,Unison Capital Partners II (F) LP,,,,"$15,001 - $50,000",,,medium,
+8208469,BILL DRISCOLL,18,8,Unison Stand-by Facility 2 LP,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,18,9,OCM European Principal Opportunities Fund LP,,,,"$50,001 - $100,000",,,medium,
+8208469,BILL DRISCOLL,18,10,Wayzata Opportunities Fund LLC,,,,"$15,001 - $50,000",,,medium,
+8208469,BILL DRISCOLL,18,11,"Cerberus Institutional Partners, LP Series Four",,,,"$15,001 - $50,000",,,medium,
+8208469,BILL DRISCOLL,18,12,Fortress Investment Fund III (Fund D) LP,,,,"$15,001 - $50,000",,,medium,
+8208469,BILL DRISCOLL,18,13,Creo Capital Partners II LP,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,18,14,Bayside Opportunity Fund LP,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,18,15,Atlantic Street Capital I LLC,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,18,16,France Private Equity III,,,,"$15,001 - $50,000",,,medium,
+8208469,BILL DRISCOLL,18,17,KSL Capital Partners II LP,,,,"$15,001 - $50,000",,,medium,
+8208469,BILL DRISCOLL,18,18,Symphony Capital Partners LP,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,18,19,PCM/GFI Power Opportunities Fund II LP,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,18,20,Union Square Ventures 2004 LP,,,,"$50,001 - $100,000",,,medium,
+8208469,BILL DRISCOLL,18,21,Columbia Capital Equity Partners IV (QP) LP,,,,"$15,001 - $50,000",,,medium,
+8208469,BILL DRISCOLL,18,22,"WestBridge Ventures II, LLC",,,,"$15,001 - $50,000",,,medium,
+8208469,BILL DRISCOLL,18,23,Gemini Israel IV LP,,,,"$15,001 - $50,000",,,medium,
+8208469,BILL DRISCOLL,18,24,AsiaVest Opportunities Fund IV,,,,"$15,001 - $50,000",,,medium,
+8208469,BILL DRISCOLL,18,25,Vivo Ventures Fund V LP,,,,"$15,001 - $50,000",,,medium,
+8208469,BILL DRISCOLL,18,26,ONSET V LP,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,18,27,Sightline Healthcare Vintage Fund LP,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,18,28,Columbia Capital Equity Partners III (QP) LP,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,18,29,Sightline Healthcare Fund IV LP,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,18,30,Commander Ltd.,,,,"$50,001 - $100,000",,,medium,
+8208469,BILL DRISCOLL,18,31,FP WRCA Coinvestment Fund III Ltd.,,,,"$50,001 - $100,000",,,medium,
+8208469,BILL DRISCOLL,18,32,Hoak Media LLC,,,,"$15,001 - $50,000",,,medium,
+8208469,BILL DRISCOLL,18,33,Central Parking Corporation,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,18,34,BCP V Co-Investors LP,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,18,35,NBC Invest S.a r.l.,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,18,36,CDR CCMG Co-Investor LP,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,18,37,Lion/Latimer Coinvestors LP,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,18,38,Lion/Latimer Investments No. 1 LP,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,18,39,TFCP II Co-Investment 2 LP,,,,"$15,001 - $50,000",,,medium,
+8208469,BILL DRISCOLL,18,40,Dutch Cable LP,,,,"$15,001 - $50,000",,,medium,
+8208469,BILL DRISCOLL,18,41,RD Card Cayman One Limited,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,18,42,TFCP II Co-Investment 2 A LP,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,19,1,Cerberus CG Investor LLC,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,19,2,Symphony Evolution Investors LLC,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,19,3,Symphony Dynamo Investors LLC,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,19,4,Symphony Icon Investors LLC,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,19,5,Sagent Pharmaceuticals Inc.,,,,"$15,001 - $50,000",,,medium,
+8208469,BILL DRISCOLL,19,6,Dynavax Technologies Corporation,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,19,7,"Alexza Pharmaceuticals, Inc.",,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,19,8,State Street Eurodollar Time Deposit,,,,"$15,001 - $50,000",,,medium,
+8208469,BILL DRISCOLL,19,9,Through Morgan Stanley Private Markets Fund III LP,,,,,Limited Partnership,"$15,001 - $50,000",medium,"partnership account; prior yr: $100,001 - $1,000,000"
+8208469,BILL DRISCOLL,19,10,MBK Partners LP,,,,"$15,001 - $50,000",,,medium,
+8208469,BILL DRISCOLL,19,11,Kohlberg Investors VI LP,,,,"$15,001 - $50,000",,,medium,
+8208469,BILL DRISCOLL,19,12,VMG Equity Partners LP,,,,"$15,001 - $50,000",,,medium,
+8208469,BILL DRISCOLL,19,13,Advent Latin America Private Equity Fund IV-E LP,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,19,14,"Housatonic Equity Investors IV, LP",,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,19,15,Quad Partners III LP,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,19,16,HIG Capital Partners IV LP,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,19,17,Liberty Partners II LP,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,19,18,Quad Partners II LP,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,19,19,"Trinity Equity Holdings, LLC",,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,19,20,Alchemy Plan (Private Markets III) LP,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,19,21,Lion Capital Fund II LP,,,,"$15,001 - $50,000",,,medium,
+8208469,BILL DRISCOLL,19,22,Palamon European Equity II LP,,,,"$15,001 - $50,000",,,medium,
+8208469,BILL DRISCOLL,19,23,Polish Enterprise Fund VI LP,,,,"$15,001 - $50,000",,,medium,
+8208469,BILL DRISCOLL,19,24,Procuritas Capital Investors IV A LP,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,19,25,"HIG Europe Capital Partners, LP",,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,19,26,Terra Firma Capital Partners III LP,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,19,27,AFINUM Funfte Beteiligungsgesellschaft mbH & Co KG,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,19,28,Unison Stand-by Facility 2 LP,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,19,29,Cerebrus Institutional Partners LP (Series Four),,,,"$15,001 - $50,000",,,medium,
+8208469,BILL DRISCOLL,19,30,MSAIP Investment Holdings SRL (Catalyst Fund LP II),,,,"$15,001 - $50,000",,,medium,
+8208469,BILL DRISCOLL,19,31,OCM Principal Opportunities IV LP,,,,"$15,001 - $50,000",,,medium,
+8208469,BILL DRISCOLL,19,32,Lone Star Fund VI (US) LP,,,,"$15,001 - $50,000",,,medium,
+8208469,BILL DRISCOLL,19,33,Fortress Investment Fund IV (Fund D) LP,,,,"$15,001 - $50,000",,,medium,
+8208469,BILL DRISCOLL,19,34,MatlinPatterson Global Opportunities Partners III LP,,,,"$15,001 - $50,000",,,medium,
+8208469,BILL DRISCOLL,19,35,Creo Capital Partners II LP,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,19,36,Fortress Investment Fund IV (Co-Investment Fund D) LP,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,19,37,KPS Special Situations Fund III LP,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,19,38,Atlantic Street Capital I LLC,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,19,39,Apollo European Principal Finance Fund LP,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,19,40,Guggenheim Aviation Investment Fund II LP,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,19,41,Paul Royalty Fund II LP,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,19,42,Paul Royalty Fund LP,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,20,1,"Foundry Venture Capital 2007, LP",,,,"$50,001 - $100,000",,,medium,
+8208469,BILL DRISCOLL,20,2,M/C Venture Partners VI LP,,,,"$15,001 - $50,000",,,medium,
+8208469,BILL DRISCOLL,20,3,Vivo Ventures Fund VI LP,,,,"$15,001 - $50,000",,,medium,
+8208469,BILL DRISCOLL,20,4,Braemar Energy Ventures II LP,,,,"$15,001 - $50,000",,,medium,
+8208469,BILL DRISCOLL,20,5,Emergence Capital Partners II LP,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,20,6,"WestBridge Ventures II, LLC",,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,20,7,CVP 2008 LP,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,20,8,Pitango Venture Capital Fund V LP,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,20,9,BDF IV Annex Fund LP,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,20,10,Columbia Capital Equity Partners III (QP) LP,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,20,11,M/C Venture Partners V LP,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,20,12,Abingworth Bioventures V LP,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,20,13,Eden Two LP,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,20,14,Buck Holdings LP,,,,"$15,001 - $50,000",,,medium,
+8208469,BILL DRISCOLL,20,15,Commander Ltd.,,,,"$15,001 - $50,000",,,medium,
+8208469,BILL DRISCOLL,20,16,IGPS Co-Investment LLC,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,20,17,Hoak Media LLC,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,20,18,CDR USF Co-Investor LP,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,20,19,BCP V Co-Investors LP,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,20,20,THL Equity Fund VI Intermediate Investors (Univision) LP,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,20,21,VMG Waggin' Train Coinvestment Partnership LP,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,20,22,AnaCap Derby Co-Investment (No. 1) LP,,,,"$15,001 - $50,000",,,medium,
+8208469,BILL DRISCOLL,20,23,AnaCap Calcium LP,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,20,24,Dutch Cable LP,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,20,25,RD Card Cayman One Limited,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,20,26,AnaCap Atlantic Co-Investment (No. 2) LP,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,20,27,WW Debt Co. Limited and WWRD Group Holdings Limited,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,20,28,Cerberus CG Investor I LLC,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,20,29,"Webb S.a r.l., Compartment 4",,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,20,30,Symphony Evolution Investors LLC,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,20,31,Symphony Icon Investors LLC,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,20,32,Sagent Pharmaceuticals Inc.,,,,"$15,001 - $50,000",,,medium,
+8208469,BILL DRISCOLL,20,33,Dynavax Technologies Corporation,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,20,34,State Street Eurodollar Time Deposit,,,,"$15,001 - $50,000",,,medium,
+8208469,BILL DRISCOLL,20,35,Through Morgan Stanley Private Markets Fund IV LP,,,,,Limited Partnership,"$15,001 - $50,000",medium,"partnership account; prior yr: $15,001 - $50,000"
+8208469,BILL DRISCOLL,20,36,MBK Partners Fund II LP,,,,"$15,001 - $50,000",,,medium,
+8208469,BILL DRISCOLL,20,37,Liberty Partners II LP,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,20,38,Axxon Brazil Private Equity Fund I-B LP,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,20,39,Castle Creek Capital Partners IV LP,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,20,40,Brazos Equity Fund III LP,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,20,41,Graham Partners II LP,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,20,42,Healthpoint Capital Partners II LP,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,21,1,Mistral Equity Partners LP,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,21,2,Leeds Weld Equity Partners IV LP,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,21,3,Ripplewood Partners II Parallel Fund LP,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,21,4,"Housatonic Equity Investors V, LP",,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,21,5,Advent Latin American Private Equity Fund V-F LP,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,21,6,Graham Partners III LP,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,21,7,Oaktree Power Opportunities Fund III LP,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,21,8,Francisco Partners LP,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,21,9,Catterton Partners VI-B Offshore LP,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,21,10,Catterton Partners VI-B LP,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,21,11,Indium IV (Mauritius) Holdings Limited,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,21,12,Turkish Private Equity Fund II LP,,,,"$15,001 - $50,000",,,medium,
+8208469,BILL DRISCOLL,21,13,AnaCap Financial Partners II LP,,,,"$15,001 - $50,000",,,medium,
+8208469,BILL DRISCOLL,21,14,FSN Capital III LP,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,21,15,"HIG Europe Capital Partners, LP",,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,21,16,Langholm Capital Partners LP,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,21,17,CVC European Equity Partners IV (B) LP,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,21,18,OCM European Principal Opportunities Fund II (US) LP,,,,"$15,001 - $50,000",,,medium,
+8208469,BILL DRISCOLL,21,19,Lone Star Fund VI (US) LP,,,,"$15,001 - $50,000",,,medium,
+8208469,BILL DRISCOLL,21,20,DAC China Special Opportunity and Situation Fund LP,,,,"$15,001 - $50,000",,,medium,
+8208469,BILL DRISCOLL,21,21,Strategic Value Global Opportunities Master Fund LP,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,21,22,Alterna Core Capital Asset Fund LP,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,21,23,Catalyst Fund LP III,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,21,24,Versa Capital Fund II LP,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,21,25,Catalyst Fund II Parallel LP,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,21,26,Atlantic Street Capital I LLC,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,21,27,Catalyst Fund LP II,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,21,28,Garrison Opportunity Fund II C LP,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,21,29,Cerebrus Institutional Partners LP (Series Four),,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,21,30,MatlinPatterson Global Opportunities Partners III LP,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,21,31,Polygon Recovery Fund LP,,,,"$15,001 - $50,000",,,medium,
+8208469,BILL DRISCOLL,21,32,Gottex Brent Real Asset Fund LP,,,,"$15,001 - $50,000",,,medium,
+8208469,BILL DRISCOLL,21,33,Drug Royalty II,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,21,34,Chrysalis Ventures III LP,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,21,35,Village Ventures Fund II LP,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,21,36,Union Square Ventures 2008 LP,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,21,37,Columbia Capital Equity Partners V (QP) LP,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,21,38,VWP 2008 LP,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,21,39,Gemini Israel V LP,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,21,40,ONSET VI LP,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,21,41,Cedar Fund III LP,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,21,42,Target Partners Fund II GmbH & Co. KG,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,22,1,China Network System,,,,"$50,001 - $100,000",,,medium,
+8208469,BILL DRISCOLL,22,2,Communications Infrastructure Investments LLC,,,,"$15,001 - $50,000",,,medium,
+8208469,BILL DRISCOLL,22,3,HIG Allion LLC,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,22,4,"MSAIP MACS Blocker (Offshore), Inc.",,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,22,5,Catterton Aggregating LLC,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,22,6,VMG Speck Coinvestment Partnership LP,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,22,7,Nobles Co-Invest (IGI-II) LP,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,22,8,TechDevice Co-Invest (IGI-II) LP,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,22,9,AnaCap Derby Co-Investment LP,,,,"$15,001 - $50,000",,,medium,
+8208469,BILL DRISCOLL,22,10,ADP Primary Care Holdings Limited,,,,"$15,001 - $50,000",,,medium,
+8208469,BILL DRISCOLL,22,11,FSN Capital III HusCompagniet Co-Investment LP,,,,"$15,001 - $50,000",,,medium,
+8208469,BILL DRISCOLL,22,12,Lone Star US Investments LP,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,22,13,"Webb S.a.r.l., Compartment 4",,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,22,14,HIG FCC Holdings LLC,,,,"$15,001 - $50,000",,,medium,
+8208469,BILL DRISCOLL,22,15,2e2 Holdings Limited,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,22,16,EUN Partners V LLC,,,,"$15,001 - $50,000",,,medium,
+8208469,BILL DRISCOLL,22,17,Solazyme Investments LLC,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,22,18,CF Special Purpose LLC,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,22,19,Oblong Industries Inc.,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,22,20,Taiwan Dollar Put Option Strike,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,22,21,JPMorgan Chase & Co. Commerical Paper,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,22,22,Through Spell Capital Partners Qualified Fund III,,,,,Limited Partnership,None,medium,partnership account; prior yr: None
+8208469,BILL DRISCOLL,22,23,Cash,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,22,24,Capital Equipment Group,,,,"$100,001 - $250,000",,,medium,
+8208469,BILL DRISCOLL,22,25,Spectrum Plastics Group,,,,"$15,001 - $50,000",,,medium,
+8208469,BILL DRISCOLL,22,26,Arctic Fox LLC,,,,None,,,medium,
+8208469,BILL DRISCOLL,22,27,Arctic Fox escrow receivable,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,22,28,Through Morgan Stanley AIP Seventh Street Fund LP,,,,,Limited Partnership,"$5,001 - $15,000",medium,"partnership account; prior yr: $15,001 - $50,000"
+8208469,BILL DRISCOLL,22,29,Blue Trend Fund LP,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,22,30,Monarch Debt Recovery Fund LP,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,22,31,York Credit Opportunities Fund LP,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,22,32,Centerbridge Credit Partners LP,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,22,33,Cerberus Partners LP,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,22,34,Appaloosa Investment LP I,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,22,35,Cerberus Partners II LP,,,,None,,,medium,
+8208469,BILL DRISCOLL,22,36,Millenium USA LP,,,,"$15,001 - $50,000",,,medium,
+8208469,BILL DRISCOLL,22,37,HealthCor LP,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,22,38,Prism Partners III Leveraged LP,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,22,39,MSG Partners LP,,,,"$15,001 - $50,000",,,medium,
+8208469,BILL DRISCOLL,22,40,Visium Balanced Fund LP,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,22,41,Scopus Partners II LP,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,22,42,Pelham Long/Short Fund LP,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,23,1,Seligman Tech Spectrum Fund LP,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,23,2,East Side Capital LP,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,23,3,JHL Capital Group Fund LLC,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,23,4,Karsch Capital II LP,,,,None,,,medium,
+8208469,BILL DRISCOLL,23,5,Lansdowne Developed Markets Fund LP,,,,None,,,medium,
+8208469,BILL DRISCOLL,23,6,Landsdowne Global Financials Fund LP,,,,None,,,medium,
+8208469,BILL DRISCOLL,23,7,Citadel Tactical Trading LLC,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,23,8,Discovery Global Opportunity Partners LP,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,23,9,Brevan Howard LP,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,23,10,Tudor BVI Global Fund LP,,,,"$1,001 - $15,000",,,low,check mark for this row not clearly visible
+8208469,BILL DRISCOLL,23,11,Graham Global Investment Fund Ltd. - Discretionary - 12V Portfolio,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,23,12,Spinnaker Global Opportunity Fund Ltd.,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,23,13,Spinnaker Capital Pacnet,,,,None,,,medium,
+8208469,BILL DRISCOLL,23,14,SPM Core Fund LP,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,23,15,DoubleLine Opportunistic Income II LP,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,23,16,Tilden Park Investment Fund LP,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,23,17,KLS Diversified Fund LP,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,23,18,DE Shaw Composite Fund LLC,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,23,19,Citadel Wellington LLC,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,23,20,Owl Creek Overseas Fund Ltd.,,,,"$1 - $1,000",,,medium,
+8208469,BILL DRISCOLL,23,21,Two Sigma Spectrum US Fund LP,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,23,22,GSA Capital International Partners LP,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,23,23,Landsdowne UK Equity Fund LP,,,,None,,,medium,
+8208469,BILL DRISCOLL,23,24,Conatus Capital Partners LP,,,,None,,,medium,
+8208469,BILL DRISCOLL,23,25,Ascend Partners Fund II LP,,,,None,,,medium,
+8208469,BILL DRISCOLL,23,26,SR Global Fund LP,,,,None,,,medium,
+8208469,BILL DRISCOLL,23,27,Highbridge Long/Short Equity Fund LP,,,,None,,,medium,
+8208469,BILL DRISCOLL,23,28,Robeco Transtrend Diversifed Fund LLC,,,,None,,,medium,
+8208469,BILL DRISCOLL,23,29,Pimco ALL Asset Inst Class,,,,"$50,001 - $100,000",Dividends,"$201 - $1,000",medium,"prior yr: $5,000 - $15,000"
+8208469,BILL DRISCOLL,23,30,EII Global Property Fund,,,,"$50,001 - $100,000",Dividends,None,medium,"prior yr: $1,001 - $2,500"
+8208469,BILL DRISCOLL,23,31,Pacific Life Insurance Policy - Whole Life,,,,"$1,000,001 - $5,000,000",None,None,medium,prior yr: None
+8208469,BILL DRISCOLL,23,32,"Continental Citrus Corporation - Note Receivable Plantation, Florida",,,,"$100,001 - $250,000",Interest,None,medium,"location line joined; prior yr: $2,501 - $5,000"
+8208469,BILL DRISCOLL,23,33,"Grove Village LLC - Note Receivable Miami, Florida",,,,"$5,000,001 - $25,000,000",None,None,medium,location line joined; prior yr: None
+8208469,BILL DRISCOLL,23,34,"Jefferson Street LLC - Note Receivable Federal Way, Washington",,,,"$500,001 - $1,000,000",None,None,medium,location line joined; prior yr: None
+8208469,BILL DRISCOLL,23,35,"Paul Fox - Note Receivable New York, New York",,,,"$15,001 - $50,000",None,None,medium,location line joined; prior yr: None
+8208469,BILL DRISCOLL,23,36,"Paul Fox International LLC - Note Receivable New York, New York",,,,"$15,001 - $50,000",None,None,medium,location line joined; prior yr: None
+8208469,BILL DRISCOLL,23,37,"Pointe Blue Heron LLC - Note Receivable Miami, Florida",,,,"$50,001 - $100,000",Interest,None,medium,"location line 'Miami, Florida' is first line of page 24, joined here; prior yr: $15,001 - $50,000"
+8208469,BILL DRISCOLL,24,1,"SH Lucien Pointe - Note Receivable Miami, Florida",,,,"$100,001 - $250,000",Interest,None,medium,"location line joined; prior yr: $15,001 - $50,000"
+8208469,BILL DRISCOLL,24,2,"CG 3830 Charles LLC - Note Receivable Miami, Florida",,,,None,Interest,None,medium,"location line joined; prior yr: $1,001 - $2,500"
+8208469,BILL DRISCOLL,24,3,"CG 3900 Charles LLC - Note Receivable Miami, Florida",,,,None,Interest,None,medium,"location line joined; prior yr: $1,001 - $2,500"
+8208469,BILL DRISCOLL,24,4,"SH Lago Mar, LLC - Note Receivable Miami, Florida",,,,None,Interest,None,medium,"location line joined; prior yr: $5,000 - $15,000"
+8208469,BILL DRISCOLL,24,5,"Topia Technology Inc - Note Receivable Tacoma, Washington",,,,"$15,001 - $50,000",None,None,medium,location line joined; prior yr: None
+8208469,BILL DRISCOLL,24,6,"William L. Driscoll GST Exempt Term Trust No. 1 - Note Receivable St. Paul, Minnesota",,,,"$1,000,001 - $5,000,000",Interest,"$50,001 - $100,000",medium,location line joined; first of three identical lines; prior yr: None
+8208469,BILL DRISCOLL,24,7,"William L. Driscoll GST Exempt Term Trust No. 1 - Note Receivable St. Paul, Minnesota",,,,"$1,000,001 - $5,000,000",Interest,"$15,001 - $50,000",medium,location line joined; second of three identical lines; prior yr: None
+8208469,BILL DRISCOLL,24,8,"William L. Driscoll GST Exempt Term Trust No. 1 - Note Receivable St. Paul, Minnesota",,,,"$1,000,001 - $5,000,000",Interest,"$15,001 - $50,000",medium,location line joined; third of three identical lines; prior yr: None
+8208469,BILL DRISCOLL,24,9,Through DF Holdings LLC,,,,,,,medium,account header
+8208469,BILL DRISCOLL,24,10,Wells Fargo - Checking,,,,"$1,001 - $15,000",Interest,$1 - $200,medium,prior yr: $1 - $200
+8208469,BILL DRISCOLL,24,11,"Digital Footprints International - Note Receivable Tacoma, Washington",,,,"$100,001 - $250,000",None,"$2,501 - $5,000",low,"income type None is checked but an income amount is also checked; prior yr: $2,501 - $5,000"
+8208469,BILL DRISCOLL,24,12,"Greenwood Resources China LTD Beijing, China Develops and manages tree farms in China",,,,"$250,001 - $500,000",None,None,medium,location/description lines joined; prior yr: None
+8208469,BILL DRISCOLL,24,13,"Greenwood Resources Series A Preferred Stock Portland, Oregon Develop and manage high yield tree farms",,,,"$250,001 - $500,000",None,None,medium,location/description lines joined; prior yr: None
+8208469,BILL DRISCOLL,24,14,Through Nursery Holdings LLC,,,,,,,medium,account header
+8208469,BILL DRISCOLL,24,15,Wells Fargo - Checking,,,,"$1,001 - $15,000",Interest,$1 - $200,medium,prior yr: $1 - $200
+8208469,BILL DRISCOLL,24,16,"New Bridgeport II, LLC - Note Receivable University Place, Washington",,,,None,Interest,"$5,001 - $15,000",medium,"location line joined; prior yr: $50,001 - $100,000"
+8208469,BILL DRISCOLL,24,17,"Commercial Real Estate - University Place, WA",,,,"$1,000,001 - $5,000,000",Rent,"$15,001 - $50,000",medium,prior yr: None
+8208469,BILL DRISCOLL,24,18,"Rock Island Company St. Paul, Minnesota Sponsors educational and recreational events",,,,"$250,001 - $500,000",Dividends,"$2,501 - $5,000",medium,"location/description lines joined; prior yr: $2,501 - $5,000"
+8208469,BILL DRISCOLL,24,19,"Topia Technology Inc Tacoma, Washington Software applications company",,,,"$500,001 - $1,000,000",None,None,medium,location/description lines joined; prior yr: None
+8208469,BILL DRISCOLL,24,20,"Weeden Investors LP Cl A Greenwich, Connecticut Brokerage firm",,,,"$1,001 - $15,000",Limited Partnership,"$201 - $1,000",medium,"location/description lines joined; prior yr: $1,001 - $2,500"
+8208469,BILL DRISCOLL,24,21,"Barret Bradenton Inc Stuart, Florida Owns mobile home park",,,,"$15,001 - $50,000",Dividends,"$201 - $1,000",medium,"'Stuart, Florida' and 'Owns mobile home park' are the first two lines of page 25, joined here; prior yr: $2,501 - $5,000"
+8208469,BILL DRISCOLL,25,1,"Continental Citrus Corporation Plantation, Florida Owns and leases commercial real estate",,,,"$100,001 - $250,000",None,None,medium,location/description lines joined; prior yr: None
+8208469,BILL DRISCOLL,25,2,Through Grand Avenue LLC,,,,,Limited Partnership,"$1,001 - $2,500",medium,"partnership account; prior yr: $2,501 - $5,000"
+8208469,BILL DRISCOLL,25,3,"Grove Village, LLC",,,,"$1,000,001 - $5,000,000",,,medium,
+8208469,BILL DRISCOLL,25,4,Through Island Holiday LLC,,,,,,,medium,account header
+8208469,BILL DRISCOLL,25,5,Wells Fargo - Checking Account,,,,"$1,001 - $15,000",None,None,medium,prior yr: None
+8208469,BILL DRISCOLL,25,6,"Bayshore Towers Development Corporation - Note Receivable Coral Gables, Florida",,,,"$500,001 - $1,000,000",None,None,medium,location line joined; prior yr: None
+8208469,BILL DRISCOLL,25,7,"Grand Bahamas Development Village West Corporation Coral Gables, Florida",,,,"$500,001 - $1,000,000",None,None,medium,location line joined; prior yr: None
+8208469,BILL DRISCOLL,25,8,Through Jefferson Street LLC,,,,,None,None,low,"income None marks appear on this header line rather than the asset below; prior yr: None"
+8208469,BILL DRISCOLL,25,9,"Lot in Tacoma, Washington",,,,"$15,001 - $50,000",,,low,income None marks may belong to this line (alignment unclear)
+8208469,BILL DRISCOLL,25,10,Through Pointe 16 Holdings LLC,,,,,None,None,low,"income None marks appear on this header line rather than the asset below; prior yr: None"
+8208469,BILL DRISCOLL,25,11,"Pointe 16th Court St. Pete, LLC",,,,"$500,001 - $1,000,000",,,low,income None marks may belong to this line (alignment unclear)
+8208469,BILL DRISCOLL,25,12,Through Hong Kong Partners:,,,,,Limited Partnership,"$1,001 - $2,500",medium,"partnership account, holdings listed below; prior yr: $2,501 - $5,000"
+8208469,BILL DRISCOLL,25,13,Alliance National Muni Inc Fund Inc,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,25,14,Dreyfus Strategic Muni Bond Fund,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,25,15,DWS Municipal Income Trust,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,25,16,Blackrock Enhanced Government Fund Inc,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,25,17,Montgomery Street Income Secs Inc,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,25,18,Fidelity Municipal Money Market,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,25,19,Adams Street 2007 Non-US Fund LP,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,25,20,Adams Street 2007 US Fund LP,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,25,21,Churchill Environmental & Industrial Equity Partners,,,,None,,,medium,
+8208469,BILL DRISCOLL,25,22,Churchill Equity & ESOP Capital Partners II - B LP,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,25,23,Clearwater Private Opportunity Fund II,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,25,24,Clearwater Private Opportunity Fund III,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,25,25,Coral's 2007 Momentum Fund LP,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,25,26,"Flag Private Equity III, LP",,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,25,27,Harbourvest International Equity Partners V - Partnership Fund LP,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,25,28,Lone Star New Markets LP,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,25,29,Morgan Stanley Emerging Private Markets Fund I LP,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,25,30,Morgan Stanley Private Markets Fund I LP,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,25,31,Morgan Stanley Private Markets Fund III LP,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,25,32,Morgan Stanley Private Markets Fund IV LP,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,25,33,Spell Capital Partners Qualified Fund III,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,25,34,Morgan Stanley AIP Seventh Street Fund LP,,,,None,,,low,None mark position between this row and Spell Capital row
+8208469,BILL DRISCOLL,25,35,Morgan Stanley Premium Partners Fund SPV LP,,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,25,36,"Safety Storage, Inc.",,,,"$1,001 - $15,000",,,medium,
+8208469,BILL DRISCOLL,26,1,Through Lincoln Park Partners,,,,,Partnership,"$15,001 - $50,000",medium,"partnership account; prior yr: $50,001 - $100,000"
+8208469,BILL DRISCOLL,26,2,Fidelity Municipal Money Market,,,,"$50,001 - $100,000",,,medium,
+8208469,BILL DRISCOLL,26,3,"Blue Point Capital Partners II, LP",,,,"$250,001 - $500,000",,,medium,
+8208469,BILL DRISCOLL,26,4,"EIP Investors, LP",,,,"$15,001 - $50,000",,,medium,
+8208469,BILL DRISCOLL,26,5,Housatonic Equity Investors II LP,,,,"$250,001 - $500,000",,,medium,
+8208469,BILL DRISCOLL,26,6,Housatonic Equity Investors IV LP,,,,"$500,001 - $1,000,000",,,medium,
+8208469,BILL DRISCOLL,26,7,Housatonic Equity Investors V LP,,,,"$15,001 - $50,000",,,medium,
+8208469,BILL DRISCOLL,26,8,Housatonic Equity Partners LP,,,,"$500,001 - $1,000,000",,,medium,
+8208469,BILL DRISCOLL,26,9,Housatonic Micro Fund LP,,,,"$250,001 - $500,000",,,medium,
+8208469,BILL DRISCOLL,26,10,Lynd Residential Properties Fund II LP,,,,"$15,001 - $50,000",,,medium,
+8208469,BILL DRISCOLL,26,11,Morgan Stanley AIP Seventh Street Fund LP,,,,"$500,001 - $1,000,000",,,medium,
+8208469,BILL DRISCOLL,26,12,Morgan Stanley Premium Partners Fund SPV LP,,,,"$100,001 - $250,000",,,medium,
+8208469,BILL DRISCOLL,26,13,"Through Toandos, LLC",,,,,,,medium,account header
+8208469,BILL DRISCOLL,26,14,Fidelity Municipal Money Market,,,,"$1,001 - $15,000",Dividends,$1 - $200,medium,prior yr: $1 - $200
+8208469,BILL DRISCOLL,26,15,"Jefferson County, WA land",,,,"$250,001 - $500,000",None,None,medium,prior yr: None
+8208469,BILL DRISCOLL,26,16,"Through Lake Place Partners, LLLP",,,,,Limited Partnership,"$100,001 - $1,000,000",medium,"partnership account; prior yr: $100,001 - $1,000,000"
+8208469,BILL DRISCOLL,26,17,US Bank - Checking Account,,,,"$15,001 - $50,000",,,medium,
+8208469,BILL DRISCOLL,26,18,Morgan Stanley Emerging Private Markets Fund I LP,,,,"$100,001 - $250,000",,,medium,
+8208469,BILL DRISCOLL,26,19,Morgan Stanley AIP Seventh Street Fund LP,,,,"$500,001 - $1,000,000",,,medium,
+8208469,BILL DRISCOLL,26,20,Morgan Stanley Premium Partners Fund SPV LP,,,,"$100,001 - $250,000",,,medium,
+8208469,BILL DRISCOLL,26,21,"Through Oliver Street Partners, LLLP",,,,,Partnership,"$201 - $1,000",medium,"partnership account; prior yr: $201 - $1,000"
+8208469,BILL DRISCOLL,26,22,Grand Avenue LLC,,,,"$250,001 - $500,000",,,medium,
+8208469,BILL DRISCOLL,26,23,Fidelity FCash,,,JT,"$1,001 - $15,000",Interest,None,medium,prior yr: $1 - $200
+8208469,BILL DRISCOLL,26,24,Clearwater Tax Exempt Bond Fund,,,JT,"$250,001 - $500,000",Interest,"$5,001 - $15,000",medium,"prior yr: $5,000 - $15,000"
+8208469,BILL DRISCOLL,26,25,Weyerhaeuser Co,,,JT,"$250,001 - $500,000",Dividends,"$2,501 - $5,000",medium,"prior yr: $5,000 - $15,000"
+8208469,BILL DRISCOLL,26,26,Fidelity Fcash Reserves,,,SP,"$1,001 - $15,000",Dividends,$1 - $200,medium,prior yr: $1 - $200
+8208469,BILL DRISCOLL,26,27,Fidelity Municipal Money Market Fund,,,SP,"$50,001 - $100,000",Interest,$1 - $200,medium,prior yr: $1 - $200
+8208469,BILL DRISCOLL,26,28,Wells Fargo - Checking Account,,,SP,"$1,001 - $15,000",Interest,$1 - $200,medium,prior yr: $1 - $200
+8208469,BILL DRISCOLL,26,29,Clearwater Tax Exempt Bond Fund,,,SP,"$100,001 - $250,000",Interest,"$5,001 - $15,000",medium,"prior yr: $5,000 - $15,000"
+8208469,BILL DRISCOLL,26,30,Weyerhaeuser Co,,,SP,"$100,001 - $250,000",Dividends,"$1,001 - $2,500",medium,"prior yr: $2,501 - $5,000"
+8208469,BILL DRISCOLL,26,31,Bristol Myers Squibb,,,SP,"$100,001 - $250,000",Dividends,"$1,001 - $2,500",medium,"prior yr: $5,000 - $15,000"
+8208469,BILL DRISCOLL,26,32,Fidelity Contrafund,,,SP,"$15,001 - $50,000",Dividends,None,medium,prior yr: $1 - $200
+8208469,BILL DRISCOLL,26,33,Gamco Mathers Fund,,,SP,"$1,001 - $15,000",None,None,medium,prior yr: None
+8208469,BILL DRISCOLL,26,34,Mead Johnson Nutrition Co,,,SP,"$50,001 - $100,000",Dividends,"$201 - $1,000",medium,"prior yr: $201 - $1,000"
+8208469,BILL DRISCOLL,26,35,Nordstrom Inc,,,SP,"$15,001 - $50,000",Dividends,"$201 - $1,000",medium,"prior yr: $201 - $1,000"
+8208469,BILL DRISCOLL,26,36,Oakmark Select Fd,,,SP,"$1,001 - $15,000",Dividends,None,medium,prior yr: $1 - $200
+8208469,BILL DRISCOLL,26,37,Selected American Shares CL D,,,SP,"$1,001 - $15,000",Dividends,None,medium,prior yr: $1 - $200
+8208469,BILL DRISCOLL,26,38,Travelers Cos Inc Com,,,SP,"$100,001 - $250,000",Dividends,"$201 - $1,000",medium,"prior yr: $2,501 - $5,000"
+8208469,BILL DRISCOLL,26,39,Vanguard Prime Cap Core Fd,,,SP,"$1,001 - $15,000",Dividends,None,medium,prior yr: $1 - $200
+8208469,BILL DRISCOLL,26,40,Clearwater Small Companies Fund,,,SP,"$15,001 - $50,000",Capital Gains,None,low,"income type mark could also include Dividends; prior yr: $2,501 - $5,000"
+8208469,BILL DRISCOLL,26,41,Life Time Fitness Inc,,,SP,"$100,001 - $250,000",None,None,medium,prior yr: None
+8208469,BILL DRISCOLL,26,42,American Europacific Growth Fund Class F2,,,SP,"$1,001 - $15,000",Dividends,None,medium,prior yr: $1 - $200
+8208469,BILL DRISCOLL,27,1,Clearwater International Fund,,,SP,"$100,001 - $250,000",Dividends;Capital Gains,None,medium,"prior yr: $2,501 - $5,000"
+8208469,BILL DRISCOLL,27,2,Dodge & Cox Intl Stock Fund,,,SP,"$1,001 - $15,000",Dividends,None,medium,prior yr: $1 - $200
+8208469,BILL DRISCOLL,27,3,Fidelity Southeast Asia,,,SP,"$15,001 - $50,000",Dividends,None,medium,"prior yr: $201 - $1,000"
+8208469,BILL DRISCOLL,27,4,Templeton Inst Foreign Sm Cos,,,SP,"$1,001 - $15,000",Dividends,None,medium,prior yr: $1 - $200
+8208469,BILL DRISCOLL,27,5,Eaton Vance Parametric T-M Emerging Markets,,,SP,"$50,001 - $100,000",Dividends,None,medium,"prior yr: $201 - $1,000"
+8208469,BILL DRISCOLL,27,6,Touchstone Emerging Markets Fund CL I,,,SP,"$50,001 - $100,000",Dividends;Capital Gains,$1 - $200,medium,"prior yr: $201 - $1,000"
+8208469,BILL DRISCOLL,27,7,Pimco ALL Asset Inst Class,,,SP,"$1,001 - $15,000",Dividends,$1 - $200,medium,"prior yr: $201 - $1,000"
+8208469,BILL DRISCOLL,27,8,EII Global Property Fund,,,SP,"$1,001 - $15,000",Dividends,None,medium,"prior yr: $201 - $1,000"
+8208469,BILL DRISCOLL,27,9,Vanguard Prime Money Market Fund,,,SP,"$50,001 - $100,000",Dividends,"$201 - $1,000",medium,"prior yr: $201 - $1,000"
+8208469,BILL DRISCOLL,27,10,W. JOHN DRISCOLL TRUST OF 5/8/63 FBO WILLIAM L. DRISCOLL,,,,,,,high,account header
+8208469,BILL DRISCOLL,27,11,Fidelity Tax-Free Money Market,,,,"$250,001 - $500,000",None,None,medium,prior yr: None
+8208469,BILL DRISCOLL,27,12,Clearwater Tax Exempt Bond Fund,,,,"$500,001 - $1,000,000",None,None,medium,prior yr: None
+8208469,BILL DRISCOLL,27,13,Clearwater Small Companies Fund,,,,"$1,000,001 - $5,000,000",None,None,medium,prior yr: None
+8208469,BILL DRISCOLL,27,14,Weyerhaeuser Co,,,,"$500,001 - $1,000,000",None,None,medium,prior yr: None
+8208469,BILL DRISCOLL,27,15,Clearwater International Fund,,,,"$500,001 - $1,000,000",None,None,medium,prior yr: None
+8208469,BILL DRISCOLL,27,16,Eaton Vance Parametric T-M Emerging Markets,,,,"$100,001 - $250,000",None,None,medium,prior yr: None
+8208469,BILL DRISCOLL,27,17,Touchstone Emerging Markets Fund CL I,,,,"$100,001 - $250,000",None,None,medium,prior yr: None
+8208469,BILL DRISCOLL,27,18,Through Hong Kong Partners:,,,,,None,None,medium,"partnership account, holdings listed below; prior yr: None"
+8208469,BILL DRISCOLL,27,19,Euro,,,,"$1,001 - $15,000",None,None,medium,prior yr: None
+8208469,BILL DRISCOLL,27,20,Alliance National Muni Inc Fund Inc,,,,"$15,001 - $50,000",None,None,medium,prior yr: None
+8208469,BILL DRISCOLL,27,21,Blackrock Invt Quality Muni,,,,"$1,001 - $15,000",None,None,medium,prior yr: None
+8208469,BILL DRISCOLL,27,22,Blackrock Long Term Muni Advantage Tr,,,,"$1,001 - $15,000",None,None,medium,prior yr: None
+8208469,BILL DRISCOLL,27,23,Blackrock Muni Income Tr II,,,,"$1,001 - $15,000",None,None,medium,prior yr: None
+8208469,BILL DRISCOLL,27,24,Blackrock Muni Bd Tr,,,,"$1,001 - $15,000",None,None,medium,prior yr: None
+8208469,BILL DRISCOLL,27,25,Blackrock Muni Yield MI Quality Fund,,,,"$1,001 - $15,000",None,None,medium,prior yr: None
+8208469,BILL DRISCOLL,27,26,Blackrock Muniholdings Quality Fd II,,,,"$1,001 - $15,000",None,None,medium,prior yr: None
+8208469,BILL DRISCOLL,27,27,Blackrock Munivest Fund Inc,,,,"$1,001 - $15,000",None,None,medium,prior yr: None
+8208469,BILL DRISCOLL,27,28,Blackrock Muniyield Fund,,,,"$1,001 - $15,000",None,None,medium,prior yr: None
+8208469,BILL DRISCOLL,27,29,Dreyfus Muni Income Inc,,,,"$1,001 - $15,000",None,None,medium,prior yr: None
+8208469,BILL DRISCOLL,27,30,Dreyfus Strategic Muni Bond Fund,,,,"$15,001 - $50,000",None,None,low,"order of the two Dreyfus Strategic lines uncertain, so value may belong to Dreyfus Strategic Munis Inc; prior yr: None"
+8208469,BILL DRISCOLL,27,31,Dreyfus Strategic Munis Inc,,,,"$1,001 - $15,000",None,None,low,"order of the two Dreyfus Strategic lines uncertain; prior yr: None"
+8208469,BILL DRISCOLL,27,32,DWS Municipal Income Trust,,,,"$15,001 - $50,000",None,None,low,"row/column alignment unclear; prior yr: None"
+8208469,BILL DRISCOLL,27,33,Invesco CA Muni Income Trust,,,,"$1,001 - $15,000",None,None,medium,prior yr: None
+8208469,BILL DRISCOLL,27,34,Invesco CA Quality Muni Securities,,,,"$1,001 - $15,000",None,None,medium,prior yr: None
+8208469,BILL DRISCOLL,27,35,Invesco Insured California Muni,,,,"$1,001 - $15,000",None,None,medium,prior yr: None
+8208469,BILL DRISCOLL,27,36,Invesco Insured Municipal Securities,,,,"$1,001 - $15,000",None,None,medium,prior yr: None
+8208469,BILL DRISCOLL,27,37,Invesco Municipal Premium Income Trust,,,,"$1,001 - $15,000",None,None,medium,prior yr: None
+8208469,BILL DRISCOLL,27,38,Invesco New York Quality Muni,,,,"$1,001 - $15,000",None,None,medium,prior yr: None
+8208469,BILL DRISCOLL,27,39,Invesco Quality Muni Invt Tr Com,,,,"$1,001 - $15,000",None,None,medium,prior yr: None
+8208469,BILL DRISCOLL,27,40,Invesco Value Municipal Trust,,,,"$1,001 - $15,000",None,None,medium,prior yr: None
+8208469,BILL DRISCOLL,28,1,Invesco Van Kampen Advatage Municipal Income Trust II,,,,"$1,001 - $15,000",None,None,high,prior yr: None
+8208469,BILL DRISCOLL,28,2,Invesco Van Kampen Muni Tr,,,,"$1,001 - $15,000",None,None,high,prior yr: None
+8208469,BILL DRISCOLL,28,3,Invesco Van Kampen OH Quality Muni Tr,,,,"$1,001 - $15,000",None,None,high,prior yr: None
+8208469,BILL DRISCOLL,28,4,Invesco Van Kampen PA Value Muni Income,,,,"$1,001 - $15,000",None,None,high,prior yr: None
+8208469,BILL DRISCOLL,28,5,Invesco Van Kampen Select Sector Muni Tr,,,,"$1,001 - $15,000",None,None,high,prior yr: None
+8208469,BILL DRISCOLL,28,6,Invesco Van Kampen Tr Invt Grade NY Muni,,,,"$1,001 - $15,000",None,None,high,prior yr: None
+8208469,BILL DRISCOLL,28,7,Invesco Van Kampen Trust for Invt Grade Muni,,,,"$1,001 - $15,000",None,None,high,prior yr: None
+8208469,BILL DRISCOLL,28,8,Managed Duration Invt Grade Muni Fund,,,,"$1,001 - $15,000",None,None,high,prior yr: None
+8208469,BILL DRISCOLL,28,9,MFS High Income Mun Tr,,,,"$1,001 - $15,000",None,None,high,prior yr: None
+8208469,BILL DRISCOLL,28,10,Nuveen CA Performance Plus Muni Fund Inc,,,,"$1,001 - $15,000",None,None,high,prior yr: None
+8208469,BILL DRISCOLL,28,11,Nuveen Calif Invt Quality Muni Fund Inc,,,,"$1,001 - $15,000",None,None,high,prior yr: None
+8208469,BILL DRISCOLL,28,12,Nuveen Ct Divid Advantage Mun Fd 3,,,,"$1,001 - $15,000",None,None,high,prior yr: None
+8208469,BILL DRISCOLL,28,13,Nuveen GA Divid Advantage Muni Fd,,,,"$1,001 - $15,000",None,None,high,prior yr: None
+8208469,BILL DRISCOLL,28,14,Nuveen Muni Advantage Fund Inc,,,,"$1,001 - $15,000",None,None,medium,prior yr: None
+8208469,BILL DRISCOLL,28,15,Nuveen Muni Advantage Fund Inc,,,,"$1,001 - $15,000",None,None,low,"name hard to read, appears to repeat the line above; prior yr: None"
+8208469,BILL DRISCOLL,28,16,Nuveen Prem Income Muni Fund 4,,,,"$1,001 - $15,000",None,None,high,prior yr: None
+8208469,BILL DRISCOLL,28,17,Nuveen Quality Income Muni Fund,,,,"$1,001 - $15,000",None,None,high,prior yr: None
+8208469,BILL DRISCOLL,28,18,Alliance Bernstein Income Fund,,,,"$1,001 - $15,000",None,None,high,prior yr: None
+8208469,BILL DRISCOLL,28,19,Blackrock Build America Bond Fund,,,,"$1,001 - $15,000",None,None,high,prior yr: None
+8208469,BILL DRISCOLL,28,20,Blackrock Credit Allocation Income Tr I Inc,,,,"$1,001 - $15,000",None,None,high,prior yr: None
+8208469,BILL DRISCOLL,28,21,Blackrock Credit Allocation Income Tr III Inc,,,,"$1,001 - $15,000",None,None,high,prior yr: None
+8208469,BILL DRISCOLL,28,22,Blackrock Credit Allocation Income Tr IV Inc,,,,"$1,001 - $15,000",None,None,high,prior yr: None
+8208469,BILL DRISCOLL,28,23,Blackrock Enhanced Government Fund Inc,,,,"$15,001 - $50,000",None,None,medium,prior yr: None
+8208469,BILL DRISCOLL,28,24,Blackrock Income Tr Inc Com,,,,"$1,001 - $15,000",None,None,medium,prior yr: None
+8208469,BILL DRISCOLL,28,25,Helios Total Return Fund Inc Com,,,,"$1,001 - $15,000",None,None,medium,prior yr: None
+8208469,BILL DRISCOLL,28,26,Montgomery Street Income Secs Inc,,,,"$15,001 - $50,000",None,None,medium,prior yr: None
+8208469,BILL DRISCOLL,28,27,Nuveen Build American Bond Fund,,,,"$1,001 - $15,000",None,None,high,prior yr: None
+8208469,BILL DRISCOLL,28,28,Nuveen Mortgage Opportunity Term Fund,,,,"$1,001 - $15,000",None,None,high,prior yr: None
+8208469,BILL DRISCOLL,28,29,Nuveen Mortgage Opportunity Term Fund,,,,"$1,001 - $15,000",None,None,medium,"name appears to repeat the line above (possibly 'Term Fund 2'); prior yr: None"
+8208469,BILL DRISCOLL,28,30,Nuveen Preferred Income Opportunities,,,,"$1,001 - $15,000",None,None,high,prior yr: None
+8208469,BILL DRISCOLL,28,31,Wells Fargo Advantage Multi Sector Income Fund,,,,"$1,001 - $15,000",None,None,high,prior yr: None
+8208469,BILL DRISCOLL,28,32,Western Asset Mortgage Defined Opportunity Fund Inc,,,,"$1,001 - $15,000",None,None,high,prior yr: None
+8208469,BILL DRISCOLL,28,33,Euro,,,,"$1,001 - $15,000",None,None,high,prior yr: None
+8208469,BILL DRISCOLL,28,34,Fidelity Municipal Money Market,,,,"$50,001 - $100,000",None,None,medium,prior yr: None
+8208469,BILL DRISCOLL,28,35,Adams Street 2007 Direct Fund LP,,,,"$1,001 - $15,000",None,None,medium,prior yr: None
+8208469,BILL DRISCOLL,28,36,Adams Street 2007 Non-US Fund LP,,,,"$15,001 - $50,000",None,None,medium,prior yr: None
+8208469,BILL DRISCOLL,28,37,Adams Street 2007 US Fund LP,,,,"$15,001 - $50,000",None,None,medium,prior yr: None
+8208469,BILL DRISCOLL,28,38,Churchill Environmental & Industrial Equity Partners,,,,None,None,None,medium,prior yr: None
+8208469,BILL DRISCOLL,28,39,Churchill Equity & ESOP Capital Partners II - B LP,,,,"$50,001 - $100,000",None,None,medium,prior yr: None
+8208469,BILL DRISCOLL,28,40,Clearwater Private Opportunity Fund II,,,,"$100,001 - $250,000",None,None,medium,prior yr: None
+8208469,BILL DRISCOLL,28,41,Clearwater Private Opportunity Fund III,,,,"$50,001 - $100,000",None,None,medium,prior yr: None
+8208469,BILL DRISCOLL,28,42,Coral's 2007 Momentum Fund LP,,,,"$50,001 - $100,000",None,None,medium,prior yr: None
+8208469,BILL DRISCOLL,29,1,"Flag Private Equity III, LP",,,,"$50,001 - $100,000",None,None,medium,prior yr: None
+8208469,BILL DRISCOLL,29,2,Harbourvest International Equity Partners V - Partnership Fund LP,,,,"$50,001 - $100,000",None,None,medium,prior yr: None
+8208469,BILL DRISCOLL,29,3,Lone Star New Markets LP,,,,"$15,001 - $50,000",None,None,medium,prior yr: None
+8208469,BILL DRISCOLL,29,4,Lynd Residential Properties Fund II,,,,"$1,001 - $15,000",None,None,medium,prior yr: None
+8208469,BILL DRISCOLL,29,5,Morgan Stanley Emerging Private Markets Fund I LP,,,,"$15,001 - $50,000",None,None,medium,prior yr: None
+8208469,BILL DRISCOLL,29,6,Morgan Stanley Private Markets Fund I LP,,,,"$50,001 - $100,000",None,None,medium,prior yr: None
+8208469,BILL DRISCOLL,29,7,Morgan Stanley Private Markets Fund III LP,,,,"$50,001 - $100,000",None,None,medium,prior yr: None
+8208469,BILL DRISCOLL,29,8,Morgan Stanley Private Markets Fund IV LP,,,,"$15,001 - $50,000",None,None,medium,prior yr: None
+8208469,BILL DRISCOLL,29,9,Spell Capital Partners Qualified Fund III,,,,"$15,001 - $50,000",None,None,medium,prior yr: None
+8208469,BILL DRISCOLL,29,10,Morgan Stanley AIP Seventh Street Fund LP,,,,None,None,None,medium,prior yr: None
+8208469,BILL DRISCOLL,29,11,Morgan Stanley Premium Partners Fund SPV LP,,,,"$15,001 - $50,000",None,None,medium,prior yr: None
+8208469,BILL DRISCOLL,29,12,"Safety Storage, Inc.",,,,"$15,001 - $50,000",None,None,medium,prior yr: None
+8208469,BILL DRISCOLL,29,13,Through Macau Partners:,,,,,None,None,medium,"partnership account, holdings listed below; prior yr: None"
+8208469,BILL DRISCOLL,29,14,BNY Mellon Natl Muni Money Mkt Fd M,,,,"$15,001 - $50,000",None,None,medium,prior yr: None
+8208469,BILL DRISCOLL,29,15,Actuate Software Corp,,,,"$1,001 - $15,000",None,None,high,prior yr: None
+8208469,BILL DRISCOLL,29,16,Agree Rlty Corp,,,,"$1,001 - $15,000",None,None,high,prior yr: None
+8208469,BILL DRISCOLL,29,17,Anaren Inc,,,,"$1,001 - $15,000",None,None,high,prior yr: None
+8208469,BILL DRISCOLL,29,18,Arthrocare Corp,,,,"$1,001 - $15,000",None,None,high,prior yr: None
+8208469,BILL DRISCOLL,29,19,Ashford Hospitality Tr,,,,"$1,001 - $15,000",None,None,high,prior yr: None
+8208469,BILL DRISCOLL,29,20,Associated Estates Realty Corp,,,,"$1,001 - $15,000",None,None,high,prior yr: None
+8208469,BILL DRISCOLL,29,21,Astronics Corp,,,,"$1,001 - $15,000",None,None,high,prior yr: None
+8208469,BILL DRISCOLL,29,22,Badger Meter,,,,"$1,001 - $15,000",None,None,high,prior yr: None
+8208469,BILL DRISCOLL,29,23,Belo Corp,,,,"$1,001 - $15,000",None,None,high,prior yr: None
+8208469,BILL DRISCOLL,29,24,Berkshire Hills Bancorp Inc,,,,"$1,001 - $15,000",None,None,high,prior yr: None
+8208469,BILL DRISCOLL,29,25,Black Diamond Inc,,,,"$1,001 - $15,000",None,None,high,prior yr: None
+8208469,BILL DRISCOLL,29,26,Bravo Brio Restaurant Group Inc,,,,"$1,001 - $15,000",None,None,high,prior yr: None
+8208469,BILL DRISCOLL,29,27,Brookline Bancorp Inc,,,,"$1,001 - $15,000",None,None,high,prior yr: None
+8208469,BILL DRISCOLL,29,28,Cec Entertainment Inc,,,,"$1,001 - $15,000",None,None,high,prior yr: None
+8208469,BILL DRISCOLL,29,29,Ceco Environmental Corp,,,,"$1,001 - $15,000",None,None,high,prior yr: None
+8208469,BILL DRISCOLL,29,30,Calamp Corp,,,,"$1,001 - $15,000",None,None,high,prior yr: None
+8208469,BILL DRISCOLL,29,31,Campus Crest Communities Inc,,,,"$1,001 - $15,000",None,None,high,prior yr: None
+8208469,BILL DRISCOLL,29,32,"Caplease, Inc",,,,"$1,001 - $15,000",None,None,high,prior yr: None
+8208469,BILL DRISCOLL,29,33,Cascade Corp,,,,"$1,001 - $15,000",None,None,high,prior yr: None
+8208469,BILL DRISCOLL,29,34,Casella Waste Sys Inc,,,,"$1,001 - $15,000",None,None,high,prior yr: None
+8208469,BILL DRISCOLL,29,35,Chesapeake Utilities Corp,,,,"$1,001 - $15,000",None,None,high,prior yr: None
+8208469,BILL DRISCOLL,29,36,Conceptus Inc,,,,"$1,001 - $15,000",None,None,high,prior yr: None
+8208469,BILL DRISCOLL,29,37,Core-Mark Holding Company Inc,,,,"$1,001 - $15,000",None,None,high,prior yr: None
+8208469,BILL DRISCOLL,29,38,Core Molding Technologies Inc,,,,"$1,001 - $15,000",None,None,high,prior yr: None
+8208469,BILL DRISCOLL,29,39,Cost Plus Inc,,,,"$1,001 - $15,000",None,None,high,prior yr: None
+8208469,BILL DRISCOLL,29,40,Dgt Holdings Corp,,,,"$1,001 - $15,000",None,None,high,prior yr: None
+8208469,BILL DRISCOLL,29,41,Emc Insurance Group Inc,,,,"$1,001 - $15,000",None,None,high,prior yr: None
+8208469,BILL DRISCOLL,29,42,Ennis Inc,,,,"$1,001 - $15,000",None,None,high,prior yr: None
+8208469,BILL DRISCOLL,30,1,Eresearch Technology Inc,,,,"$1,001 - $15,000",None,None,high,prior yr: None
+8208469,BILL DRISCOLL,30,2,Exar Corp,,,,"$1,001 - $15,000",None,None,high,prior yr: None
+8208469,BILL DRISCOLL,30,3,Federal Signal Corp,,,,"$1,001 - $15,000",None,None,high,prior yr: None
+8208469,BILL DRISCOLL,30,4,Financial Institutions Inc,,,,"$1,001 - $15,000",None,None,high,prior yr: None
+8208469,BILL DRISCOLL,30,5,First Financial Corp,,,,"$1,001 - $15,000",None,None,high,prior yr: None
+8208469,BILL DRISCOLL,30,6,First Pactrust Bancorp Inc,,,,"$1,001 - $15,000",None,None,high,prior yr: None
+8208469,BILL DRISCOLL,30,7,First Potomac Realty Trust,,,,"$1,001 - $15,000",None,None,high,prior yr: None
+8208469,BILL DRISCOLL,30,8,Franklin Financial Corp,,,,"$1,001 - $15,000",None,None,high,prior yr: None
+8208469,BILL DRISCOLL,30,9,Gp Strategies Corp,,,,"$1,001 - $15,000",None,None,high,prior yr: None
+8208469,BILL DRISCOLL,30,10,Gencorp Inc,,,,"$1,001 - $15,000",None,None,high,prior yr: None
+8208469,BILL DRISCOLL,30,11,Getty Realty Corp Cross Trade,,,,"$1,001 - $15,000",None,None,high,prior yr: None
+8208469,BILL DRISCOLL,30,12,Gladstone Cap Corp,,,,"$1,001 - $15,000",None,None,high,prior yr: None
+8208469,BILL DRISCOLL,30,13,Global Cash Access Inc,,,,"$1,001 - $15,000",None,None,high,prior yr: None
+8208469,BILL DRISCOLL,30,14,Graham Corp,,,,"$1,001 - $15,000",None,None,high,prior yr: None
+8208469,BILL DRISCOLL,30,15,Hackett Group Inc,,,,"$1,001 - $15,000",None,None,high,prior yr: None
+8208469,BILL DRISCOLL,30,16,Handy & Harman Ltd,,,,"$1,001 - $15,000",None,None,high,prior yr: None
+8208469,BILL DRISCOLL,30,17,Harte-Hanks Inc,,,,"$1,001 - $15,000",None,None,high,prior yr: None
+8208469,BILL DRISCOLL,30,18,Heritage Financial Corp,,,,"$1,001 - $15,000",None,None,high,prior yr: None
+8208469,BILL DRISCOLL,30,19,Heska Corp,,,,"$1,001 - $15,000",None,None,high,prior yr: None
+8208469,BILL DRISCOLL,30,20,Horace Mann Educators Corp,,,,"$1,001 - $15,000",None,None,high,prior yr: None
+8208469,BILL DRISCOLL,30,21,Hudson Pacific Properties Inc,,,,"$1,001 - $15,000",None,None,high,prior yr: None
+8208469,BILL DRISCOLL,30,22,Innospec Inc,,,,"$1,001 - $15,000",None,None,high,prior yr: None
+8208469,BILL DRISCOLL,30,23,Integramed America Inc,,,,"$1,001 - $15,000",None,None,high,prior yr: None
+8208469,BILL DRISCOLL,30,24,Ishares Russell Microcap Inx Fund,,,,"$1,001 - $15,000",None,None,high,prior yr: None
+8208469,BILL DRISCOLL,30,25,Kvh Industries Inc,,,,"$1,001 - $15,000",None,None,high,prior yr: None
+8208469,BILL DRISCOLL,30,26,Kaiser Federal Financial Group,,,,"$1,001 - $15,000",None,None,high,prior yr: None
+8208469,BILL DRISCOLL,30,27,Kapstone Paper & Packaging Corp,,,,"$1,001 - $15,000",None,None,high,prior yr: None
+8208469,BILL DRISCOLL,30,28,Kensey Nash Corp,,,,"$1,001 - $15,000",None,None,high,prior yr: None
+8208469,BILL DRISCOLL,30,29,Kite Realty Group Trust,,,,"$1,001 - $15,000",None,None,high,prior yr: None
+8208469,BILL DRISCOLL,30,30,Knology Inc,,,,"$1,001 - $15,000",None,None,high,prior yr: None
+8208469,BILL DRISCOLL,30,31,Ltx-Credence Corp,,,,"$1,001 - $15,000",None,None,high,prior yr: None
+8208469,BILL DRISCOLL,30,32,Landec Corp,,,,"$1,001 - $15,000",None,None,high,prior yr: None
+8208469,BILL DRISCOLL,30,33,Lydall Inc,,,,"$1,001 - $15,000",None,None,high,prior yr: None
+8208469,BILL DRISCOLL,30,34,Maidenform Brands Inc,,,,"$1,001 - $15,000",None,None,high,prior yr: None
+8208469,BILL DRISCOLL,30,35,Medifast Inc,,,,"$1,001 - $15,000",None,None,high,prior yr: None
+8208469,BILL DRISCOLL,30,36,Mediware Information Systems Inc,,,,"$1,001 - $15,000",None,None,high,prior yr: None
+8208469,BILL DRISCOLL,30,37,Medtox Scientific Inc,,,,"$1,001 - $15,000",None,None,high,prior yr: None
+8208469,BILL DRISCOLL,30,38,Mercury Computer Systems Inc,,,,"$1,001 - $15,000",None,None,high,prior yr: None
+8208469,BILL DRISCOLL,30,39,Micronetics Inc,,,,"$1,001 - $15,000",None,None,high,prior yr: None
+8208469,BILL DRISCOLL,30,40,Middlesex Water Company,,,,"$1,001 - $15,000",None,None,high,prior yr: None
+8208469,BILL DRISCOLL,30,41,Mips Technologies Inc,,,,"$1,001 - $15,000",None,None,high,prior yr: None
+8208469,BILL DRISCOLL,30,42,Mission West Pptys Inc,,,,"$1,001 - $15,000",None,None,high,prior yr: None
+8208469,BILL DRISCOLL,31,1,National Financial Partners Corp,,,,"$1,001 - $15,000",None,None,high,prior yr: None
+8208469,BILL DRISCOLL,31,2,Nuvasive Inc,,,,"$1,001 - $15,000",None,None,high,prior yr: None
+8208469,BILL DRISCOLL,31,3,Osi Systems Inc,,,,"$1,001 - $15,000",None,None,medium,name hard to read (could be 'Oei Systems Inc'); prior yr: None
+8208469,BILL DRISCOLL,31,4,Official Payments Holdings Inc,,,,"$1,001 - $15,000",None,None,high,prior yr: None
+8208469,BILL DRISCOLL,31,5,Omega Protein Corp,,,,"$1,001 - $15,000",None,None,high,prior yr: None
+8208469,BILL DRISCOLL,31,6,Oplink Communications Inc,,,,"$1,001 - $15,000",None,None,high,prior yr: None
+8208469,BILL DRISCOLL,31,7,Oritani Financial Corp,,,,"$1,001 - $15,000",None,None,high,prior yr: None
+8208469,BILL DRISCOLL,31,8,Outdoor Channel Holdings Inc,,,,"$1,001 - $15,000",None,None,high,prior yr: None
+8208469,BILL DRISCOLL,31,9,Pdi Inc Com,,,,"$1,001 - $15,000",None,None,medium,name hard to read (Pdi/Pdl); prior yr: None
+8208469,BILL DRISCOLL,31,10,Pantry Inc,,,,"$1,001 - $15,000",None,None,high,prior yr: None
+8208469,BILL DRISCOLL,31,11,Pennantpark Investment Corp,,,,"$1,001 - $15,000",None,None,high,prior yr: None
+8208469,BILL DRISCOLL,31,12,The Pep Boys - Manny Moe & Jack,,,,"$1,001 - $15,000",None,None,high,prior yr: None
+8208469,BILL DRISCOLL,31,13,Perceptron Inc,,,,"$1,001 - $15,000",None,None,high,prior yr: None
+8208469,BILL DRISCOLL,31,14,Pharmerica Corp,,,,"$1,001 - $15,000",None,None,high,prior yr: None
+8208469,BILL DRISCOLL,31,15,The Phoenix Companies Inc,,,,"$1,001 - $15,000",None,None,high,prior yr: None
+8208469,BILL DRISCOLL,31,16,Pinnacle Entertainment Inc Com,,,,"$1,001 - $15,000",None,None,high,prior yr: None
+8208469,BILL DRISCOLL,31,17,Preferred Apartment Communities Inc,,,,"$1,001 - $15,000",None,None,high,prior yr: None
+8208469,BILL DRISCOLL,31,18,Presidential Life Corp,,,,"$1,001 - $15,000",None,None,high,prior yr: None
+8208469,BILL DRISCOLL,31,19,Red Robin Gourmet Burgers Inc,,,,"$1,001 - $15,000",None,None,high,prior yr: None
+8208469,BILL DRISCOLL,31,20,Renasant Corp,,,,"$1,001 - $15,000",None,None,high,prior yr: None
+8208469,BILL DRISCOLL,31,21,Rockville Financial Inc,,,,"$1,001 - $15,000",None,None,high,prior yr: None
+8208469,BILL DRISCOLL,31,22,Rocky Brands Inc,,,,"$1,001 - $15,000",None,None,high,prior yr: None
+8208469,BILL DRISCOLL,31,23,Ruby Tuesday Inc,,,,"$1,001 - $15,000",None,None,high,prior yr: None
+8208469,BILL DRISCOLL,31,24,Scbt Financial Corp,,,,"$1,001 - $15,000",None,None,high,prior yr: None
+8208469,BILL DRISCOLL,31,25,SI Financial Group Inc,,,,"$1,001 - $15,000",None,None,high,prior yr: None
+8208469,BILL DRISCOLL,31,26,SL Industries Inc,,,,"$1,001 - $15,000",None,None,medium,name hard to read (SI/SL); prior yr: None
+8208469,BILL DRISCOLL,31,27,S&W Seed Company,,,,"$1,001 - $15,000",None,None,high,prior yr: None
+8208469,BILL DRISCOLL,31,28,Seneca Foods Corp,,,,"$1,001 - $15,000",None,None,high,prior yr: None
+8208469,BILL DRISCOLL,31,29,Shiloh Industries Inc,,,,"$1,001 - $15,000",None,None,high,prior yr: None
+8208469,BILL DRISCOLL,31,30,Simmons 1St Natl Corp,,,,"$1,001 - $15,000",None,None,high,prior yr: None
+8208469,BILL DRISCOLL,31,31,Southside Bancshares Inc,,,,"$1,001 - $15,000",None,None,high,prior yr: None
+8208469,BILL DRISCOLL,31,32,Sparton Corp,,,,"$1,001 - $15,000",None,None,high,prior yr: None
+8208469,BILL DRISCOLL,31,33,Standex International Corp,,,,"$1,001 - $15,000",None,None,high,prior yr: None
+8208469,BILL DRISCOLL,31,34,State Bank Financial Corp,,,,"$1,001 - $15,000",None,None,high,prior yr: None
+8208469,BILL DRISCOLL,31,35,Steel Excel Inc,,,,"$1,001 - $15,000",None,None,high,prior yr: None
+8208469,BILL DRISCOLL,31,36,Steinway Musical Instrs Inc,,,,"$1,001 - $15,000",None,None,high,prior yr: None
+8208469,BILL DRISCOLL,31,37,Stellarone Corp,,,,"$1,001 - $15,000",None,None,high,prior yr: None
+8208469,BILL DRISCOLL,31,38,Super Micro Computer Inc,,,,"$1,001 - $15,000",None,None,high,prior yr: None
+8208469,BILL DRISCOLL,31,39,Support.Com Inc,,,,"$1,001 - $15,000",None,None,high,prior yr: None
+8208469,BILL DRISCOLL,31,40,Tns Inc,,,,"$1,001 - $15,000",None,None,high,prior yr: None
+8208469,BILL DRISCOLL,31,41,Twin Disc Inc,,,,"$1,001 - $15,000",None,None,high,prior yr: None
+8208469,BILL DRISCOLL,31,42,Unisys Corporation,,,,"$1,001 - $15,000",None,None,high,prior yr: None

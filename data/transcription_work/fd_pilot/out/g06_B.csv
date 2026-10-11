@@ -1,0 +1,154 @@
+doc_id,filer_name,page,row_in_page,asset_name,ticker_on_form,asset_type_code,owner,value_band,income_types,income_amount_band,confidence,note
+8208368,JOYCE HEALY-ABRAMS,3,1,"1329 FTH ST NE CANTON OH 44705-1303 (Rental Property)",,,,"$15,001 - $50,000",Rent,"$1,001 - $2,500",medium,"Form B Schedule II; income_amount_band = Current Year column; Preceding Year $2,501 - $5,000; address text small"
+8208368,JOYCE HEALY-ABRAMS,3,2,"2011 Year End Stmt Smithbarney Brokerage Account #6817 (See Attachment 1)",,,,,,,low,"account header; tiny print, account number uncertain"
+8208368,JOYCE HEALY-ABRAMS,3,3,"April 2012 Summary Smithbarney Brokerage Account #6817 (See Attachment 2)",,,,,,,low,"account header; tiny print, account number uncertain"
+8208368,JOYCE HEALY-ABRAMS,3,4,"2011 Year End Stmt Smithbarney Trust Account #8111 (See Attachment 3)",,,,,,,low,"account header; tiny print, account number uncertain"
+8208368,JOYCE HEALY-ABRAMS,3,5,"AT&T, Inc. Stock",,,,"$1 - $1,000",Dividends,"$201 - $1,000",high,"Preceding Year $201 - $1,000"
+8208368,JOYCE HEALY-ABRAMS,3,6,"Annaly Capital Management, Inc. Stock",,,,"$1,001 - $15,000",Dividends,"$5,001 - $15,000",medium,"value mark small; Preceding Year $5,001 - $15,000"
+8208368,JOYCE HEALY-ABRAMS,4,1,American CAP AGY Corp. Stock,,,,"$1,001 - $15,000",Dividends,"$5,001 - $15,000",high,"Preceding Year $5,001 - $15,000"
+8208368,JOYCE HEALY-ABRAMS,4,2,"Apollo Commercial Real Estate Fin., Inc. Stock",,,,"$1,001 - $15,000",Dividends,"$2,501 - $5,000",high,"Preceding Year $1,001 - $2,500"
+8208368,JOYCE HEALY-ABRAMS,4,3,Blackrock Enhanced Equity Dividend Trust Stock,,,,"$1 - $1,000",Dividends,,medium,"Current Year empty; Preceding Year $201 - $1,000"
+8208368,JOYCE HEALY-ABRAMS,4,4,Blackrock International Growth & Income Trust Stock,,,,"$1 - $1,000",Dividends,,medium,"Current Year empty; Preceding Year $201 - $1,000"
+8208368,JOYCE HEALY-ABRAMS,4,5,Blackrock SR High Income Fund Bonds,,,,"$1,001 - $15,000",Dividends,,medium,"Current Year empty; Preceding Year $1,001 - $2,500"
+8208368,JOYCE HEALY-ABRAMS,4,6,Chimera Investment Corp. Stock,,,,"$1,001 - $15,000",Dividends,,medium,"Current Year empty; Preceding Year $1,001 - $2,500"
+8208368,JOYCE HEALY-ABRAMS,4,7,"Coca-Cola, Inc. Stock",,,,"$1 - $1,000",Dividends,"$201 - $1,000",high,"Preceding Year $201 - $1,000"
+8208368,JOYCE HEALY-ABRAMS,4,8,Eaton Vance Tax-Advantaged Global Dividend Income Fund Stock,,,,"$1,001 - $15,000",Dividends,,medium,"name in tiny print; Current Year empty; Preceding Year $1,001 - $2,500"
+8208368,JOYCE HEALY-ABRAMS,4,9,Hellios Total Return Fund Stock,,,,"$1 - $1,000",Dividends,,medium,"Current Year empty; Preceding Year $201 - $1,000"
+8208368,JOYCE HEALY-ABRAMS,4,10,"Home Depot, Inc. Stock",,,,"$1 - $1,000",Dividends,"$201 - $1,000",high,"Preceding Year $201 - $1,000"
+8208368,JOYCE HEALY-ABRAMS,4,11,Intel Corp. Stock,,,,"$1 - $1,000",Dividends,"$201 - $1,000",high,"Preceding Year $201 - $1,000"
+8208368,JOYCE HEALY-ABRAMS,4,12,Johnson & Johnson Stock,,,,"$1 - $1,000",Dividends,"$201 - $1,000",high,"Preceding Year $201 - $1,000"
+8208368,JOYCE HEALY-ABRAMS,4,13,Kimberly Clark Stock,,,,"$1 - $1,000",Dividends,,medium,"Current Year empty; Preceding Year $201 - $1,000"
+8208368,JOYCE HEALY-ABRAMS,4,14,"Limited Brands, Inc. Stock",,,,"$1 - $1,000",Dividends,"$201 - $1,000",high,"Preceding Year $201 - $1,000"
+8208368,JOYCE HEALY-ABRAMS,5,1,"Lorillard, Inc. Stock",,,,"$1 - $1,000",Dividends,,medium,"Current Year empty; Preceding Year $201 - $1,000"
+8208368,JOYCE HEALY-ABRAMS,5,2,Medley Cap. Corp,,,,"$1,001 - $15,000",Dividends,"$2,501 - $5,000",high,"Preceding Year $1,001 - $2,500"
+8208368,JOYCE HEALY-ABRAMS,5,3,Nuveen Quality PFD Income Fund 2,,,,"$1 - $1,000",Dividends,,medium,"Current Year empty; Preceding Year $201 - $1,000"
+8208368,JOYCE HEALY-ABRAMS,5,4,Peoples United Financial Inc.,,,,"$1 - $1,000",Dividends,"$201 - $1,000",high,"Preceding Year $201 - $1,000"
+8208368,JOYCE HEALY-ABRAMS,5,5,"Pepsico, Inc.",,,,"$1 - $1,000",Dividends,,medium,"Current Year empty; Preceding Year $201 - $1,000"
+8208368,JOYCE HEALY-ABRAMS,5,6,Sponsored ADR,,,,"$1,001 - $15,000",Dividends,,medium,"Current Year empty; Preceding Year $1,001 - $2,500"
+8208368,JOYCE HEALY-ABRAMS,5,7,Toronto Dominion Bank,,,,"$1 - $1,000",Dividends,"$201 - $1,000",high,"Preceding Year $201 - $1,000"
+8208368,JOYCE HEALY-ABRAMS,5,8,Universal Corp VA,,,,"$1 - $1,000",Dividends,,medium,"Current Year empty; Preceding Year $201 - $1,000"
+8208368,JOYCE HEALY-ABRAMS,5,9,"Walmart Stores, Inc.",,,,"$1 - $1,000",Dividends,,medium,"Current Year empty; Preceding Year $201 - $1,000"
+8208368,JOYCE HEALY-ABRAMS,5,10,"Apollo Commercial Real Estate Fin., Inc.",,,,"$1 - $1,000",Nondividend Distribution,,medium,"name in small print; Current Year empty; Preceding Year $201 - $1,000"
+8208368,JOYCE HEALY-ABRAMS,5,11,Blackrock International Growth & Income Trust,,,,"$1 - $1,000",Nondividend Distribution,"$1,001 - $2,500",medium,"name in small print; Preceding Year $201 - $1,000"
+8208368,JOYCE HEALY-ABRAMS,5,12,Eaton Vance Tax-Managed Diversified Equity Income Fund,,,,"$1,001 - $15,000",Nondividend Distribution,"$2,501 - $5,000",medium,"name in tiny print; Preceding Year $1,001 - $2,500"
+8208368,JOYCE HEALY-ABRAMS,5,13,Hellios Total Return Fund,,,,"$1 - $1,000",Nondividend Distribution,,medium,"Current Year empty; Preceding Year $201 - $1,000"
+8208368,JOYCE HEALY-ABRAMS,5,14,"April 2012 Summary Smithbarney Trust Account #8111 (See Attachment 4)",,,,,,,low,"account header; tiny print, account number uncertain"
+8208368,JOYCE HEALY-ABRAMS,6,1,FedEx Corp. Stock,,,,"$1,001 - $15,000",Capital Gains,"$1,001 - $2,500",high,Preceding Year empty
+8208368,JOYCE HEALY-ABRAMS,6,2,Hewlett Packard Co. Stock,,,,"$1,001 - $15,000",Capital Gains,"$1,001 - $2,500",high,Preceding Year empty
+8208368,JOYCE HEALY-ABRAMS,6,3,Sempra Energy Stock,,,,"$1 - $1,000",Capital Gains,"$201 - $1,000",medium,"value mark small; Preceding Year empty"
+8208368,JOYCE HEALY-ABRAMS,6,4,"April 2012 Summary Smithbarney Account #7915 (See Attachment 5)",,,,,,,low,"account header; tiny print, wording and account number uncertain"
+8208368,JOYCE HEALY-ABRAMS,6,5,Fidelity Traditional IRA,,,,"$1,001 - $15,000",,,medium,no income entries
+8208368,JOYCE HEALY-ABRAMS,6,6,Fidelity SIMPLE IRA,,,,"$15,001 - $50,000",,,high,no income entries
+8208368,JOYCE HEALY-ABRAMS,6,7,"Brookfield Infrastructure Partners, L.P.",,,,"$1,001 - $15,000",Dividends;Capital Gains,"$201 - $1,000",medium,Preceding Year empty
+8208368,JOYCE HEALY-ABRAMS,13,1,"CINCINNATI BELL INC DTD 03/15/2010 DUE 03/15/2018 RATE 8.750",,,,,Interest,"$4,462.50",medium,"Attachment 1 (Smith Barney 2011 Year End Summary, 1099-INT detail)"
+8208368,JOYCE HEALY-ABRAMS,13,2,"DYNEGY DTD 5/24/2007 GLOBAL DUE 06/01/2015 RATE 7.500",,,,,Interest,$937.50,medium,Attachment 1
+8208368,JOYCE HEALY-ABRAMS,13,3,[redacted],,,,,Interest,,low,"line and amount blacked out on form"
+8208368,JOYCE HEALY-ABRAMS,13,4,[redacted],,,,,Interest,,low,"line and amount blacked out on form"
+8208368,JOYCE HEALY-ABRAMS,13,5,"PARK OHIO INDS INC DTD 08/30/2004 DUE 11/15/2014 RATE 8.375",,,,,Interest,$825.85,low,"Attachment 1; amount could be $826.85"
+8208368,JOYCE HEALY-ABRAMS,13,6,"QUICKSILVER RESOURCE DTD 08/27/2008 DUE 08/01/2015 RATE 8.250",,,,,Interest,$783.75,medium,Attachment 1
+8208368,JOYCE HEALY-ABRAMS,13,7,"SUPERVALU INC SR NOTES BK/ENTRY-DTD 10/31/2006 DUE 11/15/2014 RATE 7.500",,,,,Interest,"$1,875.00",medium,Attachment 1
+8208368,JOYCE HEALY-ABRAMS,13,8,[redacted],,,,,Interest,,low,"line and amount blacked out on form"
+8208368,JOYCE HEALY-ABRAMS,13,9,"USG CORP DTD 11/17/2006 WHEN ISSUED DUE 11/15/2016 RATE 6.300",,,,,Interest,"$3,150.00",medium,Attachment 1
+8208368,JOYCE HEALY-ABRAMS,14,1,"UNITED REFINING CO DTD 08/08/2004 DUE 08/15/2012 RATE 10.500",,,,,Interest,"$1,889.98",low,"Attachment 1; digits blurry"
+8208368,JOYCE HEALY-ABRAMS,14,2,"VULCAN MATERIALS BOOK/ENTRY DTD 12/11/2007 DUE 11/30/2017 RATE 6.400",,,,,Interest,"$1,600.00",medium,Attachment 1
+8208368,JOYCE HEALY-ABRAMS,14,3,"BUCKEYE OHIO TOB SETTLEMENT FING AUTH ASSET-BKD-A-2 DD 10/29/2007 F/C 06/01/2008 DUE 06/01/2024 RATE 5.125",,,,,Tax-exempt interest,"$2,562.50",medium,Attachment 1 (Box 8)
+8208368,JOYCE HEALY-ABRAMS,14,4,"INLAND EMPIRE CA TOB SECURITIZ AUTH TOB STLMT 2007A B/E DD 8/16/07 F/C 12/1/07 DUE 06/01/2021 RATE 5.000",,,,,Tax-exempt interest,$750.00,medium,Attachment 1 (Box 8)
+8208368,JOYCE HEALY-ABRAMS,15,1,NUVEEN PERFORMANCE PLUS MUN FD,,,,,Tax-exempt interest,$824.25,medium,"Attachment 1; also specified private activity bond interest (Box 9) $66.57"
+8208368,JOYCE HEALY-ABRAMS,15,2,NUVEEN OHIO DIVIDEND ADVANTAGE MUNICIPAL FUND,,,,,Tax-exempt interest,"$1,764.00",medium,"Attachment 1; also Box 9 $84.00"
+8208368,JOYCE HEALY-ABRAMS,15,3,CELLCOM ISRAEL LTD-USD,,,,,Dividends,"$2,399.24",medium,Attachment 1 (1099-DIV detail)
+8208368,JOYCE HEALY-ABRAMS,15,4,AT&T INC,,,,,Dividends,"$1,419.00",medium,Attachment 1
+8208368,JOYCE HEALY-ABRAMS,15,5,ALPINE GLOBAL PREMIER PPTYS FD SHS OF BEN INT,,,,,Dividends,$210.02,medium,Attachment 1
+8208368,JOYCE HEALY-ABRAMS,15,6,AMERICAN CAP AGY CORP,,,,,Dividends;Capital Gains,"$10,684.60",medium,"Attachment 1; capital gain distributions $636.40"
+8208368,JOYCE HEALY-ABRAMS,16,1,ANNALY CAPITAL MANAGEMENT INC,,,,,Dividends;Capital Gains,"$5,668.00",medium,"Attachment 1; capital gain distributions $288.00"
+8208368,JOYCE HEALY-ABRAMS,16,2,ANWORTH MTG ASSET CORP,,,,,Dividends,$600.00,medium,Attachment 1
+8208368,JOYCE HEALY-ABRAMS,16,3,ARES CAPITAL CORP,,,,,Dividends;Capital Gains,"$2,399.99",medium,"Attachment 1; capital gain distributions $423.01"
+8208368,JOYCE HEALY-ABRAMS,16,4,BLACKROCK SR HIGH INCOME FUND INC,,,,,Dividends,"$3,310.00",medium,Attachment 1
+8208368,JOYCE HEALY-ABRAMS,16,5,BLACKROCK FLOATING RATE INCOME STRATEGIES FD INC,,,,,Dividends,$687.00,medium,Attachment 1
+8208368,JOYCE HEALY-ABRAMS,16,6,BRISTOL MYERS SQUIBB CO,,,,,Dividends,$330.00,medium,Attachment 1
+8208368,JOYCE HEALY-ABRAMS,16,7,CBRE CLARION GL REAL ESTATE INCOME FUND,,,,,Dividends,$290.40,medium,Attachment 1
+8208368,JOYCE HEALY-ABRAMS,16,8,CHIMERA INVESTMENT CORP,,,,,Dividends,"$4,000.00",medium,Attachment 1
+8208368,JOYCE HEALY-ABRAMS,16,9,FIRSTENERGY CORP,,,,,Dividends,"$2,640.00",medium,Attachment 1
+8208368,JOYCE HEALY-ABRAMS,16,10,GABELLI GLOBAL UTIL & INCOME BEN INT,,,,,Dividends;Capital Gains,$490.74,medium,"Attachment 1; capital gain distributions $291.38"
+8208368,JOYCE HEALY-ABRAMS,17,1,ING CLARION GLOBAL REAL ESTATE INCOME FUND,,,,,Dividends,$639.31,medium,Attachment 1
+8208368,JOYCE HEALY-ABRAMS,17,2,ING GLOBAL EQUITY DIVIDEND& PREMIUM OPPORTUNITY FUND,,,,,Dividends,$987.87,medium,Attachment 1
+8208368,JOYCE HEALY-ABRAMS,17,3,ISHARES S&P U.S PREFERRED STK INDEX FD,,,,,Dividends,"$1,133.20",medium,Attachment 1
+8208368,JOYCE HEALY-ABRAMS,17,4,KOHLBERG CAPITAL CORP,,,,,Dividends;Capital Gains,"$1,233.16",medium,"Attachment 1; capital gain distributions $15.17"
+8208368,JOYCE HEALY-ABRAMS,17,5,NUVEEN EQUITY PREM OPPORTUNITY FUND,,,,,Dividends,$528.24,medium,Attachment 1
+8208368,JOYCE HEALY-ABRAMS,17,6,NUVEEN SENIOR INCOME FUND,,,,,Dividends,"$1,035.60",medium,Attachment 1
+8208368,JOYCE HEALY-ABRAMS,17,7,PPL CORP,,,,,Dividends,"$1,060.00",medium,Attachment 1
+8208368,JOYCE HEALY-ABRAMS,18,1,POWERSHARES CEF INCOME COMPOSITE PORTFOLIO,,,,,Dividends,"$1,840.49",medium,Attachment 1
+8208368,JOYCE HEALY-ABRAMS,18,2,POWERSHARES EXCHANGE TRADED FD TR II PFD PORTFOLIO,,,,,Dividends,"$1,654.04",medium,Attachment 1
+8208368,JOYCE HEALY-ABRAMS,18,3,PROSPECT CAPITAL CORP,,,,,Dividends,"$2,112.58",medium,Attachment 1
+8208368,JOYCE HEALY-ABRAMS,18,4,SPDR SERIES TR BARCLAYS HIGH YIELD BD ETF,,,,,Dividends;Capital Gains,"$2,636.12",medium,"Attachment 1; capital gain distributions $264.06"
+8208368,JOYCE HEALY-ABRAMS,18,5,WESTERN ASSET GLOBAL HIGH INCOME FD INC,,,,,Dividends,"$2,213.75",medium,Attachment 1
+8208368,JOYCE HEALY-ABRAMS,18,6,WESTERN ASSET HIGH INCOME FD II INC,,,,,Dividends,"$2,697.50",medium,Attachment 1
+8208368,JOYCE HEALY-ABRAMS,19,1,CELLCOM ISRAEL LTD-USD,,,,,,,low,"Attachment 1; only foreign tax paid (Box 6) $477.36 on this line, no income amount"
+8208368,JOYCE HEALY-ABRAMS,19,2,ALPINE GLOBAL PREMIER PPTYS FD SHS OF BEN INT,,,,,Nondividend distributions,$155.49,medium,Attachment 1 (Box 3)
+8208368,JOYCE HEALY-ABRAMS,19,3,BLACKROCK FLOATING RATE INCOME STRATEGIES FD INC,,,,,Nondividend distributions,$83.00,medium,Attachment 1 (Box 3)
+8208368,JOYCE HEALY-ABRAMS,19,4,CBRE CLARION GL REAL ESTATE INCOME FUND,,,,,Nondividend distributions,$182.10,medium,Attachment 1 (Box 3)
+8208368,JOYCE HEALY-ABRAMS,19,5,GABELLI GLOBAL UTIL & INCOME BEN INT,,,,,Nondividend distributions,$167.88,medium,Attachment 1 (Box 3)
+8208368,JOYCE HEALY-ABRAMS,19,6,ING CLARION GLOBAL REAL ESTATE INCOME FUND,,,,,Nondividend distributions,$338.19,medium,Attachment 1 (Box 3)
+8208368,JOYCE HEALY-ABRAMS,20,1,ING GLOBAL EQUITY DIVIDEND& PREMIUM OPPORTUNITY FUND,,,,,Nondividend distributions,"$2,456.46",medium,"Attachment 1 (Box 3); foreign tax paid $93.77"
+8208368,JOYCE HEALY-ABRAMS,20,2,KOHLBERG CAPITAL CORP,,,,,Nondividend distributions,$46.67,medium,Attachment 1 (Box 3)
+8208368,JOYCE HEALY-ABRAMS,20,3,NUVEEN EQUITY PREM OPPORTUNITY FUND,,,,,Nondividend distributions,$85.56,medium,Attachment 1 (Box 3)
+8208368,JOYCE HEALY-ABRAMS,20,4,POWERSHARES CEF INCOME COMPOSITE PORTFOLIO,,,,,Nondividend distributions,$643.03,medium,Attachment 1 (Box 3)
+8208368,JOYCE HEALY-ABRAMS,20,5,PROSPECT CAPITAL CORP,,,,,Nondividend distributions,$317.72,medium,Attachment 1 (Box 3)
+8208368,JOYCE HEALY-ABRAMS,20,6,TORTOISE MLP FUND,,,,,Nondividend distributions,$962.50,medium,Attachment 1 (Box 3)
+8208368,JOYCE HEALY-ABRAMS,21,1,AMERICAN FIRST TAX EXEMPT INVS L.P.BEN UNIT CTF,,,,,Other income (K-1 partnership distributions),"$1,500.00",medium,Attachment 1
+8208368,JOYCE HEALY-ABRAMS,21,2,BUCKEYE PARTNERS L P,,,,,Other income (K-1 partnership distributions),"$2,416.00",medium,Attachment 1
+8208368,JOYCE HEALY-ABRAMS,21,3,TARGA RES PARTNERS LP UNIT LTD PARTNERSHIP INT,,,,,Other income (K-1 partnership distributions),"$2,483.26",medium,Attachment 1
+8208368,JOYCE HEALY-ABRAMS,21,4,VANGUARD NAT RES LLC UNIT REPSTG LTD LIABILITY CO INTS,,,,,Other income (K-1 partnership distributions),"$1,943.50",medium,Attachment 1
+8208368,JOYCE HEALY-ABRAMS,21,5,[redacted],,,,,Other income (K-1 partnership distributions),,low,"line and amount blacked out on form"
+8208368,JOYCE HEALY-ABRAMS,21,6,BP PRUDHOE BAY RTY TRUST UNITS BEN INT,,,,,Royalties,"$4,178.29",medium,"Attachment 1; a further royalties line below is blacked out"
+8208368,JOYCE HEALY-ABRAMS,26,1,"Morgan Stanley Smith Barney Reserved Client Financial Management Account (April 1 - April 30, 2012)",,,,,,,low,"account header; Attachment 2 summary page: dividends credited ~$8,746.29, other income credited ~$1,083.96, closing cash ~$5,789.42 (blurry)"
+8208368,JOYCE HEALY-ABRAMS,27,1,CITIBANK NA BANK DEPOSIT PROGRAM,,,,"$4,571.28",Interest,,medium,"Attachment 2; value as of 04/30/12; anticipated annual income $.46"
+8208368,JOYCE HEALY-ABRAMS,28,1,AT&T INC,,,,"$34,301.00",,,low,"Attachment 2 holdings, value as of 04/30/12; very blurry scan"
+8208368,JOYCE HEALY-ABRAMS,28,2,AMERICAN FIRST TAX EXEMPT INVS L.P.BEN UNIT CTF,,,,"$29,280.00",,,low,"Attachment 2; blurry; lot figures ~23,440.00 and ~8,700.00 (do not sum cleanly), underlined total read as 29,280.00"
+8208368,JOYCE HEALY-ABRAMS,28,3,AMERICAN CAP AGY CORP,,,,"$31,228.00",,,low,"Attachment 2; blurry; lots ~15,617.50 / 6,347.00 / 9,370.50, total read as 31,228.00"
+8208368,JOYCE HEALY-ABRAMS,28,4,ANNALY CAPITAL MANAGEMENT INC,,,,"$62,470.00",,,low,"Attachment 2; blurry; figures ~19,084.00 / 19,694.00 / 38,188.00 follow and may belong to this holding"
+8208368,JOYCE HEALY-ABRAMS,28,5,BP PRUDHOE BAY RTY TRUST UNITS BEN INT,,,,"$18,890.00",,,low,Attachment 2; blurry
+8208368,JOYCE HEALY-ABRAMS,28,6,BUCKEYE PARTNERS L P,,,,"$33,670.00",,,low,Attachment 2; blurry
+8208368,JOYCE HEALY-ABRAMS,28,7,ENERGY TRANSFER PARTNERS LP UNIT L P INT,,,,"$9,825.00",,,low,Attachment 2; blurry
+8208368,JOYCE HEALY-ABRAMS,29,1,FIRSTENERGY CORP,,,,"$28,032.00",,,low,"Attachment 2; blurry; lots ~9,384.00 / 9,264.00 / 9,384.00, total 28,032.00"
+8208368,JOYCE HEALY-ABRAMS,29,2,KOHLBERG CAPITAL CORP,,,,,,,low,"Attachment 2; blurry; value not attributable with confidence, nearby figure ~56,164.00"
+8208368,JOYCE HEALY-ABRAMS,29,3,PPL CORP,,,,,,,low,"Attachment 2; blurry; nearby figures ~9,268.00 / 3,066.00 / 12,946.00 / 27,380.00, attribution unclear"
+8208368,JOYCE HEALY-ABRAMS,29,4,TOTAL S.A SPONS ADR,,,,"$9,632.00",,,low,Attachment 2; blurry
+8208368,JOYCE HEALY-ABRAMS,29,5,VANGUARD NAT RES LLC UNIT REPSTG LTD LIABILITY CO INTS,,,,"$26,910.00",,,low,"Attachment 2; blurry; lots ~7,227.50 / 13,008.00 / 5,672.00, total read as 26,910.00"
+8208368,JOYCE HEALY-ABRAMS,29,6,[redacted],,,,,,,low,"Attachment 2; holding line and value blacked out"
+8208368,JOYCE HEALY-ABRAMS,29,7,ARES CAPITAL CORP,,,,"$35,592.00",,,low,"Attachment 2; blurry; lots ~17,544.00 / 18,048.00"
+8208368,JOYCE HEALY-ABRAMS,29,8,ING GLOBAL EQUITY DIVIDEND& PREMIUM OPPORTUNITY FUND,,,,,,,low,"Attachment 2; continues on page 30; figures ~28,980.00 / 7,816.00, reinvestments to date ~228.38"
+8208368,JOYCE HEALY-ABRAMS,30,1,ING GLOBAL EQUITY DIVIDEND& PREMIUM OPPORTUNITY FUND (continued),,,,"$36,894.00",,,low,"Attachment 2; blurry; figures ~289.00 / 36,600.96, total read as 36,894.00"
+8208368,JOYCE HEALY-ABRAMS,30,2,NUVEEN EQUITY PREM OPPORTUNITY FUND,,,,"$30,000.00",,,low,"Attachment 2; blurry; figures ~1,286.77 / 28,173.77, total read as 30,000.00"
+8208368,JOYCE HEALY-ABRAMS,30,3,POWERSHARES CEF INCOME COMPOSITE PORTFOLIO,,,,,,,low,"Attachment 2; no value legible on its line"
+8208368,JOYCE HEALY-ABRAMS,30,4,TORTOISE MLP FUND,,,,"$5,308.00",,,low,Attachment 2; blurry
+8208368,JOYCE HEALY-ABRAMS,30,5,BLACKROCK SR HIGH INCOME FUND INC,,,,"$21,000.00",,,low,Attachment 2; blurry
+8208368,JOYCE HEALY-ABRAMS,30,6,ISHARES S&P U.S PREFERRED STK INDEX FD,,,,"$18,470.00",,,low,Attachment 2; blurry
+8208368,JOYCE HEALY-ABRAMS,30,7,NUVEEN SENIOR INCOME FUND,,,,"$14,500.00",,,low,"Attachment 2; blurry; lots ~10,930.00 / 3,570.00"
+8208368,JOYCE HEALY-ABRAMS,30,8,POWERSHARES EXCHANGE TRADED FD TR II PFD PORTFOLIO,,,,"$28,740.00",,,low,Attachment 2; blurry
+8208368,JOYCE HEALY-ABRAMS,30,9,SPDR SERIES TR BARCLAYS HIGH YIELD BD ETF,,,,"$39,780.00",,,low,"Attachment 2; blurry; lots ~19,895.00 x2 (total could be 39,790.00)"
+8208368,JOYCE HEALY-ABRAMS,31,1,WESTERN ASSET GLOBAL HIGH INCOME FD INC,,,,"$26,400.00",,,low,"Attachment 2; blurry; lots ~13,200.00 x2"
+8208368,JOYCE HEALY-ABRAMS,31,2,"DYNEGY DTD 5/24/2007 GLOBAL INT 07.500% MATY 06/01/2015",,,,"$16,750.00",,,low,Attachment 2 corporate bonds; blurry
+8208368,JOYCE HEALY-ABRAMS,31,3,"QUICKSILVER RESOURCE DTD 08/27/2008 INT 08.250% MATY 08/01/2015",,,,"$19,088.00",,,low,Attachment 2 corporate bonds; blurry
+8208368,JOYCE HEALY-ABRAMS,32,1,"USG CORP DTD 11/17/2006 WHEN ISSUED INT 06.300% MATY 11/15/2016",,,,"$47,750.00",,,low,"Attachment 2; blurry; lots ~23,875.00 x2"
+8208368,JOYCE HEALY-ABRAMS,32,2,"VULCAN MATERIALS BOOK/ENTRY DTD 12/11/2007 INT 06.400% MATY 11/30/2017",,,,"$26,125.00",,,low,Attachment 2; blurry
+8208368,JOYCE HEALY-ABRAMS,32,3,"ADVANCED MICRO DEVICES INC INT 08.125% MATY 12/15/2017",,,,"$27,000.00",,,low,Attachment 2; blurry
+8208368,JOYCE HEALY-ABRAMS,32,4,"CINCINNATI BELL INC DTD 03/15/2010 INT 08.750% MATY 03/15/2018",,,,"$47,812.50",,,low,"Attachment 2; blurry; lots ~24,375.00 / 23,437.50"
+8208368,JOYCE HEALY-ABRAMS,33,1,"BUCKEYE OHIO TOB SETTLEMENT FING AUTH ASSET-BKD-A-2 DD 10/29/2007 F/C 06/01/2008 INT 05.125% MATY 06/01/2024",,,,"$40,735.00",,,low,"Attachment 2 municipal bonds; blurry; lots ~20,367.50 x2"
+8208368,JOYCE HEALY-ABRAMS,34,1,PPL CORP,,,,,Dividends,$360.00,low,"Attachment 2 April 2012 income, qualified dividend 04/02/12; blurry"
+8208368,JOYCE HEALY-ABRAMS,34,2,TOTAL S.A SPONS ADR,,,,,Dividends,$105.03,low,"qualified dividend 04/12/12; blurry, taxable column may read 60.04"
+8208368,JOYCE HEALY-ABRAMS,34,3,TOTAL S.A SPONS ADR,,,,,Dividends,$21.71,low,"qualified dividend 04/26/12; blurry"
+8208368,JOYCE HEALY-ABRAMS,34,4,KOHLBERG CAPITAL CORP,,,,,Dividends,$360.00,low,"qualified dividend 04/27/12; blurry, could be $380.00"
+8208368,JOYCE HEALY-ABRAMS,34,5,NUVEEN EQUITY PREM OPPORTUNITY FUND,,,,,Dividends,$628.61,low,"other dividend 04/02/12; blurry"
+8208368,JOYCE HEALY-ABRAMS,34,6,NUVEEN SENIOR INCOME FUND,,,,,Dividends,$86.00,low,"other dividend 04/03/12; blurry"
+8208368,JOYCE HEALY-ABRAMS,34,7,ISHARES S&P U.S PREFERRED STK INDEX FD,,,,,Dividends,$93.66,low,"other dividend 04/09/12; blurry"
+8208368,JOYCE HEALY-ABRAMS,34,8,SPDR SERIES TR BARCLAYS HIGH YIELD BD ETF,,,,,Dividends,$241.94,low,"other dividend 04/11/12; blurry"
+8208368,JOYCE HEALY-ABRAMS,34,9,ING GLOBAL EQUITY DIVIDEND& PREMIUM OPPORTUNITY FUND,,,,,Dividends,$961.08,low,"other dividend 04/16/12; blurry"
+8208368,JOYCE HEALY-ABRAMS,34,10,ANNALY CAPITAL MANAGEMENT INC,,,,,Dividends,"$1,320.00",low,"other dividend 04/26/12; blurry"
+8208368,JOYCE HEALY-ABRAMS,34,11,AMERICAN CAP AGY CORP,,,,,Dividends,"$2,500.00",low,"other dividend 04/27/12; blurry"
+8208368,JOYCE HEALY-ABRAMS,34,12,WESTERN ASSET GLOBAL HIGH INCOME FD INC,,,,,Dividends,$192.60,low,"other dividend 04/27/12; blurry"
+8208368,JOYCE HEALY-ABRAMS,34,13,BLACKROCK SR HIGH INCOME FUND INC,,,,,Dividends,$125.00,low,"other dividend 04/30/12; blurry"
+8208368,JOYCE HEALY-ABRAMS,34,14,POWERSHARES CEF INCOME COMPOSITE PORTFOLIO,,,,,Dividends,$182.10,low,"other dividend 04/30/12; blurry"
+8208368,JOYCE HEALY-ABRAMS,34,15,POWERSHARES EXCHANGE TRADED FD TR II PFD PORTFOLIO,,,,,Dividends,$157.56,low,"other dividend 04/30/12; blurry"
+8208368,JOYCE HEALY-ABRAMS,35,1,CITIBANK NA BANK DEPOSIT PROGRAM,,,,,Interest,$.04,medium,"Attachment 2, bank deposit interest 04/30/12"
+8208368,JOYCE HEALY-ABRAMS,35,2,BP PRUDHOE BAY RTY TRUST UNITS BEN INT,,,,,Other income,$396.46,low,"other income 04/20/12; blurry"
+8208368,JOYCE HEALY-ABRAMS,35,3,AMERICAN FIRST TAX EXEMPT INVS L.P.BEN UNIT CTF,,,,,Other income,$687.50,low,"other income 04/30/12; blurry"

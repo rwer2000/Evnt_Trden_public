@@ -1,0 +1,111 @@
+doc_id,filer_name,page,row_in_page,asset_name,ticker_on_form,asset_type_code,owner,value_band,income_types,income_amount_band,confidence,note
+8212552,HONORABLE DAVID P. ROE,4,1,1.7% OWNERSHIP - SOFHA REAL ESTATE PARTNERSHIP (COMMERCIAL BLDG JOHNSON CITY TN),,,,"$50,001 - $100,000",Rent,None,high,
+8212552,HONORABLE DAVID P. ROE,4,2,DAVID PHILLIP ROE TRUST,,,,"$250,001 - $500,000",Dividends;Interest;Capital Gains,"$15,001 - $50,000",high,"Block E: see attached schedule #1 (holdings transcribed on pages 13-26)"
+8212552,HONORABLE DAVID P. ROE,4,3,"RENTAL CONDO - FRISCO, CO",,,,"$100,001 - $250,000",Rent,"$5,001 - $15,000",high,
+8212552,HONORABLE DAVID P. ROE,5,1,MERRILL LYNCH - IRA,,,SP,"$100,001 - $250,000",Tax-Deferred,None,high,see attached schedule #2 (not among listed pages)
+8212552,HONORABLE DAVID P. ROE,5,2,MERRILL LYNCH - IRA,,,,"$250,001 - $500,000",Tax-Deferred,None,high,see attached schedule #3 (not among listed pages)
+8212552,HONORABLE DAVID P. ROE,5,3,MERRILL LYNCH RETIREMENT ACCOUNT,,,,"$1,000,001 - $5,000,000",Dividends,,medium,no income amount box checked; see attached schedule #4 (not among listed pages)
+8212552,HONORABLE DAVID P. ROE,5,4,MERRILL LYNCH - IRA (formerly known as ML IRA MidCap Growth),,,,"$1,001 - $15,000",Tax-Deferred,None,high,
+8212552,HONORABLE DAVID P. ROE,5,5,MERRILL LYNCH BEYOND BANKING ACCOUNT (formerly known as ML CMA Account),,,,"$15,001 - $50,000",Interest,$1 - $200,high,
+8212552,HONORABLE DAVID P. ROE,5,6,PEOPLE'S COMMUNITY BANK,,,JT,"$1,001 - $15,000",Interest,"$201 - $1,000",high,
+8212552,HONORABLE DAVID P. ROE,6,1,BANK OF TENNESSEE,,,JT,"$1,001 - $15,000",Interest,"$201 - $1,000",high,
+8212552,HONORABLE DAVID P. ROE,6,2,"RESIDENTIAL REAL ESTATE - JOHNSON CITY, TN",,,JT,"$500,001 - $1,000,000",Rent;Capital Gains,None,high,Block E: S
+8212552,HONORABLE DAVID P. ROE,6,3,FIDELITY INVESTMENT RETIREMENT ACCOUNT,,,,"$250,001 - $500,000",Tax-Deferred,None,high,see attached schedule #5 (not among listed pages)
+8212552,HONORABLE DAVID P. ROE,13,1,"FIA CARD SERVICES, N.A. (ML Bank Deposit Program)",,,,"$45,172",,,medium,"Sched 1 trust statement (Dec 2012) closing balance; Dec interest on deposits 3.51"
+8212552,HONORABLE DAVID P. ROE,13,2,"BANK OF AMERICA RI, N.A. (ML Bank Deposit Program)",,,,$4,,,medium,"Sched 1 trust statement closing balance; Dec interest 0.00"
+8212552,HONORABLE DAVID P. ROE,13,3,FEDERAL HOME LN MTG CORP CALLABLE NOTES 03.000% JAN 17 2019,,,,"$10,259.20",,,medium,Sched 1 trust statement; estimated market value
+8212552,HONORABLE DAVID P. ROE,14,1,GENERAL ELECTRIC COMPANY GLB 05.000% FEB 01 2013,,,,"$15,057.15",,,medium,Sched 1 trust statement; estimated market value
+8212552,HONORABLE DAVID P. ROE,14,2,GOLDMAN SACHS GROUP LP GLB 05.000% OCT 01 2014,,,,"$10,651.90",,,medium,Sched 1 trust statement; estimated market value
+8212552,HONORABLE DAVID P. ROE,14,3,WAL-MART STORES 04.500% JUL 01 2015,,,,"$10,951.90",,,medium,Sched 1 trust statement; estimated market value
+8212552,HONORABLE DAVID P. ROE,14,4,CISCO SYSTEMS INC GLB 04.950% FEB 15 2019,,,,"$11,838.20",,,medium,Sched 1 trust statement; estimated market value
+8212552,HONORABLE DAVID P. ROE,14,5,GENERAL ELEC CAP CORP SER MTN STEP% JAN 13 2027,,,,"$3,027.69",,,medium,Sched 1 trust statement; estimated market value
+8212552,HONORABLE DAVID P. ROE,14,6,AMAZON COM INC COM,AMZN,,,"$2,257.83",,,medium,Sched 1 trust statement; estimated market value
+8212552,HONORABLE DAVID P. ROE,15,1,APACHE CORP,APA,,,"$3,218.50",,,medium,Sched 1 trust statement; subtotal of 2 lots
+8212552,HONORABLE DAVID P. ROE,15,2,AUTOMATIC DATA PROC,ADP,,,"$2,846.50",,,medium,Sched 1 trust statement; subtotal of 2 lots
+8212552,HONORABLE DAVID P. ROE,15,3,AUTOZONE INC NEVADA COM,AZO,,,"$3,189.87",,,medium,Sched 1 trust statement; subtotal of 2 lots
+8212552,HONORABLE DAVID P. ROE,15,4,"C.H. ROBINSON WORLDWIDE, INC. NEW",CHRW,,,"$2,844.90",,,medium,Sched 1 trust statement; subtotal of 2 lots
+8212552,HONORABLE DAVID P. ROE,15,5,CAPITAL ONE FINL,COF,,,"$3,417.87",,,medium,Sched 1 trust statement; subtotal of 2 lots
+8212552,HONORABLE DAVID P. ROE,15,6,CENTURYLINK INC SHS,CTL,,,"$3,559.92",,,medium,Sched 1 trust statement; estimated market value
+8212552,HONORABLE DAVID P. ROE,15,7,CHESAPEAKE ENERGY OKLA,CHK,,,"$2,476.38",,,medium,Sched 1 trust statement; subtotal of 2 lots
+8212552,HONORABLE DAVID P. ROE,15,8,COCA COLA COM,KO,,,"$2,827.50",,,medium,Sched 1 trust statement; estimated market value
+8212552,HONORABLE DAVID P. ROE,15,9,CONSTELLATION BRANDS INC,STZ,,,"$3,291.27",,,medium,Sched 1 trust statement; subtotal of 3 lots
+8212552,HONORABLE DAVID P. ROE,15,10,EATON CORP PLC,ETN,,,"$3,142.44",,,medium,Sched 1 trust statement; estimated market value
+8212552,HONORABLE DAVID P. ROE,16,1,EXXON MOBIL CORP COM,XOM,,,"$3,288.90",,,medium,Sched 1 trust statement; subtotal of 2 lots
+8212552,HONORABLE DAVID P. ROE,16,2,FLUOR CORP NEW DEL COM,FLR,,,"$3,465.66",,,medium,Sched 1 trust statement; subtotal of 2 lots
+8212552,HONORABLE DAVID P. ROE,16,3,GENL DYNAMICS CORP COM,GD,,,"$3,532.77",,,medium,Sched 1 trust statement; subtotal of 2 lots
+8212552,HONORABLE DAVID P. ROE,16,4,JACOBS ENGN GRP INC DELA,JEC,,,"$3,277.89",,,medium,Sched 1 trust statement; subtotal of 2 lots
+8212552,HONORABLE DAVID P. ROE,16,5,LINEAR TECHNOLOGY CORP,LLTC,,,"$2,846.90",,,medium,Sched 1 trust statement; subtotal of 2 lots
+8212552,HONORABLE DAVID P. ROE,16,6,MCDONALDS CORP COM,MCD,,,"$2,734.51",,,medium,Sched 1 trust statement; subtotal of 2 lots
+8212552,HONORABLE DAVID P. ROE,16,7,MARATHON PETROLEUM CORP,MPC,,,"$3,591.00",,,medium,Sched 1 trust statement; estimated market value
+8212552,HONORABLE DAVID P. ROE,16,8,MICRON TECHNOLOGY INC,MU,,,"$3,632.82",,,medium,Sched 1 trust statement; subtotal of 3 lots
+8212552,HONORABLE DAVID P. ROE,16,9,NEWS CORP CL A,NWSA,,,"$3,698.95",,,medium,Sched 1 trust statement; subtotal of 2 lots
+8212552,HONORABLE DAVID P. ROE,17,1,O'REILLY AUTOMOTIVE INC,ORLY,,,"$3,219.12",,,medium,Sched 1 trust statement; subtotal of 2 lots
+8212552,HONORABLE DAVID P. ROE,17,2,PAYCHEX INC,PAYX,,,"$2,736.80",,,medium,Sched 1 trust statement; subtotal of 2 lots
+8212552,HONORABLE DAVID P. ROE,17,3,TERADATA CORP DEL,TDC,,,"$3,527.73",,,medium,Sched 1 trust statement; subtotal of 4 lots
+8212552,HONORABLE DAVID P. ROE,17,4,WATSON PHARMACEUTICALS,WPI,,,"$3,096.00",,,medium,Sched 1 trust statement; subtotal of 2 lots
+8212552,HONORABLE DAVID P. ROE,17,5,WELLS FARGO & CO NEW DEL,WFC,,,"$3,349.64",,,medium,Sched 1 trust statement; subtotal of 2 lots
+8212552,HONORABLE DAVID P. ROE,17,6,3M COMPANY,MMM,,,"$2,692.65",,,medium,Sched 1 trust statement; subtotal of 3 lots
+8212552,HONORABLE DAVID P. ROE,17,7,AMER FUNDS AMERICAN HIGH (.5240 Fractional Share),AHIFX,,,$5.95,,,medium,Sched 1 trust statement; fractional share line only
+8212552,HONORABLE DAVID P. ROE,18,1,BLACKROCK INFLATION PROTECTED BD FD INST CL,BPRIX,,,"$9,221.48",,,medium,Sched 1 trust statement; estimated market value
+8212552,HONORABLE DAVID P. ROE,18,2,BLACKROCK INFLATION PROTECTED BD FD INST CL (.3380 Fractional Share),BPRIX,,,$4.08,,,medium,Sched 1 trust statement; fractional share line
+8212552,HONORABLE DAVID P. ROE,18,3,CALAMOS HIGH INCOME FUND CL I,CIHYX,,,"$4,555.32",,,medium,Sched 1 trust statement; estimated market value
+8212552,HONORABLE DAVID P. ROE,18,4,CALAMOS HIGH INCOME FUND CL I (.2210 Fractional Share),CIHYX,,,$2.18,,,medium,Sched 1 trust statement; fractional share line
+8212552,HONORABLE DAVID P. ROE,18,5,CALAMOS EVOLVING WORLD GROWTH FUND CL I,CNWIX,,,"$4,067.20",,,medium,Sched 1 trust statement; estimated market value
+8212552,HONORABLE DAVID P. ROE,18,6,CALAMOS EVOLVING WORLD GROWTH FUND CL I (.3360 Fractional Share),CNWIX,,,$4.41,,,medium,Sched 1 trust statement; fractional share line
+8212552,HONORABLE DAVID P. ROE,18,7,DOUBLELINE TOTAL RETURN BOND FUND CL I,DBLTX,,,"$3,648.26",,,medium,Sched 1 trust statement; estimated market value
+8212552,HONORABLE DAVID P. ROE,18,8,DOUBLELINE TOTAL RETURN BOND FUND CL I (.9220 Fractional Share),DBLTX,,,$10.45,,,medium,Sched 1 trust statement; fractional share line
+8212552,HONORABLE DAVID P. ROE,18,9,EMERGING GLOBAL SHARES DOW JONES,ECON,,,"$4,741.92",,,medium,Sched 1 trust statement; estimated market value
+8212552,HONORABLE DAVID P. ROE,18,10,FIRST EAGLE OVERSEAS CL I,SGOIX,,,"$20,012.20",,,medium,Sched 1 trust statement; name and symbol continue on page 19
+8212552,HONORABLE DAVID P. ROE,19,1,FIRST EAGLE OVERSEAS CL I (.4190 Fractional Share),SGOIX,,,$9.37,,,medium,Sched 1 trust statement; fractional share line
+8212552,HONORABLE DAVID P. ROE,19,2,GUGGENHEIM BULLETSHARES 2016 CORPORATE BOND ETF,BSCG,,,"$4,643.98",,,medium,Sched 1 trust statement; estimated market value
+8212552,HONORABLE DAVID P. ROE,19,3,GUGGENHEIM BULLETSHARES 2017 CORPORATE BOND ETF,BSCH,,,"$4,837.84",,,medium,Sched 1 trust statement; estimated market value
+8212552,HONORABLE DAVID P. ROE,19,4,GUGGENHEIM BULLETSHARES 2014 H Y CORP,BSJE,,,"$3,733.68",,,medium,Sched 1 trust statement; estimated market value
+8212552,HONORABLE DAVID P. ROE,19,5,GUGGENHEIM BULLETSHARES 2015 H Y CORP,BSJF,,,"$8,591.80",,,medium,Sched 1 trust statement; estimated market value
+8212552,HONORABLE DAVID P. ROE,19,6,ISHARES CORE S&P MID-CAP ETF,IJH,,,"$15,255.00",,,medium,Sched 1 trust statement; symbol print faint (reads IJH)
+8212552,HONORABLE DAVID P. ROE,19,7,ISHARES CORE S&P SMALL CAP ETF,IJR,,,"$10,934.00",,,medium,Sched 1 trust statement; name and symbol continue on page 20
+8212552,HONORABLE DAVID P. ROE,20,1,ISHARES TR DOW JONES US TECHNOLOGY SECTOR INDX F,IYW,,,"$15,275.52",,,medium,Sched 1 trust statement; estimated market value
+8212552,HONORABLE DAVID P. ROE,20,2,ISHARES S&P 100 INDEX FUND,OEF,,,"$30,533.68",,,medium,Sched 1 trust statement; estimated market value
+8212552,HONORABLE DAVID P. ROE,20,3,JAMES SMALL CAP FUND,JASCX,,,"$5,472.30",,,medium,Sched 1 trust statement; estimated market value
+8212552,HONORABLE DAVID P. ROE,20,4,JAMES SMALL CAP FUND (.6750 Fractional Share),JASCX,,,$16.64,,,medium,Sched 1 trust statement; fractional share line
+8212552,HONORABLE DAVID P. ROE,20,5,KAYNE ANDERSON MLP,KYN,,,"$3,212.23",,,medium,Sched 1 trust statement; estimated market value
+8212552,HONORABLE DAVID P. ROE,20,6,OPPENHEIMER INTERNATIONAL BOND FD Y,OIBYX,,,"$9,731.82",,,medium,Sched 1 trust statement; estimated market value (1479 shares)
+8212552,HONORABLE DAVID P. ROE,20,7,OPPENHEIMER INTERNATIONAL BOND FD Y (1 share line),OIBYX,,,$6.58,,,medium,Sched 1 trust statement; separate 1-share line with cost N/A
+8212552,HONORABLE DAVID P. ROE,20,8,OPPENHEIMER INTERNATIONAL BOND FD Y (.1290 Fractional Share),OIBYX,,,$.85,,,medium,Sched 1 trust statement; fractional share line
+8212552,HONORABLE DAVID P. ROE,20,9,OPPENHEIMER DEVELOPING MARKETS FD CL Y,ODVYX,,,"$4,185.60",,,medium,Sched 1 trust statement; name and symbol continue on page 21
+8212552,HONORABLE DAVID P. ROE,21,1,OPPENHEIMER DEVELOPING MARKETS FD CL Y (.1610 Fractional Share),ODVYX,,,$5.62,,,medium,Sched 1 trust statement; fractional share line
+8212552,HONORABLE DAVID P. ROE,21,2,OPPENHEIMER INTERNATL GROWTH FD CL Y,OIGYX,,,"$13,880.92",,,medium,Sched 1 trust statement; estimated market value
+8212552,HONORABLE DAVID P. ROE,21,3,OPPENHEIMER INTERNATL GROWTH FD CL Y (.4930 Fractional Share),OIGYX,,,$15.14,,,medium,Sched 1 trust statement; fractional share line
+8212552,HONORABLE DAVID P. ROE,21,4,PIMCO TOTAL RETURN FUND CL P,PTTPX,,,"$3,810.36",,,medium,Sched 1 trust statement; estimated market value
+8212552,HONORABLE DAVID P. ROE,21,5,PIMCO TOTAL RETURN FUND CL P (.8480 Fractional Share),PTTPX,,,$9.53,,,medium,Sched 1 trust statement; fractional share line
+8212552,HONORABLE DAVID P. ROE,21,6,POWERSHARES BUILD AMERIC BOND ETF,BAB,,,"$9,404.64",,,medium,Sched 1 trust statement; estimated market value
+8212552,HONORABLE DAVID P. ROE,21,7,PRINCIPAL PREFERRED SECURITIES FUND CL P,PPSPX,,,"$2,923.92",,,medium,Sched 1 trust statement; estimated market value
+8212552,HONORABLE DAVID P. ROE,21,8,PRINCIPAL PREFERRED SECURITIES FUND CL P (.7270 Fractional Share),PPSPX,,,$7.62,,,medium,Sched 1 trust statement; fractional share line
+8212552,HONORABLE DAVID P. ROE,21,9,RIDGEWORTH SEIX FLOATING RATE HI INC FD CL I,SAMBX,,,"$2,702.98",,,medium,Sched 1 trust statement; estimated market value
+8212552,HONORABLE DAVID P. ROE,22,1,RIDGEWORTH SEIX FLOATING RATE HI INC FD CL I (.7340 Fractional Share),SAMBX,,,$6.59,,,medium,Sched 1 trust statement; fractional share line
+8212552,HONORABLE DAVID P. ROE,22,2,ROYCE PENNSYLVANIA MUTUAL FUND CL INVESTMENT,PENNX,,,"$8,464.00",,,medium,Sched 1 trust statement; estimated market value
+8212552,HONORABLE DAVID P. ROE,22,3,ROYCE PENNSYLVANIA MUTUAL FUND CL INVESTMENT (.8910 Fractional Share),PENNX,,,$10.25,,,medium,Sched 1 trust statement; fractional share line
+8212552,HONORABLE DAVID P. ROE,22,4,RS FLOATING RATE FUND CL Y,RSFYX,,,"$3,769.09",,,medium,Sched 1 trust statement; estimated market value
+8212552,HONORABLE DAVID P. ROE,22,5,RS FLOATING RATE FUND CL Y (.5900 Fractional Share),RSFYX,,,$6.06,,,medium,Sched 1 trust statement; fractional share line
+8212552,HONORABLE DAVID P. ROE,22,6,RS LOW DURATION BOND FD CL Y,RSDYX,,,"$4,540.80",,,medium,Sched 1 trust statement; estimated market value
+8212552,HONORABLE DAVID P. ROE,22,7,RS LOW DURATION BOND FD CL Y (.8650 Fractional Share),RSDYX,,,$8.93,,,medium,Sched 1 trust statement; fractional share line
+8212552,HONORABLE DAVID P. ROE,22,8,S&P US PFD STK INDEX FD ISHARES,PFF,,,"$2,773.40",,,medium,Sched 1 trust statement; estimated market value
+8212552,HONORABLE DAVID P. ROE,22,9,SCOUT MID CAP FUND CL RETAIL,UMBMX,,,"$5,468.00",,,medium,Sched 1 trust statement; estimated market value
+8212552,HONORABLE DAVID P. ROE,22,10,SCOUT MID CAP FUND CL RETAIL (.5540 Fractional Share),UMBMX,,,$7.57,,,medium,Sched 1 trust statement; fractional share line
+8212552,HONORABLE DAVID P. ROE,23,1,SECTOR SPDR CONSMRS STPL,XLP,,,"$11,063.30",,,medium,Sched 1 trust statement; estimated market value
+8212552,HONORABLE DAVID P. ROE,23,2,SPDR DB INTL GOV INFL,WIP,,,"$5,718.60",,,medium,Sched 1 trust statement; estimated market value
+8212552,HONORABLE DAVID P. ROE,23,3,TCW TOTAL RETURN BOND FD CL I,TGLMX,,,"$5,824.14",,,medium,Sched 1 trust statement; estimated market value
+8212552,HONORABLE DAVID P. ROE,23,4,TCW TOTAL RETURN BOND FD CL I (.1200 Fractional Share),TGLMX,,,$1.23,,,medium,Sched 1 trust statement; fractional share line
+8212552,HONORABLE DAVID P. ROE,23,5,TEMPLETON GLBL BOND FD ADV CL,TGBAX,,,"$9,097.88",,,medium,Sched 1 trust statement; estimated market value
+8212552,HONORABLE DAVID P. ROE,23,6,TEMPLETON GLBL BOND FD ADV CL (.5430 Fractional Share),TGBAX,,,$7.24,,,medium,Sched 1 trust statement; fractional share line
+8212552,HONORABLE DAVID P. ROE,23,7,VANGUARD DIVIDEND APPRECIATION ETF,VIG,,,"$5,420.87",,,medium,Sched 1 trust statement; estimated market value
+8212552,HONORABLE DAVID P. ROE,24,1,CASH,,,,$61.10,,,medium,Sched 1 trust statement (income investments); estimated market value
+8212552,HONORABLE DAVID P. ROE,24,2,ML BANK DEPOSIT PROGRAM,,,,"$45,176.00",,,medium,Sched 1 trust statement; same deposits as itemized on page 13 (FIA Card Services + Bank of America RI)
+8212552,HONORABLE DAVID P. ROE,25,1,AMER FUNDS AMERICAN HIGH INCOME TRUST FD CL F2 (income investments),AHIFX,,,$22.72,,,medium,Sched 1 trust statement; reinvested-income shares
+8212552,HONORABLE DAVID P. ROE,25,2,BLACKROCK INFLATION PROTECTED BD FD INST CL (income investments),BPRIX,,,$229.33,,,medium,Sched 1 trust statement; reinvested-income shares
+8212552,HONORABLE DAVID P. ROE,25,3,FIRST EAGLE OVERSEAS CL I (income investments),SGOIX,,,$916.76,,,medium,Sched 1 trust statement; reinvested-income shares
+8212552,HONORABLE DAVID P. ROE,25,4,OPPENHEIMER INTERNATIONAL BOND FD Y (income investments),OIBYX,,,$375.06,,,medium,Sched 1 trust statement; reinvested-income shares
+8212552,HONORABLE DAVID P. ROE,25,5,PIMCO TOTAL RETURN FUND CL P (income investments),PTTPX,,,$67.44,,,medium,Sched 1 trust statement; reinvested-income shares
+8212552,HONORABLE DAVID P. ROE,25,6,ROYCE PENNSYLVANIA MUTUAL FUND CL INVESTMENT (income investments),PENNX,,,$103.50,,,medium,Sched 1 trust statement; reinvested-income shares
+8212552,HONORABLE DAVID P. ROE,26,1,RS FLOATING RATE FUND CL Y (income investments),RSFYX,,,$102.70,,,medium,Sched 1 trust statement; reinvested-income shares
+8212552,HONORABLE DAVID P. ROE,26,2,TCW TOTAL RETURN BOND FD CL I (income investments),TGLMX,,,$257.25,,,medium,Sched 1 trust statement; reinvested-income shares
+8212552,HONORABLE DAVID P. ROE,26,3,TEMPLETON GLBL BOND FD ADV CL (income investments),TGBAX,,,$787.06,,,medium,Sched 1 trust statement; reinvested-income shares

@@ -1,0 +1,100 @@
+doc_id,filer_name,page,row_in_page,asset_name,ticker_on_form,asset_type_code,owner,value_band,income_types,income_amount_band,confidence,note
+8208368,JOYCE HEALY-ABRAMS,41,1,ATP OIL & GAS CORP/UNITED STAT DTD 11/01/2010 DUE 05/01/2015 RATE 11.875,,,,,Interest,"$1,781.25",medium,Attachment 3 (2011 1099 year-end summary) interest detail; no value given
+8208368,JOYCE HEALY-ABRAMS,41,2,DEAN FOODS COMPANY DTD 05/17/2006 DUE 06/01/2016 RATE 7.000,,,,,Interest,"$1,400.00",medium,Attachment 3 1099 interest detail; no value given
+8208368,JOYCE HEALY-ABRAMS,41,3,CITIBANK-NA BANK DEPOSIT PROGRAM,,,,,Interest,$18.50,low,Attachment 3 1099 interest detail; blurry amount
+8208368,JOYCE HEALY-ABRAMS,41,4,CITIBANK NA SOUTH DAKOTA BANK DEPOSIT PROGRAM,,,,,Interest,$101.46,low,Attachment 3 1099 interest detail; blurry amount
+8208368,JOYCE HEALY-ABRAMS,41,5,"CITICORP TRUST BANK, FSB",,,,,Interest,$43.80,low,Attachment 3 1099 interest detail; blurry amount; total interest redacted
+8208368,JOYCE HEALY-ABRAMS,41,6,SEADRILL LTD,,,,,Dividends,"$1,057.00",low,Attachment 3 1099 dividend detail; amount alignment unclear; page cut off after this section
+8208368,JOYCE HEALY-ABRAMS,41,7,ACE LIMITED,,,,,Dividends,$55.81,low,Attachment 3 1099 dividend detail; amount alignment unclear
+8208368,JOYCE HEALY-ABRAMS,47,1,CITIBANK NA BANK DEPOSIT PROGRAM,,,,"$98,761.89",,,low,Attachment 4 trust stmt value as of 04/30/12; blurry
+8208368,JOYCE HEALY-ABRAMS,48,1,SEADRILL LTD,,,,"$27,881.00",,,low,Attachment 4 value 04/30/12; multiple lots (~12.6k + ~15.6k); total blurry
+8208368,JOYCE HEALY-ABRAMS,48,2,AT&T INC,,,,"$13,020.36",,,low,Attachment 4 value 04/30/12; lots ~11.66k + ~1.36k; total blurry
+8208368,JOYCE HEALY-ABRAMS,48,3,ALLERGAN INC,,,,"$9,600.00",,,low,Attachment 4 value 04/30/12; blurry
+8208368,JOYCE HEALY-ABRAMS,48,4,AMERICAN FIRST TAX EXEMPT INVS LP BEN UNIT CTF,,,,"$11,720.00",,,low,Attachment 4 value 04/30/12; blurry
+8208368,JOYCE HEALY-ABRAMS,48,5,AMERICAN CAP AGY CORP,,,,"$46,862.50",,,low,Attachment 4 value 04/30/12; lots ~31.2k + ~15.6k; total blurry
+8208368,JOYCE HEALY-ABRAMS,48,6,AMERICAN MIDSTREAM PARTNERS LP COM UNITS REPSTG LP INT,,,,"$11,115.00",,,low,Attachment 4 value 04/30/12; blurry
+8208368,JOYCE HEALY-ABRAMS,48,7,ANNALY CAPITAL MANAGEMENT INC,,,,"$39,188.00",,,low,Attachment 4 value 04/30/12; lots 19594.00 x2
+8208368,JOYCE HEALY-ABRAMS,48,8,APOLLO COMMERCIAL REAL ESTATE FIN INC,,,,"$24,185.00",,,low,Attachment 4 value 04/30/12; lots 17763.00 + 6422.00
+8208368,JOYCE HEALY-ABRAMS,49,1,APPLE INC,,,,"$102,196.50",,,low,Attachment 4 value 04/30/12; four lots; total blurry
+8208368,JOYCE HEALY-ABRAMS,49,2,ARM HOLDINGS PLC ADR,,,,"$10,182.00",,,low,Attachment 4 value 04/30/12; blurry/alignment unclear
+8208368,JOYCE HEALY-ABRAMS,49,3,BED BATH & BEYOND,,,,"$7,068.00",,,low,Attachment 4 value 04/30/12; blurry
+8208368,JOYCE HEALY-ABRAMS,49,4,BLACKSTONE GROUP LP UNIT REPSTG LTD PARTNERSHIP IN,,,,"$20,240.00",,,low,Attachment 4 value 04/30/12; lots illegible; total uncertain
+8208368,JOYCE HEALY-ABRAMS,49,5,BREITBURN ENERGY PARTNERS LP UNIT LTD PARTNERSHIP INT,,,,"$47,576.00",,,low,Attachment 4 value 04/30/12; four lots; blurry
+8208368,JOYCE HEALY-ABRAMS,49,6,CSX CORP,,,,"$9,916.00",,,low,Attachment 4 value 04/30/12; blurry/alignment unclear
+8208368,JOYCE HEALY-ABRAMS,49,7,COACH INC,,,,"$7,316.00",,,low,Attachment 4 value 04/30/12; lots 3658.00 x2
+8208368,JOYCE HEALY-ABRAMS,49,8,COCA-COLA CO,,,,"$7,632.00",,,low,Attachment 4 value 04/30/12; blurry
+8208368,JOYCE HEALY-ABRAMS,49,9,COMCAST CORP CL A,,,,"$4,005.54",,,low,Attachment 4 value 04/30/12; blurry
+8208368,JOYCE HEALY-ABRAMS,50,1,E I DU PONT DE NEMOURS & CO,,,,"$5,348.00",,,low,Attachment 4 value 04/30/12; blurry
+8208368,JOYCE HEALY-ABRAMS,50,2,FISERV INC,,,,"$7,069.00",,,low,Attachment 4 value 04/30/12; many small lots; total illegible
+8208368,JOYCE HEALY-ABRAMS,50,3,GENERAL ELECTRIC CO,,,,"$3,916.00",,,low,Attachment 4 value 04/30/12; lots ~979 + ~2937; total blurry (could read 5916.00)
+8208368,JOYCE HEALY-ABRAMS,50,4,GOOGLE INC CLASS A,,,,"$36,297.00",,,low,Attachment 4 value 04/30/12; lots ~18148.50 x2; total blurry
+8208368,JOYCE HEALY-ABRAMS,50,5,HALLIBURTON CO HOLDINGS CO,,,,"$4,309.06",,,low,Attachment 4 value 04/30/12; three lots; blurry
+8208368,JOYCE HEALY-ABRAMS,50,6,HASBRO INC,,,,"$9,185.00",,,low,Attachment 4 value 04/30/12; blurry
+8208368,JOYCE HEALY-ABRAMS,50,7,HOME DEPOT INC,,,,"$20,718.00",,,low,Attachment 4 value 04/30/12; lots 10359.00 x2
+8208368,JOYCE HEALY-ABRAMS,51,1,INTEL CORP,,,,"$14,187.91",,,low,Attachment 4 value 04/30/12; many lots; total illegible
+8208368,JOYCE HEALY-ABRAMS,51,2,JOHNSON & JOHNSON,,,,"$6,510.00",,,low,Attachment 4 value 04/30/12; lots 3255.00 x2
+8208368,JOYCE HEALY-ABRAMS,51,3,LEGACY RESERVES LP UNITS REPSTG LP INTERESTS,,,,"$18,651.00",,,low,Attachment 4 value 04/30/12; total digits illegible
+8208368,JOYCE HEALY-ABRAMS,51,4,ELI LILLY & CO,,,,"$4,136.00",,,low,Attachment 4 value 04/30/12; lots ~2068 x2
+8208368,JOYCE HEALY-ABRAMS,51,5,LIMITED BRANDS INC,,,,"$9,940.00",,,low,Attachment 4 value 04/30/12; lots ~7455 + ~2485
+8208368,JOYCE HEALY-ABRAMS,51,6,LINN ENERGY LLC COMMON UNITS,,,,"$20,125.00",,,low,Attachment 4 value 04/30/12; lots 12075.00 + 8050.00
+8208368,JOYCE HEALY-ABRAMS,51,7,MATTEL INC DE,,,,"$6,720.00",,,low,Attachment 4 value 04/30/12; three lots
+8208368,JOYCE HEALY-ABRAMS,51,8,MEDLEY CAP CORP,,,,"$30,376.98",,,low,Attachment 4 value 04/30/12; incl. reinvestments; blurry
+8208368,JOYCE HEALY-ABRAMS,52,1,MICROSOFT CORP,,,,"$6,496.01",,,low,Attachment 4 value 04/30/12; lots ~1920 + ~4576; total blurry
+8208368,JOYCE HEALY-ABRAMS,52,2,MORGAN STANLEY,,,,"$7,465.50",,,low,Attachment 4 value 04/30/12; several lots; total illegible
+8208368,JOYCE HEALY-ABRAMS,52,3,NORDSTROM INC,,,,"$11,172.00",,,low,Attachment 4 value 04/30/12; three lots
+8208368,JOYCE HEALY-ABRAMS,52,4,PEOPLES UNITED FINCL INC,,,,"$18,880.00",,,low,Attachment 4 value 04/30/12; digits illegible
+8208368,JOYCE HEALY-ABRAMS,52,5,PFIZER INC,,,,"$4,007.50",,,low,Attachment 4 value 04/30/12; digits illegible
+8208368,JOYCE HEALY-ABRAMS,52,6,REPUBLIC SVCS INC,,,,"$8,078.50",,,low,Attachment 4 value 04/30/12; digits illegible
+8208368,JOYCE HEALY-ABRAMS,52,7,RIO TINTO PLC-SPON ADR,,,,"$11,814.00",,,low,Attachment 4 value 04/30/12; lots illegible; total uncertain
+8208368,JOYCE HEALY-ABRAMS,52,8,ROCHE HLDG LTD SPON ADR,,,,"$3,767.84",,,low,Attachment 4 value 04/30/12; blurry
+8208368,JOYCE HEALY-ABRAMS,52,9,STARBUCKS CORP,,,,"$5,737.00",,,low,Attachment 4 value 04/30/12; blurry
+8208368,JOYCE HEALY-ABRAMS,53,1,TARGET CORP,,,,"$17,383.00",,,low,Attachment 4 value 04/30/12; blurry
+8208368,JOYCE HEALY-ABRAMS,53,2,TIFFANY & CO NEW,,,,"$6,848.00",,,low,Attachment 4 value 04/30/12; blurry
+8208368,JOYCE HEALY-ABRAMS,53,3,TORONTO DOMINION BANK-NEW,,,,"$17,283.00",,,low,Attachment 4 value 04/30/12; four lots sum to ~17283; total digits unclear
+8208368,JOYCE HEALY-ABRAMS,53,4,TRANSCANADA CORP (HOLDING COMPANY),,,,"$4,398.00",,,low,Attachment 4 value 04/30/12; many small lots
+8208368,JOYCE HEALY-ABRAMS,53,5,WASTE MGMT INC DEL,,,,"$10,830.00",,,low,Attachment 4 value 04/30/12; digits and alignment unclear
+8208368,JOYCE HEALY-ABRAMS,53,6,WELLS FARGO & CO NEW,,,,"$8,103.77",,,low,Attachment 4 value 04/30/12; five lots; total illegible (could be 8383.77)
+8208368,JOYCE HEALY-ABRAMS,54,1,BLACKROCK ENHANCED EQUITY DIVIDEND TRUST,,,,"$21,655.08",,,low,Attachment 4 value 04/30/12; lots incl. reinvestments; total illegible
+8208368,JOYCE HEALY-ABRAMS,54,2,BLACKROCK INTL GROWTH & INCOME TR,,,,"$17,341.38",,,low,Attachment 4 value 04/30/12; lots 15420.00 + 1921.38
+8208368,JOYCE HEALY-ABRAMS,54,3,EATON VANCE TAX-MANAGED DIVERSIFIED EQUITY INCOME FD,,,,"$30,656.98",,,low,Attachment 4 value 04/30/12; three lots; blurry
+8208368,JOYCE HEALY-ABRAMS,54,4,EATON VANCE TAX-ADVANTAGED GLOBAL DIVID INCOME FD,,,,"$14,460.00",,,low,Attachment 4 value 04/30/12; blurry
+8208368,JOYCE HEALY-ABRAMS,54,5,WISDOMTREE MIDCAP DIVIDEND FD SBI,,,,"$16,400.70",,,low,Attachment 4 value 04/30/12; blurry
+8208368,JOYCE HEALY-ABRAMS,54,6,WISDOMTREE SMALLCAP DIV FD SBI,,,,"$15,992.00",,,low,Attachment 4 value 04/30/12; lots ~10431.60 + ~5560.30
+8208368,JOYCE HEALY-ABRAMS,54,7,BLACKROCK SR HIGH INCOME FUND INC,,,,"$21,000.00",,,low,Attachment 4 value 04/30/12; blurry
+8208368,JOYCE HEALY-ABRAMS,55,1,EATON VANCE LTD DURATION INCOME FUND,,,,"$17,980.00",,,low,Attachment 4 value 04/30/12; blurry
+8208368,JOYCE HEALY-ABRAMS,55,2,ATP OIL & GAS CORP/UNITED STAT DTD 11/01/2010 INT 11.875% MATY 05/01/2015,,,,"$11,550.00",,,low,Attachment 4 corporate bond value 04/30/12; lots 6160.00 + 5390.00
+8208368,JOYCE HEALY-ABRAMS,56,1,DEAN FOODS COMPANY DTD 05/17/2006 INT 07.000% MATY 06/01/2016,,,,"$20,800.00",,,low,Attachment 4 corporate bond value 04/30/12; blurry
+8208368,JOYCE HEALY-ABRAMS,60,1,CITIBANK NA BANK DEPOSIT PROGRAM,,,,"$80,014.07",,,low,Attachment 5 (second trust acct) value 04/30/12; blurry
+8208368,JOYCE HEALY-ABRAMS,61,1,AMERICAN FIRST TAX EXEMPT INVS LP BEN UNIT CTF,,,,"$23,440.00",,,low,Attachment 5 value 04/30/12; blurry
+8208368,JOYCE HEALY-ABRAMS,61,2,ANWORTH MTG ASSET CORP,,,,"$13,400.00",,,low,Attachment 5 value 04/30/12; name and value blurry
+8208368,JOYCE HEALY-ABRAMS,61,3,BOARDWALK PIPELINE PARTNERS UNIT LTD PARTNER INTS,,,,"$13,915.00",,,low,Attachment 5 value 04/30/12; blurry
+8208368,JOYCE HEALY-ABRAMS,61,4,COMCAST CORP CL A,,,,"$2,060.46",,,low,Attachment 5 value 04/30/12; blurry
+8208368,JOYCE HEALY-ABRAMS,61,5,INERGY LP,,,,"$3,690.00",,,low,Attachment 5 value 04/30/12; name partly illegible
+8208368,JOYCE HEALY-ABRAMS,61,6,LINN ENERGY LLC COMMON UNITS,,,,"$12,075.00",,,low,Attachment 5 value 04/30/12; blurry
+8208368,JOYCE HEALY-ABRAMS,61,7,PROCTER & GAMBLE CO,,,,"$12,728.00",,,low,Attachment 5 value 04/30/12; blurry
+8208368,JOYCE HEALY-ABRAMS,61,8,VANGUARD NAT RES LLC UNIT REPSTG LTD LIABILITY CO INTS,,,,"$14,495.00",,,low,Attachment 5 value 04/30/12; blurry
+8208368,JOYCE HEALY-ABRAMS,62,1,VIMPELCOM LTD ADR,,,,"$7,155.00",,,low,Attachment 5 value 04/30/12; digits illegible
+8208368,JOYCE HEALY-ABRAMS,62,2,WELLPOINT INC,,,,"$18,504.00",,,low,Attachment 5 value 04/30/12; digits illegible
+8208368,JOYCE HEALY-ABRAMS,62,3,BLACKROCK GLOBAL OPPORTUNITIES EQUITY TR,,,,"$22,147.29",,,low,Attachment 5 value 04/30/12; lots incl. reinvestments; total blurry
+8208368,JOYCE HEALY-ABRAMS,62,4,BLACKROCK INTL GROWTH & INCOME TR,,,,"$23,602.51",,,low,Attachment 5 value 04/30/12; lots incl. reinvestments; total blurry
+8208368,JOYCE HEALY-ABRAMS,62,5,BLACKROCK REAL ASSET EQUITY TR,,,,"$16,849.50",,,low,Attachment 5 value 04/30/12; digits illegible
+8208368,JOYCE HEALY-ABRAMS,62,6,CBRE CLARION GL REAL ESTATE INCOME FUND,,,,"$28,976.00",,,low,Attachment 5 value 04/30/12; lots ~16400 + ~12576
+8208368,JOYCE HEALY-ABRAMS,63,1,CALAMOS GLOBAL DYNAMIC INCOME FUND,,,,"$25,401.03",,,low,Attachment 5 value 04/30/12; lots incl. reinvestments; total blurry
+8208368,JOYCE HEALY-ABRAMS,63,2,EATON VANCE RISK-MANAGED DIVERSIFIED EQUITY INCOME FD,,,,"$35,190.00",,,low,Attachment 5 value 04/30/12; lots 31050.00 + 4140.00
+8208368,JOYCE HEALY-ABRAMS,63,3,ING GLOBAL EQUITY DIVIDEND & PREMIUM OPPORTUNITY FUND,,,,"$40,631.55",,,low,Attachment 5 value 04/30/12; lots incl. reinvestments; total digits unclear (lots sum ~40611.55)
+8208368,JOYCE HEALY-ABRAMS,63,4,PROSPECT CAPITAL CORP,,,,"$21,840.00",,,low,Attachment 5 value 04/30/12; blurry
+8208368,JOYCE HEALY-ABRAMS,63,5,STONE HARBOR EMERGING MARKETS INCOME FUND,,,,"$47,974.07",,,low,Attachment 5 value 04/30/12; lots incl. reinvestments; total blurry
+8208368,JOYCE HEALY-ABRAMS,63,6,TORTOISE MLP FUND,,,,"$15,818.00",,,low,Attachment 5 value 04/30/12; lots ~10512 + ~5208; total illegible (could be 15720.00)
+8208368,JOYCE HEALY-ABRAMS,63,7,TORTOISE PIPELINE & ENERGY FD,,,,"$7,404.00",,,low,Attachment 5 value 04/30/12; blurry
+8208368,JOYCE HEALY-ABRAMS,63,8,BLACKROCK DEBT STRATEGIES FD INC,,,,"$14,686.00",,,low,Attachment 5 value 04/30/12; blurry
+8208368,JOYCE HEALY-ABRAMS,63,9,BLACKROCK FLOATING RATE INCOME STRATEGIES FD INC,,,,"$14,900.00",,,low,Attachment 5 value 04/30/12; lots 7450.00 x2; total blurry (could read 14980.00); 1000 sh sold 04/02/12 per p.67
+8208368,JOYCE HEALY-ABRAMS,64,1,NUVEEN SENIOR INCOME FUND,,,,"$12,960.00",,,low,Attachment 5 value 04/30/12; qty 1800; digits illegible
+8208368,JOYCE HEALY-ABRAMS,64,2,SPDR SERIES TR BARCLAYS HIGH YIELD BD ETF,,,,"$47,676.00",,,low,Attachment 5 value 04/30/12; qty 200 + 1000 = 1200; blurry
+8208368,JOYCE HEALY-ABRAMS,64,3,MARKET VECTORS HIGH YIELD MUNI INDEX ETF,,,,"$12,368.00",,,low,Attachment 5 value 04/30/12; qty 400; digits illegible
+8208368,JOYCE HEALY-ABRAMS,64,4,LORD ABBETT FLOATING RATE FD CL C,,,,"$18,169.28",,,low,Attachment 5 value 04/30/12; lots 9957.12 + 8212.16; total shown on p.65
+8208368,JOYCE HEALY-ABRAMS,65,1,SUPERVALU INC SR NOTES INT 07.500% MATY 11/15/2014,,,,"$25,448.75",,,low,Attachment 5 corporate bond value 04/30/12; blurry
+8208368,JOYCE HEALY-ABRAMS,65,2,USG CORP DTD 11/17/2008 WHEN ISSUED MATY 11/15/2016,,,,"$22,575.00",,,low,Attachment 5 corporate bond value 04/30/12; name/rate/value blurry (value could be 32575.00)
+8208368,JOYCE HEALY-ABRAMS,66,1,INLAND EMPIRE CA TOB SECURITIZ AUTH TOB STLMT 2007A B/E INT 05.000% MATY 06/01/2021,,,,"$48,401.25",,,low,Attachment 5 municipal bond value 04/30/12; two lots; blurry
+8208368,JOYCE HEALY-ABRAMS,66,2,BUCKEYE OHIO TOB SETTLEMENT FING AUTH ASSET-BKD-A-2 INT 05.875% MATY 06/01/2030,,,,"$30,368.00",,,low,Attachment 5 municipal bond value 04/30/12; blurry
+8208368,JOYCE HEALY-ABRAMS,66,3,BUCKEYE OHIO TOB SETTLEMENT FING AUTH ASSET-BKD-A-2 INT 05.125% MATY 06/01/2024,,,,"$20,867.20",,,low,Attachment 5 municipal bond value 04/30/12; blurry
+8208368,JOYCE HEALY-ABRAMS,66,4,OHIO ST HOSP FAC REV ACTING BY AND THROUGH THE OHIO DEV FING INT 05.500% MATY 01/01/2039,,,,"$59,070.80",,,low,Attachment 5 municipal bond value 04/30/12; digits illegible

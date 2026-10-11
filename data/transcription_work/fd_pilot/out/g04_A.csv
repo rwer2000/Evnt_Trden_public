@@ -1,0 +1,106 @@
+doc_id,filer_name,page,row_in_page,asset_name,ticker_on_form,asset_type_code,owner,value_band,income_types,income_amount_band,confidence,note
+8208327,CHRYSTA CASTANEDA,3,1,Bank of America Accounts,,,,"$250,001 - $500,000",Interest,$1 - $200,high,"Form B Schedule II; preceding-year income $201 - $1,000"
+8208327,CHRYSTA CASTANEDA,3,2,Schwab Account MM,,,,"$15,001 - $50,000",Interest,$1 - $200,high,preceding-year income $1 - $200
+8208327,CHRYSTA CASTANEDA,3,3,American Funds Bond Fund AM,,,,"$15,001 - $50,000",Tax-Deferred,None,high,
+8208327,CHRYSTA CASTANEDA,3,4,American Funds EuroPacific Growth Fund,,,,"$1,001 - $15,000",Tax-Deferred,None,high,
+8208327,CHRYSTA CASTANEDA,3,5,American Funds Growth Funds of Am.,,,,"$50,001 - $100,000",Tax-Deferred,None,medium,value check mark faint/dotted
+8208327,CHRYSTA CASTANEDA,3,6,Columbia Acorn Fund Class Z,,,,"$15,001 - $50,000",Tax-Deferred,None,medium,check mark slightly off-centre
+8208327,CHRYSTA CASTANEDA,4,1,Dodge+Cox Stock Fund,,,,"$15,001 - $50,000",Tax-Deferred,None,high,
+8208327,CHRYSTA CASTANEDA,4,2,Gabelli Asset Fund Class AAA,,,,"$15,001 - $50,000",Tax-Deferred,None,high,
+8208327,CHRYSTA CASTANEDA,4,3,Sound Shore Fund,,,,"$1,001 - $15,000",Tax-Deferred,None,high,
+8208327,CHRYSTA CASTANEDA,4,4,Vanguard GNMA Fund,,,,"$1,001 - $15,000",Tax-Deferred,None,high,
+8208327,CHRYSTA CASTANEDA,4,5,Vanguard Total Bond Mkt Inx,,,,"$50,001 - $100,000",Tax-Deferred,None,high,
+8208327,CHRYSTA CASTANEDA,4,6,Vanguard Small Cap Inx,,,,"$15,001 - $50,000",Tax-Deferred,None,high,
+8208327,CHRYSTA CASTANEDA,4,7,Vanguard Mid Cap Index Ins,,,,"$15,001 - $50,000",Tax-Deferred,None,medium,handwritten name hard to read (Mid Cap?)
+8208327,CHRYSTA CASTANEDA,4,8,Schwab S&P 500 Index,,,,"$100,001 - $250,000",Tax-Deferred,None,high,
+8208327,CHRYSTA CASTANEDA,4,9,Vanguard Total Stock Mkt Idx,,,,"$50,001 - $100,000",Tax-Deferred,None,high,
+8208327,CHRYSTA CASTANEDA,4,10,American Funds Income Fund of America,,,,"$15,001 - $50,000",Tax-Deferred,None,high,
+8208327,CHRYSTA CASTANEDA,4,11,Loomis Sayles Bond Fund,,,,"$1,001 - $15,000",Tax-Deferred,None,high,
+8208327,CHRYSTA CASTANEDA,4,12,Third Avenue Value Fund,,,,"$1,001 - $15,000",Tax-Deferred,None,high,
+8208327,CHRYSTA CASTANEDA,4,13,American Funds Capital World Growth,,,,"$15,001 - $50,000",Tax-Deferred,None,high,
+8208327,CHRYSTA CASTANEDA,4,14,American Funds Money Market,,,,"$15,001 - $50,000",Tax-Deferred,None,high,
+8208327,CHRYSTA CASTANEDA,4,15,American Funds Growth Fund of Am-A,,,,"$50,001 - $100,000",Tax-Deferred,None,medium,written below the last grid line; marks outside grid
+8205724,HONORABLE ROBERT J. WITTMAN,4,1,"1/2 Rental House, Montross, VA",,,SP,"$50,001 - $100,000",Rent,"$2,501 - $5,000",high,
+8205724,HONORABLE ROBERT J. WITTMAN,4,2,Bank of Lancaster Account,,,JT,"$15,001 - $50,000",Interest,$1 - $200,high,
+8205724,HONORABLE ROBERT J. WITTMAN,4,3,Bank of Lancaster Stock Fund,,,,"$1,001 - $15,000",None,None,high,
+8205724,HONORABLE ROBERT J. WITTMAN,4,4,Chevron (Inherited),,,SP,"$1,001 - $15,000",Dividends,"$201 - $1,000",high,
+8205724,HONORABLE ROBERT J. WITTMAN,4,5,Commonwealth of VA 401(a) Cash Match Plan,,,,"$1,001 - $15,000",Investment Gain,$1 - $200,high,
+8205724,HONORABLE ROBERT J. WITTMAN,4,6,Commonwealth of VA 457 Deferred Compensation Plan,,,,"$15,001 - $50,000",Investment Gain,"$201 - $1,000",high,
+8205724,HONORABLE ROBERT J. WITTMAN,5,1,Frontier (Inherited),,,SP,"$1 - $1,000",Dividends,$1 - $200,high,
+8205724,HONORABLE ROBERT J. WITTMAN,5,2,Genworth IRA,,,SP,"$15,001 - $50,000",IRA Death Withdrawal,"$1,001 - $2,500",high,
+8205724,HONORABLE ROBERT J. WITTMAN,5,3,Media General (Inherited),,,SP,"$1 - $1,000",None,None,high,
+8205724,HONORABLE ROBERT J. WITTMAN,5,4,Met Life (Universal),,,SP,"$1,001 - $15,000",None,None,high,
+8205724,HONORABLE ROBERT J. WITTMAN,5,5,Met Life (Universal),,,,"$1,001 - $15,000",None,None,high,
+8205724,HONORABLE ROBERT J. WITTMAN,5,6,National Western Life Annuity 403B TSA,,,SP,"$15,001 - $50,000",None,None,high,
+8205724,HONORABLE ROBERT J. WITTMAN,5,7,Peoples Bank Accounts,,,JT,"$15,001 - $50,000",Interest,$1 - $200,high,
+8205724,HONORABLE ROBERT J. WITTMAN,5,8,Peoples Bank Stock,,,SP,"$15,001 - $50,000",Dividends,"$201 - $1,000",high,
+8205724,HONORABLE ROBERT J. WITTMAN,5,9,Piedmont,,,SP,"$1,001 - $15,000",Dividends,"$201 - $1,000",high,
+8205724,HONORABLE ROBERT J. WITTMAN,5,10,Trust of America,,,SP,"$50,001 - $100,000",Dividends,"$1,001 - $2,500",high,
+8205724,HONORABLE ROBERT J. WITTMAN,5,11,VA Retirement System,,,,"$50,001 - $100,000",None,None,high,
+8205724,HONORABLE ROBERT J. WITTMAN,5,12,Verizon (Inherited),,,SP,"$1,001 - $15,000",Dividends,"$201 - $1,000",high,
+8205724,HONORABLE ROBERT J. WITTMAN,5,13,Wellpoint (Inherited),,,SP,"$1,001 - $15,000",Dividends,$1 - $200,high,
+8216599,Karen Mathews Davis,,,,,,,,,,,no schedule A
+8212090,HONORABLE DENNY HECK,4,1,Citigroup Stock,,,JT,"$1,001 - $15,000",Dividends,$1 - $200,high,
+8212090,HONORABLE DENNY HECK,4,2,Comcast Stock,,,JT,"$50,001 - $100,000",Dividends,"$201 - $1,000",high,
+8212090,HONORABLE DENNY HECK,4,3,Guggenheim Small Cap Mutual Fd,,,JT,"$1,001 - $15,000",Dividends,$1 - $200,medium,marks placed on the name's continuation line
+8212090,HONORABLE DENNY HECK,4,4,Johnson & Johnson Stock,,,JT,"$50,001 - $100,000",Dividends,"$1,001 - $2,500",high,
+8212090,HONORABLE DENNY HECK,4,5,Powershares India Mutual Fund,,,JT,"$1,001 - $15,000",Dividends,$1 - $200,high,
+8212090,HONORABLE DENNY HECK,4,6,Procter & Gamble Stock,,,JT,"$15,001 - $50,000",Dividends,"$1,001 - $2,500",medium,dense overlapping check marks in this area
+8212090,HONORABLE DENNY HECK,4,7,Sbux Stock,,,JT,"$50,001 - $100,000",Dividends,"$1,001 - $2,500",medium,dense overlapping check marks in this area
+8212090,HONORABLE DENNY HECK,4,8,Vale SA Stock,,,JT,"$15,001 - $50,000",Dividends,"$201 - $1,000",low,"value marks overlap with Vodaphone row; value could be $1,001 - $15,000"
+8212090,HONORABLE DENNY HECK,4,9,Vodaphone Stock,,,JT,"$1,001 - $15,000",Dividends,"$201 - $1,000",low,"value marks overlap with Vale row; value could be $15,001 - $50,000"
+8212090,HONORABLE DENNY HECK,4,10,First Eagle Global Mutual Fund,,,JT,"$50,001 - $100,000",Dividends,"$201 - $1,000",high,
+8212090,HONORABLE DENNY HECK,4,11,3M Stock,,,JT,"$50,001 - $100,000",Dividends,"$1,001 - $2,500",high,
+8212090,HONORABLE DENNY HECK,4,12,Bristol Myers Stock,,,JT,"$15,001 - $50,000",Dividends,"$1,001 - $2,500",high,
+8212090,HONORABLE DENNY HECK,4,13,Duke Energy Stock,,,JT,"$15,001 - $50,000",Dividends,"$1,001 - $2,500",high,
+8212090,HONORABLE DENNY HECK,4,14,Gen Electric Stock,,,JT,"$15,001 - $50,000",Dividends,"$201 - $1,000",high,
+8212090,HONORABLE DENNY HECK,4,15,Spectra Energy Stock,,,JT,"$1,001 - $15,000",Dividends,"$201 - $1,000",high,
+8212090,HONORABLE DENNY HECK,4,16,Unilever Stock,,,JT,"$15,001 - $50,000",Dividends,"$1,001 - $2,500",high,
+8212090,HONORABLE DENNY HECK,5,1,Zimmer Stock,,,JT,"$15,001 - $50,000",Dividends,"$201 - $1,000",high,
+8212090,HONORABLE DENNY HECK,5,2,Skagit Hos. 1 Bond,,,JT,"$50,001 - $100,000",Interest,"$2,501 - $5,000",high,
+8212090,HONORABLE DENNY HECK,5,3,WA St Rev MV Bond,,,JT,"$15,001 - $50,000",Interest,"$1,001 - $2,500",high,
+8212090,HONORABLE DENNY HECK,5,4,Port Seattle Bond,,,JT,"$50,001 - $100,000",Interest,"$5,001 - $15,000",medium,income marks of this and next row close together
+8212090,HONORABLE DENNY HECK,5,5,Atlanta Apt Rev Bond,,,JT,"$50,001 - $100,000",Interest,"$2,501 - $5,000",medium,"handwritten name unclear (Atlanta ... Rev Bond); income marks close to row above"
+8212090,HONORABLE DENNY HECK,5,6,Nacogdoches ISD Bond,,,JT,"$15,001 - $50,000",Interest,"$201 - $1,000",high,
+8212090,HONORABLE DENNY HECK,5,7,DFW Airport Bond,,,JT,"$50,001 - $100,000",Interest,"$2,501 - $5,000",high,
+8212090,HONORABLE DENNY HECK,5,8,WA St HCA Bond,,,JT,"$50,001 - $100,000",Interest,"$2,501 - $5,000",high,
+8212090,HONORABLE DENNY HECK,5,9,WA St HCA Bond,,,JT,"$15,001 - $50,000",Interest,"$1,001 - $2,500",high,
+8212090,HONORABLE DENNY HECK,5,10,1st Eagle Mutual Fund,,,JT,"$15,001 - $50,000",Dividends,$1 - $200,high,
+8212090,HONORABLE DENNY HECK,5,11,Loan to Heck for Congress Campaign,,,JT,"$250,001 - $500,000",None,None,high,
+8212090,HONORABLE DENNY HECK,5,12,Intrepid Learning Solutions - private stock,,,JT,"$500,001 - $1,000,000",None,None,high,
+8212090,HONORABLE DENNY HECK,5,13,"Galaxy Theatre, Tukwila CA, LLC partnership",,,JT,"$100,001 - $250,000",Dividends,"$5,001 - $15,000",medium,place name handwritten (Tukwila?)
+8212090,HONORABLE DENNY HECK,5,14,"Galaxy Theatre Monroe WA, LLC partnership",,,JT,"$15,001 - $50,000",Dividends,"$2,501 - $5,000",high,
+8212090,HONORABLE DENNY HECK,6,1,Kimberly Clark Stock,,,JT,"$50,001 - $100,000",Dividends,"$2,501 - $5,000",high,
+8212090,HONORABLE DENNY HECK,6,2,NuStar Energy Stock,,,JT,"$15,001 - $50,000",Dividends,"$2,501 - $5,000",high,
+8212090,HONORABLE DENNY HECK,6,3,Real Networks Stock,,,JT,"$100,001 - $250,000",None,None,high,
+8212090,HONORABLE DENNY HECK,6,4,Seaspan USD Stock,,,JT,"$15,001 - $50,000",Dividends,"$1,001 - $2,500",high,
+8212090,HONORABLE DENNY HECK,6,5,Xerox Stock,,,JT,"$15,001 - $50,000",Dividends,"$201 - $1,000",high,
+8212090,HONORABLE DENNY HECK,6,6,Idaho Falls GO Bond,,,JT,"$1,001 - $15,000",Interest,None,high,footnote on page: Idaho Falls ... AKA Refunding Elect. Bond
+8212090,HONORABLE DENNY HECK,6,7,King Co Pub Tran Bond,,,JT,"$15,001 - $50,000",Interest,"$1,001 - $2,500",high,
+8212090,HONORABLE DENNY HECK,6,8,Yakima S.D 208 Bond,,,JT,"$15,001 - $50,000",Interest,"$1,001 - $2,500",high,
+8212090,HONORABLE DENNY HECK,6,9,Nevada Higher Ed Bond,,,JT,"$15,001 - $50,000",Interest,"$1,001 - $2,500",high,
+8212090,HONORABLE DENNY HECK,6,10,King Co. Hsng Aut. Bond,,,JT,"$50,001 - $100,000",Interest,"$5,001 - $15,000",high,
+8212090,HONORABLE DENNY HECK,6,11,"King Co. "" "" Bond",,,JT,"$50,001 - $100,000",Interest,"$5,001 - $15,000",high,ditto marks: King Co. Hsng Aut. Bond (second holding)
+8212090,HONORABLE DENNY HECK,6,12,Vancouver H.A. Bond,,,JT,"$100,001 - $250,000",Interest,"$5,001 - $15,000",high,
+8212090,HONORABLE DENNY HECK,6,13,Okla Dev Fin Bond,,,JT,"$1,001 - $15,000",Interest,"$201 - $1,000",high,
+8212090,HONORABLE DENNY HECK,6,14,King S.D. 403 Bond,,,JT,"$100,001 - $250,000",Interest,"$2,501 - $5,000",high,
+8212090,HONORABLE DENNY HECK,6,15,Seattle Drain Bond,,,JT,"$15,001 - $50,000",Interest,"$2,501 - $5,000",high,
+8212090,HONORABLE DENNY HECK,6,16,Harris Texas Bond,,,JT,"$15,001 - $50,000",Interest,"$1,001 - $2,500",high,
+8212090,HONORABLE DENNY HECK,6,17,Portland HSA Bond,,,JT,"$50,001 - $100,000",Interest,"$5,001 - $15,000",high,
+8212090,HONORABLE DENNY HECK,6,18,Clear Lake Wtr Bond,,,JT,"$15,001 - $50,000",Interest,"$1,001 - $2,500",high,
+8212090,HONORABLE DENNY HECK,6,19,U Neb Bond,,,JT,"$15,001 - $50,000",Interest,"$1,001 - $2,500",high,
+8212090,HONORABLE DENNY HECK,6,20,Pierce SD 404 Bond (Eatonville),,,JT,"$1,001 - $15,000",Interest,"$201 - $1,000",high,
+8212090,HONORABLE DENNY HECK,7,1,Costco Stock,,,JT,"$50,001 - $100,000",Dividends,"$1,001 - $2,500",medium,a scribbled-over mark also near Rent column
+8212090,HONORABLE DENNY HECK,7,2,Chevron Stock,,,JT,"$100,001 - $250,000",Dividends,"$2,501 - $5,000",high,
+8212090,HONORABLE DENNY HECK,7,3,Enerplus Stock,,,JT,"$1,001 - $15,000",Dividends,"$1,001 - $2,500",high,
+8212090,HONORABLE DENNY HECK,7,4,GE Stock,,,JT,"$15,001 - $50,000",Dividends,"$1,001 - $2,500",high,
+8212090,HONORABLE DENNY HECK,7,5,GlaxoSmith Stock,,,JT,"$50,001 - $100,000",Dividends,"$2,501 - $5,000",high,
+8212090,HONORABLE DENNY HECK,7,6,Heritage HFNA Stock,,,JT,"$50,001 - $100,000",Dividends,"$2,501 - $5,000",medium,handwritten name unclear (Heritage ...)
+8212090,HONORABLE DENNY HECK,8,1,"Bruin Development LLC 50% interest 7920 Center St SW Tumwater WA rental property & batting cages",,,JT,"$250,001 - $500,000",Rent,None,high,
+8212090,HONORABLE DENNY HECK,8,2,"Everglades Estates Bullhead City AZ partnership interest",,,JT,"$50,001 - $100,000",None,None,high,
+8212090,HONORABLE DENNY HECK,8,3,"Paula Heck 403(b)7 Vanguard Equity Income - Mutual Fund",,,JT,"$50,001 - $100,000",None,None,high,
+8212090,HONORABLE DENNY HECK,8,4,"Dennis Heck WA St Retirement Acct pension - defined benefit plan",,,JT,"$50,001 - $100,000",None,None,high,
+8212090,HONORABLE DENNY HECK,8,5,"Fruci Childrens Trust - 25% interest rental income 218 Bernard, Spokane WA",,,JT,"$500,001 - $1,000,000",Rent,"$50,001 - $100,000",high,
+8212090,HONORABLE DENNY HECK,9,1,"Loan to Robert Heck First lien mortgage deferred interest condo located in Salem, OR",,,JT,"$100,001 - $250,000",Interest,None,high,
+8212090,HONORABLE DENNY HECK,9,2,"Paula F. Heck WA. St Retirement (""Teachers"")",,,SP,"$15,001 - $50,000",pension,"$15,001 - $50,000",high,income type written in Other column
+8212090,HONORABLE DENNY HECK,9,3,Morgan Stanley Brokerage Acct. money market,,,JT,"$50,001 - $100,000",Interest,"$201 - $1,000",high,page footnote: Fruci Family LLC listed previously was dissolved in 2012
