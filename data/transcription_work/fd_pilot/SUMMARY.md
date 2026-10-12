@@ -27,3 +27,24 @@ Interim, groups g01 and g04-g14 (11 reports, both readings complete),
 - Instruction fix for the next round: one row per security (use the
   subtotal), not per lot; owner `SP` when the attached account is in the
   spouse's name.
+
+## Final pilot result (2026-10-12, all 20 reports read twice)
+
+| Field | Agreement on matched rows (4,039) |
+|---|---|
+| asset_name | 98.6% |
+| owner | 98.6% |
+| value_band | 97.3% |
+| income_types | 99.6% |
+| income_amount_band | 99.4% |
+
+Row counts differ on 7 of 20 reports, mostly the long brokerage
+attachments (Driscoll 3,116 vs 3,117 rows, Roe 271 vs 297, 8208368 227 vs
+252: lots vs securities, account headers). `merged_fd.csv` keeps agreed
+fields; `disagreements_fd.csv` lists 400 field or row differences (109 value
+bands, 138 rows in one reading only) for a third look.
+
+**Decision (owner's rule, 95%+ band agreement): go on** with the remaining
+~1,495 paper annual reports, largest filers first. Before that: settle the
+lot-vs-security rule for attachments (now in the reader prompt) and give the
+attachment-heavy reports a third look.
