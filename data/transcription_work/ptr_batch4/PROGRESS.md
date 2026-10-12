@@ -187,3 +187,15 @@ Read twice: g08, g10; g09 B only (g09 A still to read). McCaul's filings run
 to ~300 rows each (spouse and child trust accounts): g08 differs in row count
 on all 3 filings, g10 on 1 of 4, plus 11 rows for a third look. These need
 row alignment by page before merging; not merged yet.
+
+## McCaul g08 and g10 merged (2026-10-12)
+
+McCaul's ~300-row filings needed a third reader on the pages where the
+readings differed (`adj/gNN_C.csv`, applied to both readings with
+`tools/transcription/apply_pages.py`, then `compare.py`). Most differences
+were one reader turning an "LLM FAMILY INVESTMENTS LP (x% INTEREST)" header
+into a row, which shifted dates by one row; the dependent-child copies of
+each page (same trades) settled the rest.
+- `merged_g08.csv`: 3 filings, 897 rows (264 high, 595 medium, 38 low), 21 pages re-read.
+- `merged_g10.csv`: 4 filings, 900 rows (767 high, 123 medium, 10 low), 8 pages re-read.
+Next: g09 (A being read), g11-g12 (being read), g13-g42.

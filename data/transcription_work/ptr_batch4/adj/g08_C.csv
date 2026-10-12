@@ -1,0 +1,614 @@
+doc_id,page,row,owner,asset_name,ticker,tx_type,tx_date,notification_date,amount_band,k_flag,confidence,note
+8214091,3,1,spouse,AIR METHODS CORP,,sale_full,2014-01-28,2014-02-04,A,,high,LLM LP 12.2552%
+8214091,3,2,spouse,CORELOGIC INC,,sale_full,2014-01-24,2014-02-04,A,,high,LLM LP 12.2552%
+8214091,3,3,spouse,CORELOGIC INC,,sale_full,2014-01-23,2014-02-04,A,,high,LLM LP 12.2552%; third look: form has 4 CORELOGIC rows (1/24 1/23 1/23 1/17); B missed one 1/23 row
+8214091,3,4,spouse,CORELOGIC INC,,sale_full,2014-01-23,2014-02-04,A,,high,LLM LP 12.2552%; third look: second 1/23 CORELOGIC row confirmed on scan (missing in B)
+8214091,3,5,spouse,CORELOGIC INC,,sale_full,2014-01-17,2014-02-04,A,,high,LLM LP 12.2552%
+8214091,3,6,spouse,FLY LEASING LIMITED,,sale_full,2014-01-22,2014-02-04,A,,high,LLM LP 12.2552%
+8214091,3,7,spouse,FLY LEASING LIMITED,,sale_full,2014-01-15,2014-02-04,A,,high,LLM LP 12.2552%
+8214091,3,8,spouse,MEASUREMENT SPECIALTIES INC,,sale_full,2014-01-23,2014-02-04,A,,high,LLM LP 12.2552%
+8214091,3,9,spouse,MEASUREMENT SPECIALTIES INC,,sale_full,2014-01-22,2014-02-04,A,,high,LLM LP 12.2552%
+8214091,3,10,spouse,MEASUREMENT SPECIALTIES INC,,sale_full,2014-01-15,2014-02-04,A,,high,LLM LP 12.2552%
+8214091,3,11,spouse,MEASUREMENT SPECIALTIES INC,,sale_full,2014-01-14,2014-02-04,A,,high,LLM LP 12.2552%
+8214091,3,12,spouse,MAXIMUS INC,,sale_full,2014-01-28,2014-02-04,A,,high,LLM LP 12.2552%
+8214091,3,13,spouse,OCEANFIRST FINANCIAL CORP,,sale_full,2014-01-22,2014-02-04,A,,high,LLM LP 12.2552%
+8214091,3,14,spouse,OCEANFIRST FINANCIAL CORP,,sale_full,2014-01-21,2014-02-04,A,,high,LLM LP 12.2552%
+8214091,3,15,spouse,ORBCOMM INC,,sale_full,2014-01-22,2014-02-04,A,,high,LLM LP 12.2552%
+8214091,3,16,spouse,ORBCOMM INC,,sale_full,2014-01-15,2014-02-04,A,,high,LLM LP 12.2552%
+8214091,3,17,spouse,PHH CORP,,sale_full,2014-01-28,2014-02-04,A,,high,LLM LP 12.2552%
+8214091,3,18,spouse,RIGNET INC,,sale_full,2014-01-23,2014-02-04,A,,high,LLM LP 12.2552%
+8214091,3,19,spouse,RIGNET INC,,sale_full,2014-01-22,2014-02-04,A,,high,LLM LP 12.2552%
+8214091,3,20,spouse,RIGNET INC,,sale_full,2014-01-21,2014-02-04,A,,high,LLM LP 12.2552%
+8214091,3,21,spouse,STARWOOD PROPERTY TRUST INC,,sale_full,2014-01-29,2014-02-04,A,,high,LLM LP 12.2552%
+8214091,3,22,spouse,STARWOOD PROPERTY TRUST INC,,sale_full,2014-01-28,2014-02-04,A,,high,LLM LP 12.2552%
+8214091,3,23,spouse,STARWOOD PROPERTY TRUST INC,,sale_full,2014-01-23,2014-02-04,A,,high,LLM LP 12.2552%
+8214091,3,24,spouse,VISHAY PRECISION GROUP INC,,sale_full,2014-01-17,2014-02-04,A,,high,LLM LP 12.2552%
+8214091,3,25,spouse,EMBOTELLADORA ANDINA,,purchase,2014-01-08,2014-02-04,B,,high,LLM LP 12.2552%
+8214091,3,26,spouse,ARCOS DORADOS HOLDINGS INC,,purchase,2014-01-03,2014-02-04,B,,high,LLM LP 12.2552%
+8214091,3,27,spouse,ANTON OILFIELD SERVICES GROUP,,purchase,2014-01-07,2014-02-04,B,,high,LLM LP 12.2552%
+8214091,3,28,spouse,PT BK RAKYAT,,purchase,2014-01-07,2014-02-04,B,,high,LLM LP 12.2552%
+8214091,3,29,spouse,BRF SA,,purchase,2014-01-03,2014-02-04,B,,medium,LLM LP 12.2552%
+8214091,3,30,spouse,EMBRAER S A,,purchase,2014-01-03,2014-02-04,C,,medium,LLM LP 12.2552%
+8214091,6,1,spouse,AVON PRODUCTS INC,,purchase,2014-01-28,2014-02-04,B,,high,under header LLM FAMILY INVESTMENTS II LP (7.1753% INTEREST); third look: header line has no marks/date (B made it a row and shifted dates down one row)
+8214091,6,2,spouse,CITIGROUP INC,,purchase,2014-01-28,2014-02-04,B,,high,LLM II LP 7.1753%; third look: date 1/28 (B had 1/29 from shift)
+8214091,6,3,spouse,HALLIBURTON COMPANY,,purchase,2014-01-29,2014-02-04,C,,high,LLM II LP 7.1753%; third look: date 1/29 (B had 1/3 from shift)
+8214091,6,4,spouse,HALLIBURTON COMPANY,,purchase,2014-01-03,2014-02-04,C,,medium,LLM II LP 7.1753%; third look: date 1/3 (B had 1/16 from shift); purchase mark faint
+8214091,6,5,spouse,WPX ENERGY INC,,purchase,2014-01-16,2014-02-04,A,,high,LLM II LP 7.1753%; third look: date 1/16 (B had 1/28 from shift)
+8214091,6,6,spouse,BANK OF AMERICA CORP,,sale_full,2014-01-28,2014-02-04,B,,high,LLM II LP 7.1753%; third look: date 1/28 (B had 1/29 from shift)
+8214091,6,7,spouse,ROBERT HALF INTL INC,,sale_full,2014-01-29,2014-02-04,C,,high,LLM II LP 7.1753%; third look: date 1/29 (B had 1/3 from shift)
+8214091,6,8,spouse,R R DONNELLEY & SONS CO,,sale_full,2014-01-03,2014-02-04,A,,high,LLM II LP 7.1753%
+8214091,6,9,spouse,SEALED AIR CORP,,sale_full,2014-01-03,2014-02-04,A,,high,LLM II LP 7.1753%
+8214091,6,10,spouse,XEROX CORP,,sale_full,2014-01-03,2014-02-04,B,,high,LLM II LP 7.1753%
+8214091,6,11,child,FMC TECHNOLOGIES INC,,purchase,2014-01-30,2014-02-04,A,,high,under header LLM FAMILY INVESTMENTS LP (12.8294% INTEREST) (DC); third look: header has no marks; FMC date 1/30 (B shifted)
+8214091,6,12,child,WHOLE FOODS MARKET INC,,purchase,2014-01-17,2014-02-04,A,,high,LLM LP 12.8294%; third look: date 1/17 (B had 1/15 from shift)
+8214091,6,13,child,ESTEE LAUDER COMPANIES INC,,sale_full,2014-01-15,2014-02-04,A,,high,LLM LP 12.8294%; third look: date 1/15 present (B had blank)
+8214091,6,14,child,FLUOR CORP,,sale_full,2014-01-30,2014-02-04,A,,high,LLM LP 12.8294%
+8214091,6,15,child,BRISTOW GROUP INC,,purchase,2014-01-29,2014-02-04,A,,high,LLM LP 12.8294%
+8214091,6,16,child,BRISTOW GROUP INC,,purchase,2014-01-28,2014-02-04,A,,high,LLM LP 12.8294%
+8214091,6,17,child,CULP INC,,purchase,2014-01-31,2014-02-04,A,,high,LLM LP 12.8294%
+8214091,6,18,child,CULP INC,,purchase,2014-01-29,2014-02-04,A,,high,LLM LP 12.8294%
+8214091,6,19,child,CULP INC,,purchase,2014-01-27,2014-02-04,A,,high,LLM LP 12.8294%
+8214091,6,20,child,CULP INC,,purchase,2014-01-24,2014-02-04,A,,high,LLM LP 12.8294%
+8214091,6,21,child,CULP INC,,purchase,2014-01-24,2014-02-04,A,,high,LLM LP 12.8294%
+8214091,6,22,child,CULP INC,,purchase,2014-01-23,2014-02-04,A,,high,LLM LP 12.8294%
+8214091,6,23,child,CULP INC,,purchase,2014-01-22,2014-02-04,A,,high,LLM LP 12.8294%; third look: 11 CULP rows on form with two 1/22 rows (B had 10)
+8214091,6,24,child,CULP INC,,purchase,2014-01-22,2014-02-04,A,,high,LLM LP 12.8294%; third look: second 1/22 CULP row confirmed on scan
+8214091,6,25,child,CULP INC,,purchase,2014-01-17,2014-02-04,A,,high,LLM LP 12.8294%
+8214091,6,26,child,CULP INC,,purchase,2014-01-14,2014-02-04,A,,high,LLM LP 12.8294%
+8214091,6,27,child,CULP INC,,purchase,2014-01-14,2014-02-04,A,,high,LLM LP 12.8294%
+8214091,6,28,child,DESTINATION MATERNITY CORPORATION,,purchase,2014-01-30,2014-02-04,A,,high,LLM LP 12.8294%
+8214091,7,1,child,DESTINATION MATERNITY CORPORATION,,purchase,2014-01-29,2014-02-04,A,,high,LLM LP 12.8294%
+8214091,7,2,child,FOREST CITY ENTERPRISES INC,,purchase,2014-01-28,2014-02-04,A,,high,LLM LP 12.8294%
+8214091,7,3,child,FOREST CITY ENTERPRISES INC,,purchase,2014-01-21,2014-02-04,A,,high,LLM LP 12.8294%
+8214091,7,4,child,FOREST CITY ENTERPRISES INC,,purchase,2014-01-17,2014-02-04,A,,high,LLM LP 12.8294%
+8214091,7,5,child,KADANT INC,,purchase,2014-01-31,2014-02-04,A,,high,LLM LP 12.8294%
+8214091,7,6,child,KADANT INC,,purchase,2014-01-29,2014-02-04,A,,high,LLM LP 12.8294%
+8214091,7,7,child,KADANT INC,,purchase,2014-01-27,2014-02-04,A,,high,LLM LP 12.8294%
+8214091,7,8,child,SPRINGLEAF HOLDINGS INC,,purchase,2014-01-06,2014-02-04,A,,high,LLM LP 12.8294%
+8214091,7,9,child,ENPRO INDUSTRIES INC,,purchase,2014-01-14,2014-02-04,A,,high,LLM LP 12.8294%
+8214091,7,10,child,ENPRO INDUSTRIES INC,,purchase,2014-01-14,2014-02-04,A,,high,LLM LP 12.8294%
+8214091,7,11,child,NORTHSTAR REALTY FINANCE CORP,,purchase,2014-01-29,2014-02-04,A,,high,LLM LP 12.8294%
+8214091,7,12,child,NORTHSTAR REALTY FINANCE CORP,,purchase,2014-01-28,2014-02-04,A,,high,LLM LP 12.8294%
+8214091,7,13,child,NORTHSTAR REALTY FINANCE CORP,,purchase,2014-01-23,2014-02-04,B,,high,LLM LP 12.8294%
+8214091,7,14,child,AIR METHODS CORP,,sale_full,2014-01-28,2014-02-04,A,,high,LLM LP 12.8294%
+8214091,7,15,child,CORELOGIC INC,,sale_full,2014-01-24,2014-02-04,A,,high,LLM LP 12.8294%
+8214091,7,16,child,CORELOGIC INC,,sale_full,2014-01-23,2014-02-04,A,,high,LLM LP 12.8294%; third look: form has 4 CORELOGIC rows (1/24 1/23 1/23 1/17); B missed one 1/23 row
+8214091,7,17,child,CORELOGIC INC,,sale_full,2014-01-23,2014-02-04,A,,high,LLM LP 12.8294%; third look: second 1/23 CORELOGIC row confirmed on scan (missing in B)
+8214091,7,18,child,CORELOGIC INC,,sale_full,2014-01-17,2014-02-04,A,,high,LLM LP 12.8294%
+8214091,7,19,child,FLY LEASING LIMITED,,sale_full,2014-01-22,2014-02-04,A,,high,LLM LP 12.8294%
+8214091,7,20,child,FLY LEASING LIMITED,,sale_full,2014-01-15,2014-02-04,A,,high,LLM LP 12.8294%
+8214091,7,21,child,MEASUREMENT SPECIALTIES INC,,sale_full,2014-01-23,2014-02-04,A,,high,LLM LP 12.8294%
+8214091,7,22,child,MEASUREMENT SPECIALTIES INC,,sale_full,2014-01-22,2014-02-04,A,,high,LLM LP 12.8294%
+8214091,7,23,child,MEASUREMENT SPECIALTIES INC,,sale_full,2014-01-15,2014-02-04,A,,high,LLM LP 12.8294%
+8214091,7,24,child,MEASUREMENT SPECIALTIES INC,,sale_full,2014-01-14,2014-02-04,A,,high,LLM LP 12.8294%
+8214091,7,25,child,MAXIMUS INC,,sale_full,2014-01-28,2014-02-04,A,,high,LLM LP 12.8294%
+8214091,7,26,child,OCEANFIRST FINANCIAL CORP,,sale_full,2014-01-22,2014-02-04,A,,high,LLM LP 12.8294%
+8214091,7,27,child,OCEANFIRST FINANCIAL CORP,,sale_full,2014-01-21,2014-02-04,A,,high,LLM LP 12.8294%
+8214091,7,28,child,ORBCOMM INC,,sale_full,2014-01-22,2014-02-04,A,,high,LLM LP 12.8294%
+8214091,7,29,child,ORBCOMM INC,,sale_full,2014-01-15,2014-02-04,A,,high,LLM LP 12.8294%
+8214091,7,30,child,PHH CORP,,sale_full,2014-01-28,2014-02-04,A,,high,LLM LP 12.8294%
+8214471,2,1,spouse,DISCOVERY COMMUNICATIONS INC,,purchase,2014-03-26,2014-04-04,B,,high,under header LLM FAMILY INVESTMENTS LP (12.2257% INTEREST); third look: header has no marks; dates/bands align from Discovery down (B shifted by one row)
+8214471,2,2,spouse,FASTENAL CO,,purchase,2014-03-21,2014-04-04,A,,high,LLM LP 12.2257%; third look: date 3/21 (B had 3/4 from shift)
+8214471,2,3,spouse,FASTENAL CO,,purchase,2014-03-04,2014-04-04,A,,high,LLM LP 12.2257%; third look: date 3/4 (B had 3/21 from shift)
+8214471,2,4,spouse,GILEAD SCIENCES INC,,purchase,2014-03-21,2014-04-04,A,,high,LLM LP 12.2257%; third look: date 3/21 (B had 3/17 from shift)
+8214471,2,5,spouse,GILEAD SCIENCES INC,,purchase,2014-03-17,2014-04-04,A,,high,LLM LP 12.2257%; third look: date 3/17 present (B had blank)
+8214471,2,6,spouse,FLUOR CORP,,sale_full,2014-03-04,2014-04-04,A,,high,LLM LP 12.2257%
+8214471,2,7,spouse,NETAPP INC,,sale_full,2014-03-27,2014-04-04,B,,medium,LLM LP 12.2257%
+8214471,2,8,spouse,NETAPP INC,,sale_full,2014-03-21,2014-04-04,B,,medium,LLM LP 12.2257%
+8214471,2,9,spouse,NETAPP INC,,sale_full,2014-03-17,2014-04-04,A,,medium,LLM LP 12.2257%
+8214471,2,10,spouse,ROPER INDUSTRIES INC,,sale_full,2014-03-31,2014-04-04,B,,medium,LLM LP 12.2257%
+8214471,2,11,spouse,ROPER INDUSTRIES INC,,sale_full,2014-03-28,2014-04-04,A,,medium,LLM LP 12.2257%
+8214471,2,12,spouse,ROPER INDUSTRIES INC,,sale_full,2014-03-04,2014-04-04,A,,medium,LLM LP 12.2257%
+8214471,2,13,spouse,ENZYMOTEC LTD,,purchase,2014-03-21,2014-04-04,A,,high,LLM LP 12.2257%
+8214471,2,14,spouse,CANON INC,,purchase,2014-03-27,2014-04-04,A,,high,LLM LP 12.2257%
+8214471,2,15,spouse,MAKITA CORP,,purchase,2014-03-27,2014-04-04,B,,high,LLM LP 12.2257%
+8214471,2,16,spouse,PETROLEO BRASILEIRO SA,,purchase,2014-03-27,2014-04-04,A,,high,LLM LP 12.2257%
+8214471,2,17,spouse,SEVEN & I HOLDINGS CO,,purchase,2014-03-27,2014-04-04,B,,high,LLM LP 12.2257%
+8214471,2,18,spouse,CRH PLC,,sale_full,2014-03-12,2014-04-04,A,,high,LLM LP 12.2257%
+8214471,2,19,spouse,NTT DOCOMO INC,,sale_full,2014-03-27,2014-04-04,B,,high,LLM LP 12.2257%
+8214471,2,20,spouse,NOVARTIS AG,,sale_full,2014-03-12,2014-04-04,A,,high,LLM LP 12.2257%
+8214471,2,21,spouse,AMERICAN CAPITAL LIMITED,,purchase,2014-03-26,2014-04-04,A,,high,LLM LP 12.2257%
+8214471,2,22,spouse,ALBANY INTERNATIONAL CORP,,purchase,2014-03-17,2014-04-04,A,,high,LLM LP 12.2257%
+8214471,2,23,spouse,ALBANY INTERNATIONAL CORP,,purchase,2014-03-14,2014-04-04,A,,high,LLM LP 12.2257%
+8214471,2,24,spouse,ALBANY INTERNATIONAL CORP,,purchase,2014-03-12,2014-04-04,A,,high,LLM LP 12.2257%
+8214471,2,25,spouse,ALBANY INTERNATIONAL CORP,,purchase,2014-03-11,2014-04-04,A,,high,LLM LP 12.2257%
+8214471,2,26,spouse,ATLANTIC TELE-NETWORK INC,,purchase,2014-03-24,2014-04-04,A,,high,LLM LP 12.2257%
+8214471,2,27,spouse,ATLANTIC TELE-NETWORK INC,,purchase,2014-03-19,2014-04-04,A,,high,LLM LP 12.2257%
+8214471,2,28,spouse,ATLANTIC TELE-NETWORK INC,,purchase,2014-03-18,2014-04-04,A,,high,LLM LP 12.2257%
+8214471,2,29,spouse,ATLANTIC TELE-NETWORK INC,,purchase,2014-03-17,2014-04-04,A,,high,LLM LP 12.2257%
+8214471,2,30,spouse,ATLANTIC TELE-NETWORK INC,,purchase,2014-03-14,2014-04-04,A,,high,LLM LP 12.2257%
+8214471,2,31,spouse,ATLANTIC TELE-NETWORK INC,,purchase,2014-03-13,2014-04-04,A,,high,LLM LP 12.2257%
+8214471,3,1,spouse,ATLANTIC TELE-NETWORK INC,,purchase,2014-03-12,2014-04-04,A,,high,LLM LP 12.2257%
+8214471,3,2,spouse,CATO CORP,,purchase,2014-03-19,2014-04-04,A,,high,LLM LP 12.2257%
+8214471,3,3,spouse,CATO CORP,,purchase,2014-03-14,2014-04-04,A,,high,LLM LP 12.2257%
+8214471,3,4,spouse,CULP INC,,purchase,2014-03-31,2014-04-04,A,,high,LLM LP 12.2257%
+8214471,3,5,spouse,CULP INC,,purchase,2014-03-27,2014-04-04,A,,high,LLM LP 12.2257%
+8214471,3,6,spouse,CULP INC,,purchase,2014-03-26,2014-04-04,A,,high,LLM LP 12.2257%
+8214471,3,7,spouse,CULP INC,,purchase,2014-03-25,2014-04-04,A,,high,LLM LP 12.2257%
+8214471,3,8,spouse,CULP INC,,purchase,2014-03-24,2014-04-04,A,,high,LLM LP 12.2257%
+8214471,3,9,spouse,CULP INC,,purchase,2014-03-21,2014-04-04,A,,high,LLM LP 12.2257%
+8214471,3,10,spouse,CULP INC,,purchase,2014-03-20,2014-04-04,A,,high,LLM LP 12.2257%
+8214471,3,11,spouse,CULP INC,,purchase,2014-03-03,2014-04-04,A,,high,LLM LP 12.2257%
+8214471,3,12,spouse,DESTINATION MATERNITY CORPORATION,,purchase,2014-03-20,2014-04-04,A,,high,LLM LP 12.2257%
+8214471,3,13,spouse,DESTINATION MATERNITY CORPORATION,,purchase,2014-03-19,2014-04-04,A,,high,LLM LP 12.2257%
+8214471,3,14,spouse,DESTINATION MATERNITY CORPORATION,,purchase,2014-03-17,2014-04-04,A,,high,LLM LP 12.2257%
+8214471,3,15,spouse,DESTINATION MATERNITY CORPORATION,,purchase,2014-03-13,2014-04-04,A,,high,LLM LP 12.2257%
+8214471,3,16,spouse,DESTINATION MATERNITY CORPORATION,,purchase,2014-03-12,2014-04-04,A,,high,LLM LP 12.2257%
+8214471,3,17,spouse,DESTINATION MATERNITY CORPORATION,,purchase,2014-03-11,2014-04-04,A,,high,LLM LP 12.2257%
+8214471,3,18,spouse,DIGITALGLOBE INC COM,,purchase,2014-03-26,2014-04-04,A,,high,LLM LP 12.2257%
+8214471,3,19,spouse,KADANT INC,,purchase,2014-03-20,2014-04-04,A,,high,LLM LP 12.2257%
+8214471,3,20,spouse,MONEYGRAM INTERNATIONAL INC,,purchase,2014-03-31,2014-04-04,A,,high,LLM LP 12.2257%
+8214471,3,21,spouse,MONEYGRAM INTERNATIONAL INC,,purchase,2014-03-28,2014-04-04,A,,high,LLM LP 12.2257%
+8214471,3,22,spouse,MONEYGRAM INTERNATIONAL INC,,purchase,2014-03-28,2014-04-04,A,,medium,LLM LP 12.2257%; third look: date 3/28 (A had 3/11); form has 30 rows incl. 5 ENPRO rows - clearer DC copy (page 10) reads 3/31 3/28 3/28 for MONEYGRAM then NEENAH 3/11
+8214471,3,23,spouse,NEENAH PAPER INC,,purchase,2014-03-11,2014-04-04,A,,medium,LLM LP 12.2257%; third look: date 3/11 (A had 3/26)
+8214471,3,24,spouse,ENPRO INDUSTRIES INC,,purchase,2014-03-26,2014-04-04,A,,medium,LLM LP 12.2257%; third look: 5 ENPRO rows (A had 4); date 3/26
+8214471,3,25,spouse,ENPRO INDUSTRIES INC,,purchase,2014-03-24,2014-04-04,A,,medium,LLM LP 12.2257%; third look: ENPRO dates shifted vs A
+8214471,3,26,spouse,ENPRO INDUSTRIES INC,,purchase,2014-03-20,2014-04-04,A,,medium,LLM LP 12.2257%; third look: ENPRO dates shifted vs A
+8214471,3,27,spouse,ENPRO INDUSTRIES INC,,purchase,2014-03-17,2014-04-04,A,,medium,LLM LP 12.2257%; third look: ENPRO dates shifted vs A
+8214471,3,28,spouse,ENPRO INDUSTRIES INC,,purchase,2014-03-14,2014-04-04,A,,medium,LLM LP 12.2257%; third look: A had this 3/14 row as 4th ENPRO; asset name confirmed ENPRO on DC copy
+8214471,3,29,spouse,TFS FINANCIAL CORP,,purchase,2014-03-06,2014-04-04,A,,medium,LLM LP 12.2257%; third look: TFS 3/6 and 3/4 on this page (3/3 continues on page 4)
+8214471,3,30,spouse,TFS FINANCIAL CORP,,purchase,2014-03-04,2014-04-04,A,,medium,LLM LP 12.2257%; third look: last row of page
+8214471,8,1,spouse,INTUITIVE SURGICAL INC,,purchase,2014-03-28,2014-04-04,B,,high,LLM LP 12.2257%
+8214471,8,2,spouse,AECOM TECHNOLOGY CORPORATION,,purchase,2014-03-10,2014-04-04,A,,high,under header LLM FAMILY INVESTMENTS II LP (5.438% INTEREST); third look: header line has no marks so it is not a row (B listed it as an empty row)
+8214471,8,3,spouse,AECOM TECHNOLOGY CORPORATION,,purchase,2014-03-07,2014-04-04,B,,high,LLM II LP 5.438%
+8214471,8,4,spouse,AECOM TECHNOLOGY CORPORATION,,purchase,2014-03-06,2014-04-04,A,,high,LLM II LP 5.438%
+8214471,8,5,spouse,AVON PRODUCTS INC,,purchase,2014-03-04,2014-04-04,B,,high,LLM II LP 5.438%
+8214471,8,6,spouse,URS CORPORATION,,purchase,2014-03-20,2014-04-04,A,,high,LLM II LP 5.438%
+8214471,8,7,spouse,URS CORPORATION,,purchase,2014-03-19,2014-04-04,B,,high,LLM II LP 5.438%
+8214471,8,8,spouse,ALCOA INC,,sale_full,2014-03-19,2014-04-04,A,,high,LLM II LP 5.438%
+8214471,8,9,spouse,AETNA INC,,sale_full,2014-03-19,2014-04-04,A,,high,LLM II LP 5.438%
+8214471,8,10,spouse,ALLSTATE CORP,,sale_full,2014-03-19,2014-04-04,A,,high,LLM II LP 5.438%
+8214471,8,11,spouse,BANK OF AMERICA CORP,,sale_full,2014-03-19,2014-04-04,A,,high,LLM II LP 5.438%
+8214471,8,12,spouse,BAXTER INTERNATIONAL INC,,sale_full,2014-03-19,2014-04-04,A,,high,LLM II LP 5.438%
+8214471,8,13,spouse,BAKER HUGHES INC,,sale_full,2014-03-19,2014-04-04,A,,high,LLM II LP 5.438%
+8214471,8,14,spouse,ELECTRONIC ARTS INC,,sale_full,2014-03-19,2014-04-04,A,,high,LLM II LP 5.438%
+8214471,8,15,spouse,GENERAL ELECTRIC CO,,sale_full,2014-03-19,2014-04-04,A,,high,LLM II LP 5.438%
+8214471,8,16,spouse,HALLIBURTON COMPANY,,sale_full,2014-03-19,2014-04-04,A,,high,LLM II LP 5.438%
+8214471,8,17,spouse,HEWLETT PACKARD CO,,sale_full,2014-03-19,2014-04-04,A,,high,LLM II LP 5.438%
+8214471,8,18,spouse,JPMORGAN CHASE & CO,,sale_full,2014-03-19,2014-04-04,A,,high,LLM II LP 5.438%
+8214471,8,19,spouse,ELI LILLY & CO,,sale_full,2014-03-19,2014-04-04,A,,medium,LLM II LP 5.438%; third look: A-column mark on this row (A reader had B)
+8214471,8,20,spouse,LINCOLN NATIONAL CORP,,sale_full,2014-03-19,2014-04-04,B,,medium,LLM II LP 5.438%; third look: B-column mark sits on Lincoln row (A reader had A)
+8214471,8,21,spouse,MICROSOFT CORP,,sale_full,2014-03-19,2014-04-04,A,,high,LLM II LP 5.438%
+8214471,8,22,spouse,OMNICOM GROUP INC,,sale_full,2014-03-19,2014-04-04,A,,high,LLM II LP 5.438%
+8214471,8,23,spouse,OMNICOM GROUP INC,,sale_full,2014-03-05,2014-04-04,A,,high,LLM II LP 5.438%
+8214471,8,24,spouse,OMNICOM GROUP INC,,sale_full,2014-03-04,2014-04-04,C,,high,LLM II LP 5.438%
+8214471,8,25,spouse,R R DONNELLEY & SONS CO,,sale_full,2014-03-07,2014-04-04,B,,high,LLM II LP 5.438%
+8214471,8,26,spouse,R R DONNELLEY & SONS CO,,sale_full,2014-03-06,2014-04-04,A,,high,LLM II LP 5.438%
+8214471,8,27,spouse,SEALED AIR CORP,,sale_full,2014-03-19,2014-04-04,A,,high,LLM II LP 5.438%
+8214471,8,28,spouse,STAPLES INC,,sale_full,2014-03-19,2014-04-04,A,,high,LLM II LP 5.438%
+8214471,8,29,spouse,TE CONNECTIVITY LTD,,sale_full,2014-03-19,2014-04-04,A,,high,LLM II LP 5.438%
+8214471,8,30,spouse,ULTRA PETROLEUM CORP,,sale_full,2014-03-19,2014-04-04,A,,high,LLM II LP 5.438%
+8214471,8,31,spouse,WPX ENERGY INC,,sale_full,2014-03-19,2014-04-04,A,,high,LLM II LP 5.438%
+8214471,8,32,spouse,XEROX CORP,,sale_full,2014-03-19,2014-04-04,A,,high,LLM II LP 5.438%
+8214471,9,1,child,DISCOVERY COMMUNICATIONS INC,,purchase,2014-03-26,2014-04-04,B,,high,under header LLM FAMILY INVESTMENTS LP (12.8897% INTEREST) (DC); third look: header has no marks; B shifted dates/bands down one row
+8214471,9,2,child,FASTENAL CO,,purchase,2014-03-21,2014-04-04,A,,high,LLM LP 12.8897%; third look: 3/21 band A (B had 3/4 B from shift)
+8214471,9,3,child,FASTENAL CO,,purchase,2014-03-04,2014-04-04,B,,medium,LLM LP 12.8897%; third look: 3/4 band B (B had 3/21 A from shift)
+8214471,9,4,child,GILEAD SCIENCES INC,,purchase,2014-03-21,2014-04-04,A,,high,LLM LP 12.8897%; third look: date 3/21 (B had 3/17 from shift)
+8214471,9,5,child,GILEAD SCIENCES INC,,purchase,2014-03-17,2014-04-04,A,,high,LLM LP 12.8897%; third look: date 3/17 present (B had blank)
+8214471,9,6,child,FLUOR CORP,,sale_full,2014-03-04,2014-04-04,A,,high,LLM LP 12.8897%
+8214471,9,7,child,NETAPP INC,,sale_full,2014-03-27,2014-04-04,B,,medium,LLM LP 12.8897%
+8214471,9,8,child,NETAPP INC,,sale_full,2014-03-21,2014-04-04,B,,medium,LLM LP 12.8897%
+8214471,9,9,child,NETAPP INC,,sale_full,2014-03-17,2014-04-04,A,,medium,LLM LP 12.8897%
+8214471,9,10,child,ROPER INDUSTRIES INC,,sale_full,2014-03-31,2014-04-04,B,,medium,LLM LP 12.8897%
+8214471,9,11,child,ROPER INDUSTRIES INC,,sale_full,2014-03-28,2014-04-04,A,,medium,LLM LP 12.8897%
+8214471,9,12,child,ROPER INDUSTRIES INC,,sale_full,2014-03-04,2014-04-04,B,,medium,LLM LP 12.8897%
+8214471,9,13,child,ENZYMOTEC LTD,,purchase,2014-03-21,2014-04-04,A,,high,LLM LP 12.8897%
+8214471,9,14,child,CANON INC,,purchase,2014-03-27,2014-04-04,A,,high,LLM LP 12.8897%
+8214471,9,15,child,MAKITA CORP,,purchase,2014-03-27,2014-04-04,B,,high,LLM LP 12.8897%
+8214471,9,16,child,PETROLEO BRASILEIRO SA,,purchase,2014-03-27,2014-04-04,A,,high,LLM LP 12.8897%
+8214471,9,17,child,SEVEN & I HOLDINGS CO,,purchase,2014-03-27,2014-04-04,B,,high,LLM LP 12.8897%
+8214471,9,18,child,CRH PLC,,sale_full,2014-03-12,2014-04-04,A,,high,LLM LP 12.8897%
+8214471,9,19,child,NTT DOCOMO INC,,sale_full,2014-03-27,2014-04-04,B,,high,LLM LP 12.8897%
+8214471,9,20,child,NOVARTIS AG,,sale_full,2014-03-12,2014-04-04,B,,medium,LLM LP 12.8897%
+8214471,9,21,child,AMERICAN CAPITAL LIMITED,,purchase,2014-03-26,2014-04-04,A,,high,LLM LP 12.8897%
+8214471,9,22,child,ALBANY INTERNATIONAL CORP,,purchase,2014-03-17,2014-04-04,A,,high,LLM LP 12.8897%
+8214471,9,23,child,ALBANY INTERNATIONAL CORP,,purchase,2014-03-14,2014-04-04,A,,high,LLM LP 12.8897%
+8214471,9,24,child,ALBANY INTERNATIONAL CORP,,purchase,2014-03-12,2014-04-04,A,,high,LLM LP 12.8897%
+8214471,9,25,child,ALBANY INTERNATIONAL CORP,,purchase,2014-03-11,2014-04-04,A,,high,LLM LP 12.8897%
+8214471,9,26,child,ATLANTIC TELE-NETWORK INC,,purchase,2014-03-24,2014-04-04,A,,high,LLM LP 12.8897%
+8214471,9,27,child,ATLANTIC TELE-NETWORK INC,,purchase,2014-03-19,2014-04-04,A,,high,LLM LP 12.8897%
+8214471,9,28,child,ATLANTIC TELE-NETWORK INC,,purchase,2014-03-18,2014-04-04,A,,high,LLM LP 12.8897%
+8214471,9,29,child,ATLANTIC TELE-NETWORK INC,,purchase,2014-03-17,2014-04-04,A,,high,LLM LP 12.8897%
+8214471,9,30,child,ATLANTIC TELE-NETWORK INC,,purchase,2014-03-14,2014-04-04,A,,high,LLM LP 12.8897%
+8214471,9,31,child,ATLANTIC TELE-NETWORK INC,,purchase,2014-03-13,2014-04-04,A,,high,LLM LP 12.8897%
+8214471,10,1,child,ATLANTIC TELE-NETWORK INC,,purchase,2014-03-12,2014-04-04,A,,high,LLM LP 12.8897%
+8214471,10,2,child,CATO CORP,,purchase,2014-03-19,2014-04-04,A,,high,LLM LP 12.8897%
+8214471,10,3,child,CATO CORP,,purchase,2014-03-14,2014-04-04,A,,high,LLM LP 12.8897%
+8214471,10,4,child,CULP INC,,purchase,2014-03-31,2014-04-04,A,,high,LLM LP 12.8897%
+8214471,10,5,child,CULP INC,,purchase,2014-03-27,2014-04-04,A,,high,LLM LP 12.8897%
+8214471,10,6,child,CULP INC,,purchase,2014-03-26,2014-04-04,A,,high,LLM LP 12.8897%
+8214471,10,7,child,CULP INC,,purchase,2014-03-25,2014-04-04,A,,high,LLM LP 12.8897%
+8214471,10,8,child,CULP INC,,purchase,2014-03-24,2014-04-04,A,,high,LLM LP 12.8897%
+8214471,10,9,child,CULP INC,,purchase,2014-03-21,2014-04-04,A,,high,LLM LP 12.8897%
+8214471,10,10,child,CULP INC,,purchase,2014-03-20,2014-04-04,A,,high,LLM LP 12.8897%
+8214471,10,11,child,CULP INC,,purchase,2014-03-03,2014-04-04,A,,high,LLM LP 12.8897%
+8214471,10,12,child,DESTINATION MATERNITY CORPORATION,,purchase,2014-03-20,2014-04-04,A,,high,LLM LP 12.8897%
+8214471,10,13,child,DESTINATION MATERNITY CORPORATION,,purchase,2014-03-19,2014-04-04,A,,high,LLM LP 12.8897%
+8214471,10,14,child,DESTINATION MATERNITY CORPORATION,,purchase,2014-03-17,2014-04-04,A,,high,LLM LP 12.8897%
+8214471,10,15,child,DESTINATION MATERNITY CORPORATION,,purchase,2014-03-13,2014-04-04,A,,high,LLM LP 12.8897%
+8214471,10,16,child,DESTINATION MATERNITY CORPORATION,,purchase,2014-03-12,2014-04-04,A,,high,LLM LP 12.8897%
+8214471,10,17,child,DESTINATION MATERNITY CORPORATION,,purchase,2014-03-11,2014-04-04,A,,high,LLM LP 12.8897%
+8214471,10,18,child,DIGITALGLOBE INC COM,,purchase,2014-03-26,2014-04-04,A,,high,LLM LP 12.8897%
+8214471,10,19,child,KADANT INC,,purchase,2014-03-20,2014-04-04,A,,high,LLM LP 12.8897%
+8214471,10,20,child,MONEYGRAM INTERNATIONAL INC,,purchase,2014-03-31,2014-04-04,A,,high,LLM LP 12.8897%
+8214471,10,21,child,MONEYGRAM INTERNATIONAL INC,,purchase,2014-03-28,2014-04-04,B,,medium,LLM LP 12.8897%
+8214471,10,22,child,MONEYGRAM INTERNATIONAL INC,,purchase,2014-03-28,2014-04-04,A,,medium,LLM LP 12.8897%; third look: date reads 3/28 (A had 3/11); scan shows 30 rows with 5 ENPRO rows
+8214471,10,23,child,NEENAH PAPER INC,,purchase,2014-03-11,2014-04-04,A,,medium,LLM LP 12.8897%; third look: date 3/11 (A had 3/26)
+8214471,10,24,child,ENPRO INDUSTRIES INC,,purchase,2014-03-26,2014-04-04,A,,medium,LLM LP 12.8897%; third look: 5 ENPRO rows on form (A had 4); date 3/26
+8214471,10,25,child,ENPRO INDUSTRIES INC,,purchase,2014-03-24,2014-04-04,A,,medium,LLM LP 12.8897%; third look: ENPRO dates shifted vs A
+8214471,10,26,child,ENPRO INDUSTRIES INC,,purchase,2014-03-20,2014-04-04,A,,medium,LLM LP 12.8897%; third look: ENPRO dates shifted vs A
+8214471,10,27,child,ENPRO INDUSTRIES INC,,purchase,2014-03-17,2014-04-04,A,,medium,LLM LP 12.8897%; third look: ENPRO dates shifted vs A
+8214471,10,28,child,ENPRO INDUSTRIES INC,,purchase,2014-03-14,2014-04-04,A,,medium,LLM LP 12.8897%; third look: A had a TFS 3/6 row here; name on form is ENPRO
+8214471,10,29,child,TFS FINANCIAL CORP,,purchase,2014-03-06,2014-04-04,A,,medium,LLM LP 12.8897%; third look: TFS 3/6 and 3/4 on this page (3/3 continues on page 11)
+8214471,10,30,child,TFS FINANCIAL CORP,,purchase,2014-03-04,2014-04-04,A,,medium,LLM LP 12.8897%; third look: last row of page
+9105109,2,1,spouse,ECOLAB INC,,purchase,2014-02-04,2014-03-05,A,,medium,under header LLM FAMILY INVESTMENTS LP (12.2283% INTEREST); third look: header has no date/marks; Ecolab date 2/4 (B shifted dates down one row)
+9105109,2,2,spouse,FASTENAL CO,,purchase,2014-02-13,2014-03-05,B,,medium,LLM LP 12.2283%; third look: date 2/13 (B had 2/10 from shift)
+9105109,2,3,spouse,GENPACT LIMITED,,purchase,2014-02-10,2014-03-05,A,,medium,LLM LP 12.2283%; third look: date 2/10 present (B had blank)
+9105109,2,4,spouse,GILEAD SCIENCES INC,,purchase,2014-02-04,2014-03-05,A,,medium,LLM LP 12.2283%
+9105109,2,5,spouse,MEAD JOHNSON NUTRITION COMPANY,,purchase,2014-02-07,2014-03-05,A,,medium,LLM LP 12.2283%
+9105109,2,6,spouse,STARBUCKS CORP,,purchase,2014-02-04,2014-03-05,A,,medium,LLM LP 12.2283%
+9105109,2,7,spouse,WHOLE FOODS MARKET INC,,purchase,2014-02-13,2014-03-05,A,,medium,LLM LP 12.2283%
+9105109,2,8,spouse,APPLE INC,,sale_full,2014-02-07,2014-03-05,A,,medium,LLM LP 12.2283%
+9105109,2,9,spouse,APPLE INC,,sale_full,2014-02-04,2014-03-05,A,,medium,LLM LP 12.2283%
+9105109,2,10,spouse,FOSSIL GROUP INC,,sale_full,2014-02-12,2014-03-05,A,,medium,LLM LP 12.2283%
+9105109,2,11,spouse,GOOGLE INC,,sale_full,2014-02-04,2014-03-05,A,,medium,LLM LP 12.2283%
+9105109,2,12,spouse,ROPER INDUSTRIES INC,,sale_full,2014-02-13,2014-03-05,B,,medium,LLM LP 12.2283%; B mark could belong to adjacent Google row
+9105109,2,13,spouse,BG GROUP PLC,,purchase,2014-02-07,2014-03-05,A,,medium,LLM LP 12.2283%
+9105109,2,14,spouse,BHP BILLITON LTD,,purchase,2014-02-11,2014-03-05,A,,medium,LLM LP 12.2283%
+9105109,2,15,spouse,DIAGEO PLC,,purchase,2014-02-11,2014-03-05,A,,medium,LLM LP 12.2283%
+9105109,2,16,spouse,LVMH MOET HENNESSY LOUIS VUITTON SA,,purchase,2014-02-11,2014-03-05,A,,medium,LLM LP 12.2283%
+9105109,2,17,spouse,SYNGENTA AG,,purchase,2014-02-12,2014-03-05,A,,medium,LLM LP 12.2283%
+9105109,2,18,spouse,TECHNIP,,purchase,2014-02-11,2014-03-05,A,,medium,LLM LP 12.2283%
+9105109,2,19,spouse,CARREFOUR SA,,sale_full,2014-02-12,2014-03-05,B,,medium,LLM LP 12.2283%
+9105109,2,20,spouse,ENI S P A,,sale_full,2014-02-12,2014-03-05,B,,medium,LLM LP 12.2283%
+9105109,2,21,spouse,AMERICAN CAPITAL LIMITED,,purchase,2014-02-20,2014-03-05,A,,medium,LLM LP 12.2283%
+9105109,2,22,spouse,AMERICAN CAPITAL LIMITED,,purchase,2014-02-19,2014-03-05,A,,medium,LLM LP 12.2283%
+9105109,2,23,spouse,AMERICAN CAPITAL LIMITED,,purchase,2014-02-18,2014-03-05,A,,medium,LLM LP 12.2283%
+9105109,2,24,spouse,ALBANY INTERNATIONAL CORP,,purchase,2014-02-21,2014-03-05,A,,medium,LLM LP 12.2283%
+9105109,2,25,spouse,ALBANY INTERNATIONAL CORP,,purchase,2014-02-20,2014-03-05,A,,medium,LLM LP 12.2283%
+9105109,2,26,spouse,ALBANY INTERNATIONAL CORP,,purchase,2014-02-19,2014-03-05,A,,medium,LLM LP 12.2283%
+9105109,2,27,spouse,ALBANY INTERNATIONAL CORP,,purchase,2014-02-18,2014-03-05,A,,medium,LLM LP 12.2283%
+9105109,2,28,spouse,ALBANY INTERNATIONAL CORP,,purchase,2014-02-14,2014-03-05,A,,medium,LLM LP 12.2283%
+9105109,2,29,spouse,ALBANY INTERNATIONAL CORP,,purchase,2014-02-13,2014-03-05,A,,medium,LLM LP 12.2283%
+9105109,2,30,spouse,BRISTOW GROUP INC,,purchase,2014-02-07,2014-03-05,A,,medium,LLM LP 12.2283%
+9105109,5,1,spouse,THOMPSON CREEK METALS CO NOTE,,sale_full,2014-02-27,2014-03-05,D,,high,LLM LP 12.2283%
+9105109,5,2,spouse,AMKOR TECHNOLOGY INC NOTE,,sale_full,2014-02-04,2014-03-05,B,,high,LLM LP 12.2283%
+9105109,5,3,spouse,PRAXAIR INC,,sale_full,2014-02-06,2014-03-05,C,,high,LLM LP 12.2283%
+9105109,5,4,spouse,YUM BRANDS INC,,purchase,2014-02-07,2014-03-05,C,,high,LLM LP 12.2283%
+9105109,5,5,spouse,STARBUCKS CORP,,purchase,2014-02-07,2014-03-05,B,,medium,LLM LP 12.2283%
+9105109,5,6,spouse,TENCENT HLDGS LTD,,sale_full,2014-02-07,2014-03-05,B,,medium,LLM LP 12.2283%
+9105109,5,7,spouse,COGNIZANT TECHNOLOGY SOLUTIONS,,purchase,2014-02-10,2014-03-05,B,,medium,LLM LP 12.2283%
+9105109,5,8,spouse,SWATCH GROUP AG,,purchase,2014-02-11,2014-03-05,B,,medium,LLM LP 12.2283%
+9105109,5,9,spouse,STARBUCKS CORP,,purchase,2014-02-11,2014-03-05,B,,medium,LLM LP 12.2283%
+9105109,5,10,spouse,LAUDER ESTEE COS INC,,sale_full,2014-02-11,2014-03-05,D,,medium,LLM LP 12.2283%
+9105109,5,11,spouse,LAUDER ESTEE COS INC,,sale_full,2014-02-12,2014-03-05,C,,medium,LLM LP 12.2283%
+9105109,5,12,spouse,SWATCH GROUP AG,,purchase,2014-02-13,2014-03-05,B,,medium,LLM LP 12.2283%
+9105109,5,13,spouse,STARBUCKS CORP,,purchase,2014-02-13,2014-03-05,C,,medium,LLM LP 12.2283%
+9105109,5,14,spouse,LAUDER ESTEE COS INC,,sale_full,2014-02-13,2014-03-05,C,,medium,LLM LP 12.2283%
+9105109,5,15,spouse,WALGREEN CO,,sale_full,2014-02-13,2014-03-05,B,,medium,LLM LP 12.2283%
+9105109,5,16,spouse,HELMERICH & PAYNE INC,,sale_full,2014-02-13,2014-03-05,B,,medium,LLM LP 12.2283%
+9105109,5,17,spouse,M D C HLDGS INC,,purchase,2014-02-13,2014-03-05,C,,medium,LLM LP 12.2283%
+9105109,5,18,spouse,REGENERON PHARMACEUTICALS,,purchase,2014-02-14,2014-03-05,B,,medium,LLM LP 12.2283%
+9105109,5,19,spouse,CHEVRON CORP,,purchase,2014-02-19,2014-03-05,B,,medium,LLM LP 12.2283%
+9105109,5,20,spouse,THERMO FISHER SCIENTIFIC CORP,,sale_full,2014-02-19,2014-03-05,B,,medium,LLM LP 12.2283%
+9105109,5,21,spouse,ECOLAB INC,,purchase,2014-02-26,2014-03-05,B,,medium,LLM LP 12.2283%
+9105109,5,22,spouse,TJX COS INC NEW,,purchase,2014-03-03,2014-03-05,B,,medium,LLM LP 12.2283%
+9105109,5,23,spouse,AECOM TECHNOLOGY CORPORATION,,purchase,2014-02-19,2014-03-05,A,,medium,under header LLM FAMILY INVESTMENTS II LP (5.3520% INTEREST); third look: this block's marks are printed about half a row high so the top mark touches the header line; 6 dates/marks for 5 AECOM + AVON rows so header is not a row (B made it one)
+9105109,5,24,spouse,AECOM TECHNOLOGY CORPORATION,,purchase,2014-02-18,2014-03-05,A,,medium,LLM II LP 5.3520%; third look: block shifted by one row vs B
+9105109,5,25,spouse,AECOM TECHNOLOGY CORPORATION,,purchase,2014-02-18,2014-03-05,A,,medium,LLM II LP 5.3520%; third look: block shifted by one row vs B
+9105109,5,26,spouse,AECOM TECHNOLOGY CORPORATION,,purchase,2014-02-11,2014-03-05,A,,medium,LLM II LP 5.3520%; third look: block shifted by one row vs B
+9105109,5,27,spouse,AECOM TECHNOLOGY CORPORATION,,purchase,2014-02-10,2014-03-05,B,,medium,LLM II LP 5.3520%; third look: 2/10 with B mark (B had 2/10 A and a 5th AECOM row with no date)
+9105109,5,28,spouse,AVON PRODUCTS INC,,purchase,2014-02-12,2014-03-05,B,,medium,LLM II LP 5.3520%
+9105109,7,1,child,ECOLAB INC,,purchase,2014-02-04,2014-03-05,A,,medium,under header LLM FAMILY INVESTMENTS LP (12.8931% INTEREST) (DC); third look: header has no date/marks; Ecolab date 2/4 (B shifted dates down one row)
+9105109,7,2,child,FASTENAL CO,,purchase,2014-02-13,2014-03-05,B,,medium,LLM LP 12.8931%; third look: date 2/13 (B had 2/10 from shift)
+9105109,7,3,child,GENPACT LIMITED,,purchase,2014-02-10,2014-03-05,A,,medium,LLM LP 12.8931%; third look: date 2/10 present (B had blank)
+9105109,7,4,child,GILEAD SCIENCES INC,,purchase,2014-02-04,2014-03-05,A,,medium,LLM LP 12.8931%
+9105109,7,5,child,MEAD JOHNSON NUTRITION COMPANY,,purchase,2014-02-07,2014-03-05,A,,medium,LLM LP 12.8931%
+9105109,7,6,child,STARBUCKS CORP,,purchase,2014-02-04,2014-03-05,A,,medium,LLM LP 12.8931%
+9105109,7,7,child,WHOLE FOODS MARKET INC,,purchase,2014-02-13,2014-03-05,A,,medium,LLM LP 12.8931%
+9105109,7,8,child,APPLE INC,,sale_full,2014-02-07,2014-03-05,A,,medium,LLM LP 12.8931%
+9105109,7,9,child,APPLE INC,,sale_full,2014-02-04,2014-03-05,A,,medium,LLM LP 12.8931%
+9105109,7,10,child,FOSSIL GROUP INC,,sale_full,2014-02-12,2014-03-05,A,,medium,LLM LP 12.8931%
+9105109,7,11,child,GOOGLE INC,,sale_full,2014-02-04,2014-03-05,A,,medium,LLM LP 12.8931%
+9105109,7,12,child,ROPER INDUSTRIES INC,,sale_full,2014-02-13,2014-03-05,B,,medium,LLM LP 12.8931%; B mark is on the 2/13 row
+9105109,7,13,child,BG GROUP PLC,,purchase,2014-02-07,2014-03-05,A,,medium,LLM LP 12.8931%
+9105109,7,14,child,BHP BILLITON LTD,,purchase,2014-02-11,2014-03-05,B,,low,LLM LP 12.8931%; third look: B mark sits between BHP and Diageo rows; counting rows up from the Carrefour/ENI B marks puts it on BHP (B reader had it on Diageo)
+9105109,7,15,child,DIAGEO PLC,,purchase,2014-02-11,2014-03-05,A,,low,LLM LP 12.8931%; third look: band may be B instead (see BHP row)
+9105109,7,16,child,LVMH MOET HENNESSY LOUIS VUITTON SA,,purchase,2014-02-11,2014-03-05,A,,medium,LLM LP 12.8931%
+9105109,7,17,child,SYNGENTA AG,,purchase,2014-02-12,2014-03-05,A,,medium,LLM LP 12.8931%
+9105109,7,18,child,TECHNIP,,purchase,2014-02-11,2014-03-05,A,,medium,LLM LP 12.8931%
+9105109,7,19,child,CARREFOUR SA,,sale_full,2014-02-12,2014-03-05,B,,medium,LLM LP 12.8931%
+9105109,7,20,child,ENI S P A,,sale_full,2014-02-12,2014-03-05,B,,medium,LLM LP 12.8931%
+9105109,7,21,child,AMERICAN CAPITAL LIMITED,,purchase,2014-02-20,2014-03-05,A,,medium,LLM LP 12.8931%
+9105109,7,22,child,AMERICAN CAPITAL LIMITED,,purchase,2014-02-19,2014-03-05,A,,medium,LLM LP 12.8931%
+9105109,7,23,child,AMERICAN CAPITAL LIMITED,,purchase,2014-02-18,2014-03-05,A,,medium,LLM LP 12.8931%
+9105109,7,24,child,ALBANY INTERNATIONAL CORP,,purchase,2014-02-21,2014-03-05,A,,medium,LLM LP 12.8931%
+9105109,7,25,child,ALBANY INTERNATIONAL CORP,,purchase,2014-02-20,2014-03-05,A,,medium,LLM LP 12.8931%
+9105109,7,26,child,ALBANY INTERNATIONAL CORP,,purchase,2014-02-19,2014-03-05,A,,medium,LLM LP 12.8931%
+9105109,7,27,child,ALBANY INTERNATIONAL CORP,,purchase,2014-02-18,2014-03-05,A,,medium,LLM LP 12.8931%
+9105109,7,28,child,ALBANY INTERNATIONAL CORP,,purchase,2014-02-14,2014-03-05,A,,medium,LLM LP 12.8931%
+9105109,7,29,child,ALBANY INTERNATIONAL CORP,,purchase,2014-02-13,2014-03-05,A,,medium,LLM LP 12.8931%
+9105109,7,30,child,BRISTOW GROUP INC,,purchase,2014-02-07,2014-03-05,A,,medium,LLM LP 12.8931%
+8214091,2,1,spouse,FMC TECHNOLOGIES INC,,purchase,2014-01-30,2014-02-04,A,,high,under header LLM FAMILY INVESTMENTS LP (12.2552% INTEREST); third look: page taken from reading A (B read a header as a row and missed a CULP row)
+8214091,2,2,spouse,WHOLE FOODS MARKET INC,,purchase,2014-01-17,2014-02-04,A,,high,LLM LP 12.2552%; third look: page taken from reading A (B read a header as a row and missed a CULP row)
+8214091,2,3,spouse,ESTEE LAUDER COMPANIES INC,,sale_full,2014-01-15,2014-02-04,A,,high,LLM LP 12.2552%; third look: page taken from reading A (B read a header as a row and missed a CULP row)
+8214091,2,4,spouse,FLUOR CORP,,sale_full,2014-01-30,2014-02-04,A,,high,LLM LP 12.2552%; third look: page taken from reading A (B read a header as a row and missed a CULP row)
+8214091,2,5,spouse,BRISTOW GROUP INC,,purchase,2014-01-29,2014-02-04,A,,high,LLM LP 12.2552%; third look: page taken from reading A (B read a header as a row and missed a CULP row)
+8214091,2,6,spouse,BRISTOW GROUP INC,,purchase,2014-01-28,2014-02-04,A,,high,LLM LP 12.2552%; third look: page taken from reading A (B read a header as a row and missed a CULP row)
+8214091,2,7,spouse,CULP INC,,purchase,2014-01-31,2014-02-04,A,,high,LLM LP 12.2552%; third look: page taken from reading A (B read a header as a row and missed a CULP row)
+8214091,2,8,spouse,CULP INC,,purchase,2014-01-29,2014-02-04,A,,high,LLM LP 12.2552%; third look: page taken from reading A (B read a header as a row and missed a CULP row)
+8214091,2,9,spouse,CULP INC,,purchase,2014-01-27,2014-02-04,A,,high,LLM LP 12.2552%; third look: page taken from reading A (B read a header as a row and missed a CULP row)
+8214091,2,10,spouse,CULP INC,,purchase,2014-01-24,2014-02-04,A,,high,LLM LP 12.2552%; third look: page taken from reading A (B read a header as a row and missed a CULP row)
+8214091,2,11,spouse,CULP INC,,purchase,2014-01-24,2014-02-04,A,,high,LLM LP 12.2552%; third look: page taken from reading A (B read a header as a row and missed a CULP row)
+8214091,2,12,spouse,CULP INC,,purchase,2014-01-23,2014-02-04,A,,high,LLM LP 12.2552%; third look: page taken from reading A (B read a header as a row and missed a CULP row)
+8214091,2,13,spouse,CULP INC,,purchase,2014-01-22,2014-02-04,A,,high,LLM LP 12.2552%; third look: page taken from reading A (B read a header as a row and missed a CULP row)
+8214091,2,14,spouse,CULP INC,,purchase,2014-01-22,2014-02-04,A,,high,LLM LP 12.2552%; third look: page taken from reading A (B read a header as a row and missed a CULP row)
+8214091,2,15,spouse,CULP INC,,purchase,2014-01-17,2014-02-04,A,,high,LLM LP 12.2552%; third look: page taken from reading A (B read a header as a row and missed a CULP row)
+8214091,2,16,spouse,CULP INC,,purchase,2014-01-14,2014-02-04,A,,high,LLM LP 12.2552%; third look: page taken from reading A (B read a header as a row and missed a CULP row)
+8214091,2,17,spouse,CULP INC,,purchase,2014-01-14,2014-02-04,A,,high,LLM LP 12.2552%; third look: page taken from reading A (B read a header as a row and missed a CULP row)
+8214091,2,18,spouse,DESTINATION MATERNITY CORPORATION,,purchase,2014-01-30,2014-02-04,A,,high,LLM LP 12.2552%; third look: page taken from reading A (B read a header as a row and missed a CULP row)
+8214091,2,19,spouse,DESTINATION MATERNITY CORPORATION,,purchase,2014-01-29,2014-02-04,A,,high,LLM LP 12.2552%; third look: page taken from reading A (B read a header as a row and missed a CULP row)
+8214091,2,20,spouse,FOREST CITY ENTERPRISES INC,,purchase,2014-01-28,2014-02-04,A,,high,LLM LP 12.2552%; third look: page taken from reading A (B read a header as a row and missed a CULP row)
+8214091,2,21,spouse,FOREST CITY ENTERPRISES INC,,purchase,2014-01-21,2014-02-04,A,,high,LLM LP 12.2552%; third look: page taken from reading A (B read a header as a row and missed a CULP row)
+8214091,2,22,spouse,FOREST CITY ENTERPRISES INC,,purchase,2014-01-17,2014-02-04,A,,high,LLM LP 12.2552%; third look: page taken from reading A (B read a header as a row and missed a CULP row)
+8214091,2,23,spouse,KADANT INC,,purchase,2014-01-31,2014-02-04,A,,high,LLM LP 12.2552%; third look: page taken from reading A (B read a header as a row and missed a CULP row)
+8214091,2,24,spouse,KADANT INC,,purchase,2014-01-29,2014-02-04,A,,high,LLM LP 12.2552%; third look: page taken from reading A (B read a header as a row and missed a CULP row)
+8214091,2,25,spouse,KADANT INC,,purchase,2014-01-27,2014-02-04,A,,high,LLM LP 12.2552%; third look: page taken from reading A (B read a header as a row and missed a CULP row)
+8214091,2,26,spouse,SPRINGLEAF HOLDINGS INC,,purchase,2014-01-06,2014-02-04,A,,high,LLM LP 12.2552%; third look: page taken from reading A (B read a header as a row and missed a CULP row)
+8214091,2,27,spouse,ENPRO INDUSTRIES INC,,purchase,2014-01-14,2014-02-04,A,,high,LLM LP 12.2552%; third look: page taken from reading A (B read a header as a row and missed a CULP row)
+8214091,2,28,spouse,ENPRO INDUSTRIES INC,,purchase,2014-01-14,2014-02-04,A,,high,LLM LP 12.2552%; third look: page taken from reading A (B read a header as a row and missed a CULP row)
+8214091,2,29,spouse,NORTHSTAR REALTY FINANCE CORP,,purchase,2014-01-29,2014-02-04,A,,high,LLM LP 12.2552%; third look: page taken from reading A (B read a header as a row and missed a CULP row)
+8214091,2,30,spouse,NORTHSTAR REALTY FINANCE CORP,,purchase,2014-01-28,2014-02-04,A,,high,LLM LP 12.2552%; third look: page taken from reading A (B read a header as a row and missed a CULP row)
+8214091,2,31,spouse,NORTHSTAR REALTY FINANCE CORP,,purchase,2014-01-23,2014-02-04,A,,high,LLM LP 12.2552%; third look: page taken from reading A (B read a header as a row and missed a CULP row)
+8214091,8,1,child,RIGNET INC,,sale_full,2014-01-23,2014-02-04,A,,medium,LLM LP 12.8294% (continued)
+8214091,8,2,child,RIGNET INC,,sale_full,2014-01-22,2014-02-04,A,,medium,
+8214091,8,3,child,RIGNET INC,,sale_full,2014-01-21,2014-02-04,A,,medium,
+8214091,8,4,child,STARWOOD PROPERTY TRUST INC,,sale_full,2014-01-29,2014-02-04,A,,medium,
+8214091,8,5,child,STARWOOD PROPERTY TRUST INC,,sale_full,2014-01-28,2014-02-04,A,,medium,
+8214091,8,6,child,STARWOOD PROPERTY TRUST INC,,sale_full,2014-01-23,2014-02-04,B,,medium,amount could be A
+8214091,8,7,child,VISHAY PRECISION GROUP INC,,sale_full,2014-01-17,2014-02-04,A,,medium,
+8214091,8,8,child,EMBOTELLADORA ANDINA,,purchase,2014-01-08,2014-02-04,B,,medium,
+8214091,8,9,child,ARCOS DORADOS HOLDINGS INC,,purchase,2014-01-03,2014-02-04,B,,medium,
+8214091,8,10,child,ANTON OILFIELD SERVICES GROUP,,purchase,2014-01-07,2014-02-04,B,,medium,
+8214091,8,11,child,PT BK RAKYAT,,purchase,2014-01-07,2014-02-04,B,,medium,
+8214091,8,12,child,BRF SA,,purchase,2014-01-03,2014-02-04,C,,medium,
+8214091,8,13,child,EMBRAER S A,,purchase,2014-01-03,2014-02-04,C,,medium,
+8214091,8,14,child,JERONIMO MARTINS SGPS SA,,purchase,2014-01-07,2014-02-04,C,,medium,
+8214091,8,15,child,MERCADOLIBRE INC,,purchase,2014-01-03,2014-02-04,C,,medium,
+8214091,8,16,child,MINDRAY MED INTL LTD,,purchase,2014-01-03,2014-02-04,C,,low,amount may be B
+8214091,8,17,child,PRICESMART INC,,purchase,2014-01-03,2014-02-04,C,,medium,
+8214091,8,18,child,PT TOWER BERSAMA INFRASTRUCTURE TBK,,purchase,2014-01-07,2014-02-04,B,,medium,
+8214091,8,19,child,PT KALBE FARMA,,purchase,2014-01-07,2014-02-04,B,,medium,
+8214091,8,20,child,DR REDDYS LABS LTD,,purchase,2014-01-03,2014-02-04,C,,medium,
+8214091,8,21,child,SHANDONG WEIGAO GRP MEDICALPOLYMER CO,,purchase,2014-01-07,2014-02-04,C,,medium,
+8214091,8,22,child,SOCIEDAD QUIMICA MINERA DE CHILE S A,,purchase,2014-01-03,2014-02-04,B,,medium,
+8214091,8,23,child,SHOPRITE HOLDINGS LTD,,purchase,2014-01-07,2014-02-04,B,,medium,
+8214091,8,24,child,SUN ART RETAIL GP LTD,,purchase,2014-01-07,2014-02-04,C,,medium,
+8214091,8,25,child,TENCENT HOLDINGS LIMITED,,purchase,2014-01-07,2014-02-04,C,,medium,
+8214091,8,26,child,TSINGTAO BREWERY LTD,,purchase,2014-01-07,2014-02-04,C,,medium,
+8214091,8,27,child,TAIWAN SEMICONDUCTOR MFG CO,,purchase,2014-01-03,2014-02-04,C,,medium,
+8214091,8,28,child,GRUPO TELEVISA SA DE CV,,purchase,2014-01-03,2014-02-04,C,,medium,third look: C (A) over B; X sits on the B/C line but leans C and the SP copy (p4) has C
+8214091,8,29,child,WAL-MART DE MEXICO S A,,purchase,2014-01-06,2014-02-04,B,,medium,
+8214091,8,30,child,WYNN MACAU LIMITED,,purchase,2014-01-07,2014-02-04,C,,medium,
+8214091,8,31,child,YANDEX N V,,purchase,2014-01-03,2014-02-04,C,,medium,
+8214091,8,32,child,YUM BRANDS INC,,purchase,2014-01-03,2014-02-04,C,,medium,
+8214471,4,1,spouse,TFS FINANCIAL CORP,,purchase,2014-03-03,2014-04-04,A,,medium,LLM LP 12.2257% (continued)
+8214471,4,2,spouse,AMERICAN EQUITY INVESTMENT LIFE HOLDING CO,,sale_full,2014-03-10,2014-04-04,A,,medium,
+8214471,4,3,spouse,AMERICAN EQUITY INVESTMENT LIFE HOLDING CO,,sale_full,2014-03-14,2014-04-04,A,,medium,
+8214471,4,4,spouse,ACTUANT CORPORATION,,sale_full,2014-03-24,2014-04-04,A,,medium,
+8214471,4,5,spouse,ACTUANT CORPORATION,,sale_full,2014-03-28,2014-04-04,A,,medium,
+8214471,4,6,spouse,BROADRIDGE FINANCIAL SOLUTIONSINC,,sale_full,2014-03-14,2014-04-04,A,,medium,
+8214471,4,7,spouse,CORELOGIC INC,,sale_full,2014-03-17,2014-04-04,A,,medium,
+8214471,4,8,spouse,CORELOGIC INC,,sale_full,2014-03-28,2014-04-04,A,,medium,
+8214471,4,9,spouse,DST SYSTEMS INC,,sale_full,2014-03-21,2014-04-04,A,,medium,
+8214471,4,10,spouse,DST SYSTEMS INC,,sale_full,2014-03-04,2014-04-04,A,,medium,
+8214471,4,11,spouse,DST SYSTEMS INC,,sale_full,2014-03-31,2014-04-04,A,,medium,
+8214471,4,12,spouse,FIRSTMERIT CORP,,sale_full,2014-03-04,2014-04-04,A,,medium,
+8214471,4,13,spouse,FIRSTMERIT CORP,,sale_full,2014-03-14,2014-04-04,A,,medium,
+8214471,4,14,spouse,FIRSTMERIT CORP,,sale_full,2014-03-11,2014-04-04,A,,medium,third look: date 3/11 (A); date column reads 3/4 3/14 3/11 3/31 3/26 here and on DC copy p11
+8214471,4,15,spouse,FIRSTMERIT CORP,,sale_full,2014-03-31,2014-04-04,A,,medium,third look: date 3/31 (A); same sequence on DC copy p11
+8214471,4,16,spouse,FIRSTMERIT CORP,,sale_full,2014-03-26,2014-04-04,A,,medium,
+8214471,4,17,spouse,MAIDEN HOLDINGS LTD,,sale_full,2014-03-31,2014-04-04,A,,medium,third look: name MAIDEN HOLDINGS (B); 5 FIRSTMERIT rows then MAIDEN then 5 RIGNET rows on both copies
+8214471,4,18,spouse,RIGNET INC,,sale_full,2014-03-27,2014-04-04,A,,medium,third look: name RIGNET (B); RIGNET appears 5 times
+8214471,4,19,spouse,RIGNET INC,,sale_full,2014-03-31,2014-04-04,A,,medium,
+8214471,4,20,spouse,RIGNET INC,,sale_full,2014-03-13,2014-04-04,A,,medium,
+8214471,4,21,spouse,RIGNET INC,,sale_full,2014-03-11,2014-04-04,A,,medium,
+8214471,4,22,spouse,RIGNET INC,,sale_full,2014-03-31,2014-04-04,A,,medium,
+8214471,4,23,spouse,RENASANT CORPORATION,,sale_full,2014-03-27,2014-04-04,A,,medium,
+8214471,4,24,spouse,STARZ,,sale_full,2014-03-24,2014-04-04,A,,medium,
+8214471,4,25,spouse,SUSSER HOLDINGS CORP,,purchase,2014-03-20,2014-04-04,A,,medium,
+8214471,4,26,spouse,ANTON OILFIELD SERVICES GROUP,,purchase,2014-03-19,2014-04-04,A,,medium,
+8214471,4,27,spouse,PT BK RAKYAT,,purchase,2014-03-14,2014-04-04,D,,medium,
+8214471,4,28,spouse,BRF SA,,purchase,2014-03-13,2014-04-04,C,,medium,
+8214471,4,29,spouse,EMBRAER S A,,purchase,2014-03-12,2014-04-04,D,,medium,
+8214471,4,30,spouse,JERONIMO MARTINS SGPS SA,,purchase,2014-03-11,2014-04-04,D,,medium,
+8214471,4,31,spouse,MERCADOLIBRE INC,,purchase,2014-03-26,2014-04-04,D,,medium,
+8214471,4,32,spouse,MINDRAY MED INTL LTD,,purchase,2014-03-31,2014-04-04,C,,medium,
+8214471,5,1,spouse,PRICESMART INC,,purchase,2014-03-21,2014-04-04,D,,medium,LLM LP 12.2257% (continued)
+8214471,5,2,spouse,PT TOWER BERSAMA INFRASTRUCTURE TBK,,purchase,2014-03-26,2014-04-04,D,,medium,
+8214471,5,3,spouse,PT KALBE FARMA,,purchase,2014-03-26,2014-04-04,C,,medium,
+8214471,5,4,spouse,DR REDDYS LABS LTD,,purchase,2014-03-21,2014-04-04,D,,medium,
+8214471,5,5,spouse,SHANDONG WEIGAO GRP MEDICALPOLYMER CO,,purchase,2014-03-26,2014-04-04,D,,medium,
+8214471,5,6,spouse,SHOPRITE HOLDINGS LTD,,purchase,2014-03-26,2014-04-04,C,,medium,
+8214471,5,7,spouse,SUN ART RETAIL GP LTD,,purchase,2014-03-26,2014-04-04,C,,medium,
+8214471,5,8,spouse,TENCENT HOLDINGS LIMITED,,purchase,2014-03-26,2014-04-04,D,,medium,
+8214471,5,9,spouse,TSINGTAO BREWERY LTD,,purchase,2014-03-26,2014-04-04,D,,medium,third look: date 3/26 (B); five 3/26 dates (Shandong..Tsingtao) precede the 3/21 run starting at Taiwan Semi; DC copy p12 same
+8214471,5,10,spouse,TAIWAN SEMICONDUCTOR MFG CO,,purchase,2014-03-21,2014-04-04,D,,medium,
+8214471,5,11,spouse,GRUPO TELEVISA SA DE CV,,purchase,2014-03-21,2014-04-04,D,,medium,
+8214471,5,12,spouse,WAL-MART DE MEXICO S A,,purchase,2014-03-21,2014-04-04,C,,medium,
+8214471,5,13,spouse,WYNN MACAU LIMITED,,purchase,2014-03-26,2014-04-04,D,,medium,
+8214471,5,14,spouse,YANDEX N V,,purchase,2014-03-21,2014-04-04,D,,medium,
+8214471,5,15,spouse,YUM BRANDS INC,,purchase,2014-03-21,2014-04-04,D,,medium,
+8214471,5,16,spouse,SOCIEDAD QUIMICA MINERA DE CHILE S A,,sale_full,2014-03-07,2014-04-04,B,,medium,
+8214471,5,17,spouse,CITIGROUP INC,,purchase,2014-03-27,2014-04-04,C,,medium,
+8214471,5,18,spouse,ALTERA CORP,,sale_full,2014-03-25,2014-04-04,C,,medium,
+8214471,5,19,spouse,ACADIA HEALTHCARE CO,,purchase,2014-03-26,2014-04-04,A,,medium,
+8214471,5,20,spouse,ACADIA HEALTHCARE CO,,purchase,2014-03-20,2014-04-04,B,,medium,
+8214471,5,21,spouse,BANCORPSOUTH INC,,purchase,2014-03-07,2014-04-04,B,,medium,
+8214471,5,22,spouse,FINISAR CORPORATION,,purchase,2014-03-24,2014-04-04,C,,medium,
+8214471,5,23,spouse,HILLENBRAND INC,,purchase,2014-03-19,2014-04-04,B,,medium,
+8214471,5,24,spouse,NUANCE COMMUNICATIONS INC,,purchase,2014-03-20,2014-04-04,B,,medium,
+8214471,5,25,spouse,PERKINELMER INC,,purchase,2014-03-20,2014-04-04,B,,medium,
+8214471,5,26,spouse,SAPIENT CORP,,purchase,2014-03-10,2014-04-04,B,,medium,
+8214471,5,27,spouse,ANSYS INC,,sale_full,2014-03-17,2014-04-04,A,,medium,
+8214471,5,28,spouse,ATHLON ENERGY INC,,sale_full,2014-03-20,2014-04-04,A,,medium,
+8214471,5,29,spouse,ATWOOD OCEANICS INC,,sale_full,2014-03-20,2014-04-04,B,,medium,
+8214471,7,1,spouse,HARRAHS OPERATING CO NOTE,,sale_full,2014-03-24,2014-04-04,D,,medium,LLM LP 12.2257% (continued)
+8214471,7,2,spouse,MOLYCORP INC NOTE,,sale_full,2014-03-24,2014-04-04,D,,medium,
+8214471,7,3,spouse,MPM ESCROW LLC NOTE,,sale_full,2014-03-25,2014-04-04,D,,medium,
+8214471,7,4,spouse,NATIONAL MONEY MART COMPANY NOTE,,sale_full,2014-03-27,2014-04-04,D,,medium,
+8214471,7,5,spouse,NII CAP CORP NOTE,,sale_full,2014-03-04,2014-04-04,C,,medium,
+8214471,7,6,spouse,NISKA GAS STORAGE US LLC NOTE NOTE,,sale_full,2014-03-17,2014-04-04,D,,medium,name written with NOTE twice
+8214471,7,7,spouse,NORTHERN OIL & GAS INC NOTE,,sale_full,2014-03-25,2014-04-04,C,,medium,
+8214471,7,8,spouse,PDL BIOPHARMA INC NOTE,,sale_full,2014-03-24,2014-04-04,D,,medium,
+8214471,7,9,spouse,PENN VA CORP NOTE,,sale_full,2014-03-25,2014-04-04,D,,medium,
+8214471,7,10,spouse,PROSPECT CAPITAL CORPORATION NOTE,,sale_full,2014-03-27,2014-04-04,D,,medium,third look: 3/27 (B); date sequence PDL..ADT reads 3/24 3/25 3/27 3/25 3/25 3/27 and both readers read the DC copy p14 that way
+8214471,7,11,spouse,RADIOSHACK CORP NOTE,,sale_full,2014-03-25,2014-04-04,D,,medium,third look: 3/25 (B); matches DC copy p14
+8214471,7,12,spouse,SPRINT CAPITAL CORP NOTE,,sale_full,2014-03-25,2014-04-04,D,,medium,
+8214471,7,13,spouse,THE ADT CORPORATION NOTE,,sale_full,2014-03-27,2014-04-04,D,,medium,
+8214471,7,14,spouse,MINNESOTA HSG FIN AGY,,sale_full,2014-03-03,2014-04-04,A,,medium,
+8214471,7,15,spouse,DISCOVERY COMMUNICATIONS INC,,purchase,2014-03-18,2014-04-04,B,,medium,
+8214471,7,16,spouse,TENCENT HLDGS LTD,,sale_full,2014-03-18,2014-04-04,C,,medium,
+8214471,7,17,spouse,MONSTER BEVERAGE CORP,,sale_full,2014-03-18,2014-04-04,B,,medium,
+8214471,7,18,spouse,DOLLAR GEN CORP,,purchase,2014-03-18,2014-04-04,B,,low,third look: 3/18 (A) over 3/20 (B); 03-20 label sits at the first SAFRAN row on this copy and gives one SAFRAN buy per trading day (3/20 3/21 3/24 3/25 3/26 3/28 3/31); not fully certain since the hyphenated date run is dense
+8214471,7,19,spouse,SAFRAN S A,,purchase,2014-03-20,2014-04-04,B,,low,third look: 3/20 (A) over 3/21 (B); see row 18
+8214471,7,20,spouse,SAFRAN S A,,purchase,2014-03-21,2014-04-04,B,,low,third look: 3/21 (A) over 3/24 (B); see row 18
+8214471,7,21,spouse,SAFRAN S A,,purchase,2014-03-24,2014-04-04,B,,medium,
+8214471,7,22,spouse,BIOGEN IDEC INC,,sale_full,2014-03-24,2014-04-04,B,,medium,
+8214471,7,23,spouse,STARBUCKS CORP,,purchase,2014-03-24,2014-04-04,B,,medium,
+8214471,7,24,spouse,WYNN RESORTS LTD,,sale_full,2014-03-24,2014-04-04,B,,medium,
+8214471,7,25,spouse,SAFRAN S A,,purchase,2014-03-25,2014-04-04,B,,medium,
+8214471,7,26,spouse,BIOGEN IDEC INC,,sale_full,2014-03-25,2014-04-04,B,,medium,
+8214471,7,27,spouse,SAFRAN S A,,purchase,2014-03-26,2014-04-04,B,,medium,
+8214471,7,28,spouse,ALEXION PHARMACEUTICALS INC,,sale_full,2014-03-28,2014-04-04,B,,medium,
+8214471,7,29,spouse,SAFRAN S A,,purchase,2014-03-28,2014-04-04,B,,medium,
+8214471,7,30,spouse,ECOLAB INC,,sale_full,2014-03-28,2014-04-04,B,,medium,
+8214471,7,31,spouse,SAFRAN S A,,purchase,2014-03-31,2014-04-04,B,,medium,
+8214471,7,32,spouse,ECOLAB INC,,sale_full,2014-03-28,2014-04-04,B,,medium,
+8214471,11,1,child,TFS FINANCIAL CORP,,purchase,2014-03-03,2014-04-04,A,,medium,LLM LP 12.8897% (continued)
+8214471,11,2,child,AMERICAN EQUITY INVESTMENT LIFE HOLDING CO,,sale_full,2014-03-10,2014-04-04,A,,medium,
+8214471,11,3,child,AMERICAN EQUITY INVESTMENT LIFE HOLDING CO,,sale_full,2014-03-14,2014-04-04,A,,medium,
+8214471,11,4,child,ACTUANT CORPORATION,,sale_full,2014-03-24,2014-04-04,A,,medium,
+8214471,11,5,child,ACTUANT CORPORATION,,sale_full,2014-03-28,2014-04-04,A,,medium,
+8214471,11,6,child,BROADRIDGE FINANCIAL SOLUTIONSINC,,sale_full,2014-03-14,2014-04-04,A,,medium,
+8214471,11,7,child,CORELOGIC INC,,sale_full,2014-03-17,2014-04-04,A,,medium,
+8214471,11,8,child,CORELOGIC INC,,sale_full,2014-03-28,2014-04-04,A,,medium,
+8214471,11,9,child,DST SYSTEMS INC,,sale_full,2014-03-21,2014-04-04,A,,medium,
+8214471,11,10,child,DST SYSTEMS INC,,sale_full,2014-03-04,2014-04-04,A,,medium,
+8214471,11,11,child,DST SYSTEMS INC,,sale_full,2014-03-31,2014-04-04,A,,medium,
+8214471,11,12,child,FIRSTMERIT CORP,,sale_full,2014-03-04,2014-04-04,A,,medium,
+8214471,11,13,child,FIRSTMERIT CORP,,sale_full,2014-03-14,2014-04-04,A,,medium,
+8214471,11,14,child,FIRSTMERIT CORP,,sale_full,2014-03-11,2014-04-04,A,,medium,
+8214471,11,15,child,FIRSTMERIT CORP,,sale_full,2014-03-31,2014-04-04,A,,medium,
+8214471,11,16,child,FIRSTMERIT CORP,,sale_full,2014-03-26,2014-04-04,A,,medium,
+8214471,11,17,child,MAIDEN HOLDINGS LTD,,sale_full,2014-03-31,2014-04-04,A,,medium,third look: name MAIDEN HOLDINGS (B); 5 FIRSTMERIT then MAIDEN then 5 RIGNET; matches SP p4
+8214471,11,18,child,RIGNET INC,,sale_full,2014-03-27,2014-04-04,A,,medium,third look: name RIGNET (B); RIGNET appears 5 times
+8214471,11,19,child,RIGNET INC,,sale_full,2014-03-31,2014-04-04,A,,medium,
+8214471,11,20,child,RIGNET INC,,sale_full,2014-03-13,2014-04-04,A,,medium,
+8214471,11,21,child,RIGNET INC,,sale_full,2014-03-11,2014-04-04,A,,medium,
+8214471,11,22,child,RIGNET INC,,sale_full,2014-03-31,2014-04-04,A,,medium,
+8214471,11,23,child,RENASANT CORPORATION,,sale_full,2014-03-27,2014-04-04,A,,medium,
+8214471,11,24,child,STARZ,,sale_full,2014-03-24,2014-04-04,A,,medium,
+8214471,11,25,child,SUSSER HOLDINGS CORP,,purchase,2014-03-20,2014-04-04,A,,medium,
+8214471,11,26,child,ANTON OILFIELD SERVICES GROUP,,purchase,2014-03-19,2014-04-04,A,,medium,
+8214471,11,27,child,PT BK RAKYAT,,purchase,2014-03-14,2014-04-04,D,,medium,
+8214471,11,28,child,BRF SA,,purchase,2014-03-13,2014-04-04,C,,medium,
+8214471,11,29,child,EMBRAER S A,,purchase,2014-03-12,2014-04-04,D,,medium,
+8214471,11,30,child,JERONIMO MARTINS SGPS SA,,purchase,2014-03-11,2014-04-04,D,,medium,
+8214471,11,31,child,MERCADOLIBRE INC,,purchase,2014-03-26,2014-04-04,D,,medium,
+8214471,11,32,child,MINDRAY MED INTL LTD,,purchase,2014-03-31,2014-04-04,C,,medium,
+8214471,12,1,child,PRICESMART INC,,purchase,2014-03-21,2014-04-04,D,,medium,LLM LP 12.8897% (continued)
+8214471,12,2,child,PT TOWER BERSAMA INFRASTRUCTURE TBK,,purchase,2014-03-26,2014-04-04,D,,medium,
+8214471,12,3,child,PT KALBE FARMA,,purchase,2014-03-26,2014-04-04,C,,medium,
+8214471,12,4,child,DR REDDYS LABS LTD,,purchase,2014-03-21,2014-04-04,D,,medium,
+8214471,12,5,child,SHANDONG WEIGAO GRP MEDICALPOLYMER CO,,purchase,2014-03-26,2014-04-04,D,,medium,
+8214471,12,6,child,SHOPRITE HOLDINGS LTD,,purchase,2014-03-26,2014-04-04,C,,medium,
+8214471,12,7,child,SUN ART RETAIL GP LTD,,purchase,2014-03-26,2014-04-04,D,,low,amount may be C (SP copy p5 has C)
+8214471,12,8,child,TENCENT HOLDINGS LIMITED,,purchase,2014-03-26,2014-04-04,D,,medium,
+8214471,12,9,child,TSINGTAO BREWERY LTD,,purchase,2014-03-26,2014-04-04,D,,medium,third look: date 3/26 (B); five 3/26 dates precede the 3/21 run starting at Taiwan Semi; SP copy p5 same
+8214471,12,10,child,TAIWAN SEMICONDUCTOR MFG CO,,purchase,2014-03-21,2014-04-04,D,,medium,
+8214471,12,11,child,GRUPO TELEVISA SA DE CV,,purchase,2014-03-21,2014-04-04,D,,medium,
+8214471,12,12,child,WAL-MART DE MEXICO S A,,purchase,2014-03-21,2014-04-04,C,,medium,
+8214471,12,13,child,WYNN MACAU LIMITED,,purchase,2014-03-26,2014-04-04,D,,medium,
+8214471,12,14,child,YANDEX N V,,purchase,2014-03-21,2014-04-04,D,,medium,
+8214471,12,15,child,YUM BRANDS INC,,purchase,2014-03-21,2014-04-04,D,,medium,
+8214471,12,16,child,SOCIEDAD QUIMICA MINERA DE CHILE S A,,sale_full,2014-03-07,2014-04-04,B,,medium,
+8214471,12,17,child,CITIGROUP INC,,purchase,2014-03-27,2014-04-04,C,,medium,
+8214471,12,18,child,ALTERA CORP,,sale_full,2014-03-25,2014-04-04,C,,medium,
+8214471,12,19,child,ACADIA HEALTHCARE CO,,purchase,2014-03-26,2014-04-04,A,,medium,
+8214471,12,20,child,ACADIA HEALTHCARE CO,,purchase,2014-03-20,2014-04-04,B,,medium,
+8214471,12,21,child,BANCORPSOUTH INC,,purchase,2014-03-07,2014-04-04,B,,medium,
+8214471,12,22,child,FINISAR CORPORATION,,purchase,2014-03-24,2014-04-04,D,,medium,
+8214471,12,23,child,HILLENBRAND INC,,purchase,2014-03-19,2014-04-04,B,,medium,
+8214471,12,24,child,NUANCE COMMUNICATIONS INC,,purchase,2014-03-20,2014-04-04,B,,medium,
+8214471,12,25,child,PERKINELMER INC,,purchase,2014-03-20,2014-04-04,B,,medium,
+8214471,12,26,child,SAPIENT CORP,,purchase,2014-03-10,2014-04-04,B,,medium,
+8214471,12,27,child,ANSYS INC,,sale_full,2014-03-17,2014-04-04,B,,medium,
+8214471,12,28,child,ATHLON ENERGY INC,,sale_full,2014-03-20,2014-04-04,B,,medium,
+8214471,12,29,child,ATWOOD OCEANICS INC,,sale_full,2014-03-20,2014-04-04,B,,medium,
+8214471,14,1,child,HARRAHS OPERATING CO NOTE,,sale_full,2014-03-24,2014-04-04,D,,medium,LLM LP 12.8897% (continued)
+8214471,14,2,child,MOLYCORP INC NOTE,,sale_full,2014-03-24,2014-04-04,D,,medium,
+8214471,14,3,child,MPM ESCROW LLC NOTE,,sale_full,2014-03-25,2014-04-04,D,,medium,
+8214471,14,4,child,NATIONAL MONEY MART COMPANY NOTE,,sale_full,2014-03-27,2014-04-04,D,,medium,
+8214471,14,5,child,NII CAP CORP NOTE,,sale_full,2014-03-04,2014-04-04,C,,medium,
+8214471,14,6,child,NISKA GAS STORAGE US LLC NOTE NOTE,,sale_full,2014-03-17,2014-04-04,D,,medium,name written with NOTE twice
+8214471,14,7,child,NORTHERN OIL & GAS INC NOTE,,sale_full,2014-03-25,2014-04-04,C,,medium,
+8214471,14,8,child,PDL BIOPHARMA INC NOTE,,sale_full,2014-03-24,2014-04-04,D,,medium,
+8214471,14,9,child,PENN VA CORP NOTE,,sale_full,2014-03-25,2014-04-04,D,,medium,
+8214471,14,10,child,PROSPECT CAPITAL CORPORATION NOTE,,sale_full,2014-03-27,2014-04-04,D,,medium,
+8214471,14,11,child,RADIOSHACK CORP NOTE,,sale_full,2014-03-25,2014-04-04,D,,medium,
+8214471,14,12,child,SPRINT CAPITAL CORP NOTE,,sale_full,2014-03-25,2014-04-04,D,,medium,
+8214471,14,13,child,THE ADT CORPORATION NOTE,,sale_full,2014-03-27,2014-04-04,D,,medium,
+8214471,14,14,child,MINNESOTA HSG FIN AGY,,sale_full,2014-03-03,2014-04-04,A,,medium,
+8214471,14,15,child,DISCOVERY COMMUNICATIONS INC,,purchase,2014-03-18,2014-04-04,B,,medium,
+8214471,14,16,child,TENCENT HLDGS LTD,,sale_full,2014-03-18,2014-04-04,C,,medium,
+8214471,14,17,child,MONSTER BEVERAGE CORP,,sale_full,2014-03-18,2014-04-04,B,,medium,
+8214471,14,18,child,DOLLAR GEN CORP,,purchase,2014-03-18,2014-04-04,B,,low,third look: 3/18 (A) over 3/20 (B); keeps this DC copy identical to SP p7 trade for trade (one SAFRAN buy per trading day); hyphenated date run is dense so not fully certain
+8214471,14,19,child,SAFRAN S A,,purchase,2014-03-20,2014-04-04,B,,low,third look: 3/20 (A) over 3/21 (B); see row 18
+8214471,14,20,child,SAFRAN S A,,purchase,2014-03-21,2014-04-04,B,,low,third look: 3/21 (A) over 3/24 (B); see row 18
+8214471,14,21,child,SAFRAN S A,,purchase,2014-03-24,2014-04-04,B,,medium,
+8214471,14,22,child,BIOGEN IDEC INC,,sale_full,2014-03-24,2014-04-04,B,,medium,
+8214471,14,23,child,STARBUCKS CORP,,purchase,2014-03-24,2014-04-04,B,,medium,
+8214471,14,24,child,WYNN RESORTS LTD,,sale_full,2014-03-24,2014-04-04,B,,medium,
+8214471,14,25,child,SAFRAN S A,,purchase,2014-03-25,2014-04-04,B,,medium,
+8214471,14,26,child,BIOGEN IDEC INC,,sale_full,2014-03-25,2014-04-04,B,,medium,
+8214471,14,27,child,SAFRAN S A,,purchase,2014-03-26,2014-04-04,B,,medium,
+8214471,14,28,child,ALEXION PHARMACEUTICALS INC,,sale_full,2014-03-28,2014-04-04,B,,low,third look: 3/28 (A) over 3/26 (B); SP copy p7 reads 3/28 for both readers and the copies should match; could be 03-26 on this scan
+8214471,14,29,child,SAFRAN S A,,purchase,2014-03-28,2014-04-04,B,,medium,
+8214471,14,30,child,ECOLAB INC,,sale_full,2014-03-28,2014-04-04,B,,medium,
+8214471,14,31,child,SAFRAN S A,,purchase,2014-03-31,2014-04-04,B,,medium,
+8214471,14,32,child,ECOLAB INC,,sale_full,2014-03-28,2014-04-04,B,,medium,
+8214471,14,33,child,INTUITIVE SURGICAL INC,,purchase,2014-03-28,2014-04-04,B,,medium,not on SP copy p7
+9105109,4,1,spouse,TFS FINANCIAL CORP,,purchase,2014-02-19,2014-03-05,A,,medium,LLM LP 12.2283% (continued)
+9105109,4,2,spouse,PHH CORP,,sale_full,2014-02-21,2014-03-05,A,,medium,
+9105109,4,3,spouse,PHH CORP,,sale_full,2014-02-20,2014-03-05,A,,medium,
+9105109,4,4,spouse,PHH CORP,,sale_full,2014-02-19,2014-03-05,A,,medium,
+9105109,4,5,spouse,PHH CORP,,sale_full,2014-02-18,2014-03-05,A,,medium,sale; DC copy p9 also sale
+9105109,4,6,spouse,PHH CORP,,sale_full,2014-02-14,2014-03-05,A,,medium,sale; DC copy p9 also sale
+9105109,4,7,spouse,ECHOSTAR CORPORATION,,sale_full,2014-02-21,2014-03-05,A,,medium,third look: sale (A) over purchase (B); sale-column run covers PHH..Arcos and DC copy p9 shows sale
+9105109,4,8,spouse,THERMON GROUP HOLDINGS,,sale_full,2014-02-06,2014-03-05,A,,medium,third look: sale and band A (A) over purchase/B (B); column A has 8 marks TFS..Thermon and B starts at Arcos; DC copy p9 same
+9105109,4,9,spouse,ARCOS DORADOS HOLDINGS INC,,sale_full,2014-02-10,2014-03-05,B,,medium,
+9105109,4,10,spouse,BRF SA,,purchase,2014-02-21,2014-03-05,B,,medium,
+9105109,4,11,spouse,NEWS CORPORATION,,sale_full,2014-02-10,2014-03-05,B,,medium,
+9105109,4,12,spouse,BANCORPSOUTH INC,,purchase,2014-02-10,2014-03-05,B,,medium,
+9105109,4,13,spouse,DEXCOM INC,,purchase,2014-02-20,2014-03-05,B,,medium,third look: band B (A) over A (B); the lone column-A mark in this block sits on the second DEXCOM row; DC copy p9 same
+9105109,4,14,spouse,DEXCOM INC,,purchase,2014-02-14,2014-03-05,A,,medium,third look: band A (A) over B (B); see row 13
+9105109,4,15,spouse,EVERCORE PARTNERS INC,,purchase,2014-02-10,2014-03-05,B,,medium,
+9105109,4,16,spouse,INTERACTIVE INTELLIGENCE GROUPINC,,purchase,2014-02-27,2014-03-05,B,,medium,
+9105109,4,17,spouse,MARTIN MARIETTA MATERIALS INC,,purchase,2014-02-10,2014-03-05,C,,medium,
+9105109,4,18,spouse,OASIS PETROLEUM INC,,purchase,2014-02-13,2014-03-05,B,,medium,
+9105109,4,19,spouse,WESCO INTERNATIONAL INC,,purchase,2014-02-07,2014-03-05,A,,medium,
+9105109,4,20,spouse,ARMSTRONG WORLD INDUSTRIES INC,,sale_full,2014-02-27,2014-03-05,B,,medium,
+9105109,4,21,spouse,BEACON ROOFING SUPPLY INC,,sale_full,2014-02-07,2014-03-05,B,,medium,
+9105109,4,22,spouse,BEACON ROOFING SUPPLY INC,,sale_full,2014-02-05,2014-03-05,B,,medium,
+9105109,4,23,spouse,CASEYS GENERAL STORES INC,,sale_full,2014-02-28,2014-03-05,B,,medium,
+9105109,4,24,spouse,CASEYS GENERAL STORES INC,,sale_full,2014-02-21,2014-03-05,B,,medium,
+9105109,4,25,spouse,CASEYS GENERAL STORES INC,,sale_full,2014-02-07,2014-03-05,B,,medium,
+9105109,4,26,spouse,PROSPERITY BANCSHARES INC,,sale_full,2014-02-21,2014-03-05,B,,medium,
+9105109,4,27,spouse,PDC ENERGY INC,,purchase,2014-02-04,2014-03-05,D,,medium,
+9105109,4,28,spouse,SUPERIOR ENERGY SERVICES INC,,purchase,2014-02-10,2014-03-05,C,,medium,
+9105109,4,29,spouse,EQT CORPORATION,,sale_full,2014-02-10,2014-03-05,C,,medium,
+9105109,4,30,spouse,NATIONAL FUEL GAS CO,,sale_full,2014-02-21,2014-03-05,A,,medium,
+9105109,4,31,spouse,OKLAHOMA HSG FIN AGY,,sale_full,2014-02-03,2014-03-05,A,,medium,
+9105109,4,32,spouse,NATIONAL MONEY MART COMPANY NOTE,,purchase,2014-02-04,2014-03-05,B,,medium,
+9105109,4,33,spouse,BEAZER HOMES USA INC NOTE,,sale_full,2014-02-27,2014-03-05,A,,medium,
