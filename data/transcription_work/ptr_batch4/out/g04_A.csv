@@ -1,0 +1,42 @@
+doc_id,page,row,owner,asset_name,ticker,tx_type,tx_date,notification_date,amount_band,k_flag,confidence,note
+9114259,,,,,,,,,,,,no transactions
+9114336,,,,,,,,,,,,no transactions
+9114434,,,,,,,,,,,,no transactions
+9114501,,,,,,,,,,,,no transactions
+9114598,,,,,,,,,,,,no transactions
+9114999,,,,,,,,,,,,no transactions
+9115093,,,,,,,,,,,,no transactions
+9115198,,,,,,,,,,,,no transactions
+9115335,,,,,,,,,,,,no transactions
+9115442,,,,,,,,,,,,no transactions
+9115499,1,1,self,Bridge Builder Core Bond,,sale_full,2019-09-26,2019-10-13,A,,high,
+8216783,,,,,,,,,,,,no transactions
+8216853,,,,,,,,,,,,no transactions
+8216974,,,,,,,,,,,,no transactions
+8217103,,,,,,,,,,,,no transactions
+8217212,1,1,self,Sell Bridge Builder Core Bond,,sale_full,2020-03-26,2020-04-10,A,,high,
+8217212,1,2,self,Sell Bridge Builder Core Bond,,sale_full,2020-03-26,2020-04-10,A,,high,two identical rows on form
+8217324,1,1,self,Bank of America,,sale_full,2020-05-28,2020-06-11,A,,high,
+8217324,1,2,self,Citizens Financial Group Inc,,sale_full,2020-05-28,2020-06-11,A,,high,
+8217324,1,3,self,PPG Industries Inc,,sale_full,2020-05-28,2020-06-11,A,,high,
+8217324,1,4,self,Truist FINL Corp,,sale_full,2020-05-28,2020-06-11,A,,high,
+8217324,1,5,self,Total SA Sponsored ADR,,sale_full,2020-05-28,2020-06-11,A,,high,
+8217324,2,1,self,Wells Fargo & Co,,sale_full,2020-05-28,2020-06-11,A,,high,
+8217326,,,,,,,,,,,,no transactions
+8217365,1,1,self,Bridge Builder INTL Equity,,sale_full,2020-06-12,2020-07-02,A,,high,
+8217365,1,2,self,iShares Russ 2000 EFT,,sale_full,2020-06-12,2020-07-02,A,,high,
+8217365,1,3,self,iShares Russ 1000 EFT,,sale_full,2020-06-12,2020-07-02,A,,high,
+8217365,1,4,self,iShares MSCI EAFE Small Cap Et,,sale_full,2020-06-12,2020-07-02,A,,high,
+8217365,1,5,self,H&W High Yield Z,,sale_full,2020-06-12,2020-07-02,A,,high,
+8217365,2,1,self,Artisan INTL Value I,,purchase,2020-06-12,2020-07-02,A,,high,
+8217365,2,2,self,Bridge Builder Large Growth,,purchase,2020-06-12,2020-07-02,A,,high,
+8217365,2,3,self,Bridge Builder Large Growth,,purchase,2020-06-12,2020-07-02,A,,high,
+8217365,2,4,self,Blackrock High Yield Bond K,,purchase,2020-06-12,2020-07-02,A,,high,
+8217365,2,5,self,Vanguard FTSE Dev Mkts EFT,,sale_full,2020-06-12,2020-07-02,A,,high,
+8217631,,,,,,,,,,,,no transactions
+8217632,1,1,self,Redeemed NY NY GO Ser (matured security),,,2020-08-03,2020-09-09,A,,medium,no transaction type box checked; asset described as redeemed matured security
+8217682,1,1,self,Franklin KY Tax-Free Income A,,purchase,2020-09-21,2020-10-14,B,,high,
+8217743,1,1,self,iShares MSCI EAFE Small Cap Et,,sale_full,2020-10-20,2020-11-19,A,,high,
+8217743,1,2,self,Gp INTL Stalwarts I,,purchase,2020-10-20,2020-11-19,A,,high,
+8217772,,,,,,,,,,,,no transactions
+8217802,,,,,,,,,,,,no transactions
