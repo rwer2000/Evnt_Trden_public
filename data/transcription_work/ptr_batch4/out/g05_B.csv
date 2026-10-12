@@ -1,0 +1,55 @@
+doc_id,page,row,owner,asset_name,ticker,tx_type,tx_date,notification_date,amount_band,k_flag,confidence,note
+8217844,,,,,,,,,,,,no transactions
+8217925,1,1,self,Blackrock High Yield Bond K @ 7.77,,sale_full,2021-03-16,2021-04-01,A,,high,
+8217925,1,2,self,IShares Russ 1000 ETF @222.291,,sale_full,2021-03-16,2021-04-01,A,,high,
+8217925,1,3,self,Vanguard FTSE Dev Mkts ETF@ 49.2801,,sale_full,2021-03-16,2021-04-01,A,,high,
+8217925,1,4,self,Bridge Builder Core Plus Bond @ 10.28,,purchase,2021-03-16,2021-04-01,A,,high,
+8217925,1,5,self,Vanguard FTSE All-World Ex US @128.47,,purchase,2021-03-16,2021-04-01,A,,high,
+8217925,2,1,self,IShares Rus Mid Cap ETF @ 73.9638,,sale_full,2021-03-25,2021-04-01,A,,high,
+8217925,2,2,self,Goldman Fs Government I @1.00,,purchase,2021-03-25,2021-04-01,A,,high,
+8217925,2,3,self,Bridge Builder Core Bond @ 10.43,,purchase,2021-03-25,2021-04-01,A,,high,
+8217925,2,4,self,Bridge Builder Core Plus Bond @ 10.29,,purchase,2021-03-25,2021-04-01,A,,high,
+8217925,2,5,self,Bridge Builder Large Value @ 15.99,,sale_full,2021-03-25,2021-04-01,A,,high,
+8217925,2,6,self,Bridge Builder Small/Mid Value @14.34,,sale_full,2021-03-26,2021-04-01,A,,medium,"tx date reads 03/26/21 (other rows 03/25/21); could be 03/25/21"
+8217926,,,,,,,,,,,,no transactions
+8218108,1,1,self,Bridge Builder Large Growth @ 22.52,,sale_full,2021-04-19,2021-04-30,A,,high,
+8218108,1,2,self,Federal Tax Withheld Dated 4/19/21,,,2021-04-19,2021-04-30,A,,medium,no transaction type checked
+8218108,1,3,self,Distribution Wright Patman Congressional,,,2021-04-19,2021-04-30,A,,medium,no transaction type checked
+8218139,,,,,,,,,,,,no transactions
+8218262,,,,,,,,,,,,no transactions
+8218372,,,,,,,,,,,,no transactions
+8218373,,,,,,,,,,,,no transactions
+8218374,,,,,,,,,,,,no transactions
+8218414,,,,,,,,,,,,no transactions
+8218481,,,,,,,,,,,,no transactions
+8218507,1,1,self,From Franklin KY Tax-Free Income A Merger,,exchange,2021-11-23,2021-12-21,B,,high,
+8218507,1,2,self,To Franklin FED Tax-Free Income A Merger,,exchange,2021-11-23,2021-12-21,B,,high,
+8218543,1,1,self,Transfer Ed. Jones to Credit Union checking,,,2021-11-29,2021-11-29,A,,medium,no transaction type checked
+8218543,1,2,self,Buy AT&T @ 23.223 special commission rate,,purchase,2021-12-07,2021-12-07,A,,high,
+8218569,1,1,self,Bridge Builder Large Value @ 17.35,,sale_full,2022-01-20,2022-02-11,A,,high,
+8218569,1,2,self,Bridge Builder Small/Mid Value @ 21.80,,sale_full,2022-01-20,2022-02-11,A,,high,
+8218569,1,3,self,Vaguard Value ETF @ 147.465,,sale_full,2022-01-20,2022-02-11,A,,high,
+8218569,1,4,self,Distribution Congressional Fed Credt Union,,,2022-01-20,2022-02-11,A,,medium,no transaction type checked
+8218569,1,5,self,Deposit Money Market,,,2022-01-20,2022-02-11,A,,medium,no transaction type checked
+8218569,2,1,self,Federal Tax Withheld,,,2022-01-20,2022-02-11,A,,medium,no transaction type checked
+8218620,1,1,self,Redeemed KY Infra Rev Waste & Drink Wtr 5.0 Due 2/1/23 Full Call,,purchase,2021-02-01,2021-02-28,A,,medium,"name spans two lines; purchase box marked although a redemption; dates written as 21 but filed Mar 2022 and later amendment 8218698 gives 02/01/22 and 02/28/22"
+8218642,,,,,,,,,,,,no transactions
+8218698,1,1,self,Reeeemed KY Infra Rev Waste & Drink Wtr 5.0 Due 2/1/23 Full Call* (see footnote #1),,,2022-02-01,2022-02-28,,,medium,"amendment of 3/25/22 report; no type or amount checked; footnote says call/redemption is not a STOCK Act transaction and original report was overreported"
+8218757,1,1,self,Sell Bridge Builder Small/Mid Value @ 14.51,,sale_full,2022-03-30,2022-05-16,A,,high,
+8218757,1,2,self,Sell iShares Rus Mid Cap EFT @ 78.0146,,sale_full,2022-03-30,2022-05-16,A,,high,
+8218757,1,3,self,Sell Vanguard Value ETF@ 148.1901,,sale_full,2022-03-30,2022-05-16,A,,high,
+8218757,1,4,self,Buy Bridge Builder Large Growth @ 21.45,,purchase,2022-03-30,2022-05-16,A,,high,
+8218757,1,5,self,Buy Bridge Builder Small/Mid Grw @ 14.55,,purchase,2022-03-30,2022-05-16,A,,high,
+8218933,,,,,,,,,,,,no transactions
+8219057,1,1,self,Buy Beechwood KY Indp Sch District @ 99.122 due 08/01/2038 04.125% Subj to Extra Ord Call,,purchase,2022-06-07,2022-06-30,A,,high,name spans three lines
+8219135,,,,,,,,,,,,no transactions
+8219218,,,,,,,,,,,,no transactions
+8219256,,,,,,,,,,,,no transactions
+8219276,,,,,,,,,,,,no transactions
+8219297,1,1,self,Artisan INTL Value 1 @32.62 as of 11/18/22,,sale_full,2022-11-22,2022-12-12,A,,high,
+8219297,1,2,self,Bridge Builder Large Value @ 16.25,,sale_full,2022-11-22,2022-12-12,A,,high,
+8219297,1,3,self,Bridge Builder Core Plus Bond @ 8.70,,sale_full,2022-11-22,2022-12-12,A,,high,
+8219297,1,4,self,Goldman FS Government 1 @ 1.00,,purchase,2022-11-22,2022-12-12,A,,high,
+8219297,1,5,self,Bridge Builder Lg. Growth @17.75 as of 11/18,,purchase,2022-11-22,2022-12-12,A,,high,
+8219297,2,1,self,Bridge Builder INTL Equity @ 10.83,,purchase,2022-11-22,2022-12-12,A,,high,
+8219297,2,2,self,Vanguard FTSE Dev Mkts ETF @ 42.11,,purchase,2022-11-22,2022-12-12,A,,high,

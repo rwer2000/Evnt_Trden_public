@@ -1,0 +1,39 @@
+doc_id,page,row,owner,asset_name,ticker,tx_type,tx_date,notification_date,amount_band,k_flag,confidence,note
+8219320,,,,,,,,,,,,no transactions
+8219362,,,,,,,,,,,,no transactions
+8219422,,,,,,,,,,,,no transactions
+8219447,,,,,,,,,,,,no transactions
+8219525,,,,,,,,,,,,no transactions
+8219748,,,,,,,,,,,,no transactions
+8219854,1,1,self,Sell Bridge Builder Large Growth @19.81,,sale_full,2023-06-13,2023-07-01,A,,high,form has no partial-sale column; full vs partial not stated
+8219854,1,2,self,Sell Bridge Builder INTL Equity @ 11.92,,sale_full,2023-06-13,2023-07-01,A,,high,form has no partial-sale column; full vs partial not stated
+8219922,,,,,,,,,,,,no transactions
+8219972,,,,,,,,,,,,no transactions
+8220023,,,,,,,,,,,,no transactions
+8220051,,,,,,,,,,,,no transactions
+8220079,1,1,self,Warner Bros Discovery Inc @ 9.65,,sale_full,2023-11-01,2023-12-15,A,,high,form has no partial-sale column
+8220079,1,2,self,Bridge Builder Large Growth @ 19.72,,sale_full,2023-11-03,2023-12-15,A,,high,form has no partial-sale column
+8220079,1,3,self,Vng FTSE Wld SC @ 101.3801,,sale_full,2023-11-03,2023-12-15,A,,high,form has no partial-sale column
+8220079,1,4,self,Amrc SC ETF @ 56.11,,purchase,2023-11-03,2023-12-15,A,,high,
+8220079,1,5,self,Vng Growth Index @ 269.79,,purchase,2023-11-03,2023-12-15,A,,high,
+8220155,,,,,,,,,,,,no transactions
+8220176,,,,,,,,,,,,no transactions
+8220203,,,,,,,,,,,,no transactions
+8220271,1,1,self,Bridge Builder Core Bond @ 8.75,,sale_full,2024-04-16,2024-05-09,A,,high,form has no partial-sale column
+8220271,1,2,self,Bridge Builder Large Growth @24.15,,sale_full,2024-04-16,2024-05-09,A,,high,form has no partial-sale column
+8220271,1,3,self,Vng FTSE Dev Mkt @ 48.8502,,sale_full,2024-04-16,2024-05-09,A,,high,form has no partial-sale column
+8220271,1,4,self,Ish Core S&P 500 @ 517.6898,,purchase,2024-04-16,2024-05-09,A,,high,
+8220271,1,5,self,Ish RS MD-C ETF @ 81.24,,purchase,2024-04-16,2024-05-09,A,,high,
+8220271,2,1,self,Vng Growth Index @ 344.33,,purchase,2024-04-16,2024-05-09,A,,high,
+8220529,,,,,,,,,,,,no transactions
+8220536,1,1,self,Buy Franklin Cnty KY Sch Dist Fin @ 99.82434 Due 2/1/41 04.000% Yield 4.014% to Maturity,,purchase,2024-06-20,2024-07-10,B,,high,asset name spans three lines; checkboxes on third line
+8220567,,,,,,,,,,,,no transactions
+8220628,,,,,,,,,,,,no transactions
+8220672,,,,,,,,,,,,no transactions
+8220695,,,,,,,,,,,,no transactions
+8220716,1,1,self,Buy KY Assn of Cntys Fin @ 99.73254,,sale_full,2024-12-06,2025-01-10,A,,low,"name says Buy but X is in SALE column; tx date could be 12/16/24 (reads 12/06/24)"
+8220716,1,2,self,Sell Bridge Builder Lg Growth @ 28.16,,sale_full,2024-12-16,2025-01-10,A,,high,form has no partial-sale column
+8220716,1,3,self,Sell Ish Rsl 1000 @ 334.37,,sale_full,2024-12-16,2025-01-10,A,,high,form has no partial-sale column
+8220716,1,4,self,Sell Vng Groth Index @ 426.178,,sale_full,2024-12-16,2025-01-10,A,,high,form has no partial-sale column
+8220717,,,,,,,,,,,,no transactions
+8220755,,,,,,,,,,,,no transactions
