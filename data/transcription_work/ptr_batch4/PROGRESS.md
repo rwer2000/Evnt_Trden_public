@@ -171,3 +171,12 @@ None yet.
 | 81 | C001090 | Mr. Matt Cartwright | 1 |  |
 | 82 | S001145 | Ms. Janice D. Schakowsky | 1 |  |
 | 83 | name:richard reisdorf | Richard B. Reisdorf | 1 |  |
+
+## Merged so far (2026-10-12)
+
+`merged_g01-g07.csv`: groups g01-g07 (Rogers complete, McCaul's 8213892),
+155 filings, 883 rows (802 transactions), read twice. The readings agreed on
+every row count, owner, type, transaction date, amount band and ticker; 7
+notification dates differed; one asset name needed a third look
+(`fixes.json`). Confidence: 462 high, 333 medium, 88 low.
+Groups g08-g42 (McCaul) are next; g08-g10 being read.
