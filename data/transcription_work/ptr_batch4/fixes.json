@@ -1,1 +1,22 @@
-{"8213892": {"7/3": {"asset_name": "AVON PRODUCTS INC", "note": "third look: name clear on the scan (reader B left it empty)"}}}
+{
+ "8213892": {
+  "7/3": {
+   "asset_name": "AVON PRODUCTS INC",
+   "note": "third look: name clear on the scan (reader B left it empty)"
+  }
+ },
+ "8216577": {
+  "2/10": {
+   "tx_date": "2014-08-06",
+   "note": "third look (orchestrator): date clear on the scan, as reading A"
+  },
+  "5/27": {
+   "tx_date": "2014-08-06",
+   "note": "third look (orchestrator): date clear on the scan, as reading A"
+  },
+  "5/28": {
+   "tx_date": "2014-08-06",
+   "note": "third look (orchestrator): date clear on the scan, as reading A"
+  }
+ }
+}
