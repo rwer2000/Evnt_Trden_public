@@ -180,3 +180,10 @@ every row count, owner, type, transaction date, amount band and ticker; 7
 notification dates differed; one asset name needed a third look
 (`fixes.json`). Confidence: 462 high, 333 medium, 88 low.
 Groups g08-g42 (McCaul) are next; g08-g10 being read.
+
+## McCaul groups (2026-10-12)
+
+Read twice: g08, g10; g09 B only (g09 A still to read). McCaul's filings run
+to ~300 rows each (spouse and child trust accounts): g08 differs in row count
+on all 3 filings, g10 on 1 of 4, plus 11 rows for a third look. These need
+row alignment by page before merging; not merged yet.
