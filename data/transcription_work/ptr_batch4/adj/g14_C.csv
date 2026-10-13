@@ -1,0 +1,244 @@
+doc_id,page,row,owner,asset_name,ticker,tx_type,tx_date,notification_date,amount_band,k_flag,confidence,note
+9108071,4,1,spouse,FASTENAL CO,,sale_full,2015-11-04,2015-12-07,A,,high,
+9108071,4,2,spouse,COLFAX CORPORATION,,sale_full,2015-11-25,2015-12-07,A,,high,
+9108071,4,3,spouse,AVG TECHNOLOGIES NV,,sale_full,2015-11-20,2015-12-07,A,,high,
+9108071,4,4,spouse,TRIBOROUGH BRDG & TUNL AUTH N Y REVS,,sale_full,2015-11-16,2015-12-07,A,,high,
+9108071,4,5,spouse,CHARLES SCHWAB CORP,,sale_full,2015-11-10,2015-12-07,A,,high,
+9108071,4,6,spouse,AMARILLO TEX WTRWKS & SWR SYS REV,,sale_full,2015-11-06,2015-12-07,A,,high,
+9108071,4,7,spouse,CERNER CORP,,sale_full,2015-11-12,2015-12-07,B,,high,
+9108071,4,8,spouse,CERNER CORP,,sale_full,2015-11-16,2015-12-07,B,,high,
+9108071,4,9,spouse,VERISK ANALYTICS INC,,sale_full,2015-11-03,2015-12-07,B,,high,
+9108071,4,10,spouse,DOLLAR TREE INC,,sale_full,2015-11-04,2015-12-07,B,,high,
+9108071,4,11,spouse,CERNER CORP,,sale_full,2015-11-18,2015-12-07,B,,high,
+9108071,4,12,spouse,GRUPO TELEVISA SA,,sale_full,2015-11-25,2015-12-07,C,,high,
+9108071,4,13,spouse,NEWFIELD EXPLORATION CO,,sale_full,2015-11-24,2015-12-07,C,,high,
+9108071,4,14,spouse,VERISK ANALYTICS INC,,sale_full,2015-11-02,2015-12-07,D,,high,
+9108071,4,15,spouse,VISA INC,,sale_full,2015-11-05,2015-12-07,D,,high,
+9108071,4,16,spouse,QUNAR CAYMAN ISLANDS LIMITED,,sale_full,2015-11-10,2015-12-07,D,,high,
+9108071,4,17,spouse,WUXI PHARMATECH CAYMAN INC,,sale_full,2015-11-12,2015-12-07,D,,high,
+9108071,4,18,spouse,SCOTIA DYNAMIC U S GROWTH FUND,,purchase,2015-11-02,2015-12-07,G,,high,
+9108071,4,19,spouse,PERRIGO CO,,purchase,2015-11-02,2015-12-07,D,,high,
+9108071,4,20,spouse,FLEETCOR TECHNOLOGIES INC,,purchase,2015-11-10,2015-12-07,C,,high,
+9108071,4,21,spouse,PERRIGO CO,,purchase,2015-11-18,2015-12-07,C,,high,
+9108071,4,22,spouse,ADOBE SYS INC,,purchase,2015-11-06,2015-12-07,C,,high,
+9108071,4,23,spouse,ALLERGAN PLC,,purchase,2015-11-04,2015-12-07,C,,high,
+9108071,4,24,spouse,PRICELINE GROUP INC,,purchase,2015-11-16,2015-12-07,B,,high,
+9108071,4,25,spouse,INTUITIVE SURGICAL INC,,purchase,2015-11-06,2015-12-07,B,,high,
+9108071,4,26,spouse,MONSTER BEVERAGE CORP,,purchase,2015-11-12,2015-12-07,A,,high,
+9108071,4,27,spouse,CERNER CORP,,sale_full,2015-11-12,2015-12-07,B,,high,
+9108071,4,28,spouse,CERNER CORP,,sale_full,2015-11-16,2015-12-07,B,,high,
+9108071,4,29,spouse,VERISK ANALYTICS INC,,sale_full,2015-11-03,2015-12-07,B,,high,
+9108071,4,30,spouse,DOLLAR TREE INC,,sale_full,2015-11-04,2015-12-07,B,,high,
+9108071,4,31,spouse,CERNER CORP,,sale_full,2015-11-18,2015-12-07,B,,high,third look: X is in column B (15001-50000) like the same trade in row 11
+9108071,4,32,spouse,VERISK ANALYTICS INC,,sale_full,2015-11-02,2015-12-07,D,,high,
+9108071,4,33,spouse,VISA INC,,sale_full,2015-11-05,2015-12-07,D,,high,
+9108071,4,34,child,PERRIGO CO,,purchase,2015-11-02,2015-12-07,D,,high,under header LLM FAMILY INVESTMENTS LP (13.0494% INTEREST) (DC); header line is not a row
+9108260,2,1,spouse,NEWELL RUBBERMAID INC,,purchase,2015-12-18,2016-01-11,D,,high,under header LLM FAMILY INVESTMENTS LP (12.1187% INTEREST); header line is not a row
+9108260,2,2,spouse,SOUTH CAROLINA ST PUB SVC AUTH REV,,purchase,2015-12-16,2016-01-11,C,,high,
+9108260,2,3,spouse,EPAM SYSTEMS,,purchase,2015-12-08,2016-01-11,C,,high,
+9108260,2,4,spouse,LUXOFT HLDG,,purchase,2015-12-08,2016-01-11,C,,high,
+9108260,2,5,spouse,STARWOOD HOTELS & RESORTS WORLDWIDE,,purchase,2015-12-22,2016-01-11,C,,high,
+9108260,2,6,spouse,NEWELL RUBBERMAID INC,,purchase,2015-12-22,2016-01-11,C,,high,
+9108260,2,7,spouse,DOLLAR GEN CORP,,purchase,2015-12-08,2016-01-11,C,,high,
+9108260,2,8,spouse,NEWELL RUBBERMAID INC,,purchase,2015-12-23,2016-01-11,C,,high,
+9108260,2,9,spouse,GLOBANT,,purchase,2015-12-08,2016-01-11,B,,high,
+9108260,2,10,spouse,AFFILIATED MANAGERS GROUP,,purchase,2015-12-22,2016-01-11,B,,high,
+9108260,2,11,spouse,HDFC BK LTD ADR,,purchase,2015-12-08,2016-01-11,B,,high,
+9108260,2,12,spouse,DEVON ENERGY CORPORATION,,purchase,2015-12-17,2016-01-11,B,,high,
+9108260,2,13,spouse,NEWELL RUBBERMAID INC,,purchase,2015-12-24,2016-01-11,B,,high,
+9108260,2,14,spouse,STERICYCLE INC,,purchase,2015-12-09,2016-01-11,B,,high,
+9108260,2,15,spouse,NXP SEMICONDUCTORS NV,,purchase,2015-12-10,2016-01-11,B,,high,
+9108260,2,16,spouse,UNIVERSAL ROBINA,,purchase,2015-12-21,2016-01-11,B,,high,
+9108260,2,17,spouse,LINCOLN NEB ARPT AUTH ARPT REV,,purchase,2015-12-15,2016-01-11,B,,high,
+9108260,2,18,spouse,SOUTH CAROLINA STPUB SVC AUTH REV,,purchase,2015-12-15,2016-01-11,A,,high,
+9108260,2,19,spouse,WABTEC,,purchase,2015-12-02,2016-01-11,A,,high,
+9108260,2,20,spouse,WABTEC,,purchase,2015-12-02,2016-01-11,A,,high,
+9108260,2,21,spouse,WABTEC,,purchase,2015-12-01,2016-01-11,A,,high,
+9108260,2,22,spouse,ONTARIO OHIO LOC SCH DIST RFDG,,purchase,2015-12-02,2016-01-11,A,,medium,third look: 34 rows (page holds 35 lines incl. header); ONTARIO 12/02 followed by a fourth WABTEC 12/18 as in the DC copy (p10 has 4 WABTEC rows); reader B skipped that WABTEC row
+9108260,2,23,spouse,WABTEC,,purchase,2015-12-18,2016-01-11,A,,medium,third look: row present (DC copy p10 also has WABTEC 12/18)
+9108260,2,24,spouse,SOUTH CAROLINA STPUB SVC AUTH REV,,purchase,2015-12-10,2016-01-11,A,,high,third look: A's row order (B shifted by one)
+9108260,2,25,spouse,AFFILIATED MANAGERS GROUP,,purchase,2015-12-22,2016-01-11,A,,high,third look: A's row order
+9108260,2,26,spouse,SOUTH CAROLINA STPUB SVC AUTH REV,,purchase,2015-12-02,2016-01-11,A,,high,third look: A's row order
+9108260,2,27,spouse,SOUTH CAROLINA STPUB SVC AUTH REV,,purchase,2015-12-02,2016-01-11,A,,high,third look: A's row order
+9108260,2,28,spouse,SOUTH CAROLINA STPUB SVC AUTH REV,,purchase,2015-12-02,2016-01-11,A,,high,third look: A's row order
+9108260,2,29,spouse,SAN ANTONIO TEX ELEC & GAS REV,,purchase,2015-12-02,2016-01-11,A,,high,third look: A's row order
+9108260,2,30,spouse,PRIMERICA INC,,purchase,2015-12-03,2016-01-11,A,,high,third look: A's row order
+9108260,2,31,spouse,SOUTH CAROLINA STPUB SVC AUTH REV,,purchase,2015-12-10,2016-01-11,A,,high,third look: A's row order
+9108260,2,32,spouse,ALEXION PHARMACEUTICALS INC,,purchase,2015-12-07,2016-01-11,A,,high,third look: A's row order
+9108260,2,33,spouse,NETSUITE INC,,purchase,2015-12-18,2016-01-11,A,,high,third look: A's row order
+9108260,2,34,spouse,WABTEC,,purchase,2015-12-08,2016-01-11,A,,high,third look: A's row order
+9108260,3,1,spouse,WABTEC,,purchase,2015-12-11,2016-01-11,A,,high,
+9108260,3,2,spouse,PRIMERICA INC,,purchase,2015-12-09,2016-01-11,A,,high,
+9108260,3,3,spouse,UNDER ARMOUR INC,,purchase,2015-12-17,2016-01-11,A,,high,
+9108260,3,4,spouse,BRISTOL MYERS SQUIBB,,purchase,2015-12-17,2016-01-11,A,,high,
+9108260,3,5,spouse,ALEXION PHARMACEUTICALS INC,,purchase,2015-12-17,2016-01-11,A,,high,
+9108260,3,6,spouse,MURPHY USA,,purchase,2015-12-03,2016-01-11,A,,high,
+9108260,3,7,spouse,PRIMERICA INC,,purchase,2015-12-02,2016-01-11,A,,high,
+9108260,3,8,spouse,PROVIDENCE SVC,,purchase,2015-12-09,2016-01-11,A,,high,
+9108260,3,9,spouse,PROVIDENCE SVC,,purchase,2015-12-09,2016-01-11,A,,high,
+9108260,3,10,spouse,PROVIDENCE SVC,,purchase,2015-12-09,2016-01-11,A,,high,
+9108260,3,11,spouse,MURPHY USA,,purchase,2015-12-02,2016-01-11,A,,high,
+9108260,3,12,spouse,MURPHY USA,,purchase,2015-12-02,2016-01-11,A,,high,
+9108260,3,13,spouse,MURPHY USA,,purchase,2015-12-02,2016-01-11,A,,high,
+9108260,3,14,spouse,MURPHY USA,,purchase,2015-12-09,2016-01-11,A,,high,
+9108260,3,15,spouse,MURPHY USA,,purchase,2015-12-09,2016-01-11,A,,high,
+9108260,3,16,spouse,EUROCASH,,purchase,2015-12-21,2016-01-11,A,,high,
+9108260,3,17,spouse,MURPHY USA,,purchase,2015-12-09,2016-01-11,A,,medium,third look: 35 rows on page (full page = 35 lines); B correct; A missed this MURPHY USA 12/09 row; position relative to EUROCASH not fully certain on scan
+9108260,3,18,spouse,MURPHY USA,,purchase,2015-12-10,2016-01-11,A,,high,third look: B's row order
+9108260,3,19,spouse,PRIMERICA INC,,purchase,2015-12-08,2016-01-11,A,,high,third look: B's row order
+9108260,3,20,spouse,PROVIDENCE SVC,,purchase,2015-12-14,2016-01-11,A,,high,third look: B's row order
+9108260,3,21,spouse,PROVIDENCE SVC,,purchase,2015-12-18,2016-01-11,A,,high,third look: B's row order
+9108260,3,22,spouse,PROVIDENCE SVC,,purchase,2015-12-17,2016-01-11,A,,high,third look: B's row order
+9108260,3,23,spouse,PROVIDENCE SVC,,purchase,2015-12-16,2016-01-11,A,,high,third look: B's row order
+9108260,3,24,spouse,TRIUMPH BANCORP,,purchase,2015-12-10,2016-01-11,A,,high,third look: three TRIUMPH 12/10 rows (A missed one)
+9108260,3,25,spouse,TRIUMPH BANCORP,,purchase,2015-12-10,2016-01-11,A,,high,third look: three TRIUMPH 12/10 rows
+9108260,3,26,spouse,TRIUMPH BANCORP,,purchase,2015-12-10,2016-01-11,A,,high,third look: three TRIUMPH 12/10 rows
+9108260,3,27,spouse,PRIMERICA INC,,purchase,2015-12-07,2016-01-11,A,,high,third look: B's row order
+9108260,3,28,spouse,PRIMERICA INC,,purchase,2015-12-04,2016-01-11,A,,high,third look: three PRIMERICA 12/04 rows (A missed one)
+9108260,3,29,spouse,PRIMERICA INC,,purchase,2015-12-04,2016-01-11,A,,high,third look: three PRIMERICA 12/04 rows
+9108260,3,30,spouse,PRIMERICA INC,,purchase,2015-12-04,2016-01-11,A,,high,third look: three PRIMERICA 12/04 rows
+9108260,3,31,spouse,PROVIDENCE SVC,,purchase,2015-12-22,2016-01-11,A,,high,third look: B's row order
+9108260,3,32,spouse,MURPHY USA,,purchase,2015-12-04,2016-01-11,A,,high,third look: B's row order
+9108260,3,33,spouse,PROVIDENCE SVC,,purchase,2015-12-21,2016-01-11,A,,high,third look: B's row order
+9108260,3,34,spouse,PROVIDENCE SVC,,purchase,2015-12-11,2016-01-11,A,,high,third look: B's row order
+9108260,3,35,spouse,PROVIDENCE SVC,,purchase,2015-12-10,2016-01-11,A,,high,third look: B's row order
+9108260,4,1,spouse,MURPHY USA,,purchase,2015-12-07,2016-01-11,A,,high,
+9108260,4,2,spouse,MURPHY USA,,purchase,2015-12-07,2016-01-11,A,,high,
+9108260,4,3,spouse,MURPHY USA,,purchase,2015-12-07,2016-01-11,A,,high,
+9108260,4,4,spouse,TRIUMPH BANCORP,,purchase,2015-12-11,2016-01-11,A,,high,
+9108260,4,5,spouse,TRIUMPH BANCORP,,purchase,2015-12-14,2016-01-11,A,,high,
+9108260,4,6,spouse,TRIUMPH BANCORP,,purchase,2015-12-17,2016-01-11,A,,high,
+9108260,4,7,spouse,TRIUMPH BANCORP,,purchase,2015-12-16,2016-01-11,A,,high,
+9108260,4,8,spouse,THERMON GROUP HOLDINGS,,sale_full,2015-12-09,2016-01-11,A,,high,
+9108260,4,9,spouse,THERMON GROUP HOLDINGS,,sale_full,2015-12-09,2016-01-11,A,,high,
+9108260,4,10,spouse,THERMON GROUP HOLDINGS,,sale_full,2015-12-09,2016-01-11,A,,high,
+9108260,4,11,spouse,ASCENT CAPITAL GROUP INC,,sale_full,2015-12-08,2016-01-11,A,,high,
+9108260,4,12,spouse,ASCENT CAPITAL GROUP INC,,sale_full,2015-12-14,2016-01-11,A,,high,
+9108260,4,13,spouse,THERMON GROUP HOLDINGS,,sale_full,2015-12-08,2016-01-11,A,,high,
+9108260,4,14,spouse,THERMON GROUP HOLDINGS,,sale_full,2015-12-08,2016-01-11,A,,high,
+9108260,4,15,spouse,THERMON GROUP HOLDINGS,,sale_full,2015-12-08,2016-01-11,A,,high,
+9108260,4,16,spouse,INNOPHOS HLDGS INC,,sale_full,2015-12-15,2016-01-11,A,,high,
+9108260,4,17,spouse,ENPRO INDUSTRIES INC,,sale_full,2015-12-21,2016-01-11,A,,high,
+9108260,4,18,spouse,ASCENT CAPITAL GROUP INC,,sale_full,2015-12-09,2016-01-11,A,,high,
+9108260,4,19,spouse,ASCENT CAPITAL GROUP INC,,sale_full,2015-12-09,2016-01-11,A,,high,
+9108260,4,20,spouse,ASCENT CAPITAL GROUP INC,,sale_full,2015-12-09,2016-01-11,A,,high,
+9108260,4,21,spouse,RIGNET INC,,sale_full,2015-12-18,2016-01-11,A,,high,
+9108260,4,22,spouse,CORE MARK HOLDING CO,,sale_full,2015-12-09,2016-01-11,A,,high,
+9108260,4,23,spouse,ASCENT CAPITAL GROUP INC,,sale_full,2015-12-10,2016-01-11,A,,high,
+9108260,4,24,spouse,ASCENT CAPITAL GROUP INC,,sale_full,2015-12-10,2016-01-11,A,,high,
+9108260,4,25,spouse,ASCENT CAPITAL GROUP INC,,sale_full,2015-12-10,2016-01-11,A,,high,
+9108260,4,26,spouse,THERMON GROUP HOLDINGS,,sale_full,2015-12-10,2016-01-11,A,,high,
+9108260,4,27,spouse,THERMON GROUP HOLDINGS,,sale_full,2015-12-10,2016-01-11,A,,high,
+9108260,4,28,spouse,THERMON GROUP HOLDINGS,,sale_full,2015-12-10,2016-01-11,A,,high,
+9108260,4,29,spouse,CASH AMERICA INTERNATIONAL,,sale_full,2015-12-04,2016-01-11,A,,high,
+9108260,4,30,spouse,ROCKWELL AUTOMATION INC,,sale_full,2015-12-18,2016-01-11,A,,high,
+9108260,4,31,spouse,MICROSOFT CORP,,sale_full,2015-12-18,2016-01-11,A,,high,
+9108260,4,32,spouse,THERMON GROUP HOLDINGS,,sale_full,2015-12-14,2016-01-11,A,,high,
+9108260,4,33,spouse,THERMON GROUP HOLDINGS,,sale_full,2015-12-14,2016-01-11,A,,high,
+9108260,4,34,spouse,THERMON GROUP HOLDINGS,,sale_full,2015-12-14,2016-01-11,A,,medium,third look: both readers missed one row; page has 35 rows (full page = 35 lines); bottom block is THERMON 12/14 x3 then 12/15; matches DC copy p13 (THERMON 12/14 x3 and 12/15 x3 incl. p5)
+9108260,4,35,spouse,THERMON GROUP HOLDINGS,,sale_full,2015-12-15,2016-01-11,A,,medium,third look: bottom row reads 12/15/2015 (B's 12/15 belongs here); added row
+9108260,11,1,child,PRIMERICA INC,,purchase,2015-12-03,2016-01-11,A,,high,
+9108260,11,2,child,ALEXION PHARMACEUTICALS INC,,purchase,2015-12-07,2016-01-11,A,,high,
+9108260,11,3,child,NETSUITE INC,,purchase,2015-12-18,2016-01-11,A,,high,
+9108260,11,4,child,WABTEC,,purchase,2015-12-08,2016-01-11,A,,high,
+9108260,11,5,child,WABTEC,,purchase,2015-12-11,2016-01-11,A,,high,
+9108260,11,6,child,PRIMERICA INC,,purchase,2015-12-09,2016-01-11,A,,high,
+9108260,11,7,child,UNDER ARMOUR INC,,purchase,2015-12-17,2016-01-11,A,,high,
+9108260,11,8,child,BRISTOL MYERS SQUIBB,,purchase,2015-12-17,2016-01-11,A,,high,
+9108260,11,9,child,ALEXION PHARMACEUTICALS INC,,purchase,2015-12-17,2016-01-11,A,,high,
+9108260,11,10,child,MURPHY USA,,purchase,2015-12-03,2016-01-11,A,,high,
+9108260,11,11,child,PRIMERICA INC,,purchase,2015-12-02,2016-01-11,A,,high,
+9108260,11,12,child,PROVIDENCE SVC,,purchase,2015-12-09,2016-01-11,A,,high,
+9108260,11,13,child,PROVIDENCE SVC,,purchase,2015-12-09,2016-01-11,A,,high,
+9108260,11,14,child,PROVIDENCE SVC,,purchase,2015-12-09,2016-01-11,A,,high,
+9108260,11,15,child,MURPHY USA,,purchase,2015-12-02,2016-01-11,A,,high,
+9108260,11,16,child,MURPHY USA,,purchase,2015-12-02,2016-01-11,A,,high,
+9108260,11,17,child,MURPHY USA,,purchase,2015-12-02,2016-01-11,A,,high,
+9108260,11,18,child,MURPHY USA,,purchase,2015-12-09,2016-01-11,A,,high,
+9108260,11,19,child,MURPHY USA,,purchase,2015-12-09,2016-01-11,A,,high,
+9108260,11,20,child,EUROCASH,,purchase,2015-12-21,2016-01-11,A,,high,
+9108260,11,21,child,MURPHY USA,,purchase,2015-12-09,2016-01-11,A,,medium,third look: 35 rows on page; B correct; A missed this MURPHY USA 12/09 row; matches spouse copy p3 row 17
+9108260,11,22,child,MURPHY USA,,purchase,2015-12-10,2016-01-11,A,,high,third look: B's row order
+9108260,11,23,child,PRIMERICA INC,,purchase,2015-12-08,2016-01-11,A,,high,third look: B's row order
+9108260,11,24,child,PROVIDENCE SVC,,purchase,2015-12-14,2016-01-11,A,,high,third look: B's row order
+9108260,11,25,child,PROVIDENCE SVC,,purchase,2015-12-18,2016-01-11,A,,high,third look: B's row order
+9108260,11,26,child,PROVIDENCE SVC,,purchase,2015-12-17,2016-01-11,A,,high,third look: B's row order
+9108260,11,27,child,PROVIDENCE SVC,,purchase,2015-12-16,2016-01-11,A,,high,third look: B's row order
+9108260,11,28,child,TRIUMPH BANCORP,,purchase,2015-12-10,2016-01-11,A,,high,third look: three TRIUMPH 12/10 rows (A missed one)
+9108260,11,29,child,TRIUMPH BANCORP,,purchase,2015-12-10,2016-01-11,A,,high,third look: three TRIUMPH 12/10 rows
+9108260,11,30,child,TRIUMPH BANCORP,,purchase,2015-12-10,2016-01-11,A,,high,third look: three TRIUMPH 12/10 rows
+9108260,11,31,child,PRIMERICA INC,,purchase,2015-12-07,2016-01-11,A,,high,third look: B's row order
+9108260,11,32,child,PRIMERICA INC,,purchase,2015-12-04,2016-01-11,A,,high,third look: three PRIMERICA 12/04 rows (A missed one)
+9108260,11,33,child,PRIMERICA INC,,purchase,2015-12-04,2016-01-11,A,,high,third look: three PRIMERICA 12/04 rows
+9108260,11,34,child,PRIMERICA INC,,purchase,2015-12-04,2016-01-11,A,,high,third look: three PRIMERICA 12/04 rows
+9108260,11,35,child,PROVIDENCE SVC,,purchase,2015-12-22,2016-01-11,A,,high,third look: B's row order
+9108260,13,1,child,THERMON GROUP HOLDINGS,,sale_full,2015-12-14,2016-01-11,A,,high,
+9108260,13,2,child,THERMON GROUP HOLDINGS,,sale_full,2015-12-14,2016-01-11,A,,high,
+9108260,13,3,child,THERMON GROUP HOLDINGS,,sale_full,2015-12-14,2016-01-11,A,,high,
+9108260,13,4,child,PACCAR INC,,sale_full,2015-12-18,2016-01-11,A,,high,
+9108260,13,5,child,THERMON GROUP HOLDINGS,,sale_full,2015-12-15,2016-01-11,A,,high,
+9108260,13,6,child,THERMON GROUP HOLDINGS,,sale_full,2015-12-15,2016-01-11,A,,high,
+9108260,13,7,child,THERMON GROUP HOLDINGS,,sale_full,2015-12-15,2016-01-11,A,,low,third look: added row; page holds 35 rows and both readers had fewer; spouse copy has THERMON 12/15 x3 (p4 row 35 + p5 rows 1-2) so DC should too; exact position in the THERMON block inferred (A flagged a third 12/15 row before ENPRO)
+9108260,13,8,child,ENPRO INDUSTRIES INC,,sale_full,2015-12-14,2016-01-11,A,,high,
+9108260,13,9,child,INNOPHOS HLDGS INC,,sale_full,2015-12-09,2016-01-11,A,,high,
+9108260,13,10,child,INNOPHOS HLDGS INC,,sale_full,2015-12-09,2016-01-11,A,,high,
+9108260,13,11,child,INNOPHOS HLDGS INC,,sale_full,2015-12-09,2016-01-11,A,,high,
+9108260,13,12,child,ENPRO INDUSTRIES INC,,sale_full,2015-12-15,2016-01-11,A,,high,
+9108260,13,13,child,CORE MARK HOLDING CO,,sale_full,2015-12-14,2016-01-11,A,,high,
+9108260,13,14,child,NEENAH PAPER INC,,sale_full,2015-12-02,2016-01-11,A,,high,
+9108260,13,15,child,CORE MARK HOLDING CO,,sale_full,2015-12-10,2016-01-11,A,,high,
+9108260,13,16,child,INNOPHOS HLDGS INC,,sale_full,2015-12-09,2016-01-11,A,,high,
+9108260,13,17,child,INNOPHOS HLDGS INC,,sale_full,2015-12-09,2016-01-11,A,,high,
+9108260,13,18,child,INNOPHOS HLDGS INC,,sale_full,2015-12-09,2016-01-11,A,,high,
+9108260,13,19,child,RIGNET INC,,sale_full,2015-12-21,2016-01-11,A,,high,
+9108260,13,20,child,ENPRO INDUSTRIES INC,,sale_full,2015-12-16,2016-01-11,A,,high,
+9108260,13,21,child,NEENAH PAPER INC,,sale_full,2015-12-11,2016-01-11,A,,high,
+9108260,13,22,child,RIGNET INC,,sale_full,2015-12-14,2016-01-11,A,,high,
+9108260,13,23,child,NATIONAL INSTRS CORP,,sale_full,2015-12-15,2016-01-11,A,,high,
+9108260,13,24,child,3M CO,,sale_full,2015-12-18,2016-01-11,A,,high,
+9108260,13,25,child,INNOPHOS HLDGS INC,,sale_full,2015-12-08,2016-01-11,A,,high,
+9108260,13,26,child,EXPEDITORS INTL WASHINGTON INC,,sale_full,2015-12-18,2016-01-11,A,,high,
+9108260,13,27,child,CASH AMERICA INTERNATIONAL,,sale_full,2015-12-08,2016-01-11,A,,high,
+9108260,13,28,child,ANSYS INC,,sale_full,2015-12-15,2016-01-11,A,,high,
+9108260,13,29,child,CORE MARK HOLDING CO,,sale_full,2015-12-03,2016-01-11,A,,high,
+9108260,13,30,child,STANCORP FINL GROUP,,sale_full,2015-12-22,2016-01-11,A,,high,
+9108260,13,31,child,CASH AMERICA INTERNATIONAL,,sale_full,2015-12-07,2016-01-11,A,,high,
+9108260,13,32,child,CASH AMERICA INTERNATIONAL,,sale_full,2015-12-07,2016-01-11,A,,high,
+9108260,13,33,child,CASH AMERICA INTERNATIONAL,,sale_full,2015-12-07,2016-01-11,A,,medium,third look: three CASH AMERICA 12/07 rows (B correct; A missed one)
+9108260,13,34,child,FMC TECHNOLOGIES INC,,sale_full,2015-12-15,2016-01-11,A,,high,third look: row order shifted vs A
+9108260,13,35,child,GENPACT LTD,,sale_full,2015-12-15,2016-01-11,A,,high,third look: row order shifted vs A
+9108260,15,1,child,COGNIZANT TECHNOLOGY SOLUTIONSCORP,,sale_full,2015-12-15,2016-01-11,A,,high,
+9108260,15,2,child,CORE MARK HOLDING CO,,sale_full,2015-12-03,2016-01-11,A,,high,
+9108260,15,3,child,DANONE,,sale_full,2015-12-18,2016-01-11,A,,high,
+9108260,15,4,child,PROGRESSIVE CORP OHIO,,sale_full,2015-12-18,2016-01-11,A,,medium,date reads 12-18-2015; spouse schedule shows 12/15/2015
+9108260,15,5,child,COMCAST CORP,,sale_full,2015-12-18,2016-01-11,A,,high,
+9108260,15,6,child,BERKSHIRE HATHAWAY INC DEL,,sale_full,2015-12-18,2016-01-11,A,,high,
+9108260,15,7,child,EXPRESS SCRIPTS HLDG CO,,sale_full,2015-12-15,2016-01-11,A,,medium,third look: owner column reads DC like every other row on this DC schedule page; SP reading looks like a scan artifact
+9108260,15,8,child,KANSAS CITY SOUTHERN,,sale_full,2015-12-21,2016-01-11,A,,high,
+9108260,15,9,child,HONEYWELL INTL INC,,sale_full,2015-12-18,2016-01-11,A,,high,
+9108260,15,10,child,ACCENTURE PLC,,sale_full,2015-12-18,2016-01-11,A,,high,
+9108260,15,11,child,FACEBOOK INC,,sale_full,2015-12-15,2016-01-11,A,,high,
+9108260,15,12,child,SCHLUMBERGER LTD,,sale_full,2015-12-18,2016-01-11,A,,high,
+9108260,15,13,child,STARBUCKS CORP,,sale_full,2015-12-15,2016-01-11,A,,high,
+9108260,15,14,child,INTUITIVE SURGICAL INC,,sale_full,2015-12-15,2016-01-11,A,,high,
+9108260,15,15,child,POTASH CORP SASK INC,,sale_full,2015-12-18,2016-01-11,A,,high,
+9108260,15,16,child,DOLLAR GEN CORP,,sale_full,2015-12-18,2016-01-11,A,,high,
+9108260,15,17,child,REGENERON PHARMACEUTICALS,,sale_full,2015-12-18,2016-01-11,A,,high,
+9108260,15,18,child,VISA INC,,sale_full,2015-12-15,2016-01-11,A,,high,
+9108260,15,19,child,EMBRAER,,sale_full,2015-12-21,2016-01-11,A,,high,
+9108260,15,20,child,BANK NEW YORK MELLON CORP,,sale_full,2015-12-18,2016-01-11,A,,high,
+9108260,15,21,child,UNILEVER PLC,,sale_full,2015-12-18,2016-01-11,A,,high,
+9108260,15,22,child,GRUPO TELEVISA SA,,sale_full,2015-12-21,2016-01-11,A,,high,
+9108260,15,23,child,CTRIP,,sale_full,2015-12-21,2016-01-11,A,,high,
+9108260,15,24,child,DOLLAR TREE INC,,sale_full,2015-12-18,2016-01-11,A,,high,
+9108260,15,25,child,COLFAX CORPORATION,,sale_full,2015-11-30,2016-01-11,A,,high,
+9108260,15,26,child,OMNICOM GROUP INC,,sale_full,2015-12-18,2016-01-11,A,,high,
+9108260,15,27,child,APPLE INC,,sale_full,2015-12-22,2016-01-11,A,,high,
+9108260,15,28,child,FLEETCOR TECHNOLOGIES INC,,sale_full,2015-12-18,2016-01-11,A,,high,
+9108260,15,29,child,ROSS STORES INC,,sale_full,2015-12-18,2016-01-11,A,,high,
+9108260,15,30,child,HDFC BK LTD ADR,,sale_full,2015-12-21,2016-01-11,A,,high,
+9108260,15,31,child,NESTLE S A,,sale_full,2015-12-18,2016-01-11,A,,high,
+9108260,15,32,child,COLFAX CORPORATION,,sale_full,2015-12-23,2016-01-11,A,,high,
+9108260,15,33,child,STERICYCLE INC,,sale_full,2015-12-18,2016-01-11,A,,high,
+9108260,15,34,child,CERNER CORP,,sale_full,2015-12-18,2016-01-11,A,,high,
+9108260,15,35,child,INTUITIVE SURGICAL INC,,sale_full,2015-12-17,2016-01-11,A,,high,
