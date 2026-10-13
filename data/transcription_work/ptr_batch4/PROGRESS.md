@@ -203,3 +203,4 @@ Next: g09 (A being read), g11-g12 (being read), g13-g42.
 - `merged_g12.csv`: 4 filings, 996 rows (920 high, 71 medium, 5 low), 16 pages re-read in one round.
 One round is enough when the third reader gets every page with a row-count
 or core-field difference at once (`pagediff` check before the third look).
+- `merged_g13.csv`: 4 filings, 1,110 rows (1,051 high, 53 medium, 6 low), 16 pages re-read in one round.
