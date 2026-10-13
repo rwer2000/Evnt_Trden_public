@@ -206,3 +206,4 @@ or core-field difference at once (`pagediff` check before the third look).
 - `merged_g13.csv`: 4 filings, 1,110 rows (1,051 high, 53 medium, 6 low), 16 pages re-read in one round.
 - `merged_g11.csv`: 4 filings, 1,186 rows (336 high, 822 medium, 28 low), 19 pages re-read in one round; several 28/29 and 06/08 dates remain a judgement call (noted per row).
 - `merged_g14.csv`: 3 filings, 948 rows (915 high, 31 medium, 2 low), 7 pages re-read; two rows (9108260 p4 r35, p13 r7) were added by the third reader from the row count and the matching spouse/child copy, not read directly (low/medium).
+- `merged_g15.csv`: 3 filings, 954 rows (926 high, 25 medium, 3 low), 5 pages re-read.
