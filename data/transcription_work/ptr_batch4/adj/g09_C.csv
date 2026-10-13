@@ -1,0 +1,594 @@
+doc_id,page,row,owner,asset_name,ticker,tx_type,tx_date,notification_date,amount_band,k_flag,confidence,note
+8214814,2,1,spouse,SALESFORCE.COM INC,,purchase,2014-04-28,2014-05-05,A,,medium,under header LLM FAMILY INVESTMENTS LP (12.2389% INTEREST)
+8214814,2,2,spouse,DISCOVERY COMMUNICATIONS INC,,purchase,2014-04-08,2014-05-05,A,,medium,
+8214814,2,3,spouse,DISCOVERY COMMUNICATIONS INC,,purchase,2014-04-07,2014-05-05,B,,medium,
+8214814,2,4,spouse,ESTEE LAUDER COMPANIES INC,,purchase,2014-04-02,2014-05-05,A,,medium,date could be 4/3/2014 on this copy; DC copy shows 4/2
+8214814,2,5,spouse,WHOLE FOODS MARKET INC,,purchase,2014-04-24,2014-05-05,A,,medium,
+8214814,2,6,spouse,INTUITIVE SURGICAL INC,,sale_full,2014-04-02,2014-05-05,A,,medium,
+8214814,2,7,spouse,MEAD JOHNSON NUTRITION COMPANY,,sale_full,2014-04-24,2014-05-05,A,,medium,
+8214814,2,8,spouse,CATO CORP,,purchase,2014-04-16,2014-05-05,A,,medium,
+8214814,2,9,spouse,CATO CORP,,purchase,2014-04-15,2014-05-05,A,,medium,
+8214814,2,10,spouse,CULP INC,,purchase,2014-04-01,2014-05-05,A,,medium,
+8214814,2,11,spouse,MONEYGRAM INTERNATIONAL INC,,purchase,2014-04-15,2014-05-05,A,,medium,
+8214814,2,12,spouse,MONEYGRAM INTERNATIONAL INC,,purchase,2014-04-14,2014-05-05,A,,medium,
+8214814,2,13,spouse,MONEYGRAM INTERNATIONAL INC,,purchase,2014-04-11,2014-05-05,A,,medium,
+8214814,2,14,spouse,MONEYGRAM INTERNATIONAL INC,,purchase,2014-04-10,2014-05-05,A,,medium,
+8214814,2,15,spouse,MONEYGRAM INTERNATIONAL INC,,purchase,2014-04-09,2014-05-05,A,,medium,
+8214814,2,16,spouse,MONEYGRAM INTERNATIONAL INC,,purchase,2014-04-08,2014-05-05,A,,medium,
+8214814,2,17,spouse,MONEYGRAM INTERNATIONAL INC,,purchase,2014-04-07,2014-05-05,A,,medium,
+8214814,2,18,spouse,MONEYGRAM INTERNATIONAL INC,,purchase,2014-04-02,2014-05-05,A,,medium,
+8214814,2,19,spouse,TFS FINANCIAL CORP,,purchase,2014-04-30,2014-05-05,A,,medium,third look: two TFS FINANCIAL CORP rows (purchase 4/30 and 4/29) after 8 MONEYGRAM rows; confirmed on DC copy page 5 (B reading)
+8214814,2,20,spouse,TFS FINANCIAL CORP,,purchase,2014-04-29,2014-05-05,A,,medium,third look: B reading (A had MONEYGRAM here)
+8214814,2,21,spouse,ACTUANT CORPORATION,,sale_full,2014-04-02,2014-05-05,A,,medium,third look: B reading
+8214814,2,22,spouse,ORBCOMM INC,,sale_full,2014-04-02,2014-05-05,A,,medium,third look: B reading (date 4/2)
+8214814,2,23,spouse,SUSSER PETROLEUM PARTNERS LP,,sale_full,2014-04-30,2014-05-05,A,,medium,third look: three SUSSER rows (4/30 4/29 4/28); B reading
+8214814,2,24,spouse,SUSSER PETROLEUM PARTNERS LP,,sale_full,2014-04-29,2014-05-05,A,,medium,
+8214814,2,25,spouse,SUSSER PETROLEUM PARTNERS LP,,sale_full,2014-04-28,2014-05-05,A,,medium,
+8214814,2,26,spouse,KIMBERLY-CLARK DE MEXICO,,purchase,2014-04-09,2014-05-05,D,,medium,
+8214814,2,27,spouse,PT KALBE FARMA,,purchase,2014-04-09,2014-05-05,B,,medium,
+8214814,2,28,spouse,TENCENT HOLDINGS LIMITED,,sale_full,2014-04-09,2014-05-05,D,,medium,
+8214814,2,29,spouse,ATHLON ENERGY INC,,purchase,2014-04-17,2014-05-05,B,,medium,
+8214814,2,30,spouse,DEXCOM INC,,purchase,2014-04-01,2014-05-05,B,,medium,
+8214814,2,31,spouse,HILLENBRAND INC,,purchase,2014-04-16,2014-05-05,B,,medium,
+8214814,5,1,child,SALESFORCE.COM INC,,purchase,2014-04-28,2014-05-05,A,,medium,under header LLM FAMILY INVESTMENTS LP (12.8780% INTEREST)
+8214814,5,2,child,DISCOVERY COMMUNICATIONS INC,,purchase,2014-04-08,2014-05-05,A,,medium,
+8214814,5,3,child,DISCOVERY COMMUNICATIONS INC,,purchase,2014-04-07,2014-05-05,B,,medium,
+8214814,5,4,child,ESTEE LAUDER COMPANIES INC,,purchase,2014-04-02,2014-05-05,A,,medium,
+8214814,5,5,child,WHOLE FOODS MARKET INC,,purchase,2014-04-24,2014-05-05,A,,medium,
+8214814,5,6,child,INTUITIVE SURGICAL INC,,sale_full,2014-04-02,2014-05-05,A,,medium,
+8214814,5,7,child,MEAD JOHNSON NUTRITION COMPANY,,sale_full,2014-04-24,2014-05-05,A,,medium,
+8214814,5,8,child,CATO CORP,,purchase,2014-04-16,2014-05-05,A,,medium,
+8214814,5,9,child,CATO CORP,,purchase,2014-04-15,2014-05-05,A,,medium,
+8214814,5,10,child,CULP INC,,purchase,2014-04-01,2014-05-05,A,,medium,
+8214814,5,11,child,MONEYGRAM INTERNATIONAL INC,,purchase,2014-04-15,2014-05-05,A,,medium,
+8214814,5,12,child,MONEYGRAM INTERNATIONAL INC,,purchase,2014-04-14,2014-05-05,A,,medium,
+8214814,5,13,child,MONEYGRAM INTERNATIONAL INC,,purchase,2014-04-11,2014-05-05,A,,medium,
+8214814,5,14,child,MONEYGRAM INTERNATIONAL INC,,purchase,2014-04-10,2014-05-05,A,,medium,
+8214814,5,15,child,MONEYGRAM INTERNATIONAL INC,,purchase,2014-04-09,2014-05-05,A,,medium,
+8214814,5,16,child,MONEYGRAM INTERNATIONAL INC,,purchase,2014-04-08,2014-05-05,A,,medium,
+8214814,5,17,child,MONEYGRAM INTERNATIONAL INC,,purchase,2014-04-07,2014-05-05,A,,medium,
+8214814,5,18,child,MONEYGRAM INTERNATIONAL INC,,purchase,2014-04-02,2014-05-05,A,,medium,
+8214814,5,19,child,TFS FINANCIAL CORP,,purchase,2014-04-30,2014-05-05,A,,medium,third look: two TFS FINANCIAL CORP rows after 8 MONEYGRAM rows (B reading); matches SP page 2
+8214814,5,20,child,TFS FINANCIAL CORP,,purchase,2014-04-29,2014-05-05,A,,medium,third look: B reading
+8214814,5,21,child,ACTUANT CORPORATION,,sale_full,2014-04-02,2014-05-05,A,,medium,third look: B reading
+8214814,5,22,child,ORBCOMM INC,,sale_full,2014-04-02,2014-05-05,A,,medium,third look: B reading
+8214814,5,23,child,SUSSER PETROLEUM PARTNERS LP,,sale_full,2014-04-30,2014-05-05,A,,medium,third look: three SUSSER rows; B reading
+8214814,5,24,child,SUSSER PETROLEUM PARTNERS LP,,sale_full,2014-04-29,2014-05-05,A,,medium,
+8214814,5,25,child,SUSSER PETROLEUM PARTNERS LP,,sale_full,2014-04-28,2014-05-05,A,,medium,
+8214814,5,26,child,KIMBERLY-CLARK DE MEXICO,,purchase,2014-04-09,2014-05-05,D,,medium,
+8214814,5,27,child,PT KALBE FARMA,,purchase,2014-04-09,2014-05-05,B,,medium,
+8214814,5,28,child,TENCENT HOLDINGS LIMITED,,sale_full,2014-04-09,2014-05-05,D,,medium,
+8214814,5,29,child,ATHLON ENERGY INC,,purchase,2014-04-17,2014-05-05,B,,medium,
+8214814,5,30,child,DEXCOM INC,,purchase,2014-04-01,2014-05-05,D,,low,amount column unclear (B or D)
+8214814,5,31,child,HILLENBRAND INC,,purchase,2014-04-16,2014-05-05,B,,medium,
+8215703,2,1,spouse,BAKER HUGHES INC,,purchase,2014-05-15,2014-06-09,C,,medium,under header LLM FAMILY INVESTMENTS LP (12.2261% INTEREST)
+8215703,2,2,spouse,DEVON ENERGY CORPORATION,,purchase,2014-05-09,2014-06-09,B,,medium,
+8215703,2,3,spouse,MARATHON OIL CORP,,purchase,2014-05-09,2014-06-09,B,,medium,
+8215703,2,4,spouse,OCCIDENTAL PETE CORP,,purchase,2014-05-13,2014-06-09,D,,medium,
+8215703,2,5,spouse,QEP RESOURCES INC,,purchase,2014-05-29,2014-06-09,D,,medium,
+8215703,2,6,spouse,OKLAHOMA HSG FIN AGY,,sale_full,2014-05-02,2014-06-09,A,,medium,
+8215703,2,7,spouse,OHIO HSG FIN AGY SINGLE FAMILY REV,,sale_full,2014-05-01,2014-06-09,A,,medium,
+8215703,2,8,spouse,ENERGY CONVERSION DEVICES INC,,sale_full,2014-05-13,2014-06-09,A,,medium,
+8215703,2,9,spouse,CROWLEY TEX INDPT SCH DIST,,purchase,2014-05-23,2014-06-09,A,,medium,
+8215703,2,10,spouse,UTAH WTR FIN AGY REV,,purchase,2014-05-05,2014-06-09,A,,medium,
+8215703,2,11,spouse,LAREDO TEX SPORTS VENUE SALES,,purchase,2014-05-01,2014-06-09,A,,medium,
+8215703,2,12,spouse,HOUSTON TEXAS COMB,,sale_full,2014-05-15,2014-06-09,A,,medium,
+8215703,2,13,spouse,LOWER COLO RIV AUTH TEX,,sale_full,2014-05-15,2014-06-09,A,,medium,
+8215703,2,14,spouse,STANLEY WIS WTR SYS REV BANS,,sale_full,2014-05-01,2014-06-09,A,,medium,
+8215703,2,15,spouse,FORT SMITH ARK SALES & USE,,sale_full,2014-05-01,2014-06-09,A,,low,third look: date column has one entry fewer than rows (30 dates/31 rows) on both SP and DC copies; took B (5/1); A had 5/30
+8215703,2,16,spouse,CORE LABORATORIES NV,,purchase,2014-05-30,2014-06-09,A,,low,third look: B reading (5/30); same-name pairs on these pages are listed in descending date order which fits 5/30 then 5/20
+8215703,2,17,spouse,CORE LABORATORIES NV,,purchase,2014-05-20,2014-06-09,A,,low,third look: B reading (5/20); A left date empty
+8215703,2,18,spouse,DISCOVERY COMMUNICATIONS INC,,purchase,,2014-06-09,A,,low,third look: date not legible / the one row without a readable date; could be 5/20 (A) or 5/6; left empty
+8215703,2,19,spouse,WHOLE FOODS MARKET INC,,purchase,2014-05-06,2014-06-09,A,,medium,
+8215703,2,20,spouse,APPLE INC,,sale_full,2014-05-07,2014-06-09,A,,medium,
+8215703,2,21,spouse,COSTCO WHOLESALE CORP,,sale_full,2014-05-07,2014-06-09,A,,medium,
+8215703,2,22,spouse,FLUOR CORP,,sale_full,2014-05-23,2014-06-09,A,,medium,
+8215703,2,23,spouse,FLUOR CORP,,sale_full,2014-05-20,2014-06-09,A,,medium,
+8215703,2,24,spouse,SCHLUMBERGER LTD,,sale_full,2014-05-30,2014-06-09,A,,medium,
+8215703,2,25,spouse,SCHLUMBERGER LTD,,sale_full,2014-05-20,2014-06-09,A,,medium,
+8215703,2,26,spouse,ENZYMOTEC LTD,,purchase,2014-05-19,2014-06-09,A,,medium,
+8215703,2,27,spouse,ASTRAZENECA PLC,,sale_full,2014-05-01,2014-06-09,A,,medium,
+8215703,2,28,spouse,VALEANT PHARMACEUTICALS INTERNATIONAL INC,,purchase,2014-05-29,2014-06-09,B,,medium,
+8215703,2,29,spouse,VALEANT PHARMACEUTICALS INTERNATIONAL INC,,purchase,2014-05-15,2014-06-09,D,,medium,
+8215703,2,30,spouse,AON PLC,,sale_full,2014-05-13,2014-06-09,C,,medium,
+8215703,2,31,spouse,CONSTELLATION BRANDS INC,,sale_full,2014-05-16,2014-06-09,C,,medium,
+8215703,4,1,spouse,NATIONAL GENERAL HOLDINGS CORP,,purchase,2014-05-22,2014-06-09,A,,medium,continues LLM FAMILY INVESTMENTS LP (12.2261% INTEREST)
+8215703,4,2,spouse,NATIONAL GENERAL HOLDINGS CORP,,purchase,2014-05-21,2014-06-09,A,,medium,
+8215703,4,3,spouse,TFS FINANCIAL CORP,,purchase,2014-05-06,2014-06-09,A,,medium,
+8215703,4,4,spouse,TFS FINANCIAL CORP,,purchase,2014-05-05,2014-06-09,A,,medium,
+8215703,4,5,spouse,TFS FINANCIAL CORP,,purchase,2014-05-01,2014-06-09,A,,medium,
+8215703,4,6,spouse,ACADIA HEALTHCARE CO,,purchase,2014-05-30,2014-06-09,A,,medium,
+8215703,4,7,spouse,HILLENBRAND INC,,purchase,2014-05-29,2014-06-09,B,,medium,
+8215703,4,8,spouse,HILLENBRAND INC,,purchase,2014-05-13,2014-06-09,B,,medium,
+8215703,4,9,spouse,JONES LANG LASALLE INC,,purchase,2014-05-29,2014-06-09,B,,medium,
+8215703,4,10,spouse,LAREDO PETROLEUM INC,,purchase,2014-05-30,2014-06-09,B,,medium,
+8215703,4,11,spouse,LAREDO PETROLEUM INC,,purchase,2014-05-14,2014-06-09,B,,medium,
+8215703,4,12,spouse,PERKINELMER INC,,purchase,2014-05-19,2014-06-09,B,,medium,
+8215703,4,13,spouse,POST HOLDINGS INC,,purchase,2014-05-29,2014-06-09,B,,low,third look: B mark on first POST row and C mark on second (B reading); same on DC copy page 8
+8215703,4,14,spouse,POST HOLDINGS INC,,purchase,2014-05-22,2014-06-09,C,,low,third look: C (B reading)
+8215703,4,15,spouse,SAPIENT CORP,,purchase,2014-05-15,2014-06-09,B,,medium,
+8215703,4,16,spouse,TELEDYNE TECHNOLOGIES INC,,purchase,2014-05-14,2014-06-09,B,,medium,
+8215703,4,17,spouse,BOINGO WIRELESS INC,,sale_full,2014-05-30,2014-06-09,A,,medium,
+8215703,4,18,spouse,BOINGO WIRELESS INC,,sale_full,2014-05-29,2014-06-09,A,,medium,
+8215703,4,19,spouse,DST SYSTEMS INC,,sale_full,2014-05-06,2014-06-09,A,,medium,
+8215703,4,20,spouse,DST SYSTEMS INC,,sale_full,2014-05-05,2014-06-09,A,,medium,
+8215703,4,21,spouse,MAIDEN HOLDINGS LTD,,sale_full,2014-05-02,2014-06-09,A,,medium,
+8215703,4,22,spouse,SUSSER PETROLEUM PARTNERS LP,,sale_full,2014-05-01,2014-06-09,A,,medium,
+8215703,4,23,spouse,SUSSER PETROLEUM PARTNERS LP,,sale_full,,2014-06-09,A,,low,third look: one row in this block has no readable date; put the gap here (B) so the three BLOOMIN rows read 5/29 5/22 5/16 in descending order like other same-name runs; A had 5/29; amount A (last A mark before B block)
+8215703,4,24,spouse,BLOOMIN BRANDS INC,,sale_full,2014-05-29,2014-06-09,B,,low,third look: B reading (A had 5/22)
+8215703,4,25,spouse,BLOOMIN BRANDS INC,,sale_full,2014-05-22,2014-06-09,B,,low,third look: B reading (A had 5/16)
+8215703,4,26,spouse,BLOOMIN BRANDS INC,,sale_full,2014-05-16,2014-06-09,B,,medium,
+8215703,4,27,spouse,DEXCOM INC,,sale_full,2014-05-16,2014-06-09,B,,medium,
+8215703,4,28,spouse,INTERACTIVE INTELLIGENCE GROUPINC,,sale_full,2014-05-16,2014-06-09,B,,low,third look: B reading (5/16); A left date empty
+8215703,4,29,spouse,WOLVERINE WORLD WIDE INC,,sale_full,2014-05-07,2014-06-09,B,,medium,
+8215703,4,30,spouse,TARGET CORP,,sale_full,2014-05-14,2014-06-09,C,,medium,
+8215703,4,31,spouse,DISCOVERY COMMUNICATIONS INC,,sale_full,2014-05-14,2014-06-09,B,,medium,third look: sale (A); purchase column has X only on the last two rows (MONSTER and AMGEN); same on DC copy
+8215703,4,32,spouse,MONSTER BEVERAGE CORP,,purchase,2014-05-14,2014-06-09,B,,medium,
+8215703,4,33,spouse,AMGEN INC,,purchase,2014-05-20,2014-06-09,C,,medium,
+8215703,5,1,spouse,ABBOTT LABS,,purchase,2014-05-21,2014-06-09,C,,high,
+8215703,5,2,spouse,DOLLAR GEN CORP,,sale_full,2014-05-23,2014-06-09,B,,high,
+8215703,5,3,spouse,TJX COS INC NEW,,purchase,2014-05-23,2014-06-09,B,,high,
+8215703,5,4,spouse,EBAY INC,,sale_full,2014-05-30,2014-06-09,B,,high,
+8215703,5,5,spouse,PRECISION CASTPARTS CORP,,purchase,2014-05-30,2014-06-09,B,,high,
+8215703,5,6,spouse,EBAY INC,,sale_full,2014-06-03,2014-06-09,C,,high,
+8215703,5,7,spouse,PRECISION CASTPARTS CORP,,purchase,2014-06-03,2014-06-09,B,,high,
+8215703,5,8,spouse,SWATCH GROUP AG,,sale_full,2014-06-04,2014-06-09,B,,high,
+8215703,5,9,spouse,ABBOTT LABS,,purchase,2014-06-04,2014-06-09,B,,high,
+8215703,5,10,spouse,BANK OF AMERICA CORP,,purchase,2014-05-15,2014-06-09,A,,medium,under header LLM FAMILY INVESTMENTS II LP (4.9863% INTEREST)
+8215703,5,11,spouse,CITIGROUP INC,,purchase,2014-05-15,2014-06-09,A,,medium,
+8215703,5,12,spouse,METLIFE INC,,purchase,2014-05-15,2014-06-09,A,,medium,third look: three 5/15 dates at top of this block; A reading
+8215703,5,13,spouse,QUEST DIAGNOSTICS INC,,purchase,2014-05-21,2014-06-09,A,,medium,third look: A reading (5/21; B had 5/20)
+8215703,5,14,spouse,QUEST DIAGNOSTICS INC,,purchase,2014-05-20,2014-06-09,B,,medium,third look: A reading (5/20; B had 5/14)
+8215703,5,15,spouse,URS CORPORATION,,purchase,2014-05-14,2014-06-09,B,,medium,
+8215703,5,16,spouse,ACTAVIS PLC,,sale_full,2014-05-20,2014-06-09,B,,medium,
+8215703,5,17,spouse,ACTAVIS PLC,,sale_full,2014-05-14,2014-06-09,B,,medium,
+8215703,5,18,spouse,ALCOA INC,,sale_full,2014-05-28,2014-06-09,A,,medium,
+8215703,5,19,spouse,BAKER HUGHES INC,,sale_full,2014-05-15,2014-06-09,B,,medium,
+8215703,6,1,child,BAKER HUGHES INC,,purchase,2014-05-15,2014-06-09,C,,medium,under header LLM FAMILY INVESTMENTS LP (12.8613% INTEREST)
+8215703,6,2,child,DEVON ENERGY CORPORATION,,purchase,2014-05-09,2014-06-09,B,,medium,
+8215703,6,3,child,MARATHON OIL CORP,,purchase,2014-05-09,2014-06-09,B,,medium,
+8215703,6,4,child,OCCIDENTAL PETE CORP,,purchase,2014-05-13,2014-06-09,C,,medium,
+8215703,6,5,child,QEP RESOURCES INC,,purchase,2014-05-29,2014-06-09,C,,medium,
+8215703,6,6,child,OKLAHOMA HSG FIN AGY,,sale_full,2014-05-02,2014-06-09,A,,medium,
+8215703,6,7,child,OHIO HSG FIN AGY SINGLE FAMILY REV,,sale_full,2014-05-01,2014-06-09,A,,medium,
+8215703,6,8,child,ENERGY CONVERSION DEVICES INC,,sale_full,2014-05-13,2014-06-09,A,,medium,
+8215703,6,9,child,CROWLEY TEX INDPT SCH DIST,,purchase,2014-05-23,2014-06-09,B,,medium,
+8215703,6,10,child,UTAH WTR FIN AGY REV,,purchase,2014-05-05,2014-06-09,A,,medium,
+8215703,6,11,child,LAREDO TEX SPORTS VENUE SALES,,purchase,2014-05-01,2014-06-09,B,,medium,
+8215703,6,12,child,HOUSTON TEXAS COMB,,sale_full,2014-05-15,2014-06-09,A,,medium,
+8215703,6,13,child,LOWER COLO RIV AUTH TEX,,sale_full,2014-05-15,2014-06-09,A,,medium,
+8215703,6,14,child,STANLEY WIS WTR SYS REV BANS,,sale_full,2014-05-01,2014-06-09,B,,medium,
+8215703,6,15,child,FORT SMITH ARK SALES & USE,,sale_full,2014-05-01,2014-06-09,A,,low,third look: 30 dates for 31 rows on this copy too; B reading (5/1); A had 5/30
+8215703,6,16,child,CORE LABORATORIES NV,,purchase,2014-05-30,2014-06-09,A,,low,third look: B reading (5/30)
+8215703,6,17,child,CORE LABORATORIES NV,,purchase,2014-05-20,2014-06-09,A,,low,third look: B reading (5/20)
+8215703,6,18,child,DISCOVERY COMMUNICATIONS INC,,purchase,,2014-06-09,A,,low,third look: no readable date; could be 5/20 (A) or 5/6; left empty to match SP page 2
+8215703,6,19,child,WHOLE FOODS MARKET INC,,purchase,2014-05-06,2014-06-09,A,,medium,
+8215703,6,20,child,APPLE INC,,sale_full,2014-05-07,2014-06-09,A,,medium,
+8215703,6,21,child,COSTCO WHOLESALE CORP,,sale_full,2014-05-07,2014-06-09,A,,medium,
+8215703,6,22,child,FLUOR CORP,,sale_full,2014-05-23,2014-06-09,A,,medium,
+8215703,6,23,child,FLUOR CORP,,sale_full,2014-05-20,2014-06-09,A,,medium,
+8215703,6,24,child,SCHLUMBERGER LTD,,sale_full,2014-05-30,2014-06-09,A,,medium,
+8215703,6,25,child,SCHLUMBERGER LTD,,sale_full,2014-05-20,2014-06-09,A,,medium,
+8215703,6,26,child,ENZYMOTEC LTD,,purchase,2014-05-19,2014-06-09,A,,medium,
+8215703,6,27,child,ASTRAZENECA PLC,,sale_full,2014-05-01,2014-06-09,B,,medium,
+8215703,6,28,child,VALEANT PHARMACEUTICALS INTERNATIONAL INC,,purchase,2014-05-29,2014-06-09,B,,medium,
+8215703,6,29,child,VALEANT PHARMACEUTICALS INTERNATIONAL INC,,purchase,2014-05-15,2014-06-09,D,,medium,
+8215703,6,30,child,AON PLC,,sale_full,2014-05-13,2014-06-09,D,,medium,
+8215703,6,31,child,CONSTELLATION BRANDS INC,,sale_full,2014-05-16,2014-06-09,C,,medium,
+8215703,8,1,child,NATIONAL GENERAL HOLDINGS CORP,,purchase,2014-05-22,2014-06-09,A,,medium,continues LLM FAMILY INVESTMENTS LP (12.8613% INTEREST)
+8215703,8,2,child,NATIONAL GENERAL HOLDINGS CORP,,purchase,2014-05-21,2014-06-09,A,,medium,
+8215703,8,3,child,TFS FINANCIAL CORP,,purchase,2014-05-06,2014-06-09,A,,medium,
+8215703,8,4,child,TFS FINANCIAL CORP,,purchase,2014-05-05,2014-06-09,A,,medium,
+8215703,8,5,child,TFS FINANCIAL CORP,,purchase,2014-05-01,2014-06-09,A,,medium,
+8215703,8,6,child,ACADIA HEALTHCARE CO,,purchase,2014-05-30,2014-06-09,A,,medium,
+8215703,8,7,child,HILLENBRAND INC,,purchase,2014-05-29,2014-06-09,B,,medium,
+8215703,8,8,child,HILLENBRAND INC,,purchase,2014-05-13,2014-06-09,B,,medium,
+8215703,8,9,child,JONES LANG LASALLE INC,,purchase,2014-05-29,2014-06-09,B,,medium,
+8215703,8,10,child,LAREDO PETROLEUM INC,,purchase,2014-05-30,2014-06-09,B,,medium,
+8215703,8,11,child,LAREDO PETROLEUM INC,,purchase,2014-05-14,2014-06-09,B,,medium,
+8215703,8,12,child,PERKINELMER INC,,purchase,2014-05-19,2014-06-09,B,,medium,
+8215703,8,13,child,POST HOLDINGS INC,,purchase,2014-05-29,2014-06-09,B,,low,third look: B on first POST row and C on second (B reading); matches SP page 4
+8215703,8,14,child,POST HOLDINGS INC,,purchase,2014-05-22,2014-06-09,C,,low,third look: C (B reading)
+8215703,8,15,child,SAPIENT CORP,,purchase,2014-05-15,2014-06-09,B,,medium,
+8215703,8,16,child,TELEDYNE TECHNOLOGIES INC,,purchase,2014-05-14,2014-06-09,B,,medium,
+8215703,8,17,child,BOINGO WIRELESS INC,,sale_full,2014-05-30,2014-06-09,A,,medium,
+8215703,8,18,child,BOINGO WIRELESS INC,,sale_full,2014-05-29,2014-06-09,A,,medium,
+8215703,8,19,child,DST SYSTEMS INC,,sale_full,2014-05-06,2014-06-09,A,,medium,
+8215703,8,20,child,DST SYSTEMS INC,,sale_full,2014-05-05,2014-06-09,A,,medium,
+8215703,8,21,child,MAIDEN HOLDINGS LTD,,sale_full,2014-05-02,2014-06-09,A,,medium,
+8215703,8,22,child,SUSSER PETROLEUM PARTNERS LP,,sale_full,2014-05-01,2014-06-09,A,,medium,
+8215703,8,23,child,SUSSER PETROLEUM PARTNERS LP,,sale_full,,2014-06-09,A,,low,third look: no readable date for this row (same as SP page 4; A had 5/29 and B 5/1); amount A (last A mark before the B block; A reader had B)
+8215703,8,24,child,BLOOMIN BRANDS INC,,sale_full,2014-05-29,2014-06-09,B,,low,third look: B reading (A had 5/22)
+8215703,8,25,child,BLOOMIN BRANDS INC,,sale_full,2014-05-22,2014-06-09,B,,low,third look: B reading (A had 5/16)
+8215703,8,26,child,BLOOMIN BRANDS INC,,sale_full,2014-05-16,2014-06-09,B,,medium,
+8215703,8,27,child,DEXCOM INC,,sale_full,2014-05-16,2014-06-09,B,,medium,
+8215703,8,28,child,INTERACTIVE INTELLIGENCE GROUPINC,,sale_full,2014-05-16,2014-06-09,B,,low,third look: B reading (5/16); A left date empty
+8215703,8,29,child,WOLVERINE WORLD WIDE INC,,sale_full,2014-05-07,2014-06-09,B,,medium,
+8215703,8,30,child,TARGET CORP,,sale_full,2014-05-14,2014-06-09,D,,medium,
+8215703,8,31,child,DISCOVERY COMMUNICATIONS INC,,sale_full,2014-05-14,2014-06-09,B,,medium,third look: sale (A); purchase X only on MONSTER and AMGEN rows
+8215703,8,32,child,MONSTER BEVERAGE CORP,,purchase,2014-05-14,2014-06-09,B,,medium,
+8215703,8,33,child,AMGEN INC,,purchase,2014-05-20,2014-06-09,D,,medium,
+8215971,3,1,spouse,MFA FINANCIAL INC,,purchase,2014-06-05,2014-07-03,A,,high,continues LLM FAMILY INVESTMENTS LP (12.1945% INTEREST)
+8215971,3,2,spouse,NATIONAL GENERAL HOLDINGS CORP,,purchase,2014-06-05,2014-07-03,A,,high,
+8215971,3,3,spouse,NATIONAL GENERAL HOLDINGS CORP,,purchase,2014-06-06,2014-07-03,A,,high,
+8215971,3,4,spouse,ATLANTIC TELE-NETWORK INC,,purchase,2014-06-09,2014-07-03,A,,high,
+8215971,3,5,spouse,NATIONAL GENERAL HOLDINGS CORP,,purchase,2014-06-09,2014-07-03,A,,medium,third look: date 6/9 (B; A had 6/10)
+8215971,3,6,spouse,ATLANTIC TELE-NETWORK INC,,purchase,2014-06-10,2014-07-03,A,,medium,third look: 30 rows on this page (B); rows sorted by date then name; A missed ATN 6/10 and ATN 6/16
+8215971,3,7,spouse,ATLANTIC TELE-NETWORK INC,,purchase,2014-06-11,2014-07-03,A,,medium,
+8215971,3,8,spouse,ATLANTIC TELE-NETWORK INC,,purchase,2014-06-12,2014-07-03,A,,medium,
+8215971,3,9,spouse,ATLANTIC TELE-NETWORK INC,,purchase,2014-06-13,2014-07-03,A,,medium,
+8215971,3,10,spouse,CULP INC,,purchase,2014-06-13,2014-07-03,A,,medium,third look: 6/13 (B; A had 6/16)
+8215971,3,11,spouse,ATLANTIC TELE-NETWORK INC,,purchase,2014-06-16,2014-07-03,A,,medium,third look: row present (B)
+8215971,3,12,spouse,ATLANTIC TELE-NETWORK INC,,purchase,2014-06-17,2014-07-03,A,,medium,
+8215971,3,13,spouse,CULP INC,,purchase,2014-06-17,2014-07-03,A,,medium,
+8215971,3,14,spouse,MTS SYSTEMS CORP,,purchase,2014-06-17,2014-07-03,A,,medium,
+8215971,3,15,spouse,ATLANTIC TELE-NETWORK INC,,purchase,2014-06-18,2014-07-03,A,,high,
+8215971,3,16,spouse,DESTINATION MATERNITY CORPORATION,,purchase,2014-06-18,2014-07-03,A,,high,
+8215971,3,17,spouse,MONEYGRAM INTERNATIONAL INC,,purchase,2014-06-18,2014-07-03,A,,high,
+8215971,3,18,spouse,ATLANTIC TELE-NETWORK INC,,purchase,2014-06-19,2014-07-03,A,,high,
+8215971,3,19,spouse,DESTINATION MATERNITY CORPORATION,,purchase,2014-06-19,2014-07-03,A,,high,
+8215971,3,20,spouse,MONEYGRAM INTERNATIONAL INC,,purchase,2014-06-19,2014-07-03,A,,high,
+8215971,3,21,spouse,ATLANTIC TELE-NETWORK INC,,purchase,2014-06-20,2014-07-03,A,,high,
+8215971,3,22,spouse,MONEYGRAM INTERNATIONAL INC,,purchase,2014-06-20,2014-07-03,A,,high,
+8215971,3,23,spouse,MCGRATH RENTCORP,,purchase,2014-06-23,2014-07-03,A,,high,
+8215971,3,24,spouse,FARMERS CAPITAL BANK CORP,,purchase,2014-06-24,2014-07-03,A,,medium,
+8215971,3,25,spouse,MCGRATH RENTCORP,,purchase,2014-06-24,2014-07-03,A,,medium,
+8215971,3,26,spouse,AMERICAN CAPITAL LIMITED,,purchase,2014-06-25,2014-07-03,A,,medium,
+8215971,3,27,spouse,ASCENT CAPITAL GROUP INC,,purchase,2014-06-25,2014-07-03,A,,medium,
+8215971,3,28,spouse,ATLANTIC TELE-NETWORK INC,,purchase,2014-06-25,2014-07-03,A,,medium,
+8215971,3,29,spouse,FARMERS CAPITAL BANK CORP,,purchase,2014-06-25,2014-07-03,A,,medium,
+8215971,3,30,spouse,ASCENT CAPITAL GROUP INC,,purchase,2014-06-26,2014-07-03,A,,medium,
+8215971,4,1,spouse,ATLANTIC TELE-NETWORK INC,,purchase,2014-06-26,2014-07-03,A,,medium,continues LLM FAMILY INVESTMENTS LP (12.1945% INTEREST)
+8215971,4,2,spouse,INNOPHOS HOLDINGS INC,,purchase,2014-06-26,2014-07-03,A,,medium,
+8215971,4,3,spouse,KADANT INC,,purchase,2014-06-26,2014-07-03,A,,medium,
+8215971,4,4,spouse,MCGRATH RENTCORP,,purchase,2014-06-26,2014-07-03,A,,medium,
+8215971,4,5,spouse,MTS SYSTEMS CORP,,purchase,2014-06-26,2014-07-03,A,,medium,
+8215971,4,6,spouse,NEENAH PAPER INC,,purchase,2014-06-26,2014-07-03,A,,medium,third look: 6/26 (B); six 6/26 dates then five 6/27 then two 6/30; rows sorted by date then name
+8215971,4,7,spouse,ATLANTIC TELE-NETWORK INC,,purchase,2014-06-27,2014-07-03,A,,medium,
+8215971,4,8,spouse,FARMERS CAPITAL BANK CORP,,purchase,2014-06-27,2014-07-03,A,,medium,
+8215971,4,9,spouse,INNOPHOS HOLDINGS INC,,purchase,2014-06-27,2014-07-03,A,,medium,
+8215971,4,10,spouse,MCGRATH RENTCORP,,purchase,2014-06-27,2014-07-03,A,,medium,
+8215971,4,11,spouse,NEENAH PAPER INC,,purchase,2014-06-27,2014-07-03,A,,medium,third look: 6/27 (B; A had 6/30)
+8215971,4,12,spouse,CTS CORP,,purchase,2014-06-30,2014-07-03,A,,medium,
+8215971,4,13,spouse,DESTINATION MATERNITY CORPORATION,,purchase,2014-06-30,2014-07-03,A,,medium,
+8215971,4,14,spouse,BANCORPSOUTH INC,,purchase,2014-06-02,2014-07-03,B,,medium,
+8215971,4,15,spouse,ACADIA HEALTHCARE CO,,purchase,2014-06-17,2014-07-03,A,,medium,
+8215971,4,16,spouse,CHART INDUSTRIES INC,,purchase,2014-06-17,2014-07-03,B,,medium,
+8215971,4,17,spouse,DEXCOM INC,,purchase,2014-06-17,2014-07-03,A,,medium,
+8215971,4,18,spouse,INTERACTIVE INTELLIGENCE GROUP,,purchase,2014-06-17,2014-07-03,A,,medium,
+8215971,4,19,spouse,MEMORIAL RESOURCE DEVELOPMENT CORP,,purchase,2014-06-18,2014-07-03,C,,medium,
+8215971,4,20,spouse,INTERACTIVE INTELLIGENCE GROUP,,purchase,2014-06-19,2014-07-03,A,,medium,
+8215971,4,21,spouse,INTERACTIVE INTELLIGENCE GROUP,,purchase,2014-06-23,2014-07-03,C,,medium,
+8215971,4,22,spouse,BOINGO WIRELESS INC,,sale_full,2014-06-03,2014-07-03,A,,medium,
+8215971,4,23,spouse,KEMPER CORP,,sale_full,2014-06-04,2014-07-03,A,,medium,
+8215971,4,24,spouse,BOINGO WIRELESS INC,,sale_full,2014-06-05,2014-07-03,A,,medium,
+8215971,4,25,spouse,CYS INVESTMENTS INC,,sale_full,2014-06-05,2014-07-03,A,,medium,
+8215971,4,26,spouse,KEMPER CORP,,sale_full,2014-06-05,2014-07-03,A,,medium,
+8215971,4,27,spouse,BOINGO WIRELESS INC,,sale_full,2014-06-06,2014-07-03,A,,medium,
+8215971,4,28,spouse,BOINGO WIRELESS INC,,sale_full,2014-06-10,2014-07-03,A,,medium,
+8215971,4,29,spouse,BOINGO WIRELESS INC,,sale_full,2014-06-13,2014-07-03,A,,medium,
+8215971,4,30,spouse,BOINGO WIRELESS INC,,sale_full,2014-06-17,2014-07-03,A,,medium,
+8215971,4,31,spouse,CORE MARK HOLDING CO,,sale_full,2014-06-17,2014-07-03,A,,medium,
+8215971,4,32,spouse,ECHOSTAR CORPORATION,,sale_full,2014-06-17,2014-07-03,A,,medium,
+8215971,4,33,spouse,KEMPER CORP,,sale_full,2014-06-17,2014-07-03,A,,medium,
+8215971,8,1,child,MFA FINANCIAL INC,,purchase,2014-06-05,2014-07-03,A,,high,continues LLM FAMILY INVESTMENTS LP (13.0496% INTEREST)
+8215971,8,2,child,NATIONAL GENERAL HOLDINGS CORP,,purchase,2014-06-05,2014-07-03,A,,high,
+8215971,8,3,child,NATIONAL GENERAL HOLDINGS CORP,,purchase,2014-06-06,2014-07-03,A,,high,
+8215971,8,4,child,ATLANTIC TELE-NETWORK INC,,purchase,2014-06-09,2014-07-03,A,,high,
+8215971,8,5,child,NATIONAL GENERAL HOLDINGS CORP,,purchase,2014-06-09,2014-07-03,A,,medium,third look: 6/9 (B; A had 6/10)
+8215971,8,6,child,ATLANTIC TELE-NETWORK INC,,purchase,2014-06-10,2014-07-03,A,,medium,third look: 30 rows (B); matches SP page 3
+8215971,8,7,child,ATLANTIC TELE-NETWORK INC,,purchase,2014-06-11,2014-07-03,A,,medium,
+8215971,8,8,child,ATLANTIC TELE-NETWORK INC,,purchase,2014-06-12,2014-07-03,A,,medium,
+8215971,8,9,child,ATLANTIC TELE-NETWORK INC,,purchase,2014-06-13,2014-07-03,A,,medium,
+8215971,8,10,child,CULP INC,,purchase,2014-06-13,2014-07-03,A,,medium,third look: 6/13 (B)
+8215971,8,11,child,ATLANTIC TELE-NETWORK INC,,purchase,2014-06-16,2014-07-03,A,,medium,third look: row present (B)
+8215971,8,12,child,ATLANTIC TELE-NETWORK INC,,purchase,2014-06-17,2014-07-03,A,,medium,
+8215971,8,13,child,CULP INC,,purchase,2014-06-17,2014-07-03,A,,medium,
+8215971,8,14,child,MTS SYSTEMS CORP,,purchase,2014-06-17,2014-07-03,A,,medium,
+8215971,8,15,child,ATLANTIC TELE-NETWORK INC,,purchase,2014-06-18,2014-07-03,A,,high,
+8215971,8,16,child,DESTINATION MATERNITY CORPORATION,,purchase,2014-06-18,2014-07-03,A,,high,
+8215971,8,17,child,MONEYGRAM INTERNATIONAL INC,,purchase,2014-06-18,2014-07-03,A,,high,
+8215971,8,18,child,ATLANTIC TELE-NETWORK INC,,purchase,2014-06-19,2014-07-03,A,,high,
+8215971,8,19,child,DESTINATION MATERNITY CORPORATION,,purchase,2014-06-19,2014-07-03,A,,high,
+8215971,8,20,child,MONEYGRAM INTERNATIONAL INC,,purchase,2014-06-19,2014-07-03,A,,high,
+8215971,8,21,child,ATLANTIC TELE-NETWORK INC,,purchase,2014-06-20,2014-07-03,A,,high,
+8215971,8,22,child,MONEYGRAM INTERNATIONAL INC,,purchase,2014-06-20,2014-07-03,A,,high,
+8215971,8,23,child,MCGRATH RENTCORP,,purchase,2014-06-23,2014-07-03,A,,high,
+8215971,8,24,child,FARMERS CAPITAL BANK CORP,,purchase,2014-06-24,2014-07-03,A,,medium,
+8215971,8,25,child,MCGRATH RENTCORP,,purchase,2014-06-24,2014-07-03,A,,medium,
+8215971,8,26,child,AMERICAN CAPITAL LIMITED,,purchase,2014-06-25,2014-07-03,A,,medium,
+8215971,8,27,child,ASCENT CAPITAL GROUP INC,,purchase,2014-06-25,2014-07-03,A,,medium,
+8215971,8,28,child,ATLANTIC TELE-NETWORK INC,,purchase,2014-06-25,2014-07-03,A,,medium,
+8215971,8,29,child,FARMERS CAPITAL BANK CORP,,purchase,2014-06-25,2014-07-03,A,,medium,
+8215971,8,30,child,ASCENT CAPITAL GROUP INC,,purchase,2014-06-26,2014-07-03,A,,medium,
+8215971,9,1,child,ATLANTIC TELE-NETWORK INC,,purchase,2014-06-26,2014-07-03,A,,medium,continues LLM FAMILY INVESTMENTS LP (13.0496% INTEREST)
+8215971,9,2,child,INNOPHOS HOLDINGS INC,,purchase,2014-06-26,2014-07-03,A,,medium,
+8215971,9,3,child,KADANT INC,,purchase,2014-06-26,2014-07-03,A,,medium,
+8215971,9,4,child,MCGRATH RENTCORP,,purchase,2014-06-26,2014-07-03,A,,medium,
+8215971,9,5,child,MTS SYSTEMS CORP,,purchase,2014-06-26,2014-07-03,A,,medium,
+8215971,9,6,child,NEENAH PAPER INC,,purchase,2014-06-26,2014-07-03,A,,medium,third look: 6/26 (B); six 6/26 then five 6/27 then two 6/30
+8215971,9,7,child,ATLANTIC TELE-NETWORK INC,,purchase,2014-06-27,2014-07-03,A,,medium,
+8215971,9,8,child,FARMERS CAPITAL BANK CORP,,purchase,2014-06-27,2014-07-03,A,,medium,
+8215971,9,9,child,INNOPHOS HOLDINGS INC,,purchase,2014-06-27,2014-07-03,A,,medium,
+8215971,9,10,child,MCGRATH RENTCORP,,purchase,2014-06-27,2014-07-03,A,,medium,
+8215971,9,11,child,NEENAH PAPER INC,,purchase,2014-06-27,2014-07-03,A,,medium,third look: 6/27 (B; A had 6/30)
+8215971,9,12,child,CTS CORP,,purchase,2014-06-30,2014-07-03,A,,medium,
+8215971,9,13,child,DESTINATION MATERNITY CORPORATION,,purchase,2014-06-30,2014-07-03,A,,medium,
+8215971,9,14,child,BANCORPSOUTH INC,,purchase,2014-06-02,2014-07-03,B,,medium,
+8215971,9,15,child,ACADIA HEALTHCARE CO,,purchase,2014-06-17,2014-07-03,A,,medium,
+8215971,9,16,child,CHART INDUSTRIES INC,,purchase,2014-06-17,2014-07-03,B,,medium,
+8215971,9,17,child,DEXCOM INC,,purchase,2014-06-17,2014-07-03,B,,medium,
+8215971,9,18,child,INTERACTIVE INTELLIGENCE GROUP,,purchase,2014-06-17,2014-07-03,A,,medium,
+8215971,9,19,child,MEMORIAL RESOURCE DEVELOPMENT CORP,,purchase,2014-06-18,2014-07-03,C,,medium,
+8215971,9,20,child,INTERACTIVE INTELLIGENCE GROUP,,purchase,2014-06-19,2014-07-03,A,,medium,
+8215971,9,21,child,INTERACTIVE INTELLIGENCE GROUP,,purchase,2014-06-23,2014-07-03,C,,medium,
+8215971,9,22,child,BOINGO WIRELESS INC,,sale_full,2014-06-03,2014-07-03,A,,medium,
+8215971,9,23,child,KEMPER CORP,,sale_full,2014-06-04,2014-07-03,A,,medium,
+8215971,9,24,child,BOINGO WIRELESS INC,,sale_full,2014-06-05,2014-07-03,A,,medium,
+8215971,9,25,child,CYS INVESTMENTS INC,,sale_full,2014-06-05,2014-07-03,A,,medium,
+8215971,9,26,child,KEMPER CORP,,sale_full,2014-06-05,2014-07-03,A,,medium,
+8215971,9,27,child,BOINGO WIRELESS INC,,sale_full,2014-06-06,2014-07-03,A,,medium,
+8215971,9,28,child,BOINGO WIRELESS INC,,sale_full,2014-06-10,2014-07-03,A,,medium,
+8215971,9,29,child,BOINGO WIRELESS INC,,sale_full,2014-06-13,2014-07-03,A,,medium,
+8215971,9,30,child,BOINGO WIRELESS INC,,sale_full,2014-06-17,2014-07-03,A,,medium,
+8215971,9,31,child,CORE MARK HOLDING CO,,sale_full,2014-06-17,2014-07-03,A,,medium,
+8215971,9,32,child,ECHOSTAR CORPORATION,,sale_full,2014-06-17,2014-07-03,A,,medium,
+8215971,9,33,child,KEMPER CORP,,sale_full,2014-06-17,2014-07-03,A,,medium,
+8216381,2,1,spouse,DALLAS TEX GO BDS,,purchase,2014-07-25,2014-08-07,C,,medium,under header LLM FAMILY INVESTMENTS LP (12.1940% INTEREST)
+8216381,2,2,spouse,TWENTY FIRST CENTURY FOX INC,,purchase,2014-07-28,2014-08-07,B,,medium,
+8216381,2,3,spouse,GANNETT CO INC,,purchase,2014-07-28,2014-08-07,B,,medium,
+8216381,2,4,spouse,ALIGN TECHNOLOGY INC,,purchase,2014-07-29,2014-08-07,B,,medium,
+8216381,2,5,spouse,DEXCOM INC,,purchase,2014-07-01,2014-08-07,B,,medium,
+8216381,2,6,spouse,PACE PLC,,purchase,2014-07-11,2014-08-07,A,,medium,
+8216381,2,7,spouse,FASTENAL CO,,purchase,2014-07-14,2014-08-07,A,,medium,
+8216381,2,8,spouse,DISCOVERY COMMUNICATIONS INC,,purchase,2014-07-09,2014-08-07,A,,medium,
+8216381,2,9,spouse,QUALCOMM INC,,purchase,2014-07-30,2014-08-07,A,,medium,
+8216381,2,10,spouse,ANSYS INC,,purchase,2014-07-30,2014-08-07,A,,medium,
+8216381,2,11,spouse,FASTENAL CO,,purchase,2014-07-29,2014-08-07,A,,medium,
+8216381,2,12,spouse,ATLANTIC TELE-NETWORK INC,,purchase,2014-07-21,2014-08-07,A,,medium,
+8216381,2,13,spouse,NORTHSTAR ASSET MGMT GROUP INC,,purchase,2014-07-02,2014-08-07,A,,medium,
+8216381,2,14,spouse,FARMERS CAPITAL BANK CORP,,purchase,2014-07-16,2014-08-07,A,,medium,
+8216381,2,15,spouse,MCGRATH RENTCORP,,purchase,2014-07-07,2014-08-07,A,,medium,
+8216381,2,16,spouse,MCGRATH RENTCORP,,purchase,2014-07-15,2014-08-07,A,,medium,
+8216381,2,17,spouse,NORTHSTAR ASSET MGMT GROUP INC,,purchase,2014-07-01,2014-08-07,A,,medium,
+8216381,2,18,spouse,MCGRATH RENTCORP,,purchase,2014-07-17,2014-08-07,A,,medium,
+8216381,2,19,spouse,MCGRATH RENTCORP,,purchase,2014-07-21,2014-08-07,A,,medium,
+8216381,2,20,spouse,FARMERS CAPITAL BANK CORP,,purchase,2014-07-01,2014-08-07,A,,medium,
+8216381,2,21,spouse,MCGRATH RENTCORP,,purchase,2014-07-10,2014-08-07,A,,medium,
+8216381,2,22,spouse,CTS CORP,,purchase,2014-07-02,2014-08-07,A,,medium,
+8216381,2,23,spouse,MCGRATH RENTCORP,,purchase,2014-07-11,2014-08-07,A,,medium,
+8216381,2,24,spouse,CTS CORP,,purchase,2014-07-08,2014-08-07,A,,medium,
+8216381,2,25,spouse,CTS CORP,,purchase,2014-07-31,2014-08-07,A,,medium,
+8216381,2,26,spouse,CTS CORP,,purchase,2014-07-07,2014-08-07,A,,medium,
+8216381,2,27,spouse,CTS CORP,,purchase,2014-07-29,2014-08-07,A,,medium,
+8216381,2,28,spouse,ATLANTIC TELE-NETWORK INC,,purchase,2014-07-07,2014-08-07,A,,medium,
+8216381,2,29,spouse,DESTINATION MATERNITY CORPORATION,,purchase,2014-07-07,2014-08-07,A,,medium,third look: 37 rows on this page (B); every full page of this filing holds 38 lines (header + 37 here) as on page 5; A missed one CTS row so its dates 29-36 are shifted; B dates match DC page 6
+8216381,2,30,spouse,CTS CORP,,purchase,2014-07-17,2014-08-07,A,,medium,third look: B reading (A had 07-02)
+8216381,2,31,spouse,ATLANTIC TELE-NETWORK INC,,purchase,2014-07-02,2014-08-07,A,,medium,third look: B reading (A had 07-24)
+8216381,2,32,spouse,MCGRATH RENTCORP,,purchase,2014-07-24,2014-08-07,A,,medium,third look: B reading (A had 07-10)
+8216381,2,33,spouse,CTS CORP,,purchase,2014-07-10,2014-08-07,A,,medium,third look: B reading (A had 07-07)
+8216381,2,34,spouse,FARMERS CAPITAL BANK CORP,,purchase,2014-07-07,2014-08-07,A,,medium,third look: B reading (A had 07-16)
+8216381,2,35,spouse,MCGRATH RENTCORP,,purchase,2014-07-16,2014-08-07,A,,medium,
+8216381,2,36,spouse,CTS CORP,,purchase,2014-07-16,2014-08-07,A,,medium,third look: extra CTS row (B); A did not have it
+8216381,2,37,spouse,CTS CORP,,purchase,2014-07-24,2014-08-07,A,,medium,
+8216381,3,1,spouse,MCGRATH RENTCORP,,purchase,2014-07-08,2014-08-07,A,,medium,continues LLM FAMILY INVESTMENTS LP (12.1940% INTEREST)
+8216381,3,2,spouse,CTS CORP,,purchase,2014-07-15,2014-08-07,A,,medium,
+8216381,3,3,spouse,CTS CORP,,purchase,2014-07-01,2014-08-07,A,,medium,
+8216381,3,4,spouse,MCGRATH RENTCORP,,purchase,2014-07-14,2014-08-07,A,,medium,
+8216381,3,5,spouse,FARMERS CAPITAL BANK CORP,,purchase,2014-07-08,2014-08-07,A,,medium,
+8216381,3,6,spouse,CTS CORP,,purchase,2014-07-11,2014-08-07,A,,medium,
+8216381,3,7,spouse,FARMERS CAPITAL BANK CORP,,purchase,2014-07-24,2014-08-07,A,,medium,
+8216381,3,8,spouse,CTS CORP,,purchase,2014-07-28,2014-08-07,A,,medium,
+8216381,3,9,spouse,CTS CORP,,purchase,2014-07-25,2014-08-07,A,,medium,
+8216381,3,10,spouse,MCGRATH RENTCORP,,purchase,2014-07-22,2014-08-07,A,,medium,
+8216381,3,11,spouse,CTS CORP,,purchase,2014-07-14,2014-08-07,A,,medium,
+8216381,3,12,spouse,DESTINATION MATERNITY CORPORATION,,purchase,2014-07-02,2014-08-07,A,,medium,
+8216381,3,13,spouse,CTS CORP,,purchase,2014-07-09,2014-08-07,A,,medium,
+8216381,3,14,spouse,CTS CORP,,purchase,2014-07-30,2014-08-07,A,,medium,
+8216381,3,15,spouse,MCGRATH RENTCORP,,purchase,2014-07-09,2014-08-07,A,,medium,
+8216381,3,16,spouse,ATLANTIC TELE-NETWORK INC,,purchase,2014-07-03,2014-08-07,A,,medium,
+8216381,3,17,spouse,DESTINATION MATERNITY CORPORATION,,purchase,2014-07-03,2014-08-07,A,,medium,third look: 38 rows on this page (B); 07-03 (A had 07-09); DC page 7 shows the same sequence 03 03 09 23 22 03 02
+8216381,3,18,spouse,FARMERS CAPITAL BANK CORP,,purchase,2014-07-09,2014-08-07,A,,medium,third look: B reading (A had 07-23)
+8216381,3,19,spouse,MCGRATH RENTCORP,,purchase,2014-07-23,2014-08-07,A,,medium,third look: B reading (A had 07-22)
+8216381,3,20,spouse,FARMERS CAPITAL BANK CORP,,purchase,2014-07-22,2014-08-07,A,,medium,third look: B reading (A had 07-03)
+8216381,3,21,spouse,CTS CORP,,purchase,2014-07-03,2014-08-07,A,,medium,third look: B reading (A had 07-02)
+8216381,3,22,spouse,FARMERS CAPITAL BANK CORP,,purchase,2014-07-02,2014-08-07,A,,medium,third look: five FARMERS rows after CTS (B); A had four
+8216381,3,23,spouse,FARMERS CAPITAL BANK CORP,,purchase,2014-07-29,2014-08-07,A,,medium,
+8216381,3,24,spouse,FARMERS CAPITAL BANK CORP,,purchase,2014-07-14,2014-08-07,A,,medium,
+8216381,3,25,spouse,FARMERS CAPITAL BANK CORP,,purchase,2014-07-23,2014-08-07,A,,medium,
+8216381,3,26,spouse,FARMERS CAPITAL BANK CORP,,purchase,2014-07-25,2014-08-07,A,,medium,
+8216381,3,27,spouse,MCGRATH RENTCORP,,purchase,2014-07-01,2014-08-07,A,,medium,
+8216381,3,28,spouse,MCGRATH RENTCORP,,purchase,2014-07-02,2014-08-07,A,,medium,
+8216381,3,29,spouse,FARMERS CAPITAL BANK CORP,,purchase,2014-07-28,2014-08-07,A,,medium,
+8216381,3,30,spouse,GFI GROUP INC,,sale_full,2014-07-23,2014-08-07,A,,medium,
+8216381,3,31,spouse,GFI GROUP INC,,sale_full,2014-07-16,2014-08-07,A,,medium,
+8216381,3,32,spouse,GFI GROUP INC,,sale_full,2014-07-21,2014-08-07,A,,medium,
+8216381,3,33,spouse,GFI GROUP INC,,sale_full,2014-07-24,2014-08-07,A,,medium,
+8216381,3,34,spouse,GFI GROUP INC,,sale_full,2014-07-25,2014-08-07,A,,medium,
+8216381,3,35,spouse,CORE MARK HOLDING CO,,sale_full,2014-07-03,2014-08-07,A,,medium,
+8216381,3,36,spouse,GFI GROUP INC,,sale_full,2014-07-17,2014-08-07,A,,medium,
+8216381,3,37,spouse,OKLAHOMA HSG FIN AGY,,sale_full,2014-07-09,2014-08-07,A,,medium,
+8216381,3,38,spouse,ORBCOMM INC,,sale_full,2014-07-15,2014-08-07,A,,medium,
+8216381,4,1,spouse,GFI GROUP INC,,sale_full,2014-07-28,2014-08-07,A,,medium,continues LLM FAMILY INVESTMENTS LP (12.1940% INTEREST)
+8216381,4,2,spouse,CORE MARK HOLDING CO,,sale_full,2014-07-01,2014-08-07,A,,medium,
+8216381,4,3,spouse,ORBCOMM INC,,sale_full,2014-07-14,2014-08-07,A,,medium,
+8216381,4,4,spouse,RIGNET INC,,sale_full,2014-07-24,2014-08-07,A,,medium,
+8216381,4,5,spouse,RIGNET INC,,sale_full,2014-07-29,2014-08-07,A,,medium,
+8216381,4,6,spouse,AMPHENOL CORP,,sale_full,2014-07-25,2014-08-07,A,,low,date reads 25-Jul here; DC copy page 7 appears to read 29-Jul
+8216381,4,7,spouse,FLUOR CORP,,sale_full,2014-07-30,2014-08-07,A,,medium,
+8216381,4,8,spouse,FLORIDA HSG FIN CORP,,sale_full,2014-07-15,2014-08-07,A,,medium,
+8216381,4,9,spouse,NORTHSTAR RLTY FIN CORP,,sale_full,2014-07-01,2014-08-07,A,,medium,
+8216381,4,10,spouse,NORTHSTAR RLTY FIN CORP,,sale_full,2014-07-09,2014-08-07,A,,medium,third look: 38 rows on this page (B); second NORTHSTAR row before SCHLUMBERGER present; A had SCHLUMBERGER 07-09 here
+8216381,4,11,spouse,SCHLUMBERGER LTD,,sale_full,2014-07-25,2014-08-07,A,,medium,third look: B reading (A had 07-09)
+8216381,4,12,spouse,PETROLEO BRASILEIRO SA,,sale_full,2014-07-02,2014-08-07,A,,medium,third look: B reading (A had 07-25)
+8216381,4,13,spouse,NORTHSTAR RLTY FIN CORP,,sale_full,2014-07-28,2014-08-07,B,,medium,third look: B reading (A had 07-02)
+8216381,4,14,spouse,HEXCEL CORP,,sale_full,2014-07-28,2014-08-07,B,,medium,
+8216381,4,15,spouse,LOUISVILLE & JEFFERSON CNTY,,sale_full,2014-07-28,2014-08-07,B,,medium,
+8216381,4,16,spouse,OASIS PETROLEUM INC,,sale_full,2014-07-16,2014-08-07,B,,medium,
+8216381,4,17,spouse,WESCO INTERNATIONAL INC,,sale_full,2014-07-11,2014-08-07,B,,medium,
+8216381,4,18,spouse,DR HORTON INC,,sale_full,2014-07-28,2014-08-07,B,,medium,
+8216381,4,19,spouse,E TRADE FINANCIAL CORPORATION,,sale_full,2014-07-28,2014-08-07,C,,low,third look: C (B); 12 A marks and 6 B marks precede the 5-row C block in the 38-row layout; A had B
+8216381,4,20,spouse,INTERACTIVE INTELLIGENCE GROUP,,sale_full,2014-07-16,2014-08-07,C,,medium,
+8216381,4,21,spouse,FMC CORP,,sale_full,2014-07-16,2014-08-07,C,,medium,
+8216381,4,22,spouse,FIDELITY NATIONAL INFORMATION SERVICES INC,,sale_full,2014-07-15,2014-08-07,C,,medium,third look: sale (A); X is in the sale column and purchases start on the next row (date format also changes there); same on DC page 8
+8216381,4,23,spouse,PRECISION CASTPARTS CORP,,purchase,2014-07-10,2014-08-07,C,,medium,
+8216381,4,24,spouse,PRECISION CASTPARTS CORP,,purchase,2014-07-29,2014-08-07,B,,low,third look: B (B reading; A had C)
+8216381,4,25,spouse,DISCOVERY COMMUNICATIONS INC,,purchase,2014-07-25,2014-08-07,B,,medium,
+8216381,4,26,spouse,ABBOTT LABS,,purchase,2014-07-22,2014-08-07,B,,medium,
+8216381,4,27,spouse,PRECISION CASTPARTS CORP,,purchase,2014-07-30,2014-08-07,B,,medium,
+8216381,4,28,spouse,PERRIGO CO,,purchase,2014-07-01,2014-08-07,B,,medium,
+8216381,4,29,spouse,STARBUCKS CORP,,purchase,2014-07-21,2014-08-07,B,,medium,
+8216381,4,30,spouse,UNITED TECHNOLOGIES CORP,,purchase,2014-07-16,2014-08-07,B,,medium,
+8216381,4,31,spouse,YUM BRANDS INC,,purchase,2014-07-28,2014-08-07,B,,low,date could be 07-23-2014 (DC copy reads 07-23)
+8216381,4,32,spouse,EATON CORP PLC,,purchase,2014-07-21,2014-08-07,B,,medium,
+8216381,4,33,spouse,BIOGEN IDEC INC,,purchase,2014-07-28,2014-08-07,B,,medium,
+8216381,4,34,spouse,PRICELINE GROUP INC,,purchase,2014-07-02,2014-08-07,B,,medium,
+8216381,4,35,spouse,PFLUGERVILLE TEX INDPT SCH DIS,,purchase,2014-07-08,2014-08-07,B,,medium,
+8216381,4,36,spouse,VERMONT MUN BD BK,,purchase,2014-07-31,2014-08-07,B,,medium,
+8216381,4,37,spouse,VIA MET TRAN ADVANCED TRANSN D,,purchase,2014-07-30,2014-08-07,B,,medium,
+8216381,4,38,spouse,DU PONT E I DE NEMOURS & CO,,purchase,2014-07-17,2014-08-07,B,,medium,
+8216381,5,1,spouse,SCHLUMBERGER LTD,,sale_full,2014-07-15,2014-08-07,B,,medium,continues LLM FAMILY INVESTMENTS LP (12.1940% INTEREST)
+8216381,5,2,spouse,DOMINION RES INC VA NEW,,sale_full,2014-07-11,2014-08-07,B,,medium,
+8216381,5,3,spouse,OKLAHOMA CITY OKLA WTR UTILS T,,sale_full,2014-07-01,2014-08-07,B,,medium,
+8216381,5,4,spouse,MERCK & CO INC,,sale_full,2014-07-14,2014-08-07,B,,medium,
+8216381,5,5,spouse,YUM BRANDS INC,,sale_full,2014-07-10,2014-08-07,B,,medium,
+8216381,5,6,spouse,MONSANTO CO,,sale_full,2014-07-30,2014-08-07,B,,low,third look: B (A); C column has only two marks here (TIME WARNER and ECOLAB) and D on the last TIME WARNER; B reader had C
+8216381,5,7,spouse,TIME WARNER INC,,sale_full,2014-07-28,2014-08-07,C,,medium,DC copy shows 07-29 for this row
+8216381,5,8,spouse,ECOLAB INC,,sale_full,2014-07-01,2014-08-07,C,,medium,third look: C (A); B reader saw no mark
+8216381,5,9,spouse,TIME WARNER INC,,sale_full,2014-07-21,2014-08-07,D,,medium,
+8216381,5,10,spouse,QUEST DIAGNOSTICS INC,,purchase,2014-07-25,2014-08-07,B,,medium,under header LLM FAMILY INVESTMENTS II LP (4.9863% INTEREST)
+8216381,5,11,spouse,QUEST DIAGNOSTICS INC,,purchase,2014-07-07,2014-08-07,B,,medium,
+8216381,5,12,spouse,URS CORPORATION,,purchase,2014-07-14,2014-08-07,A,,medium,
+8216381,5,13,spouse,DUN & BRADSTREET CORP,,purchase,2014-07-07,2014-08-07,A,,medium,
+8216381,5,14,spouse,METLIFE INC,,purchase,2014-07-31,2014-08-07,A,,medium,
+8216381,5,15,spouse,ROWAN COMPANIES,,purchase,2014-07-03,2014-08-07,A,,medium,
+8216381,5,16,spouse,QUEST DIAGNOSTICS INC,,purchase,2014-07-28,2014-08-07,A,,medium,
+8216381,5,17,spouse,QUEST DIAGNOSTICS INC,,purchase,2014-07-03,2014-08-07,A,,medium,
+8216381,5,18,spouse,ROWAN COMPANIES,,purchase,2014-07-07,2014-08-07,A,,medium,
+8216381,5,19,spouse,DUN & BRADSTREET CORP,,purchase,2014-07-03,2014-08-07,A,,medium,third look: purchase (A); last purchase X before the sale block starting at XEROX
+8216381,5,20,spouse,XEROX CORP,,sale_full,2014-07-03,2014-08-07,B,,medium,
+8216381,5,21,spouse,AETNA INC,,sale_full,2014-07-07,2014-08-07,B,,medium,
+8216381,5,22,spouse,XEROX CORP,,sale_full,,2014-08-07,B,,low,third look: no legible transaction date in this cell (both readers saw one date fewer than rows; B guessed 07-07); amount B (B) rather than C (A); only one C mark (BAXTER) seen in this block
+8216381,5,23,spouse,BAXTER INTERNATIONAL INC,,sale_full,2014-07-25,2014-08-07,C,,medium,
+8216381,5,24,child,DALLAS TEX GO BDS,,purchase,2014-07-25,2014-08-07,C,,medium,under header LLM FAMILY INVESTMENTS LP (13.0478% INTEREST)
+8216381,5,25,child,TWENTY FIRST CENTURY FOX INC,,purchase,2014-07-28,2014-08-07,C,,medium,
+8216381,5,26,child,GANNETT CO INC,,purchase,2014-07-28,2014-08-07,B,,medium,
+8216381,5,27,child,ALIGN TECHNOLOGY INC,,purchase,2014-07-29,2014-08-07,B,,medium,
+8216381,5,28,child,DEXCOM INC,,purchase,2014-07-01,2014-08-07,B,,medium,
+8216381,5,29,child,PACE PLC,,purchase,2014-07-11,2014-08-07,B,,low,third look: B (A reader); A-column marks start on the next row (FASTENAL) and run 7 rows to the end; B reader had A; SP copy has A
+8216381,5,30,child,FASTENAL CO,,purchase,2014-07-14,2014-08-07,A,,medium,
+8216381,5,31,child,DISCOVERY COMMUNICATIONS INC,,purchase,2014-07-09,2014-08-07,A,,medium,
+8216381,5,32,child,QUALCOMM INC,,purchase,2014-07-30,2014-08-07,A,,medium,
+8216381,5,33,child,ANSYS INC,,purchase,2014-07-30,2014-08-07,A,,medium,
+8216381,5,34,child,FASTENAL CO,,purchase,2014-07-29,2014-08-07,A,,medium,
+8216381,5,35,child,ATLANTIC TELE-NETWORK INC,,purchase,2014-07-21,2014-08-07,A,,medium,
+8216381,5,36,child,NORTHSTAR ASSET MGMT GROUP INC,,purchase,2014-07-02,2014-08-07,A,,medium,
+8216381,6,1,child,FARMERS CAPITAL BANK CORP,,purchase,2014-07-16,2014-08-07,A,,medium,continues LLM FAMILY INVESTMENTS LP (13.0478% INTEREST)
+8216381,6,2,child,MCGRATH RENTCORP,,purchase,2014-07-07,2014-08-07,A,,medium,
+8216381,6,3,child,MCGRATH RENTCORP,,purchase,2014-07-15,2014-08-07,A,,medium,
+8216381,6,4,child,NORTHSTAR ASSET MGMT GROUP INC,,purchase,2014-07-01,2014-08-07,A,,medium,
+8216381,6,5,child,MCGRATH RENTCORP,,purchase,2014-07-17,2014-08-07,A,,medium,
+8216381,6,6,child,MCGRATH RENTCORP,,purchase,2014-07-21,2014-08-07,A,,medium,
+8216381,6,7,child,FARMERS CAPITAL BANK CORP,,purchase,2014-07-01,2014-08-07,A,,medium,
+8216381,6,8,child,MCGRATH RENTCORP,,purchase,2014-07-10,2014-08-07,A,,medium,
+8216381,6,9,child,CTS CORP,,purchase,2014-07-02,2014-08-07,A,,medium,
+8216381,6,10,child,MCGRATH RENTCORP,,purchase,2014-07-11,2014-08-07,A,,medium,
+8216381,6,11,child,CTS CORP,,purchase,2014-07-08,2014-08-07,A,,medium,
+8216381,6,12,child,CTS CORP,,purchase,2014-07-31,2014-08-07,A,,medium,
+8216381,6,13,child,CTS CORP,,purchase,2014-07-07,2014-08-07,A,,medium,
+8216381,6,14,child,CTS CORP,,purchase,2014-07-29,2014-08-07,A,,medium,
+8216381,6,15,child,ATLANTIC TELE-NETWORK INC,,purchase,2014-07-07,2014-08-07,A,,medium,
+8216381,6,16,child,DESTINATION MATERNITY CORPORATION,,purchase,2014-07-07,2014-08-07,A,,medium,third look: 38 rows on this page (B); full pages hold 38 lines; B dates match SP page 2; A missed one CTS row so its dates 16-21 are shifted
+8216381,6,17,child,CTS CORP,,purchase,2014-07-17,2014-08-07,A,,medium,third look: B reading (A had 07-02)
+8216381,6,18,child,ATLANTIC TELE-NETWORK INC,,purchase,2014-07-02,2014-08-07,A,,medium,third look: B reading (A had 07-24)
+8216381,6,19,child,MCGRATH RENTCORP,,purchase,2014-07-24,2014-08-07,A,,medium,third look: B reading (A had 07-10)
+8216381,6,20,child,CTS CORP,,purchase,2014-07-10,2014-08-07,A,,medium,third look: B reading (A had 07-07)
+8216381,6,21,child,FARMERS CAPITAL BANK CORP,,purchase,2014-07-07,2014-08-07,A,,medium,third look: B reading (A had 07-16)
+8216381,6,22,child,MCGRATH RENTCORP,,purchase,2014-07-16,2014-08-07,A,,medium,
+8216381,6,23,child,CTS CORP,,purchase,2014-07-16,2014-08-07,A,,medium,third look: extra CTS row (B); A did not have it
+8216381,6,24,child,CTS CORP,,purchase,2014-07-24,2014-08-07,A,,medium,
+8216381,6,25,child,MCGRATH RENTCORP,,purchase,2014-07-08,2014-08-07,A,,medium,
+8216381,6,26,child,CTS CORP,,purchase,2014-07-15,2014-08-07,A,,medium,
+8216381,6,27,child,CTS CORP,,purchase,2014-07-01,2014-08-07,A,,medium,
+8216381,6,28,child,MCGRATH RENTCORP,,purchase,2014-07-14,2014-08-07,A,,medium,
+8216381,6,29,child,FARMERS CAPITAL BANK CORP,,purchase,2014-07-08,2014-08-07,A,,medium,
+8216381,6,30,child,CTS CORP,,purchase,2014-07-11,2014-08-07,A,,medium,
+8216381,6,31,child,FARMERS CAPITAL BANK CORP,,purchase,2014-07-24,2014-08-07,A,,medium,
+8216381,6,32,child,CTS CORP,,purchase,2014-07-28,2014-08-07,A,,medium,
+8216381,6,33,child,CTS CORP,,purchase,2014-07-25,2014-08-07,A,,medium,
+8216381,6,34,child,MCGRATH RENTCORP,,purchase,2014-07-22,2014-08-07,A,,medium,
+8216381,6,35,child,CTS CORP,,purchase,2014-07-14,2014-08-07,A,,medium,
+8216381,6,36,child,DESTINATION MATERNITY CORPORATION,,purchase,2014-07-02,2014-08-07,A,,medium,
+8216381,6,37,child,CTS CORP,,purchase,2014-07-09,2014-08-07,A,,medium,
+8216381,6,38,child,CTS CORP,,purchase,2014-07-30,2014-08-07,A,,medium,
+8216381,7,1,child,MCGRATH RENTCORP,,purchase,2014-07-09,2014-08-07,A,,medium,continues LLM FAMILY INVESTMENTS LP (13.0478% INTEREST)
+8216381,7,2,child,ATLANTIC TELE-NETWORK INC,,purchase,2014-07-03,2014-08-07,A,,medium,
+8216381,7,3,child,DESTINATION MATERNITY CORPORATION,,purchase,2014-07-03,2014-08-07,A,,medium,third look: 38 rows on this page (B); 07-03 (A had 07-09); matches SP page 3
+8216381,7,4,child,FARMERS CAPITAL BANK CORP,,purchase,2014-07-09,2014-08-07,A,,medium,third look: B reading (A had 07-23)
+8216381,7,5,child,MCGRATH RENTCORP,,purchase,2014-07-23,2014-08-07,A,,medium,third look: B reading (A had 07-22)
+8216381,7,6,child,FARMERS CAPITAL BANK CORP,,purchase,2014-07-22,2014-08-07,A,,medium,third look: B reading (A had 07-03)
+8216381,7,7,child,CTS CORP,,purchase,2014-07-03,2014-08-07,A,,medium,third look: B reading (A had 07-02)
+8216381,7,8,child,FARMERS CAPITAL BANK CORP,,purchase,2014-07-02,2014-08-07,A,,medium,third look: five FARMERS rows after CTS (B); A had four
+8216381,7,9,child,FARMERS CAPITAL BANK CORP,,purchase,2014-07-29,2014-08-07,A,,medium,
+8216381,7,10,child,FARMERS CAPITAL BANK CORP,,purchase,2014-07-14,2014-08-07,A,,medium,
+8216381,7,11,child,FARMERS CAPITAL BANK CORP,,purchase,2014-07-23,2014-08-07,A,,medium,
+8216381,7,12,child,FARMERS CAPITAL BANK CORP,,purchase,2014-07-25,2014-08-07,A,,medium,
+8216381,7,13,child,MCGRATH RENTCORP,,purchase,2014-07-01,2014-08-07,A,,medium,
+8216381,7,14,child,MCGRATH RENTCORP,,purchase,2014-07-02,2014-08-07,A,,medium,
+8216381,7,15,child,FARMERS CAPITAL BANK CORP,,purchase,2014-07-28,2014-08-07,A,,medium,
+8216381,7,16,child,GFI GROUP INC,,sale_full,2014-07-23,2014-08-07,A,,medium,
+8216381,7,17,child,GFI GROUP INC,,sale_full,2014-07-16,2014-08-07,A,,medium,
+8216381,7,18,child,GFI GROUP INC,,sale_full,2014-07-21,2014-08-07,A,,medium,
+8216381,7,19,child,GFI GROUP INC,,sale_full,2014-07-24,2014-08-07,A,,medium,
+8216381,7,20,child,GFI GROUP INC,,sale_full,2014-07-25,2014-08-07,A,,medium,
+8216381,7,21,child,CORE MARK HOLDING CO,,sale_full,2014-07-03,2014-08-07,A,,medium,
+8216381,7,22,child,GFI GROUP INC,,sale_full,2014-07-17,2014-08-07,A,,medium,
+8216381,7,23,child,OKLAHOMA HSG FIN AGY,,sale_full,2014-07-09,2014-08-07,A,,medium,
+8216381,7,24,child,ORBCOMM INC,,sale_full,2014-07-15,2014-08-07,A,,medium,
+8216381,7,25,child,GFI GROUP INC,,sale_full,2014-07-28,2014-08-07,A,,medium,
+8216381,7,26,child,CORE MARK HOLDING CO,,sale_full,2014-07-01,2014-08-07,A,,medium,
+8216381,7,27,child,ORBCOMM INC,,sale_full,2014-07-14,2014-08-07,A,,medium,
+8216381,7,28,child,RIGNET INC,,sale_full,2014-07-24,2014-08-07,A,,medium,
+8216381,7,29,child,RIGNET INC,,sale_full,2014-07-29,2014-08-07,A,,medium,
+8216381,7,30,child,AMPHENOL CORP,,sale_full,2014-07-29,2014-08-07,A,,low,third look: reads 29-Jul on this copy (B); A had 25-Jul; SP copy page 4 reads 25-Jul
+8216381,7,31,child,FLUOR CORP,,sale_full,2014-07-30,2014-08-07,A,,medium,
+8216381,7,32,child,FLORIDA HSG FIN CORP,,sale_full,2014-07-15,2014-08-07,A,,medium,
+8216381,7,33,child,NORTHSTAR RLTY FIN CORP,,sale_full,2014-07-01,2014-08-07,A,,medium,
+8216381,7,34,child,NORTHSTAR RLTY FIN CORP,,sale_full,2014-07-09,2014-08-07,A,,low,third look: second NORTHSTAR row before SCHLUMBERGER (B); matches SP page 4; dates on this copy partly faint
+8216381,7,35,child,SCHLUMBERGER LTD,,sale_full,2014-07-25,2014-08-07,A,,low,third look: B reading (A had 07-09)
+8216381,7,36,child,PETROLEO BRASILEIRO SA,,sale_full,2014-07-02,2014-08-07,A,,low,third look: B reading (A had 07-25)
+8216381,7,37,child,NORTHSTAR RLTY FIN CORP,,sale_full,2014-07-28,2014-08-07,B,,medium,third look: B reading (A had 07-02)
+8216381,7,38,child,HEXCEL CORP,,sale_full,2014-07-28,2014-08-07,B,,medium,
+8216381,8,1,child,LOUISVILLE & JEFFERSON CNTY,,sale_full,2014-07-28,2014-08-07,B,,medium,continues LLM FAMILY INVESTMENTS LP (13.0478% INTEREST)
+8216381,8,2,child,OASIS PETROLEUM INC,,sale_full,2014-07-16,2014-08-07,B,,medium,
+8216381,8,3,child,WESCO INTERNATIONAL INC,,sale_full,2014-07-11,2014-08-07,B,,medium,
+8216381,8,4,child,DR HORTON INC,,sale_full,2014-07-28,2014-08-07,B,,medium,
+8216381,8,5,child,E TRADE FINANCIAL CORPORATION,,sale_full,2014-07-28,2014-08-07,B,,medium,
+8216381,8,6,child,INTERACTIVE INTELLIGENCE GROUP,,sale_full,2014-07-16,2014-08-07,C,,medium,
+8216381,8,7,child,FMC CORP,,sale_full,2014-07-16,2014-08-07,C,,medium,
+8216381,8,8,child,FIDELITY NATIONAL INFORMATION SERVICES INC,,sale_full,2014-07-15,2014-08-07,C,,medium,third look: sale (A); X in sale column; purchases start on the next row
+8216381,8,9,child,PRECISION CASTPARTS CORP,,purchase,2014-07-10,2014-08-07,C,,medium,
+8216381,8,10,child,PRECISION CASTPARTS CORP,,purchase,2014-07-29,2014-08-07,C,,medium,
+8216381,8,11,child,DISCOVERY COMMUNICATIONS INC,,purchase,2014-07-25,2014-08-07,C,,medium,
+8216381,8,12,child,ABBOTT LABS,,purchase,2014-07-22,2014-08-07,C,,medium,
+8216381,8,13,child,PRECISION CASTPARTS CORP,,purchase,2014-07-30,2014-08-07,C,,low,third look: C (B); C-column run ends on this row and B marks start at PERRIGO; A had B
+8216381,8,14,child,PERRIGO CO,,purchase,2014-07-01,2014-08-07,B,,medium,
+8216381,8,15,child,STARBUCKS CORP,,purchase,2014-07-21,2014-08-07,B,,medium,
+8216381,8,16,child,UNITED TECHNOLOGIES CORP,,purchase,2014-07-16,2014-08-07,B,,medium,
+8216381,8,17,child,YUM BRANDS INC,,purchase,2014-07-23,2014-08-07,B,,low,date could be 07-28-2014 (SP copy reads 07-28)
+8216381,8,18,child,EATON CORP PLC,,purchase,2014-07-21,2014-08-07,B,,medium,
+8216381,8,19,child,BIOGEN IDEC INC,,purchase,2014-07-28,2014-08-07,B,,medium,
+8216381,8,20,child,PRICELINE GROUP INC,,purchase,2014-07-02,2014-08-07,B,,medium,
+8216381,8,21,child,PFLUGERVILLE TEX INDPT SCH DIS,,purchase,2014-07-08,2014-08-07,B,,medium,
+8216381,8,22,child,VERMONT MUN BD BK,,purchase,2014-07-31,2014-08-07,B,,medium,
+8216381,8,23,child,VIA MET TRAN ADVANCED TRANSN D,,purchase,2014-07-30,2014-08-07,B,,medium,
+8216381,8,24,child,DU PONT E I DE NEMOURS & CO,,purchase,2014-07-17,2014-08-07,B,,medium,
+8216381,8,25,child,SCHLUMBERGER LTD,,sale_full,2014-07-15,2014-08-07,B,,medium,
+8216381,8,26,child,DOMINION RES INC VA NEW,,sale_full,2014-07-11,2014-08-07,B,,medium,
+8216381,8,27,child,OKLAHOMA CITY OKLA WTR UTILS T,,sale_full,2014-07-01,2014-08-07,B,,medium,
+8216381,8,28,child,MERCK & CO INC,,sale_full,2014-07-14,2014-08-07,B,,medium,
+8216381,8,29,child,YUM BRANDS INC,,sale_full,2014-07-10,2014-08-07,C,,medium,
+8216381,8,30,child,MONSANTO CO,,sale_full,2014-07-30,2014-08-07,C,,medium,
+8216381,8,31,child,TIME WARNER INC,,sale_full,2014-07-29,2014-08-07,C,,medium,date could be 07-28-2014 (SP copy reads 07-28)
+8216381,8,32,child,ECOLAB INC,,sale_full,2014-07-01,2014-08-07,C,,medium,
+8216381,8,33,child,TIME WARNER INC,,sale_full,2014-07-21,2014-08-07,D,,medium,
