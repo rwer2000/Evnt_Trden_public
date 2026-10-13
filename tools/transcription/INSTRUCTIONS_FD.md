@@ -44,6 +44,11 @@ One CSV row per asset line on Schedule A:
   line that has its own value or income entry; if the account header line has no
   entries of its own, still write it as a row (empty bands) so the structure is kept,
   with note "account header".
+- Attached brokerage statements: one row per *security* (use the position line or the
+  security subtotal), never one row per tax lot; lots of one security are not separate
+  assets. Account header lines follow the rule above. Skip purely transactional pages.
+- Owner `SP` when an attached account is in the spouse's name (account title or
+  statement header), `JT` when joint; otherwise empty.
 - If a report has no Schedule A content at all (blank schedule, "None", cover letter
   only, extension request), write a single row with doc_id, filer_name, page empty,
   all other fields empty and note = "no schedule A".
