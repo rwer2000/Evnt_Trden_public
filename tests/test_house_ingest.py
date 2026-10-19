@@ -136,3 +136,22 @@ def test_notify_new_filings_swallows_send_failure(monkeypatch: pytest.MonkeyPatc
     monkeypatch.setattr(house, "send_message", boom)
 
     notify_new_filings([_entry("1")])
+
+
+def test_backfill_first_seen_never_in_the_future() -> None:
+    entry = HouseIndexEntry(
+        doc_id="1",
+        last="Doe",
+        first="Jane",
+        prefix="",
+        suffix="",
+        filing_type="O",
+        state_dst="CA12",
+        year=2013,
+        filing_date=date(3013, 6, 14),
+    )
+
+    first_seen_at, precision_s = backfill_first_seen(entry)
+
+    assert first_seen_at <= datetime.now(UTC)
+    assert precision_s == BACKFILL_UNKNOWN_DATE_PRECISION_S

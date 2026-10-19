@@ -130,9 +130,13 @@ def backfill_house_year(year: int) -> int:
 def backfill_first_seen(entry: HouseIndexEntry) -> tuple[datetime, int]:
     """(first_seen_at, first_seen_precision_s) for a backfilled entry,
     derived from its own filed date rather than "now"."""
+    now = datetime.now(UTC)
     if entry.filing_date is None:
-        return datetime.now(UTC), BACKFILL_UNKNOWN_DATE_PRECISION_S
-    return datetime.combine(entry.filing_date, time.min, tzinfo=UTC), BACKFILL_DAY_PRECISION_S
+        return now, BACKFILL_UNKNOWN_DATE_PRECISION_S
+    derived = datetime.combine(entry.filing_date, time.min, tzinfo=UTC)
+    if derived > now:  # never seen before it is seen (index typos, see sources.house)
+        return now, BACKFILL_UNKNOWN_DATE_PRECISION_S
+    return derived, BACKFILL_DAY_PRECISION_S
 
 
 def _insert_new_filings(

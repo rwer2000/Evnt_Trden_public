@@ -135,9 +135,13 @@ def backfill_senate_since(submitted_start: date) -> int:
 def backfill_first_seen(entry: SenateIndexEntry) -> tuple[datetime, int]:
     """(first_seen_at, first_seen_precision_s) for a backfilled entry,
     derived from its own submitted date rather than "now"."""
+    now = datetime.now(UTC)
     if entry.filed_date is None:
-        return datetime.now(UTC), BACKFILL_UNKNOWN_DATE_PRECISION_S
-    return datetime.combine(entry.filed_date, time.min, tzinfo=UTC), BACKFILL_DAY_PRECISION_S
+        return now, BACKFILL_UNKNOWN_DATE_PRECISION_S
+    derived = datetime.combine(entry.filed_date, time.min, tzinfo=UTC)
+    if derived > now:  # a typo'd future date: never seen before it is seen
+        return now, BACKFILL_UNKNOWN_DATE_PRECISION_S
+    return derived, BACKFILL_DAY_PRECISION_S
 
 
 def _chunked(

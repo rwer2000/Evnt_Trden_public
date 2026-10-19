@@ -4,7 +4,12 @@ from datetime import date
 
 import httpx
 
-from congress_collector.sources.house import fetch_index, filer_name_for, filing_id_for
+from congress_collector.sources.house import (
+    fetch_index,
+    filer_name_for,
+    filing_id_for,
+    plausible_filing_date,
+)
 
 SAMPLE_XML = b"""<?xml version="1.0" encoding="utf-8"?>
 <FinancialDisclosure>
@@ -72,3 +77,17 @@ def test_filer_name_joins_non_empty_parts() -> None:
 
     assert filer_name_for(entries[0]) == "Richard Aaron"
     assert filer_name_for(entries[1]) == "Hon. Mark Alford"
+
+
+def test_plausible_filing_date_drops_index_typos() -> None:
+    today = date(2026, 10, 19)
+    # seen live: "6/14/3013" in the 2013 index, "5/15/2031" in 2021
+    assert plausible_filing_date(date(3013, 6, 14), 2013, today=today) is None
+    assert plausible_filing_date(date(2031, 5, 15), 2021, today=today) is None
+    assert plausible_filing_date(date(2026, 10, 20), 2026, today=today) is None
+    assert plausible_filing_date(date(2019, 1, 2), 2021, today=today) is None
+    # amendments and late filings land in the next or previous year's index
+    assert plausible_filing_date(date(2022, 1, 3), 2021, today=today) == date(2022, 1, 3)
+    assert plausible_filing_date(date(2026, 10, 19), 2026, today=today) == date(2026, 10, 19)
+    assert plausible_filing_date(date(2026, 1, 5), 0, today=today) == date(2026, 1, 5)
+    assert plausible_filing_date(None, 2026, today=today) is None

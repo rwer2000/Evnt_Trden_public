@@ -9,12 +9,19 @@ records (DocID, name, FilingType, StateDst, Year, FilingDate).
 Filing-type codes (``P`` for periodic transaction report, among others)
 are stored as-is rather than filtered here: T8's PTR parser decides what
 to do with each type, so nothing observed in the index is dropped.
+
+The index has typos in FilingDate (seen 2026-10-19: "6/14/3013" in the
+2013 index, "5/15/2031" in 2021). A date more than a year away from the
+entry's own Year, or later than today, is dropped (stored as no date)
+rather than kept: a filing dated in the future breaks first_seen_at and
+every "newest filing" ordering downstream.
 """
 
 import io
+import logging
 import zipfile
 from dataclasses import dataclass
-from datetime import date, datetime
+from datetime import UTC, date, datetime
 from xml.etree import ElementTree
 
 import httpx
@@ -27,6 +34,8 @@ HOUSE_INDEX_URL = "https://disclosures-clerk.house.gov/public_disc/financial-pdf
 # 404s for a PTR's DocID, ptr-pdfs 404s for every other filing type's.
 PTR_PDF_URL = "https://disclosures-clerk.house.gov/public_disc/ptr-pdfs/{year}/{doc_id}.pdf"
 OTHER_PDF_URL = "https://disclosures-clerk.house.gov/public_disc/financial-pdfs/{year}/{doc_id}.pdf"
+
+log = logging.getLogger(__name__)
 
 USER_AGENT = "congress-collector (personal research use; github.com/rwer2000/Evnt_Trden_public)"
 
@@ -80,10 +89,31 @@ def _parse_index_xml(xml_bytes: bytes) -> list[HouseIndexEntry]:
                 filing_type=(member.findtext("FilingType") or "").strip(),
                 state_dst=(member.findtext("StateDst") or "").strip(),
                 year=int(member.findtext("Year") or 0),
-                filing_date=_parse_date(member.findtext("FilingDate")),
+                filing_date=plausible_filing_date(
+                    _parse_date(member.findtext("FilingDate")),
+                    int(member.findtext("Year") or 0),
+                    doc_id=doc_id,
+                ),
             )
         )
     return entries
+
+
+def plausible_filing_date(
+    filed: date | None, year: int, *, today: date | None = None, doc_id: str = ""
+) -> date | None:
+    """`filed`, or None when it can't be right: later than today, or more
+    than a year from the index entry's `year` (when that is known)."""
+    if filed is None:
+        return None
+    today = today or datetime.now(UTC).date()
+    off_year = year > 0 and abs(filed.year - year) > 1
+    if filed > today or off_year:
+        log.warning(
+            "House index %s: implausible FilingDate %s (Year %s), dropped", doc_id, filed, year
+        )
+        return None
+    return filed
 
 
 def _parse_date(value: str | None) -> date | None:
