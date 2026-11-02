@@ -4,4 +4,4 @@ Updated weekly by `.github/workflows/heartbeat.yml` to keep this public
 repo active, since GitHub disables scheduled workflows after 60 days
 without repository activity.
 
-Last heartbeat: 2026-10-26T11:56:24Z
+Last heartbeat: 2026-11-02T14:18:46Z
