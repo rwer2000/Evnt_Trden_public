@@ -18,6 +18,12 @@ concurrency:
 jobs:
   collect:
     runs-on: ubuntu-latest
+    # TEMPORARY PAUSE (2026-11-08): every run was failing and the external
+    # cron's ~5-min cadence turned that into a Telegram alert every ~5 min.
+    # This makes every triggered run a no-op success instead, so the alert
+    # spam stops without touching whatever's actually broken. Delete this
+    # line (and this comment) to resume once that's been looked at.
+    if: false
     steps:
       - uses: actions/checkout@v4
 
